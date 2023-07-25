@@ -1,3 +1,45 @@
+<?php 
+session_start();
+require 'connection.php';
+if(isset($_POST["submit"])){  
+if(isset($_POST['username']) && isset($_POST['password'])) {  
+    $user=$_POST['username'];  
+    $pass=$_POST['password'];
+    $query=("SELECT * FROM users WHERE username='".mysqli_real_escape_string($conn,$user)."' AND password='".mysqli_real_escape_string($conn,$pass)."'");  
+    $conquer=mysqli_query($conn, $query);
+    $numrows=mysqli_num_rows($conquer);  
+    if($numrows!=0)  
+    {  
+        
+    while($row=mysqli_fetch_assoc($conquer))  
+    {  
+    $dbusername=$row['username'];  
+    $dbpassword=  $row['password'];  
+    $dbuserdept=$row['dept'];
+    $dbattendance=$row['attendance'];
+    $status=$row['status'];
+    $firstname=$row['firstname'];
+    $lastname=$row['lastname'];
+    }  
+    $_SESSION['user']=$username;
+    $_SESSION['userdept']=$dbuserdept;
+    $_SESSION['attendance']=$dbattendance;
+    $_SESSION['Firstname']=$firstname;
+    $_SESSION['Lastname']=$lastname;
+   if($dbuserdept=="Artist"){    
+    header("location:/user_index.php");
+    }
+    elseif($dbusername=="Admin"){
+        header("location:Badhra-Cineverse");
+
+     
+    } else {  
+    echo "<script>alert('invalid username or password!')</script>";  
+    } 
+}
+}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -22,15 +64,15 @@
                 
                 <div>Please login to use the platform</div>
             </div>
-            <form class="login-card-form">
+            <form class="login-card-form" method="post" action="">
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">mail</span>
-                    <input type="text" placeholder="Enter Email" id="emailForm" 
+                    <input type="text" placeholder="Enter Username" id="username"  name="username"
                     autofocus required>
                 </div>
                 <div class="form-item">
                     <span class="form-item-icon material-symbols-rounded">lock</span>
-                    <input type="password" placeholder="Enter Password" id="passwordForm"
+                    <input type="password" placeholder="Enter Password" id="password" name="password"
                      required>
                 </div>
                 <div class="form-item-other">
@@ -40,7 +82,7 @@
                     </div>
                     <a href="#">I forgot my password!</a>
                 </div>
-                <button type="submit">Login</button>
+                <button type="submit" name="submit" id="submit">Login</button>
             </form>
            
         </div>
