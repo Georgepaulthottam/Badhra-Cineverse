@@ -31,41 +31,23 @@ a {
     height: 50vh;
     margin-right:800px;
 }
-.progress-bar {
-    background:#353b48;
-    width: 350px;
-    height: 350px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px; 
-    position: relative;
-    
-}
-.progress-bar:before {
-    content: "";
-    position: absolute;
-    right: 0;
-    width: 30%;
-    height: 100%;
-    background: #353b48;
-    z-index: 0;
-   
-}
+  
 .punchin {
   margin-top:20px;
 letter-spacing: 3px;
-border-radius:20%;
+
 padding:4px;
-border:3px solid black;
-background:#2a5d7a82;
+border:3px solid whitesmoke;
+background:black;
 color:whitesmoke;
+
 }
 /*===== The CSS =====*/
 .progress{
     width: 200px;
     height: 350px;
     z-index: 1;
+    background:#353b48;
 }
 .progress .track, .progress .fill{
     fill: rgba(0, 0, 0, 0);
@@ -76,18 +58,18 @@ color:whitesmoke;
     stroke: #20313e;
 }
 .progress .fill {
-    stroke: red;
+    stroke: orange;
     stroke-dasharray: 219.99078369140625;
     stroke-dashoffset: -219.99078369140625;
     transition: stroke-dashoffset 1s;
 }
 .progress .value {
-    fill: red;
+    fill: orange;
     text-anchor: middle;
 }
 .progress .text {
     font-size: 12px;
-    fill: red;
+    fill: orange;
     text-anchor: middle;
 }
 
@@ -100,47 +82,6 @@ color:whitesmoke;
   }
 }
 
-.poojacol{
-  background:#20313e;
-  height:46vh;
-  width:20vw;
-  margin-top:80px;
-  margin-right:400px;
- 
-}
-    .box {
-      width: 400px;
-      height: 200px;
-      border: 2px solid #000;
-      padding: 10px;
-      margin-top:50px;
-      left:-600px;
-    }
-::placeholder{
-  color:black;                                                                  
-}  
-.caption{
-  color:whitesmoke;
-}
-.box{
-  background:#353b48;
-}
-.box input[type="text"]{
-  border:2px solid red;
-  border-radius:15%;
-  padding:10px;
-  background:#f2f2f2;
-  color:white;
-}
-    .caption {
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .time-input {
-      width: 100%;
-      margin-bottom: 10px;
-    } 
 .acme-news-ticker {
   background: #fff;
   position: relative;
@@ -249,3 +190,14 @@ color:whitesmoke;
               transform: translate(-50%, -50%) rotate(405deg); }
 
 /*# sourceMappingURL=style.css.map */
+/* css for acceptAll and rejectAll Button*/
+#acceptAllBtn {
+  color: rgb(229, 117, 56);
+  visibility: hidden;
+  margin-left: 0%;
+}
+
+#rejectAllBtn {
+  color: green;
+  visibility: hidden;
+}

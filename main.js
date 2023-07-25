@@ -11,3 +11,22 @@ var forEach = function (array, callback, scope) {
       value.querySelector('.value').innerHTML = percent + '%';
     });
   }
+
+
+let  circularProgress=document.querySelector(".circular-progress"),
+       progressValue=document.querySelector(".progress-value");
+
+let progressStartValue=0,
+      progressEndValue=30,
+      speed=100;
+
+let progress=setInterval(()=>{
+  progressStartValue++;
+  progressValue.textContent =`${progressStartValue}%`
+  circularProgress
+  
+  if(progressStartValue==progressEndValue){
+    clearInterval(progress);
+  }
+  console.log(progressStartValue);
+},speed);
