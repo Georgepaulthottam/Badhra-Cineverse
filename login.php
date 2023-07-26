@@ -21,7 +21,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     $firstname=$row['firstname'];
     $lastname=$row['lastname'];
     }  
-    $_SESSION['user']=$username;
+    $_SESSION['user']=$user;
     $_SESSION['userdept']=$dbuserdept;
     $_SESSION['attendance']=$dbattendance;
     $_SESSION['Firstname']=$firstname;
