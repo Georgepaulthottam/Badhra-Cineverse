@@ -27,10 +27,10 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     $_SESSION['Firstname']=$firstname;
     $_SESSION['Lastname']=$lastname;
    if($dbuserdept=="Artist"){    
-    header("location:/user_index.php");
+    header("location:user_index.php");
     }
     elseif($dbusername=="Admin"){
-        header("location:Badhra-Cineverse");
+        header("location:index.html");
 
      
     } else {  
@@ -47,7 +47,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="login-page/style.css"/>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,600,0,0" />
     <title>Badhra Cineverse</title>
 </head>
@@ -57,7 +57,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     <div class="login-card-container">
         <div class="login-card">
             <div class="login-card-logo">
-                <img src="logo.png" alt="logo">
+                <img src="login-page/logo.png" alt="logo">
             </div>
             <div class="login-card-header">
                 <h1>Sign In</h1>

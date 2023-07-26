@@ -1,3 +1,34 @@
+<?php
+session_start();
+require 'connection.php';
+$query=("SELECT * FROM attendance_request");
+$result=mysqli_query($conn,$query);
+if(isset($_GET['acc'])){
+	echo "<script>alert('wait for admin to enable punch-in')</script>";  
+
+$delid=$_GET['acc'];
+$query2=("SELECT *FROM attendance_request WHERE id=".mysqli_real_escape_string($conn,$delid)." ");
+$result2=mysqli_query($conn,$query2);
+$row2=mysqli_fetch_assoc($result2);
+$delusername=$row2['username'];
+$deldept=$row2['dept'];
+$query3=("INSERT INTO approved_attendance(username,dept) values('".$delusername."','".$deldept."')");
+$result3=mysqli_query($conn,$query3);
+$query4=("DELETE FROM attendance_request where id=".mysqli_real_escape_string($conn,$delid)." ");
+$result4=mysqli_query($conn,$query4);
+$query5=("UPDATE users SET attendance=attendance+1 where username='".mysqli_real_escape_string($conn,$delusername)."' ");
+$result5=mysqli_query($conn,$query5);
+echo "<script>alert('Attendance Accepted')</script>"; 
+
+header('location:Attendance.php');
+
+
+
+
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -54,7 +85,7 @@
 				<h3><img src="img/logo.png" class="img-fluid" /><span>BadhraCineverse</span></h3>
 			</div>
 			<ul class="list-unstyled component m-0">
-				<li class="active">
+				<li>
 					<a href="index.html" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 				</li>
 
@@ -73,8 +104,8 @@
 						<i class="material-icons">aspect_ratio</i>Attendance
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
-						<li><a href="Attendance.html">Attendance Requests</a></li>
-						<li><a href="#">Accepted Requests</a></li>
+						<li class="active"><a href="Attendance.php">Attendance Requests</a></li>
+						<li><a href="approved_attendance.php">Approved attendance</a></li>
 					</ul>
 				</li>
 
@@ -233,12 +264,16 @@
 
 
 			<!------main-content-start----------->
+
 			<div class="main-content">
 				<div class="attendence" style="overflow-x:auto;">
 					<form action="#">
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
+												<?php
+			if(mysqli_num_rows($result)!=0){ 
+			?>
 									<th><span class="custom-checkbox">
 											<input type="checkbox" onchange='selects()' id="selectAll">
 											<label for="selectAll"></label></th>
@@ -251,17 +286,21 @@
 							</thead>
 
 							<tbody>
+								<?php
+								
+								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+									echo('
 								<tr>
 									<th><span class="custom-checkbox">
 											<input type="checkbox" id="checkbox" name="checkbox" value="1">
 											<label for="checkbox1"></label></th>
-									<th>Demin K Benny</th>
-									<th>camera</th>
+									<th>'.$row['username'].'</th>
+									<th>'.$row['dept'].'</th>
 									<th>Time</th>
 									<th>702341231</th>
 
 									<th>
-										<a href="#editEmployeeModal" class="edit" data-toggle="modal">
+										<a href="Attendance.php?acc='.$row['id'].'" class="edit" >
 											<span>Accept</span>
 										</a>
 										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
@@ -269,55 +308,14 @@
 											<span>Decline&#xE872;</span>
 										</a>
 									</th>
-								</tr>
+								</tr>');
+	                            }
+							}
+							else{
+								echo('<h2>NO PENDINTNG REQUESTS</h2>');
+							}
 
-
-								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox2"></label></th>
-									<th>Anantika</th>
-									<th>Artist</th>
-									<th>Time</th>
-									<th>823847123</th>
-
-									<th>
-										<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-											<span>Accept</span>
-										</a>
-										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-
-											<span>Decline&#xE872;</span>
-										</a>
-									</th>
-								</tr>
-
-
-								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox3"></label></th>
-									<th>Joel B George</th>
-									<th>Makeup</th>
-									<th>Time</th>
-									<th>934645542</th>
-
-									<th>
-										<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-											<span>Accept</span>
-										</a>
-										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-
-											<span>Decline&#xE872;</span>
-										</a>
-									</th>
-								</tr>
-
-
-
-							</tbody>
-
-
+								?>
 						</table>
 						<div>
 							<button id="acceptAllBtn" formaction="#">Accept All</button>
