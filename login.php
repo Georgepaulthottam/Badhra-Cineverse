@@ -30,7 +30,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     header("location:user_index.php");
     }
     elseif($dbusername=="Admin"){
-        header("location:index.html");
+        header("location:index.php");
 
      
     } else {  
