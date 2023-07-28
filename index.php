@@ -41,12 +41,13 @@
 	 
 	 <div id="sidebar">
 	    <div class="sidebar-header">
-		   <h3><span  ><i class="fa-solid fa-swatchbook"></i> &nbsp;Badhra Cineverse</span></h3>
+		   <h3><span  ><img src="Bc_logo.png" width="50px" height="50px"> &nbsp;Badhra Cineverse</span></h3>
 		</div>
 		<ul class="list-unstyled component m-0">
 		  <li class="active">
 		  <a href="#" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 		  </li>
+		  
 		  
 		  <li class="dropdown">
 		  <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" 
