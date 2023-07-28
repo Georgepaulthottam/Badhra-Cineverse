@@ -41,14 +41,17 @@
 	 
 	 <div id="sidebar">
 	    <div class="sidebar-header">
-		   <h3><span  ><img src="Bc_logo.png" width="50px" height="50px"> &nbsp;Badhra Cineverse</span></h3>
+		<img src="Bc_logo.png" width="50px" height="50px">
+		   <h3><span  > &nbsp;Badhra Cineverse</span></h3>
 		</div>
+		<br>
 		<ul class="list-unstyled component m-0">
+
 		  <li class="active">
 		  <a href="#" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 		  </li>
 		  
-		  
+
 		  <li class="dropdown">
 		  <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
@@ -248,7 +251,7 @@
 						<span class="text">Attendance</span>
 
 						</div>
-						<button type="button">Punch In</button>
+						<button type="button" class="punchin" >Punch In</button>
 					</div>
 
 					<!------Pooja time and Location bar Box----------->

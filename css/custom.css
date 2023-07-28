@@ -124,16 +124,15 @@ overflow:auto;
 	  align-items: center;
 	  
 	}
-	button[type="button"]{
-
+	button[type="button"]
+	{
 	margin-left:100px;
-
 	margin-top:6px;
 	letter-spacing:4px;
-		border:2px solid red;
-		background:black;
-		color:white;
-		padding:3px;
+	color: red;
+    border: 2px solid rgb(252,60,69);
+    border-radius: 5px;
+	padding:3px;
 	}
 	.circular-progress
 	{ 
@@ -221,15 +220,13 @@ overflow:auto;
 		  } 
 		  /* button styles*/
 		.batabtn{
-			border-radius:10px;
-			color:black;
-			background-color:whitesmoke; /*#CB2027 */
-			letter-spacing: 3px;
-			box-shadow: #20313e;
-            padding:4px;
-			border:3px solid white;
-			box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
-			margin-bottom:20px;
+	letter-spacing: 1px;
+    color: red;
+    border: 2px solid rgb(252,60,69);
+    border-radius: 5px;
+	padding:3px;
+	box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
+	margin-bottom:20px;
 		  }
 	/*=========sidebar---design------*/
 	
@@ -243,7 +240,7 @@ overflow:auto;
 	  width:260px;
 	  overflow:auto;
 	  transition:all 0.3s;
-	  background-color:#cccccc;
+	  background-color:#152935;
 	  box-shadow:0 0 30px 0 rgba(200 200 200 / 20%);
   }
   
@@ -297,24 +294,31 @@ overflow:auto;
   }
   
   #sidebar .sidebar-header{
-	  padding:20px;
-	  background-color:#fff;
+	 
+	  background-color:#152935;
 	  border-bottom:1px solid #eee;
+	  height:65.5px;
   }
   
   .sidebar-header h3{
-	  color:#333;
+	  color:#ebebeb;
 	  font-size:17px;
 	  margin:0px;
 	  text-transform:uppercase;
 	  transition:all 0.5s ease;
-	  font-weight:600;
+	  font-weight:400;
 	  font-family: 'REM', sans-serif;
+	  margin-left:29px;
+	  
+	  margin-top:-20px;
+
   }
   
-   .sidebar-header h3 img{
-	   width:45px;
-	   margin-right:10px;
+   .sidebar-header img{
+	   width:175px;
+	   margin-left:30px;
+	   height:70px;
+	   margin-top:-10px;
    }
   
   #sidebar ul li{
@@ -363,7 +367,7 @@ overflow:auto;
 	   position:relative;
 	   font-weight:400;
 	   display:block;
-	   color:#000000;
+	   color:#fff;
 	   text-transform:capitalize;
    }
    
@@ -427,7 +431,7 @@ overflow:auto;
 	.xp-breadcrumbbar .page-title{
 		font-size:20px;
 		color:#fff;
-		margin-top:-15px;
+		margin-top: -33px
 		
 	}
 	 
