@@ -18,7 +18,9 @@ $query4=("DELETE FROM attendance_request where id=".mysqli_real_escape_string($c
 $result4=mysqli_query($conn,$query4);
 $query5=("UPDATE users SET attendance=attendance+1 where username='".mysqli_real_escape_string($conn,$delusername)."' ");
 $result5=mysqli_query($conn,$query5);
-echo "<script>alert('Attendance Accepted')</script>"; 
+$sql2=("UPDATE users set status='accepted' WHERE username='".mysqli_real_escape_string($conn,$delusername)."'");
+$result1=mysqli_query($conn,$sql2);
+echo "<script>alert('Attendance Accepted')</script>";
 
 header('location:Attendance.php');
 
