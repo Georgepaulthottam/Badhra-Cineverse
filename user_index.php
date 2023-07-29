@@ -5,6 +5,14 @@ $user=$_SESSION['user'];
 $query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."' limit 0,5");
 $result=mysqli_query($conn,$query);
 
+//for accepting punchin requests into the attendance_request table
+if (isset($_POST['punch-in-btn'])) {
+    $dbuserdept = $_SESSION['userdept'];
+        $sql = "INSERT INTO attendance_request (username, dept) VALUES ('$user', '$dbuserdept')";
+        $punchin=mysqli_query($conn,$sql); 
+        //$punchin = $conn->query($sql);
+}
+
 ?>
 
 <!doctype html>
@@ -264,8 +272,16 @@ $result=mysqli_query($conn,$query);
                                 <div class="percentage-label" id="percentageLabel"></div>
                             </div>
                         </a><br>
-                        <button class="punch-in-btn" id="punch-in-btn" onclick="punchIn()"> PUNCH IN </button>
-                    </div>
+
+                        <!------punch in button starts----------->
+
+                            <form action="" method ="post">
+                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn" name ="punch-in-btn" value = "PUNCH IN" > 
+                            </form>
+
+                        <!------punch in button ends----------->
+ 
+                    </div>  
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Request Status</h3>
