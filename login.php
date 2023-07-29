@@ -24,6 +24,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     $_SESSION['user']=$user;
     $_SESSION['userdept']=$dbuserdept;
     $_SESSION['attendance']=$dbattendance;
+    $_SESSION['status']=$status;
     $_SESSION['Firstname']=$firstname;
     $_SESSION['Lastname']=$lastname;
    if($dbuserdept=="Artist"){    

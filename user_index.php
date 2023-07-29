@@ -2,6 +2,7 @@
 session_start();
 require 'connection.php';
 $user=$_SESSION['user'];
+$status=$_SESSION['status'];
 $query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."' limit 0,5");
 $result=mysqli_query($conn,$query);
 
@@ -9,7 +10,14 @@ $result=mysqli_query($conn,$query);
 if (isset($_POST['punch-in-btn'])) {
     $dbuserdept = $_SESSION['userdept'];
         $sql = "INSERT INTO attendance_request (username, dept) VALUES ('$user', '$dbuserdept')";
-        $punchin=mysqli_query($conn,$sql); 
+        $punchin=mysqli_query($conn,$sql);
+        $sql2=("UPDATE users set status='requested' WHERE username='".mysqli_real_escape_string($conn,$user)."'");
+        $result1=mysqli_query($conn,$sql2);
+
+        echo "<script>alert('ATTENDANCE REQUEST SUBMITTED')</script>";  
+
+
+
         //$punchin = $conn->query($sql);
 }
 
@@ -276,7 +284,7 @@ if (isset($_POST['punch-in-btn'])) {
                         <!------punch in button starts----------->
 
                             <form action="" method ="post">
-                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn" name ="punch-in-btn" value = "PUNCH IN" > 
+                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn" onclick="punchIn()" name ="punch-in-btn" value = "PUNCH IN" > 
                             </form>
 
                         <!------punch in button ends----------->
@@ -535,9 +543,11 @@ if (isset($_POST['punch-in-btn'])) {
 
         //Script for puchin buttton
         function punchIn(){
+            if(".$session."='accepted'){
             document.getElementById('punch-in-btn').style.color='green';
             document.getElementById('punch-in-btn').style.border='1px solid green';
             document.getElementById('punch-in-btn').textContent='Punched';
+            }
 
         }
 
