@@ -44,7 +44,7 @@
 		<img src="Bc_logo.png" width="50px" height="50px">
 		   <h3><span  > &nbsp;Badhra Cineverse</span></h3>
 		</div>
-		<br>
+		
 		<ul class="list-unstyled component m-0">
 
 		  <li class="active">
