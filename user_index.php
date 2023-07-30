@@ -297,26 +297,32 @@ if (isset($_POST['punch-in-btn'])) {
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Request Status</h3>
                         <div class="request-status">
-                            <table>
-                                <tr style="border-bottom: 1px solid rgb(14, 243, 14);">
+                        <table class="table table-striped table-hover">
+                                <tr>
                                     <a href="">
                                         <th>Accepted</th>
                                         <th>2</th>
                                     </a>
                                 </tr>
-                                <tr style="border-bottom: 1px solid rgb(249, 2, 2);">
+                                <tr>
                                     <th>Rejected</th>
                                     <th>2</th>
                                 </tr>
-                                <tr style="border-bottom: 1px solid rgb(248, 237, 22);">
+                                <tr>
                                     <th>pending</th>
                                     <th>2</th>
                                 </tr>
                                 <tr>
-                                    <th style="text-align: left;"><a href="user_view_request.php"
+                                    <th>Total</th>
+                                    <th>10</th>
+                                </tr>
+                            </table>
+                            <table>
+                                <tr>
+                                    <th style="text-align: left;"><a href="user_view_request.html"
                                             class="punch-in-btn">View Requests</a>
                                     </th>
-                                    <th style="text-align: left;"><a href="user_make_request.php"
+                                    <th style="text-align: right;"><a href="user_make_request.html"
                                             class="punch-in-btn">Make Requests</a>
                                     </th>
                                 </tr>
@@ -326,26 +332,26 @@ if (isset($_POST['punch-in-btn'])) {
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Schedule</h3>
-                        <div class="request-table" style="overflow-x:auto;">
+                        <div class="request-status">
                             <table class="table table-striped table-hover">
-                                <thead style="color: black;">
-                                    <tr>
-                                        <th style="font-weight: bolder;">Start Date</th>
-                                        <th style="font-weight: bold;">25/07/2023</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="font-weight: bolder;">Day</th>
-                                        <th style="font-weight: bolder;">03</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="font-weight: bolder;">Location</th>
-                                        <th style="font-weight: bold;">Ernalulam</th>
-                                    </tr>
-                                    <tr>
-                                        <th style="font-weight: bolder;">Bata</th>
-                                        <th style="font-weight: bold;">First</th>
-                                    </tr>
-                                </thead>
+                                <tr>
+                                    <a href="">
+                                        <th>Date</th>
+                                        <th>23/07/2023</th>
+                                    </a>
+                                </tr>
+                                <tr>
+                                    <th>Day</th>
+                                    <th>03</th>
+                                </tr>
+                                <tr>
+                                    <th>Location</th>
+                                    <th>Ernakulam</th>
+                                </tr>
+                                <tr>
+                                    <th>Bata</th>
+                                    <th>First</th>
+                                </tr>
                             </table>
                         </div>
                         <a href="#" class="punch-in-btn">View Details</a>
@@ -408,10 +414,9 @@ if (isset($_POST['punch-in-btn'])) {
                 </div>
                 <!------bottom-container contains accomodation and notification----------->
                 <div id="bottom-container" class="top-section">
-                    <div class="profile-box" id="Accommodation">
+                <div class="profile-box" id="Accommodation">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Accommodation</h3>
-                        <h6 style="text-align:left;">Accommodation : </h6>
                         <div class="request-table" style="overflow-x:auto;">
                             <form action="#">
                                 <table class="table table-striped table-hover">
@@ -419,18 +424,24 @@ if (isset($_POST['punch-in-btn'])) {
                                         <tr>
                                             <th style="font-weight: bolder;">
                                                 Home:<br></Home:br><input type="radio" id="AccomHome"
-                                                    name="Accomdation">
+                                                    name="Accomdation" onchange="accomodation()">
                                             </th>
                                             <th style="font-weight: bolder;">
-                                                Hotel:<br><input type="radio" id="AccomHotel" name="Accomdation">
+                                                Hotel1:<br><input type="radio" id="AccomHotel1" name="Accomdation"onchange="accomodation()">
                                             </th>
+                                            <th style="font-weight: bolder;">
+                                                Hotel2:<br><input type="radio" id="AccomHotel2" name="Accomdation" onchange="accomodation()">
+                                            </th>
+                                            <th style="font-weight: bolder;">
+                                                Hotel3:<br><input type="radio" id="AccomHotel3" name="Accomdation" onchange="accomodation()">
+                                            </th>
+                                        </tr>
+                                        <tr>
                                             <th style="font-weight: bolder;">
                                                 Other: <br> <input type="radio" id="AccomOther" name="Accomdation"
                                                     onchange="accomodation()">
                                             </th>
-                                        </tr>
-                                        <tr>
-                                            <th colspan="3" style="align-content:center;"><input type="text"
+                                            <th colspan="2" style="align-content:center;"><input type="text"
                                                     id="accomLocation" style="visibility: hidden;"></th>
                                         </tr>
                                     </thead>
@@ -541,8 +552,14 @@ if (isset($_POST['punch-in-btn'])) {
 
         //script for Accomodation Textbox (other)
         function accomodation() {
-            document.getElementById('accomLocation').style.visibility = 'visible';
+            if(document.getElementById('accomLocation').style.visibility == 'visible'){
+                document.getElementById('accomLocation').style.visibility = 'hidden';
+            }
+            else{
+                document.getElementById('accomLocation').style.visibility = 'visible';
+            }
         }
+
 
         //Script for puchin buttton
         
