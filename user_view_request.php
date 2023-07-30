@@ -1,5 +1,10 @@
 <?php  
 session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+
+}
 require 'connection.php';
 $user=$_SESSION['user'];
 $query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."'");
