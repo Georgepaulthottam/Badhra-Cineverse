@@ -6,7 +6,7 @@ if (!isset($_SESSION['user'])) {
 
 }
 function settime(){
-    
+
 }
 require 'connection.php';
 $user=$_SESSION['user'];

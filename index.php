@@ -6,13 +6,41 @@ if (!isset($_SESSION['user'])) {
 
 }
 include "connection.php";
-
+$query8=("SELECT * FROM cart limit 0,5");
+$result8=mysqli_query($conn,$query8);
+$query=("SELECT * FROM attendance_request limit 0,5");
+$result=mysqli_query($conn,$query);
 // admin attendance
+if(isset($_GET['acc'])){
+	echo "<script>alert('wait for admin to enable punch-in')</script>";  
+
+$delid=$_GET['acc'];
+$query2=("SELECT *FROM attendance_request WHERE id=".mysqli_real_escape_string($conn,$delid)." ");
+$result2=mysqli_query($conn,$query2);
+$row2=mysqli_fetch_assoc($result2);
+$delusername=$row2['username'];
+$deldept=$row2['dept'];
+$query3=("INSERT INTO approved_attendance(username,dept) values('".$delusername."','".$deldept."')");
+$result3=mysqli_query($conn,$query3);
+$query4=("DELETE FROM attendance_request where id=".mysqli_real_escape_string($conn,$delid)." ");
+$result4=mysqli_query($conn,$query4);
+$query5=("UPDATE users SET attendance=attendance+1 where username='".mysqli_real_escape_string($conn,$delusername)."' ");
+$result5=mysqli_query($conn,$query5);
+$sql2=("UPDATE users set status='accepted' WHERE username='".mysqli_real_escape_string($conn,$delusername)."'");
+$result6=mysqli_query($conn,$sql2);
+echo "<script>alert('Attendance Accepted')</script>";
+
+header('location:index.php');
+
+
+
+
+}
 if (isset($_POST['punchin'])) {
 	$user = $_SESSION['user'];
 	$dbuserdept = $_SESSION['userdept'];
 	$sql = "INSERT INTO attendance (username, dept) VALUES ('$user','$dbuserdept')";
-	$result=mysqli_query($conn,$sql);
+	$result7=mysqli_query($conn,$sql);
 	$sql2=("UPDATE users SET attendance = attendance+1 where username='".mysqli_real_escape_string($conn,$user)."' ");
     $result1=mysqli_query($conn,$sql2);
 	// echo "alert('ATTENDANCE REQUEST SUBMITTED')";
@@ -325,92 +353,58 @@ if (isset($_POST['punchin'])) {
 						<form action="#">
 							<table class="table table-striped table-hover">
 								<thead>
-									<tr>
-										
-										<th>Name</th>
-										<th>Department</th>
-										
-										<th>Actions</th>
-									</tr>
-								</thead>
-	
-								<tbody>
-									<tr>
-										
-										<th>Demin K Benny</th>
-										<th>camera</th>
-										
-	
-										<th>
-											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-												<span>Accept</span>
-											</a>
-											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-	
-												<span>Decline</span>
-											</a>
-										</th>
-									</tr>
-	
-	
-									<tr>
-										
-										<th>Anantika</th>
-										<th>Artist</th>
-										
-	
-										<th>
-											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-												<span>Accept</span>
-											</a>
-											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-	
-												<span>Decline</span>
-											</a>
-										</th>
-									</tr>
-	
-	
-									<tr>
-										
-										<th>Joel B George</th>
-										<th>Makeup</th>
-										
-	
-										<th>
-											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-												<span>Accept</span>
-											</a>
-											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-	
-												<span>Decline</span>
-											</a>
-										</th>
-									</tr>
-									
-									<tr>
+								<tr>
+												<?php
+			if(mysqli_num_rows($result)!=0){ 
+			?>
+									<th><span class="custom-checkbox">
+											<input type="checkbox" onchange='selects()' id="selectAll">
+											<label for="selectAll"></label></th>
+									<th>Name</th>
+									<th>Department</th>
+									<th>Time</th>
+									<th>Phone</th>
+									<th>Actions</th>
+								</tr>
+							</thead>
 
-										<th>Aravind KM</th>
-										<th>Makeup</th>
+							<tbody>
+								<?php
+								
+								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+									echo('
+								<tr>
+									<th><span class="custom-checkbox">
+											<input type="checkbox" id="checkbox" name="checkbox" value="1">
+											<label for="checkbox1"></label></th>
+									<th>'.$row['username'].'</th>
+									<th>'.$row['dept'].'</th>
+									<th>Time</th>
+									<th>702341231</th>
 
-										<th>
-											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-												<span>Accept</span>
-											</a>
-											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-	
-												<span>Decline</span>
-											</a>
-										</th>
-									</tr>
-	
-	
-								</tbody>
-	
-	
-							</table>
-							
-						</form>
+									<th>
+										<a href="index.php?acc='.$row['id'].'" class="edit" >
+											<span>Accept</span>
+										</a>
+										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+
+											<span>Decline&#xE872;</span>
+										</a>
+									</th>
+								</tr>');
+	                            }
+							}
+							else{
+								echo('<h2>NO PENDINTNG REQUESTS</h2>');
+							}
+
+								?>
+						</table>
+						<div>
+							<button id="acceptAllBtn" formaction="#">Accept All</button>
+							<button id="rejectAllBtn" formaction="#">Reject All</button>
+						</div><br>
+					</form>
 					</div>
 					   
 					  
@@ -425,95 +419,45 @@ if (isset($_POST['punchin'])) {
 											   Other Requests </h2>
 										</div>
 								<thead>
-									<tr>
-												<th>Name</th>
-												<th>Department</th>
-												<th>Description</th>
-												<th>Quantity</th>
-												<th>Amount</th>
-												<th style="min-width:100%;">Actions</th>
-									</tr>
-								</thead>
-	
-								<tbody>
-									<tr>
-										
-										<th>Demin K Benny</th>
-										<th>camera</th>
-										<th>Time</th>
-										<th>2500</th>
-										<th>20</th>
-	
-										<th>
-											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-												<span>Accept</span>
-											</a>
-											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-	
-												<span>Decline</span>
-											</a>
-										</th>
-									</tr>
-	
-	
-									<tr>
-										
-										<th>Anantika</th>
-										<th>Artist</th>
-										<th>Time</th>
-										<th>5500</th>
-										<th>25</th>
-										<th>
-											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-												<span>Accept</span>
-											</a>
-											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-	
-												<span>Decline</span>
-											</a>
-										</th>
-									</tr>
-	
-	
-									<tr>
-										
-										<th>Joel B George</th>
-										<th>Makeup</th>
-										<th>Time</th>
-										<th>1500</th>
-										<th>60</th>
-										<th>
-											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-												<span>Accept</span>
-											</a>
-											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-	
-												<span>Decline</span>
-											</a>
-										</th>
-									</tr>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Time</th>
+                                        <th>Item</th>
+                                        <th>Description</th>
+                                        <th>price</th>
+                                        <th>Quantity</th>
+                                        <th>Amount</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+    
+                                <tbody>
+                                    <?php 
+                                    while($row=mysqli_fetch_assoc($result8)){
+                                        
 
-									<tr>
-										
-										<th>Aravind KM</th>
-										<th>Artist</th>
-										<th>Time</th>
-										<th>1500</th>
-										<th>80</th>
-										<th>
-											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-												<span>Accept</span>
-											</a>
-											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-	
-												<span>Decline</span>
-											</a>
-										</th>
-									</tr>
-	
-	
-	
-								</tbody>
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+                                        <th>'.$date.'</th>
+                                        <th>'.$time.'</th>
+                                        <th>'.$row['name'].'</th>
+                                        <th>'.$row['details'].'</th>
+                                        <th>'.$row['price'].'</th>
+                                        <th>'.$row['number'].'</th>
+                                        <th>'.$row['price']*$row['number'].'</th>
+                                        <th>'.$row['status'].'</th>
+                                    </tr>');
+                                    }
+                                    
+                                   
+                                    
+
+
+                                ?></tbody>
 	
 	
 							</table>
