@@ -5,6 +5,9 @@ if (!isset($_SESSION['user'])) {
     header('Location: login.php');
 
 }
+function settime(){
+    
+}
 require 'connection.php';
 $user=$_SESSION['user'];
 $status=$_SESSION['status'];
@@ -283,7 +286,7 @@ if (isset($_POST['punch-in-btn'])) {
                                 echo("<h3> punch-in requested</h3>");
                             }
                             elseif($_SESSION['status']=='accepted'){
-                                echo("<h3> Punched-in</h3>");
+                                echo("<h5 class='punch-in-btn'> Punched-in</h5>");
                             }
                             else{echo('
                             
