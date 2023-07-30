@@ -13,6 +13,7 @@ if (isset($_POST['punch-in-btn'])) {
         $punchin=mysqli_query($conn,$sql);
         $sql2=("UPDATE users set status='requested' WHERE username='".mysqli_real_escape_string($conn,$user)."'");
         $result1=mysqli_query($conn,$sql2);
+        $_SESSION['status']='requested';
 
         echo "<script>alert('ATTENDANCE REQUEST SUBMITTED')</script>";  
 
@@ -274,8 +275,19 @@ if (isset($_POST['punch-in-btn'])) {
 
                         <!------punch in button starts----------->
 
-                            <form action="" method ="post">
-                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn" onclick="punchIn()" name ="punch-in-btn" value = "PUNCH IN" > 
+                            <form action="" method ="post"><?php 
+                            if($_SESSION['status']=='requested'){
+                                echo("<h3> punch-in requested</h3>");
+                            }
+                            elseif($_SESSION['status']=='accepted'){
+                                echo("<h3> Punched-in</h3>");
+                            }
+                            else{echo('
+                            
+                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punch-in-btn" value = "PUNCH IN" >
+                                ');}
+                                ?> 
+
                             </form>
 
                         <!------punch in button ends----------->
@@ -533,14 +545,7 @@ if (isset($_POST['punch-in-btn'])) {
         }
 
         //Script for puchin buttton
-        function punchIn(){
-            if(".$session."='accepted'){
-            document.getElementById('punch-in-btn').style.color='green';
-            document.getElementById('punch-in-btn').style.border='1px solid green';
-            document.getElementById('punch-in-btn').textContent='Punched';
-            }
-
-        }
+        
 
     </script>
    ");
