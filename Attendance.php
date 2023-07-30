@@ -84,7 +84,8 @@ header('location:Attendance.php');
 
 		<div id="sidebar">
 			<div class="sidebar-header">
-				<h3><img src="img/logo.png" class="img-fluid" /><span>BadhraCineverse</span></h3>
+			<img src="Bc_logo.png" width="50px" height="50px">
+		   <h3><span  > &nbsp;Badhra Cineverse</span></h3>
 			</div>
 			<ul class="list-unstyled component m-0">
 				<li>
@@ -224,7 +225,7 @@ header('location:Attendance.php');
 
 										<li class="dropdown nav-item">
 											<a class="nav-link" href="#" data-toggle="dropdown">
-												<img src="img/user.jpg" style="width:40px; border-radius:50%;" />
+											<img src="profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
 												<span class="xp-user-live"></span>
 											</a>
 											<ul class="dropdown-menu small-menu">
@@ -331,7 +332,7 @@ header('location:Attendance.php');
 
 
 			<!----footer-design------------->
-
+            <br><br> <br><br>
 			<footer class="footer">
 				<div class="container-fluid">
 					<div class="footer-in">

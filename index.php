@@ -255,19 +255,19 @@
 					</div>
 
 					<!------Pooja time and Location bar Box----------->
-					  <div class="box" style="height:35vh;">
+					  <div class="box" style="height:26vh;">
 						<div class="container">
-						<div class="caption">Pooja Timing</div>
-						<input type="text" class="time-input" placeholder="Starting Time" onfocus="(this.type='time')">
 						
-					   <br>
+						<input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')">
+						
+					   
 					   <input type="text" class="time-input" placeholder="Enter Location" required>
 					</div>
 
 				</div>
 
 <!------Bata Details bar Box----------->
-				<div class="box" style="height:40vh;">
+				<div class="box" style="height:42vh;">
 					<div class="container">
 
 					<div class="caption">Current Bata</div>
@@ -342,7 +342,7 @@
 											</a>
 											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
 	
-												<span>Decline&#xE872;</span>
+												<span>Decline</span>
 											</a>
 										</th>
 									</tr>
@@ -360,11 +360,26 @@
 											</a>
 											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
 	
-												<span>Decline&#xE872;</span>
+												<span>Decline</span>
 											</a>
 										</th>
 									</tr>
+									
+									<tr>
+
+										<th>Aravind KM</th>
+										<th>Makeup</th>
+
+										<th>
+											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
+												<span>Accept</span>
+											</a>
+											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
 	
+												<span>Decline</span>
+											</a>
+										</th>
+									</tr>
 	
 	
 								</tbody>
@@ -380,7 +395,7 @@
 					<div class="attendence" style="overflow-x:auto;">
 						<form action="#">
 							<table class="table table-striped table-hover">
-								<div class="table-title">
+								<div class="table-title" style="border-radius:25px 25px 0px 0px;">
 									<div class="row">
 										<div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
 										   <h2 class="ml-lg-2" >
@@ -389,7 +404,6 @@
 										</div>
 								<thead>
 									<tr>
-										
 												<th>Name</th>
 												<th>Department</th>
 												<th>Description</th>
@@ -414,7 +428,7 @@
 											</a>
 											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
 	
-												<span>Decline&#xE872;</span>
+												<span>Decline</span>
 											</a>
 										</th>
 									</tr>
@@ -433,7 +447,7 @@
 											</a>
 											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
 	
-												<span>Decline&#xE872;</span>
+												<span>Decline</span>
 											</a>
 										</th>
 									</tr>
@@ -452,7 +466,25 @@
 											</a>
 											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
 	
-												<span>Decline&#xE872;</span>
+												<span>Decline</span>
+											</a>
+										</th>
+									</tr>
+
+									<tr>
+										
+										<th>Aravind KM</th>
+										<th>Artist</th>
+										<th>Time</th>
+										<th>1500</th>
+										<th>80</th>
+										<th>
+											<a href="#editEmployeeModal" class="edit" data-toggle="modal">
+												<span>Accept</span>
+											</a>
+											<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+	
+												<span>Decline</span>
 											</a>
 										</th>
 									</tr>
@@ -467,8 +499,8 @@
 						</form>
 					</div>
 					   </div>
-					   
 					</div>
+					<input type="button" value="Pack-Up" id="packupbtn">
 					
 					
 					

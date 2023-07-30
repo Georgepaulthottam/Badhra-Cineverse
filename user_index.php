@@ -68,7 +68,8 @@ if (isset($_POST['punch-in-btn'])) {
 
         <div id="sidebar">
             <div class="sidebar-header">
-                <h3><img src="img/logo.png" class="img-fluid" /><span>BadhraCineverse</span></h3>
+            <img src="Bc_logo.png" width="50px" height="50px">
+			<h3><span  > &nbsp;Badhra Cineverse</span></h3>
             </div>
             <ul class="list-unstyled component m-0">
                 <li class="active">
@@ -186,17 +187,7 @@ if (isset($_POST['punch-in-btn'])) {
                         </div>
 
                         <div class="col-md-5 col-lg-3 order-3 order-md-2">
-                            <div class="xp-searchbar">
-                                <form>
-                                    <div class="input-group">
-                                        <input type="search" class="form-control" placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button class="btn" type="submit" id="button-addon2">Go
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                            
                         </div>
 
 

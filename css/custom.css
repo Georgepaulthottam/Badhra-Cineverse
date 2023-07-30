@@ -211,7 +211,8 @@ overflow:auto;
 			font-weight: bold;
 			text-align: center;
 			color:black;
-			font-family: 'Righteous', cursive;
+			font-family: none;
+			
 		  }
 	  
 		  .time-input {
@@ -395,7 +396,7 @@ overflow:auto;
 		  z-index:6;
 		  position:relative;
 		  padding:6px 22px;
-		  background-color:#353b48;
+		  background-color:#152935;
 		  padding-bottom: 0;
 		  height:65px;
 	 }
@@ -405,14 +406,7 @@ overflow:auto;
 		 position:relative;
 	 }      
 	 
-	 input[type="search"]{
-		 background-color:#4a5263;
-		 color:#fff;
-		 padding-left:20px;
-		 border:none;
-		 border-radius:50px 0px 0px 50px;
-	 }
-	 
+	
 	 .input-group-append{
 		 margin-left:-1px;
 	 }
@@ -460,7 +454,7 @@ overflow:auto;
 	   }
 	   
 	   .navbar{
-		   background-color:#353B48;
+		 
 		   color:#fff;
 	   }
 	   
@@ -613,13 +607,13 @@ background-color:rgba(0,0,0,0.09);
     width: 60%;
 	margin-left:400px;
     overflow: auto;
-    border-radius: 3px;
+    border-radius: 25px;
     box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
-	margin-top:-940px;
+	margin-top:-890px;
 }
 	   
 	   .table-title{
-		   background:#353b48;
+		   background:#152935;
 		   color:#fff;
 		   position:sticky;
 		   top:0;
@@ -665,6 +659,7 @@ background-color:rgba(0,0,0,0.09);
 			font-size:14px;
 			font-weight: 400;
 			vertical-align:middle;
+			
 		}
 		
 		table.table tr th:first-child{
@@ -673,8 +668,11 @@ background-color:rgba(0,0,0,0.09);
 		
 		table.table tr th:last-child{
 			width:190px;
+			
 		}
 		
+		
+
 	   table.table-stripped tbody tr:nth-of-type(odd){
 		   background-color:#fcfcfc;
 	   }
@@ -909,12 +907,23 @@ background-color:rgba(0,0,0,0.09);
 		   }
 		   
 	   
-	   
+	   #packupbtn{
+		letter-spacing: 5px;
+		padding:8px;
+		border-radius:30px;
+		position:absolute;
+		bottom:60px;
+		right:130px;
+		color: red;
+    border: 2px solid rgb(252,60,69);
+    border-radius: 5px;
+		
+	   }
 	  
 	 /*========main-content- navbardesign -end-----*/
 	
 	
-	@media only screen and (max-width:992px){
+	@media only screen and (max-width:900px){
 		#sidebar{
 			position:fixed;
 			top:0;
@@ -932,9 +941,9 @@ background-color:rgba(0,0,0,0.09);
 		}
 		.table-wrapper{
 margin-top:20px;
-margin-left:1px;
-max-width:350px;
-min-width:350px;
+margin-left:-10px;
+max-width:400px;
+min-width:380px;
 
 		}
 		.wrapper-center,.progress-bar{
