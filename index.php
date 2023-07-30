@@ -1,3 +1,16 @@
+<?php 
+session_start();
+include "connection.php";
+if (isset($_POST['punchin'])) {
+	$user = $_SESSION['user'];
+	//$dbuserdept = $_SESSION['userdept'];
+	$sql = "INSERT INTO attendance (username) VALUES ('$username')";
+	$result=mysqli_query($conn,$sql);
+	$sql2=("UPDATE users SET attendance = attendance+1 where username='".mysqli_real_escape_string($conn,$username)."' ");
+    $result1=mysqli_query($conn,$sql2);
+	// echo "alert('ATTENDANCE REQUEST SUBMITTED')";
+}
+ ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -251,7 +264,10 @@
 						<span class="text">Attendance</span>
 
 						</div>
-						<button type="button" class="punchin" >Punch In</button>
+							<form action = "" method = "post">
+								<!-- <button type="button" id = "punchin" class="punchin" >Punch In</button> -->
+								<input type="submit" class="punchin" id="punchin"  name ="punchin" value = "PUNCH IN" >
+							</form>
 					</div>
 
 					<!------Pooja time and Location bar Box----------->
