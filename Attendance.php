@@ -1,5 +1,10 @@
 <?php
 session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+
+}
 require 'connection.php';
 $query=("SELECT * FROM attendance_request");
 $result=mysqli_query($conn,$query);

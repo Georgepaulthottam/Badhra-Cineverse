@@ -1,5 +1,10 @@
 <?php
 session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+
+}
 $user=$_SESSION['user'];
 require 'connection.php';
 if(isset($_POST['submit'])){

@@ -1,6 +1,13 @@
 <?php 
 session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+
+}
 include "connection.php";
+
+// admin attendance
 if (isset($_POST['punchin'])) {
 	$user = $_SESSION['user'];
 	$dbuserdept = $_SESSION['userdept'];
@@ -222,7 +229,7 @@ if (isset($_POST['punchin'])) {
 									 <span class="material-icons">settings</span>
 									 Settings
 									 </a></li>
-									 <li><a href="#">
+									 <li><a href="logout.php">
 									 <span class="material-icons">logout</span>
 									 Logout
 									 </a></li>
