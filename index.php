@@ -6,14 +6,23 @@ if (!isset($_SESSION['user'])) {
 
 }
 include "connection.php";
-$query8=("SELECT * FROM cart limit 0,5");
+$query8=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."' limit 0,5");
 $result8=mysqli_query($conn,$query8);
 $query=("SELECT * FROM attendance_request limit 0,5");
 $result=mysqli_query($conn,$query);
+if (isset($_GET['accept'])) {
+	$id=$_GET['accept'];
+    $query9 = ("update cart set status='approved' where id='$id'") ;
+
+    $quer=mysqli_query($conn, $query9);
+	header("location:index.php");
+
+
+
+  }
 // admin attendance
 if(isset($_GET['acc'])){
-	echo "<script>alert('wait for admin to enable punch-in')</script>";  
-
+	
 $delid=$_GET['acc'];
 $query2=("SELECT *FROM attendance_request WHERE id=".mysqli_real_escape_string($conn,$delid)." ");
 $result2=mysqli_query($conn,$query2);
@@ -306,7 +315,7 @@ if (isset($_POST['punchin'])) {
 					</div>
 
 					<!------Pooja time and Location bar Box----------->
-					  <div class="box" id="box-1" style="height:43vh;">
+					  <div class="box" id="box-1" style="height:26vh;">
 						<div class="container" >
 						
 						<input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')">
@@ -318,7 +327,7 @@ if (isset($_POST['punchin'])) {
 				</div>
 
 <!------Bata Details bar Box----------->
-				<div class="box" style="height:43vh;">
+				<div class="box" style="height:42vh;">
 					<div class="container">
 
 					<div class="caption">Current Bata</div>
@@ -426,11 +435,11 @@ if (isset($_POST['punchin'])) {
                                         <th>Description</th>
                                         <th>price</th>
                                         <th>Quantity</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
+                                        <th>actions</th>
                                     </tr>
                                 </thead>
     
+ 
                                 <tbody>
                                     <?php 
                                     while($row=mysqli_fetch_assoc($result8)){
@@ -448,16 +457,28 @@ if (isset($_POST['punchin'])) {
                                         <th>'.$row['details'].'</th>
                                         <th>'.$row['price'].'</th>
                                         <th>'.$row['number'].'</th>
-                                        <th>'.$row['price']*$row['number'].'</th>
-                                        <th>'.$row['status'].'</th>
-                                    </tr>');
-                                    }
-                                    
-                                   
-                                    
 
 
-                                ?></tbody>
+
+                                        <th>
+										<a href="index.php?accept='.$row['id'].'" class="edit" >
+											<span>Accept</span>
+										</a>
+										<a href="Requests.php?accept='.$row['id'].'" class="delete" data-toggle="modal">
+
+											<span>Decline&#xE872;</span>
+										</a>
+										</th>
+
+								</tr>');}
+								?>
+
+
+							
+
+
+
+							</tbody>
 	
 	
 							</table>

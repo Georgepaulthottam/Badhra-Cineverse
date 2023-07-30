@@ -1,3 +1,26 @@
+<?php
+session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+
+}
+require 'connection.php';
+$user=$_SESSION['user'];
+$query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."'");
+$result=mysqli_query($conn,$query);
+ if (isset($_GET['accept'])) {
+	$id=$_GET['accept'];
+    $query2 = ("update cart set status='approved' where id='$id'") ;
+
+    $quer=mysqli_query($conn, $query2);
+
+
+  }
+
+
+
+?>
 <!doctype html>
 <html lang="en">
 
@@ -258,69 +281,41 @@
 								</tr>
 							</thead>
 
-							<tbody>
-								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox1"></label></th>
-									<th>Demin K Benny</th>
-									<th>camera</th>
-									<th>Time</th>
-									<th>2500</th>
-										<th>20</th>
+                                <tbody>
+                                    <?php 
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        
 
-									<th>
-										<a href="#editEmployeeModal" class="edit" data-toggle="modal">
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+                                        <th>'.$date.'</th>
+                                        <th>'.$time.'</th>
+                                        <th>'.$row['name'].'</th>
+                                        <th>'.$row['details'].'</th>
+                                        <th>'.$row['price'].'</th>
+                                        <th>'.$row['number'].'</th>
+
+
+
+                                        <th>
+										<a href="Requests.php?accept='.$row['id'].'" class="edit" >
 											<span>Accept</span>
 										</a>
-										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+										<a href="Requests.php?accept='.$row['id'].'" class="delete" data-toggle="modal">
 
 											<span>Decline&#xE872;</span>
 										</a>
-									</th>
-								</tr>
+										</th>
+
+								</tr>');}
+								?>
 
 
-								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox2"></label></th>
-									<th>Anantika</th>
-									<th>Artist</th>
-									<th>Time</th>
-									<th>5500</th>
-										<th>20</th>
-									<th>
-										<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-											<span>Accept</span>
-										</a>
-										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-
-											<span>Decline&#xE872;</span>
-										</a>
-									</th>
-								</tr>
-
-
-								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox3"></label></th>
-									<th>Joel B George</th>
-									<th>Makeup</th>
-									<th>Time</th>
-									<th>1500</th>
-										<th>50</th>
-									<th>
-										<a href="#editEmployeeModal" class="edit" data-toggle="modal">
-											<span>Accept</span>
-										</a>
-										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
-
-											<span>Decline&#xE872;</span>
-										</a>
-									</th>
-								</tr>
+							
 
 
 
