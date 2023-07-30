@@ -6,9 +6,9 @@ if (!isset($_SESSION['user'])) {
 
 }
 include "connection.php";
-$query8=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."' limit 0,5");
+$query8=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."' limit 0,4");
 $result8=mysqli_query($conn,$query8);
-$query=("SELECT * FROM attendance_request limit 0,5");
+$query=("SELECT * FROM attendance_request limit 0,4");
 $result=mysqli_query($conn,$query);
 if (isset($_GET['accept'])) {
 	$id=$_GET['accept'];
