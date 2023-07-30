@@ -265,7 +265,7 @@ if (isset($_POST['punchin'])) {
 
 						</div>
 							<form action = "" method = "post">
-								<!-- <button type="button" id = "punchin" class="punchin" >Punch In</button> -->
+								
 								<input type="submit" class="punchin" id="punchin"  name ="punchin" value = "PUNCH IN" >
 							</form>
 					</div>
