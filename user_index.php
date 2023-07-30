@@ -1,12 +1,18 @@
 <?php
 session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+
+}
 require 'connection.php';
 $user=$_SESSION['user'];
 $status=$_SESSION['status'];
 $query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."' limit 0,5");
 $result=mysqli_query($conn,$query);
 
-//for accepting punchin requests into the attendance_request table
+// user punch in
+// for accepting punchin requests into the attendance_request table
 if (isset($_POST['punch-in-btn'])) {
     $dbuserdept = $_SESSION['userdept'];
         $sql = "INSERT INTO attendance_request (username, dept) VALUES ('$user', '$dbuserdept')";
@@ -16,10 +22,7 @@ if (isset($_POST['punch-in-btn'])) {
         $_SESSION['status']='requested';
 
         echo "<script>alert('ATTENDANCE REQUEST SUBMITTED')</script>";  
-
-
-
-        //$punchin = $conn->query($sql);
+        
 }
 
 ?>
@@ -229,7 +232,7 @@ if (isset($_POST['punch-in-btn'])) {
                                                         <span class="material-icons">settings</span>
                                                         Settings
                                                     </a></li>
-                                                <li><a href="#">
+                                                <li><a href="logout.php">
                                                         <span class="material-icons">logout</span>
                                                         Logout
                                                     </a></li>
