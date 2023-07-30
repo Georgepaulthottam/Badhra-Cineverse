@@ -166,8 +166,8 @@ overflow:auto;
 	}
 	.text{
 		font-size:20px;
-		font-weight: 500;
-		
+		font-weight:700;
+		font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 	}
 	
 	.poojacol{
@@ -191,7 +191,9 @@ overflow:auto;
 			box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
 		  }
 	  ::placeholder{
-		color:black;                                                                  
+		color:rgb(82, 76, 76);  
+		font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;  
+		font-weight:700;                                                    
 	  }  
 	  .caption{
 		color:whitesmoke;
@@ -201,18 +203,18 @@ overflow:auto;
 		background:#fff;
 	  }
 	  .box input[type="text"]{
-		border:2px solid rgb(195, 180, 153);
-	    border-radius:20%;
+		border:1px solid #152935;
+	    border-radius:25px;
 		padding:15px;
 		background:#f2f2f2;
 		color:white;
 	  }
 		  .caption {
-			font-weight: bold;
+			font-weight: 600;
 			text-align: center;
-			color:black;
-			font-family: none;
+			color:#4a5263;
 			
+			font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 		  }
 	  
 		  .time-input {
@@ -663,7 +665,7 @@ background-color:rgba(0,0,0,0.09);
 		}
 		
 		table.table tr th:first-child{
-			width:60px;
+			width:80px;
 		}
 		
 		table.table tr th:last-child{
@@ -934,6 +936,13 @@ background-color:rgba(0,0,0,0.09);
 			 transition:all 150ms linear;
 			 box-shadow:none!important;
 		}
+		#packupbtn{
+			position:absolute;
+			margin-bottom:-40px;
+		}
+		footer{
+			top:40px;
+		}
 		.wrapper-center .ta-bar{
 			bottom:30px;
             left:100px;
@@ -952,6 +961,7 @@ min-width:380px;
 		.wrapper-center,.progress-bar{
 			margin-left:100px;
 		}
+		
 		.body-overlay{
 			position:fixed;
 			top:0;
@@ -972,6 +982,10 @@ min-width:380px;
 			margin-top:-54px;
 			position:absolute;
 		}
+	
+		
+	
+	
 	}
 	
 	

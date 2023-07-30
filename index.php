@@ -271,8 +271,8 @@ if (isset($_POST['punchin'])) {
 					</div>
 
 					<!------Pooja time and Location bar Box----------->
-					  <div class="box" style="height:26vh;">
-						<div class="container">
+					  <div class="box" id="box-1" style="height:26vh;">
+						<div class="container" >
 						
 						<input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')">
 						
@@ -635,7 +635,7 @@ if (isset($_POST['punchin'])) {
 		 
 		 
 		 <!----footer-design------------->
-		 
+		  <br>
 		 <footer class="footer">
 		    <div class="container-fluid">
 			   <div class="footer-in">
