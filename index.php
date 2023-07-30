@@ -4,7 +4,7 @@ include "connection.php";
 if (isset($_POST['punchin'])) {
 	$user = $_SESSION['user'];
 	//$dbuserdept = $_SESSION['userdept'];
-	$sql = "INSERT INTO attendance (username) VALUES ('$username')";
+	$sql = "INSERT INTO attendance (username) VALUES ('$user')";
 	$result=mysqli_query($conn,$sql);
 	$sql2=("UPDATE users SET attendance = attendance+1 where username='".mysqli_real_escape_string($conn,$username)."' ");
     $result1=mysqli_query($conn,$sql2);
