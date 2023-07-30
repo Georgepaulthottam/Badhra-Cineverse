@@ -230,6 +230,11 @@ overflow:auto;
 
 	margin-bottom:20px;
 		  }
+		  #enterbtn{
+			margin-left:17px;
+			letter-spacing: 4px;
+			padding:5px;
+		  }
 	/*=========sidebar---design------*/
 	
 	#sidebar{
@@ -610,7 +615,7 @@ background-color:rgba(0,0,0,0.09);
     overflow: auto;
     border-radius: 25px;
     box-shadow: 0 1px 1px rgb(0 0 0 / 5%);
-	margin-top:-890px;
+	margin-top:-920px;
 }
 	   
 	   .table-title{
@@ -887,7 +892,7 @@ background-color:rgba(0,0,0,0.09);
 		   
 		      /*-------footer design start------*/
 			  footer{
-		       background-color:#353b48;
+		       background-color:#152935;
 			   color:#fff;
 			   text-align:center;
 			   padding:10px 30px;
@@ -913,8 +918,8 @@ background-color:rgba(0,0,0,0.09);
 		padding:8px;
 		border-radius:30px;
 		position:absolute;
-		bottom:10px;
-		right:130px;
+		bottom:25px;
+		left:700px;
 		color: red;
     border: 2px solid rgb(252,60,69);
     border-radius: 5px;

@@ -139,7 +139,7 @@ if (isset($_POST['punchin'])) {
 		  <i class="material-icons">equalizer</i>Request Panel
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu3">
-		     <li><a href="Requests.html">Pending Requests</a></li>
+		     <li><a href="Requests.php">Pending Requests</a></li>
 			 <li><a href="#">Pages 2</a></li>
 			 <li><a href="#">Pages 3</a></li>
 		  </ul>
@@ -315,13 +315,14 @@ if (isset($_POST['punchin'])) {
 					</div>
 
 					<!------Pooja time and Location bar Box----------->
-					  <div class="box" id="box-1" style="height:26vh;">
+					  <div class="box" id="box-1" style="height:30vh;">
 						<div class="container" >
 						
 						<input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')">
 						
 					   
 					   <input type="text" class="time-input" placeholder="Enter Location" required>
+					   <input type="submit"  id="enterbtn"  name ="Enter" value = "Enter" >
 					</div>
 
 				</div>
@@ -397,7 +398,7 @@ if (isset($_POST['punchin'])) {
 										</a>
 										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
 
-											<span>Decline&#xE872;</span>
+											<span>Decline</span>
 										</a>
 									</th>
 								</tr>');
@@ -466,7 +467,7 @@ if (isset($_POST['punchin'])) {
 										</a>
 										<a href="Requests.php?accept='.$row['id'].'" class="delete" data-toggle="modal">
 
-											<span>Decline&#xE872;</span>
+											<span>Decline</span>
 										</a>
 										</th>
 
@@ -486,7 +487,7 @@ if (isset($_POST['punchin'])) {
 						</form>
 					
 					</div>
-					<br>
+					
 					<input type="button" value="Pack-Up" id="packupbtn">
 					
 					
@@ -607,7 +608,7 @@ if (isset($_POST['punchin'])) {
 		 
 		 
 		 <!----footer-design------------->
-		  <br>
+		 
 		 <footer class="footer">
 		    <div class="container-fluid">
 			   <div class="footer-in">
