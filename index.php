@@ -3,10 +3,10 @@ session_start();
 include "connection.php";
 if (isset($_POST['punchin'])) {
 	$user = $_SESSION['user'];
-	//$dbuserdept = $_SESSION['userdept'];
-	$sql = "INSERT INTO attendance (username) VALUES ('$user')";
+	$dbuserdept = $_SESSION['userdept'];
+	$sql = "INSERT INTO attendance (username, dept) VALUES ('$user','$dbuserdept')";
 	$result=mysqli_query($conn,$sql);
-	$sql2=("UPDATE users SET attendance = attendance+1 where username='".mysqli_real_escape_string($conn,$username)."' ");
+	$sql2=("UPDATE users SET attendance = attendance+1 where username='".mysqli_real_escape_string($conn,$user)."' ");
     $result1=mysqli_query($conn,$sql2);
 	// echo "alert('ATTENDANCE REQUEST SUBMITTED')";
 }
