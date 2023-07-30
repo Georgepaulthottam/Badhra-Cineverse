@@ -395,9 +395,8 @@
 					<div class="attendence" style="overflow-x:auto;">
 						<form action="#">
 							<table class="table table-striped table-hover">
-								<div class="table-title" style="border-radius:25px 25px 0px 0px;">
-									<div class="row">
-										<div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
+								<div class="table-title" id="table-title" style="border-radius:25px 25px 0px 0px;">
+									
 										   <h2 class="ml-lg-2" >
 											   
 											   Other Requests </h2>
@@ -497,9 +496,9 @@
 							</table>
 							
 						</form>
+					
 					</div>
-					   </div>
-					</div>
+					<br>
 					<input type="button" value="Pack-Up" id="packupbtn">
 					
 					
