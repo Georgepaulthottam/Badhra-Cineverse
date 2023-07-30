@@ -3,6 +3,7 @@
     padding: 3%;
     display: flex;
     flex-direction: column;
+    
 }
 .top-section {
     display: flex;
@@ -16,6 +17,8 @@
     padding-left: 3%;
     padding-right: 3%;
     justify-content: space-between;
+    width: 82.5vw;
+    margin-left: -34px;
   }
 .profile-box , .notfication-box{
     text-align: center;
