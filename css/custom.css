@@ -124,7 +124,7 @@ overflow:auto;
 	  align-items: center;
 	  
 	}
-	button[type="button"]
+	input[type="submit"]
 	{
 	margin-left:100px;
 	margin-top:6px;
