@@ -330,34 +330,29 @@ if (isset($_POST['punchin'])) {
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Pooja Location</h3>
-                        <div class="request-status">
-                        <table class="table table-striped table-hover">
-                                <tr>
+                        <div class="request-status" id="request1">
+                        
                                     
-                                        <th><input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
+                                        <input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
                                     
                                     
-                                </tr>
-                                <tr>
-                                    <th><input type="text" class="time-input" placeholder="Enter Pooja Location" required></th>
-                                    
-                                </tr>
-                                <tr>
-                                    <th> <input type="text" class="time-input" placeholder="Enter Current Location" required></th>
-                                    
-                                </tr>
                                 
-                            </table>
-                            <table>
-                                <tr>
-                                    <th style="text-align: left;"><a href="user_view_request.html"
-                                            class="punch-in-btn">Set Pooja Details</a>
-                                    </th>
-                                    <th style="text-align: right;"><a href="user_make_request.html"
-                                            class="punch-in-btn">Set Location </a>
-                                    </th>
-                                </tr>
-                            </table>
+                                    <input type="text" class="time-input" placeholder="Enter Pooja Location" required></th>
+                                    
+                               
+                                    <input type="text" class="time-input" placeholder="Enter Current Location" required></th>
+                                    
+                                
+                         
+                                    <input name="settime"
+                                            class="punch-in-btn" value="Set Time" id="settimebtn">
+                                   
+                                    <input name="setlocation"
+                                            class="punch-in-btn" value="Set Location" id="setlocbtn">
+                                    
+									<input name="submit"
+                                            class="punch-in-btn" value="Submit" id="submitbtn">
+                          
                         </div>
                     </div>
                     <div class="profile-box">
@@ -379,9 +374,9 @@ if (isset($_POST['punchin'])) {
                                 
                             </table>
                         </div>
-						<input type="button"  name="bata1"  value="Bata 1" class="bata-btn">
-						<input type="button"  name="bata2" value="Bata 2"class="bata-btn">
-						<input type="button"  name="bata3"  value="Bata 3" class="bata-btn">
+						<input type="button" id="bata1" name="bata1"  value="Bata 1" class="bata-btn">
+						<input type="button"  id="bata2"name="bata2" value="Bata 2"class="bata-btn">
+						<input type="button"  id="bata3" name="bata3"  value="Bata 3" class="bata-btn">
 						
                     </div>
                 </div>

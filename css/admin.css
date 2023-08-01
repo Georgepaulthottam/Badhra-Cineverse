@@ -47,13 +47,39 @@
     border-radius: 5px;
     
   }
+  #settimebtn{
+    width:110px;
+    text-align: center;
+    margin-left:240px;
+    position: relative;
+    top:-80px;
+  }
+  #setlocbtn{
+    width:110px;
+    text-align: center;
+  }
+  #submitbtn{
+    width:110px;
+    text-align: center;
+  }
+
+  #request1{
+
+    width:220px;
+    margin-left:-5px;
+
+  }
+
   .request-status input[type="text"]{
 		border:1px solid #c9ccce;
 	    border-radius:25px;
-		padding:6px;
+		padding:3px;
 		background:#f2f2f2;
 		color:white;
+    
 	  }
+
+
     ::placeholder{
       text-align: center;
     }
@@ -67,7 +93,7 @@
       padding:15px;
       width:110px;
     }
-  input[type="button"]
+  #bata1,#bata2,#bata3
   {
     
     color: red;
@@ -139,3 +165,5 @@
       width:210px;
     }
   }
+
+  
