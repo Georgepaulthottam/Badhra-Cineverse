@@ -99,7 +99,7 @@ $result=mysqli_query($conn,$query);
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
 						<li><a href="Attendance.php">Attendance Requests</a></li>
-						<li><a href="#">Accepted Attendance</a></li>
+						<li><a href="approved_attendance.php">Accepted Attendance</a></li>
 						
 					</ul>
 				</li>
@@ -110,7 +110,7 @@ $result=mysqli_query($conn,$query);
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
 						<li><a href="Requests.php">Pending Requests</a></li>
-                        <li><a href="approved_requests.php">approved Requests</a></li
+                        <li><a href="approved_requests.php">approved Requests</a></li>
 						<li><a href="#">Dept 1</a></li>
 						<li><a href="#">Dept 2</a></li>
 					</ul>

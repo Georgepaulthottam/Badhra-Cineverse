@@ -52,51 +52,50 @@ $result=mysqli_query($conn,$query);
 
         <div id="sidebar">
             <div class="sidebar-header">
-                <h3><img src="img/logo.png" class="img-fluid" /><span>BadhraCineverse</span></h3>
+            <img src="Bc_logo.png" width="50px" height="50px">
+			<h3><span  > &nbsp;Badhra Cineverse</span></h3>
             </div>
             <ul class="list-unstyled component m-0">
-                <li class="active">
+                <li >
                     <a href="#" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
                 </li>
 
-                <li class="dropdown">
+                <li class="active">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">aspect_ratio</i>Layouts
+                        <i class="material-icons">aspect_ratio</i>Requests
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                        <li><a href="#">layout 1</a></li>
-                        <li><a href="#">layout 2</a></li>
-                        <li><a href="#">layout 3</a></li>
+                    <li class="active"><a href="user_view_request.php">Pending Requests</a></li>
+			
                     </ul>
                 </li>
 
 
                 <li class="dropdown">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">aspect_ratio</i>Layouts
+                        <i class="material-icons">aspect_ratio</i>Salary Manager
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
                         <li><a href="#">layout 1</a></li>
-                        <li><a href="#">layout 2</a></li>
-                        <li><a href="#">layout 3</a></li>
+                       
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">equalizer</i>charts
+                        <i class="material-icons">equalizer</i>Locations
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu3">
                         <li><a href="#">Pages 1</a></li>
                         <li><a href="#">Pages 2</a></li>
-                        <li><a href="#">Pages 3</a></li>
+                       
                     </ul>
                 </li>
 
 
                 <li class="dropdown">
                     <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">extension</i>UI Element
+                        <i class="material-icons">extension</i>Calender
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu4">
                         <li><a href="#">Pages 1</a></li>
@@ -107,7 +106,7 @@ $result=mysqli_query($conn,$query);
 
                 <li class="dropdown">
                     <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">border_color</i>forms
+                        <i class="material-icons">border_color</i>Suggestions
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu5">
                         <li><a href="#">Pages 1</a></li>
@@ -149,6 +148,11 @@ $result=mysqli_query($conn,$query);
 
             </ul>
         </div>
+
+        <!-------sidebar--design- close----------->
+
+
+
 
         <!-------sidebar--design- close----------->
 
