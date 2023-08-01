@@ -172,12 +172,11 @@ if (isset($_POST['punchin'])) {
 		  <li class="dropdown">
 		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>Locations
+		  <i class="material-icons">grid_on</i>miscellaneous
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="#">table 1</a></li>
-			 <li><a href="#">table 2</a></li>
-			 <li><a href="#">table 3</a></li>
+		     <li><a href="misc.php">miscellaneous</a></li>
+			 
 		  </ul>
 		  </li>
 		  
