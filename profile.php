@@ -1,3 +1,11 @@
+<?php
+session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -200,7 +208,7 @@
 									<span class="material-icons">settings</span>
 									Settings
 									</a></li>
-									<li><a href="#">
+									<li><a href="logout.php">
 									<span class="material-icons">logout</span>
 									Logout
 									</a></li>

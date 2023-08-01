@@ -3,7 +3,6 @@ session_start();
 // Check if the user is not logged in
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
-
 }
 include "connection.php";
 $query8=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."' limit 0,4");
@@ -40,9 +39,6 @@ $result6=mysqli_query($conn,$sql2);
 echo "<script>alert('Attendance Accepted')</script>";
 
 header('location:index.php');
-
-
-
 
 }
 if (isset($_POST['punchin'])) {
@@ -82,9 +78,10 @@ if (isset($_POST['punchin'])) {
       <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
 	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 	  <link rel="stylesheet" href="css/style.css" />
-	 
+	  <link rel="stylesheet" href="css/admin.css" />
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 	  <script type="text/javascript" src="main.js"></script>
+	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
   
@@ -175,12 +172,11 @@ if (isset($_POST['punchin'])) {
 		  <li class="dropdown">
 		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>Locations
+		  <i class="material-icons">grid_on</i>miscellaneous
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="#">table 1</a></li>
-			 <li><a href="#">table 2</a></li>
-			 <li><a href="#">table 3</a></li>
+		     <li><a href="misc.php">miscellaneous</a></li>
+			 
 		  </ul>
 		  </li>
 		  
@@ -299,90 +295,119 @@ if (isset($_POST['punchin'])) {
 		  
 		   <!------main-content-start-----------> 
 		     
-		      <div class="main-content">
-				
-			<!------Attendance bar Box-----------> 
-						<div class="box">
-						<div class="container">
-                           <div class="circular-progress">
-							<span class="progress-value">20%</span>
-						 	</div>
-						<span class="text">Attendance</span>
+		   <div id="main-container" class="middle-section" >
+                <div id="top-container" class="top-section">
+                    <div class="profile-box">
+                        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                            Attendance</h3>
+                        <a href="#">
+                            <div class="pie-chart-container">
+                                <canvas id="attendance-chart"></canvas>
+                                <div class="percentage-label" id="percentageLabel"></div>
+                            </div>
+                        </a><br>
 
-						</div>
-							<form action = "" method = "post">
-								
-								<input type="submit" class="punchin" id="punchin"  name ="punchin" value = "PUNCH IN" >
-							</form>
-					</div>
+                        <!------punch in button starts----------->
 
-					<!------Pooja time and Location bar Box----------->
-					  <div class="box" id="box-1" style="height:30vh;">
-						<div class="container" >
+                            <form action="" method ="post"><?php 
+                            if($_SESSION['status']=='requested'){
+                                echo("<h3> punch-in requested</h3>");
+                            }
+                            elseif($_SESSION['status']=='accepted'){
+                                echo("<h5 class='punch-in-btn'> Punched-in</h5>");
+                            }
+                            else{echo('
+                            
+                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punch-in-btn" value = "PUNCH IN" >
+                                ');}
+                                ?> 
+
+                            </form>
+
+                        <!------punch in button ends----------->
+ 
+                    </div>  
+                    <div class="profile-box">
+                        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                            Pooja Location</h3>
+                        <div class="request-status">
+                        <table class="table table-striped table-hover">
+                                <tr>
+                                    
+                                        <th><input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
+                                    
+                                    
+                                </tr>
+                                <tr>
+                                    <th><input type="text" class="time-input" placeholder="Enter Pooja Location" required></th>
+                                    
+                                </tr>
+                                <tr>
+                                    <th> <input type="text" class="time-input" placeholder="Enter Current Location" required></th>
+                                    
+                                </tr>
+                                
+                            </table>
+                            <table>
+                                <tr>
+                                    <th style="text-align: left;"><a href="user_view_request.html"
+                                            class="punch-in-btn">Set Pooja Details</a>
+                                    </th>
+                                    <th style="text-align: right;"><a href="user_make_request.html"
+                                            class="punch-in-btn">Set Location </a>
+                                    </th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="profile-box">
+                        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                            Bata Details</h3>
+                        <div class="request-status">
+                            <table class="table table-striped table-hover">
+                                <tr>
+                                    <a href="">
+                                        <th>Current Bata</th>
+                                        <th>Bata 1</th>
+                                    </a>
+                                </tr>
+                               
+                                <tr>
+                                    <th>Location</th>
+                                    <th>Ernakulam</th>
+                                </tr>
+                                
+                            </table>
+                        </div>
+						<input type="button"  name="bata1"  value="Bata 1" class="bata-btn">
+						<input type="button"  name="bata2" value="Bata 2"class="bata-btn">
+						<input type="button"  name="bata3"  value="Bata 3" class="bata-btn">
 						
-						<input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')">
-						
-					   
-					   <input type="text" class="time-input" placeholder="Enter Location" required>
-					   <input type="submit"  id="enterbtn"  name ="Enter" value = "Enter" >
-					</div>
+                    </div>
+                </div>
+                <!------middle-container contains  attendance request details----------->
+                <div id="middle-container" class="bottom-section">
+                    <div class="detailed-box" id="request-table">
+                        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Attendance Requests
+                        </h3>
+                        <div class="request-table" style="overflow-x:auto;">
 
-				</div>
-
-<!------Bata Details bar Box----------->
-				<div class="box" style="height:42vh;">
-					<div class="container">
-
-					<div class="caption">Current Bata</div>
-					 <span class="textbata">.......</span>
-					<button class="batabtn">Bata - 1</button>
-					<button class="batabtn" >Bata - 2</button>
-					<button class="batabtn" >Bata - 3</button>
-				
-				</div>
-
-			</div>	
-				  
-			     <div class="row">
-				    <div class="col-md-12">
-					   <div class="table-wrapper">
-					     
-					   <div class="table-title">
-					     <div class="row">
-						     <div class="col-sm-6 p-0 flex justify-content-lg-start justify-content-center">
-							    <h2 class="ml-lg-2">
-									
-									Attendance Approval</h2>
-							 </div>
-							 <div class="col-sm-6 p-0 flex justify-content-lg-end justify-content-center">
-							   
-							   
-							 </div>
-					     </div>
-					   </div>
-					   
-					   <div class="attendence" style="overflow-x:auto;">
-						<form action="#">
-							<table class="table table-striped table-hover">
-								<thead>
-								<tr>
-												<?php
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+									<?php
 			if(mysqli_num_rows($result)!=0){ 
 			?>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" onchange='selects()' id="selectAll">
-											<label for="selectAll"></label></th>
-									<th>Name</th>
+                                        <th>Name</th>
 									<th>Department</th>
 									<th>Time</th>
 									<th>Phone</th>
 									<th>Actions</th>
-								</tr>
-							</thead>
+                                    </tr>
+                                </thead>
 
-							<tbody>
+                                <tbody>
 								<?php
-								
 								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
 									echo('
 								<tr>
@@ -407,31 +432,28 @@ if (isset($_POST['punchin'])) {
 	                            }
 							}
 							else{
-								echo('<h2>NO PENDINTNG REQUESTS</h2>');
+								echo('<h2>No Pending Requests</h2>');
 							}
 
 								?>
-						</table>
-						<div>
-							<button id="acceptAllBtn" formaction="#">Accept All</button>
-							<button id="rejectAllBtn" formaction="#">Reject All</button>
-						</div><br>
-					</form>
-					</div>
-					   
-					  
-					  
-					<div class="attendence" style="overflow-x:auto;">
-						<form action="#">
-							<table class="table table-striped table-hover">
-								<div class="table-title" id="table-title" style="border-radius:25px 25px 0px 0px;">
-									
-										   <h2 class="ml-lg-2" >
-											   
-											   Other Requests </h2>
-										</div>
-								<thead>
+                                </tbody>
+                                 
+                            </table>
+                        </div>
+                        <a href="Attendance.php" style="color: red;">View more</a>
+                    </div>
+                </div>
+                <!------bottom-container contains Other requests panel----------->
+                <div id="middle-container" class="bottom-section">
+                    <div class="detailed-box" id="request-table">
+                        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Other Requests
+                        </h3>
+                        <div class="request-table" style="overflow-x:auto;">
+
+                            <table class="table table-striped table-hover">
+                                <thead>
                                     <tr>
+							
                                         <th>Date</th>
                                         <th>Time</th>
                                         <th>Item</th>
@@ -441,10 +463,9 @@ if (isset($_POST['punchin'])) {
                                         <th>actions</th>
                                     </tr>
                                 </thead>
-    
- 
+
                                 <tbody>
-                                    <?php 
+								<?php 
                                     while($row=mysqli_fetch_assoc($result8)){
                                         
 
@@ -477,134 +498,17 @@ if (isset($_POST['punchin'])) {
 								?>
 
 
-							
-
-
-
-							</tbody>
-	
-	
-							</table>
-							
-						</form>
-					
-					</div>
-					
-					<input type="button" value="Pack-Up" id="packupbtn">
-					
-					
-					
-									   <!----add-modal start--------->
-		<div class="modal fade" tabindex="-1" id="addEmployeeModal" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Add Employees</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-		    <label>Name</label>
-			<input type="text" class="form-control" required>
-		</div>
-		<div class="form-group">
-		    <label>Email</label>
-			<input type="emil" class="form-control" required>
-		</div>
-		<div class="form-group">
-		    <label>Address</label>
-			<textarea class="form-control" required></textarea>
-		</div>
-		<div class="form-group">
-		    <label>Phone</label>
-			<input type="text" class="form-control" required>
-		</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success">Add</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-					   <!----edit-modal end--------->
-					   
-					   
-					   
-					   
-					   
-				   <!----edit-modal start--------->
-		<div class="modal fade" tabindex="-1" id="editEmployeeModal" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Edit Employees</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="form-group">
-		    <label>Name</label>
-			<input type="text" class="form-control" required>
-		</div>
-		<div class="form-group">
-		    <label>Email</label>
-			<input type="emil" class="form-control" required>
-		</div>
-		<div class="form-group">
-		    <label>Address</label>
-			<textarea class="form-control" required></textarea>
-		</div>
-		<div class="form-group">
-		    <label>Phone</label>
-			<input type="text" class="form-control" required>
-		</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success">Save</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-					   <!----edit-modal end--------->	   
-					   
-					   
-					 <!----delete-modal start--------->
-		<div class="modal fade" tabindex="-1" id="deleteEmployeeModal" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Delete Employees</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete this Records</p>
-		<p class="text-warning"><small>this action Cannot be Undone,</small></p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-success">Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-					   <!----edit-modal end--------->   
-					   
-					
-					
-				 
-			     </div>
-			  </div>
-		  
+                                </tbody>
+                                 
+                            </table>
+									</form>
+                        </div>
+                        <a href="Requests.php" style="color: red;">View more</a>
+                    </div>
+                </div>
+						
+				  <!------Packup Button-----------> 
+				  <input type="button" value="Packup" name="Packup" class="packupbtn">
 		    <!------main-content-end-----------> 
 		  
 		 
@@ -634,7 +538,75 @@ if (isset($_POST['punchin'])) {
 
 
 
-  
+<script>
+        //script for attendance piechart
+        function updatePieChart(percentage) {
+            const chartData = {
+                labels: ['Attended', 'Missed'],
+                datasets: [{
+                    data: [percentage, 100 - percentage],
+                    backgroundColor: ['#152935', '#f0f0f0'],
+                    borderWidth: 0,
+                }],
+            };
+
+            const chartConfig = {
+                type: 'doughnut',
+                data: chartData,
+                options: {
+                    cutout: '60%',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    legend: {
+                        display: false,
+                    },
+                    tooltips: {
+                        enabled: false,
+                    },
+                },
+            };
+
+            const attendanceChart = document.getElementById('attendance-chart').getContext('2d');
+            new Chart(attendanceChart, chartConfig);
+
+            // Update the percentage label
+            const percentageLabel = document.getElementById('percentageLabel');
+            percentageLabel.textContent = `${percentage}%`;
+        }
+
+        // Call this function with the desired percentage value to update the pie chart.
+        // Example: updatePieChart(85); // This will update the pie chart to 85%.
+        // updatePieChart(50); // This will update the pie chart to 50%.
+        // updatePieChart(0);  // This will update the pie chart to 0%.
+       <?php echo("
+        // Example: To update the pie chart with the percentage value from the progress bar:
+        const progressBarPercentage = ".$_SESSION['attendance']."; // Replace this with your desired percentage value.
+        updatePieChart(progressBarPercentage);
+
+        //script for Accomodation Textbox (other)
+        function accomodation() {
+            if(document.getElementById('accomLocation').style.visibility == 'visible'){
+                document.getElementById('accomLocation').style.visibility = 'hidden';
+            }
+            else{
+                document.getElementById('accomLocation').style.visibility = 'visible';
+            }
+        }
+
+
+        //Script for puchin buttton
+        
+
+    </script>
+   ");
+    ?>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="js/jquery-3.3.1.slim.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
      <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
    <script src="js/jquery-3.3.1.slim.min.js"></script>
@@ -664,5 +636,3 @@ if (isset($_POST['punchin'])) {
   </body>
   
   </html>
-
-

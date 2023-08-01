@@ -6,4 +6,6 @@ session_start();
     // Redirect the user to the login page after logout
     header('Location: login.php');
     exit;
+     //ejdhiwelufhchyfb
     ?>
+   
