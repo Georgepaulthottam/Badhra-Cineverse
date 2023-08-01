@@ -3,7 +3,6 @@ session_start();
 // Check if the user is not logged in
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
-
 }
 include "connection.php";
 $query8=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."' limit 0,4");
@@ -79,7 +78,7 @@ if (isset($_POST['punchin'])) {
       <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
 	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 	  <link rel="stylesheet" href="css/style.css" />
-	  <link rel="stylesheet" href="css/user.css" />
+	  <link rel="stylesheet" href="css/admin.css" />
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 	  <script type="text/javascript" src="main.js"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
