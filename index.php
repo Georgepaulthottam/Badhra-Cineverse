@@ -140,6 +140,8 @@ if (isset($_POST['punchin'])) {
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu3">
 		     <li><a href="Requests.php">Pending Requests</a></li>
+			 <li><a href="approved_requests.php">Approved requests</a></li
+
 			 <li><a href="#">Pages 2</a></li>
 			 <li><a href="#">Pages 3</a></li>
 		  </ul>

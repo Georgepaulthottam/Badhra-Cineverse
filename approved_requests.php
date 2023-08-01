@@ -6,14 +6,21 @@ if (!isset($_SESSION['user'])) {
 
 }
 require 'connection.php';
-$query=("SELECT * FROM approved_attendance where DATE(`datetime`) = DATE(NOW())");
+$user=$_SESSION['user'];
+$query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"approved")."'");
 $result=mysqli_query($conn,$query);
+ if (isset($_GET['accept'])) {
+	$id=$_GET['accept'];
+    $query2 = ("update cart set status='approved' where id='$id'") ;
 
+    $quer=mysqli_query($conn, $query2);
+
+
+  }
 
 
 
 ?>
-
 <!doctype html>
 <html lang="en">
 
@@ -67,10 +74,11 @@ $result=mysqli_query($conn,$query);
 
 		<div id="sidebar">
 			<div class="sidebar-header">
-				<h3><img src="img/logo.png" class="img-fluid" /><span>BadhraCineverse</span></h3>
+				<img src="Bc_logo.png" width="50px" height="50px">
+		   <h3><span  > &nbsp;Badhra Cineverse</span></h3>
 			</div>
 			<ul class="list-unstyled component m-0">
-				<li>
+				<li class="dropdown">
 					<a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 				</li>
 
@@ -79,29 +87,32 @@ $result=mysqli_query($conn,$query);
 						<i class="material-icons">aspect_ratio</i>Profile
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
-						<li><a href="profile.html">Profile</a></li>
+						<li><a href="profile.html">Profile </a></li>
+						
 					</ul>
 				</li>
 
 
-				<li class="active">
+				<li class="dropdown">
 					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 						<i class="material-icons">aspect_ratio</i>Attendance
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
-						<li ><a href="Attendance.php">Attendance Requests</a></li>
-						<li class="active"><a href="approved_attendance.php" >Approved Attendance</a></li>
+						<li><a href="Attendance.php">Attendance Requests</a></li>
+						<li><a href="#">Accepted Attendance</a></li>
+						
 					</ul>
 				</li>
 
-				<li class="dropdown">
+				<li class="active">
 					<a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 						<i class="material-icons">equalizer</i>Request Panel
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
 						<li><a href="Requests.php">Pending Requests</a></li>
-			 <li><a href="#">Dept 1</a></li>
-			 <li><a href="#">Dept 2</a></li>
+                        <li><a href="approved_requests.php">approved Requests</a></li
+						<li><a href="#">Dept 1</a></li>
+						<li><a href="#">Dept 2</a></li>
 					</ul>
 				</li>
 
@@ -203,11 +214,15 @@ $result=mysqli_query($conn,$query);
 											</ul>
 										</li>
 
-										
+										<li class="nav-item">
+											<a class="nav-link" href="#">
+												<span class="material-icons">question_answer</span>
+											</a>
+										</li>
 
 										<li class="dropdown nav-item">
 											<a class="nav-link" href="#" data-toggle="dropdown">
-												<img src="img/user.jpg" style="width:40px; border-radius:50%;" />
+												<img src="profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
 												<span class="xp-user-live"></span>
 											</a>
 											<ul class="dropdown-menu small-menu">
@@ -236,7 +251,7 @@ $result=mysqli_query($conn,$query);
 					</div>
 
 					<div class="xp-breadcrumbbar text-center">
-						<h4 class="page-title">Accepted Attendance</h4>
+						<h4 class="page-title"> Approved Requests</h4>
 						<ol class="breadcrumb">
 
 						</ol>
@@ -249,56 +264,54 @@ $result=mysqli_query($conn,$query);
 
 
 			<!------main-content-start----------->
-
 			<div class="main-content">
 				<div class="attendence" style="overflow-x:auto;">
 					<form action="#">
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
-												<?php
-			if(mysqli_num_rows($result)!=0){ 
-
-
-			?>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" onchange='selects()' id="selectAll">
-											<label for="selectAll"></label></th>
-									<th>Name</th>
-									<th>Department</th>
-									<th>Time</th>
-									<th>date</th>
-									<th>Phone</th>
+                                            <th>Name</th>
+                                            <th>Department</th>
+                                            <th>Description</th>
+                                            <th>Quantity</th>
+                                            <th>Amount</th>
+                                            <th>Date</th>
+                                            <th>time</th>
 								</tr>
 							</thead>
 
-							<tbody>
-								<?php
-								
-								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-								   $time = new DateTime($row['datetime']);
-                                   $date = $time->format('j.n.Y');
-                                   $time = $time->format('H:i A');
-									echo('
-								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox1"></label></th>
-									<th>'.$row['username'].'</th>
-									<th>'.$row['dept'].'</th>
-									<th>'.$time.'</th>
-									<th>'.$date.'</th>
-									<th>702341231</th>
+                                <tbody>
+                                    <?php 
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        
 
-									
-								</tr>');
-	                            }
-							}
-							else{
-								echo('<h2>NO PENDINTNG REQUESTS</h2>');
-							}
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
 
+                                        echo('
+                                        <tr>
+
+                                        <th>'.$row['name'].'</th>
+                                        <th>'.$row['dept'].'</th>
+                                        <th>'.$row['details'].'</th>
+                                        <th>'.$row['price'].'</th>
+                                        <th>'.$row['number'].'</th>
+                                        <th>'.$date.'</th>
+                                        <th>'.$time.'</th>
+
+
+								</tr>');}
 								?>
+
+
+							
+
+
+
+							</tbody>
+
+
 						</table>
 						<div>
 							<button id="acceptAllBtn" formaction="#">Accept All</button>
@@ -312,7 +325,7 @@ $result=mysqli_query($conn,$query);
 
 
 			<!----footer-design------------->
-
+<br> <br> <br> <br><br>
 			<footer class="footer">
 				<div class="container-fluid">
 					<div class="footer-in">

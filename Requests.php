@@ -110,6 +110,8 @@ $result=mysqli_query($conn,$query);
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
 						<li><a href="Requests.html">Pending Requests</a></li>
+						<li><a href="approved_requests.php">approved Requests</a></li
+
 						<li><a href="#">Dept 1</a></li>
 						<li><a href="#">Dept 2</a></li>
 					</ul>
