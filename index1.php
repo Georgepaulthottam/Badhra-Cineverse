@@ -41,9 +41,6 @@ echo "<script>alert('Attendance Accepted')</script>";
 
 header('location:index.php');
 
-
-
-
 }
 if (isset($_POST['punchin'])) {
 	$user = $_SESSION['user'];
@@ -338,31 +335,28 @@ if (isset($_POST['punchin'])) {
                         <div class="request-status">
                         <table class="table table-striped table-hover">
                                 <tr>
-                                    <a href="">
-                                        <th>Accepted</th>
-                                        <th>2</th>
-                                    </a>
+                                    
+                                        <th><input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
+                                    
+                                    
                                 </tr>
                                 <tr>
-                                    <th>Rejected</th>
-                                    <th>2</th>
+                                    <th><input type="text" class="time-input" placeholder="Enter Pooja Location" required></th>
+                                    
                                 </tr>
                                 <tr>
-                                    <th>pending</th>
-                                    <th>2</th>
+                                    <th> <input type="text" class="time-input" placeholder="Enter Current Location" required></th>
+                                    
                                 </tr>
-                                <tr>
-                                    <th>Total</th>
-                                    <th>10</th>
-                                </tr>
+                                
                             </table>
                             <table>
                                 <tr>
                                     <th style="text-align: left;"><a href="user_view_request.html"
-                                            class="punch-in-btn">View Requests</a>
+                                            class="punch-in-btn">Set Pooja Details</a>
                                     </th>
                                     <th style="text-align: right;"><a href="user_make_request.html"
-                                            class="punch-in-btn">Make Requests</a>
+                                            class="punch-in-btn">Set Location </a>
                                     </th>
                                 </tr>
                             </table>
@@ -393,7 +387,7 @@ if (isset($_POST['punchin'])) {
 						
                     </div>
                 </div>
-                <!------middle-container contains request details----------->
+                <!------middle-container contains  attendance request details----------->
                 <div id="middle-container" class="bottom-section">
                     <div class="detailed-box" id="request-table">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Attendance Requests
@@ -451,7 +445,7 @@ if (isset($_POST['punchin'])) {
                         <a href="user_view_request.php" style="color: red;">View more</a>
                     </div>
                 </div>
-                <!------bottom-container contains accomodation and notification----------->
+                <!------bottom-container contains Other requests panel----------->
                 <div id="middle-container" class="bottom-section">
                     <div class="detailed-box" id="request-table">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Other Requests
@@ -515,6 +509,8 @@ if (isset($_POST['punchin'])) {
                     </div>
                 </div>
 						
+				  <!------Packup Button-----------> 
+				  <input type="button" value="Packup" name="Packup" class="packupbtn">
 		    <!------main-content-end-----------> 
 		  
 		 

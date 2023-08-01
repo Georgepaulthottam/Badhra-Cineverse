@@ -47,9 +47,26 @@
     border-radius: 5px;
     
   }
-  .request-status input{
-   
-  }
+  .request-status input[type="text"]{
+		border:1px solid #c9ccce;
+	    border-radius:25px;
+		padding:6px;
+		background:#f2f2f2;
+		color:white;
+	  }
+    ::placeholder{
+      text-align: center;
+    }
+    input[name="Packup"]
+    {
+      color: red;
+      border:2px solid rgb(252, 60, 69);
+      border-radius: 5px;
+   margin-left:500px;
+   margin-bottom:30px;
+      padding:15px;
+      width:110px;
+    }
   input[type="button"]
   {
     
@@ -60,8 +77,9 @@
     padding:3px;
     width:90px;
     
-    
   }
+ 
+
   .request-status table{
     color: black;
     width: 100%;
@@ -111,5 +129,13 @@
     .profile-box {
       flex: 0 0 100%;
       margin-bottom: 20px;
+    }
+    input[name="Packup"]
+    {
+      margin-top:20px;
+   margin-left:80px;
+   margin-bottom:10px;
+      padding:20px;
+      width:210px;
     }
   }
