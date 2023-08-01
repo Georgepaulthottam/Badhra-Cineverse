@@ -6,7 +6,7 @@ if (!isset($_SESSION['user'])) {
 
 }
 require 'connection.php';
-$query=("SELECT * FROM approved_attendance");
+$query=("SELECT * FROM approved_attendance where DATE(`datetime`) = DATE(NOW())");
 $result=mysqli_query($conn,$query);
 
 
@@ -258,6 +258,8 @@ $result=mysqli_query($conn,$query);
 								<tr>
 												<?php
 			if(mysqli_num_rows($result)!=0){ 
+
+
 			?>
 									<th><span class="custom-checkbox">
 											<input type="checkbox" onchange='selects()' id="selectAll">
@@ -265,6 +267,7 @@ $result=mysqli_query($conn,$query);
 									<th>Name</th>
 									<th>Department</th>
 									<th>Time</th>
+									<th>date</th>
 									<th>Phone</th>
 								</tr>
 							</thead>
@@ -273,6 +276,9 @@ $result=mysqli_query($conn,$query);
 								<?php
 								
 								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+								   $time = new DateTime($row['datetime']);
+                                   $date = $time->format('j.n.Y');
+                                   $time = $time->format('H:i A');
 									echo('
 								<tr>
 									<th><span class="custom-checkbox">
@@ -280,7 +286,8 @@ $result=mysqli_query($conn,$query);
 											<label for="checkbox1"></label></th>
 									<th>'.$row['username'].'</th>
 									<th>'.$row['dept'].'</th>
-									<th>Time</th>
+									<th>'.$time.'</th>
+									<th>'.$date.'</th>
 									<th>702341231</th>
 
 									
