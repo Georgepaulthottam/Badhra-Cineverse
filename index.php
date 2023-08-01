@@ -309,18 +309,9 @@ if (isset($_POST['punchin'])) {
 
                         <!------punch in button starts----------->
 
-                            <form action="" method ="post"><?php 
-                            if($_SESSION['status']=='requested'){
-                                echo("<h3> punch-in requested</h3>");
-                            }
-                            elseif($_SESSION['status']=='accepted'){
-                                echo("<h5 class='punch-in-btn'> Punched-in</h5>");
-                            }
-                            else{echo('
+                            <form action="" method ="post">
                             
-                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punch-in-btn" value = "PUNCH IN" >
-                                ');}
-                                ?> 
+                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punchin" value = "PUNCH IN" >
 
                             </form>
 
@@ -578,7 +569,7 @@ if (isset($_POST['punchin'])) {
         // Example: updatePieChart(85); // This will update the pie chart to 85%.
         // updatePieChart(50); // This will update the pie chart to 50%.
         // updatePieChart(0);  // This will update the pie chart to 0%.
-       <?php echo("
+        <?php echo("
         // Example: To update the pie chart with the percentage value from the progress bar:
         const progressBarPercentage = ".$_SESSION['attendance']."; // Replace this with your desired percentage value.
         updatePieChart(progressBarPercentage);

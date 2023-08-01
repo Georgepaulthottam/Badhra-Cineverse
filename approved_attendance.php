@@ -67,7 +67,8 @@ $result=mysqli_query($conn,$query);
 
 		<div id="sidebar">
 			<div class="sidebar-header">
-				<h3><img src="img/logo.png" class="img-fluid" /><span>BadhraCineverse</span></h3>
+							<img src="Bc_logo.png" width="50px" height="50px">
+		   <h3><span  > &nbsp;Badhra Cineverse</span></h3>
 			</div>
 			<ul class="list-unstyled component m-0">
 				<li>
@@ -100,6 +101,7 @@ $result=mysqli_query($conn,$query);
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
 						<li><a href="Requests.php">Pending Requests</a></li>
+						<li><a href="approved_requests.php">approved Requests</a></li>
 			 <li><a href="#">Dept 1</a></li>
 			 <li><a href="#">Dept 2</a></li>
 					</ul>

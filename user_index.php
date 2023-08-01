@@ -88,7 +88,7 @@ if (isset($_POST['punch-in-btn'])) {
                         <i class="material-icons">aspect_ratio</i>Requests
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                    <li><a href="#">Pending Requests</a></li>
+                    <li><a href="user_view_request.php">Pending Requests</a></li>
 			
                     </ul>
                 </li>
