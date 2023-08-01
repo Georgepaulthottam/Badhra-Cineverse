@@ -52,15 +52,21 @@
     text-align: center;
     margin-left:240px;
     position: relative;
-    top:-80px;
+    top:-140px;
   }
   #setlocbtn{
     width:110px;
     text-align: center;
+    position: relative;
+    top:-130px;
+    margin-left:240px;
   }
   #submitbtn{
     width:110px;
     text-align: center;
+    position: relative;
+    top:-120px;
+    margin-left:240px;
   }
 
   #request1{
