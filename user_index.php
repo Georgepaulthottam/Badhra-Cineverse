@@ -85,42 +85,40 @@ if (isset($_POST['punch-in-btn'])) {
 
                 <li class="dropdown">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">aspect_ratio</i>Layouts
+                        <i class="material-icons">aspect_ratio</i>Requests
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                        <li><a href="#">layout 1</a></li>
-                        <li><a href="#">layout 2</a></li>
-                        <li><a href="#">layout 3</a></li>
+                    <li><a href="#">Pending Requests</a></li>
+			
                     </ul>
                 </li>
 
 
                 <li class="dropdown">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">aspect_ratio</i>Layouts
+                        <i class="material-icons">aspect_ratio</i>Salary Manager
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
                         <li><a href="#">layout 1</a></li>
-                        <li><a href="#">layout 2</a></li>
-                        <li><a href="#">layout 3</a></li>
+                       
                     </ul>
                 </li>
 
                 <li class="dropdown">
                     <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">equalizer</i>charts
+                        <i class="material-icons">equalizer</i>Locations
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu3">
                         <li><a href="#">Pages 1</a></li>
                         <li><a href="#">Pages 2</a></li>
-                        <li><a href="#">Pages 3</a></li>
+                       
                     </ul>
                 </li>
 
 
                 <li class="dropdown">
                     <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">extension</i>UI Element
+                        <i class="material-icons">extension</i>Calender
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu4">
                         <li><a href="#">Pages 1</a></li>
@@ -131,7 +129,7 @@ if (isset($_POST['punch-in-btn'])) {
 
                 <li class="dropdown">
                     <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">border_color</i>forms
+                        <i class="material-icons">border_color</i>Suggestions
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu5">
                         <li><a href="#">Pages 1</a></li>

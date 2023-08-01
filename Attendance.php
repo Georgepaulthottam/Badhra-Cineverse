@@ -94,7 +94,7 @@ header('location:Attendance.php');
 			</div>
 			<ul class="list-unstyled component m-0">
 				<li>
-					<a href="index.html" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+					<a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 				</li>
 
 				<li class="dropdown">
