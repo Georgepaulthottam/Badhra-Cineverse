@@ -441,7 +441,7 @@ if (isset($_POST['punchin'])) {
                                  
                             </table>
                         </div>
-                        <a href="user_view_request.php" style="color: red;">View more</a>
+                        <a href="Attendance.php" style="color: red;">View more</a>
                     </div>
                 </div>
                 <!------bottom-container contains Other requests panel----------->
@@ -504,7 +504,7 @@ if (isset($_POST['punchin'])) {
                             </table>
 									</form>
                         </div>
-                        <a href="user_view_request.php" style="color: red;">View more</a>
+                        <a href="Requests.php" style="color: red;">View more</a>
                     </div>
                 </div>
 						
@@ -546,7 +546,7 @@ if (isset($_POST['punchin'])) {
                 labels: ['Attended', 'Missed'],
                 datasets: [{
                     data: [percentage, 100 - percentage],
-                    backgroundColor: ['#8ec2ea', '#f0f0f0'],
+                    backgroundColor: ['#152935', '#f0f0f0'],
                     borderWidth: 0,
                 }],
             };
