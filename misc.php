@@ -5,6 +5,19 @@ if (!isset($_SESSION['user'])) {
     header('Location: login.php');
 
 }
+//inserting data into miscellaneous table 
+require 'connection.php';
+ $user = $_SESSION['user'];
+ $name = $_POST['misc-name'];
+ $purpose = $_POST['misc-purpose'];
+ $amount = $_POST['misc-amount'];
+ $remark = $_POST['misc-remark'];
+ if(isset($_POST['misc-submit'])){
+	$sql = "INSERT INTO miscellaneous (username,name,purpose,amount,remark) VALUES ('$user', '$name','$purpose','$amount','$remark')";
+	$result = mysqli_query($conn,$sql);
+ }
+
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -449,32 +462,29 @@ tbody tr:hover {
 
 		   <div class="login-box">
   <h2>Enter the miscellaneous</h2>
-  <form>
+  <form action="" method="post">
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" name="misc-name"  id = "misc-name" required>
       <label>Name</label>  
     </div>
-    
 	<div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" name="misc-purpose" id = "misc-purpose" required>
       <label>Purpose</label>
     </div>
 	<div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" name="misc-amount" id = "misc-amount" required>
       <label>Amount</label>
     </div>
 	<div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" name="misc-remark" id = "misc-remark">
       <label>Remark</label>
     </div>
-	
-
     <a href="#">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-      Submit
+      <input type ="submit" name  = "misc-submit" id = "misc-submit" value = " Submit ">
     </a>
   </form>
 </div>
