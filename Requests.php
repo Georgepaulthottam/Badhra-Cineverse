@@ -9,10 +9,9 @@ require 'connection.php';
 $user=$_SESSION['user'];
 $query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."'");
 $result=mysqli_query($conn,$query);
- if (isset($_GET['accept'])) {
-	$id=$_GET['accept'];
+ if (isset($_POST['accept'])) {
+	$id=$_POST['id'];
     $query2 = ("update cart set status='approved' where id='$id'") ;
-
     $quer=mysqli_query($conn, $query2);
 
 
@@ -109,7 +108,7 @@ $result=mysqli_query($conn,$query);
 						<i class="material-icons">equalizer</i>Request Panel
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
-						<li><a href="Requests.html">Pending Requests</a></li>
+						<li><a href="Requests.php">Pending Requests</a></li>
 						<li><a href="approved_requests.php">approved Requests</a></li
 
 						<li><a href="#">Dept 1</a></li>
@@ -267,7 +266,7 @@ $result=mysqli_query($conn,$query);
 			<!------main-content-start----------->
 			<div class="main-content">
 				<div class="attendence" style="overflow-x:auto;">
-					<form action="#">
+					
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
@@ -300,17 +299,15 @@ $result=mysqli_query($conn,$query);
                                         <th>'.$row['details'].'</th>
                                         <th>'.$row['price'].'</th>
                                         <th>'.$row['number'].'</th>
-
-
-
                                         <th>
-										<a href="Requests.php?accept='.$row['id'].'" class="edit" >
-											<span>Accept</span>
-										</a>
-										<a href="Requests.php?accept='.$row['id'].'" class="delete" data-toggle="modal">
+									<form action="Requests.php" method="post">
+									    <input type="text" name="id" value="'.$row['id'].'" hidden>
+										<input type="submit" name="accept" value="Accept" class="edit" >
+											
+										
+										<input type="submit" value="Decline" class="delete" data-toggle="modal">
 
-											<span>Decline&#xE872;</span>
-										</a>
+										</form>
 										</th>
 
 								</tr>');}
@@ -329,7 +326,7 @@ $result=mysqli_query($conn,$query);
 							<button id="acceptAllBtn" formaction="#">Accept All</button>
 							<button id="rejectAllBtn" formaction="#">Reject All</button>
 						</div><br>
-					</form>
+					
 				</div>
 			</div>
 			<!------main-content-end----------->
