@@ -6,12 +6,170 @@
 
 
 
+.login-box {
+  position: absolute;
+  top: 17%;
+  left: 50%;
+  width: 500px;
+  height: 540px;
+  padding: 40px;
+  transform: translate(-50%, -50%);
+  background: #152935;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+  margin-top: 200px;
+  
+}
+
+.login-box h2 {
+  margin: 0 0 30px;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+}
+
+.login-box .user-box {
+  position: relative;
+}
+
+.login-box .user-box input {
+  width: 100%;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 30px;
+  border: none;
+  border-bottom: 1px solid #fff;
+  outline: none;
+  background: transparent;
+}
+.login-box .user-box label {
+  position: absolute;
+  top:0;
+  left: 0;
+  padding: 10px 0;
+  font-size: 16px;
+  color: #fff;
+  pointer-events: none;
+  transition: .5s;
+}
+
+.login-box .user-box input:focus ~ label,
+.login-box .user-box input:valid ~ label {
+  top: -20px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
+
+.login-box form a {
+  position: relative;
+  display: inline-block;
+  padding: 10px 20px;
+  color: #03e9f4;
+  font-size: 16px;
+  text-decoration: none;
+  text-transform: uppercase;
+  overflow: hidden;
+  transition: .5s;
+  margin-top: 40px;
+  margin-bottom:100px;
+  letter-spacing: 4px
+}
+
+
+
+.login-box a span {
+  position: absolute;
+  display: block;
+}
+
+.login-box a span:nth-child(1) {
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #03e9f4);
+  animation: btn-anim1 1s linear infinite;
+}
+
+@keyframes btn-anim1 {
+  0% {
+    left: -100%;
+  }
+  50%,100% {
+    left: 100%;
+  }
+}
+
+.login-box a span:nth-child(2) {
+  top: -100%;
+  right: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, transparent, #03e9f4);
+  animation: btn-anim2 1s linear infinite;
+  animation-delay: .25s
+}
+
+@keyframes btn-anim2 {
+  0% {
+    top: -100%;
+  }
+  50%,100% {
+    top: 100%;
+  }
+}
+
+.login-box a span:nth-child(3) {
+  bottom: 0;
+  right: -100%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(270deg, transparent, #03e9f4);
+  animation: btn-anim3 1s linear infinite;
+  animation-delay: .5s
+}
+
+@keyframes btn-anim3 {
+  0% {
+    right: -100%;
+  }
+  50%,100% {
+    right: 100%;
+  }
+}
+
+.login-box a span:nth-child(4) {
+  bottom: -100%;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(360deg, transparent, #03e9f4);
+  animation: btn-anim4 1s linear infinite;
+  animation-delay: .75s
+}
+
+@keyframes btn-anim4 {
+  0% {
+    bottom: -100%;
+  }
+  50%,100% {
+    bottom: 100%;
+  }
+  
+}
+
 
 table {
-  background: #012B39;
+  background: #152935;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
+  margin-top: 700px;
+  width: 1200px;
+  margin-left:30px;
 }
 th {
   border-bottom: 1px solid #364043;
@@ -264,7 +422,9 @@ tbody tr:hover {
 				 </div>
 				 
 				 <div class="xp-breadcrumbbar text-center">
-				    <h4 class="page-title">Dashboard</h4>
+				
+				    <h3 class="page-title">miscellaneous</h3>
+					
 					<ol class="breadcrumb">
 				
 					</ol>
@@ -277,7 +437,39 @@ tbody tr:hover {
 		  
 		  
 		   <!------main-content-start-----------> 
-           <h1 style="text-align:center;">miscellaneous</h1>
+           
+
+		   <div class="login-box">
+  <h2>Enter the miscellaneous</h2>
+  <form>
+    <div class="user-box">
+      <input type="text" name="" required="">
+      <label>Name</label>  
+    </div>
+    
+	<div class="user-box">
+      <input type="text" name="" required="">
+      <label>Purpose</label>
+    </div>
+	<div class="user-box">
+      <input type="text" name="" required="">
+      <label>Amount</label>
+    </div>
+	<div class="user-box">
+      <input type="text" name="" required="">
+      <label>Remark</label>
+    </div>
+	
+
+    <a href="#">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      Submit
+    </a>
+  </form>
+</div>
           <table>
             
   <thead>
@@ -288,7 +480,7 @@ tbody tr:hover {
       <th>PURPOSE</th>
     
       <th>AMOUNT</th>
-      <th>STATUS</th>
+     
      
   </thead>
   <tbody>
@@ -299,7 +491,7 @@ tbody tr:hover {
       <td>Reynolds</td>
       <td>camera</td>
       <td>5000</td>
-      <td><input type="button" value="submit"></td>
+     
 
       
     <tr>
@@ -308,61 +500,36 @@ tbody tr:hover {
       <td>Reynolds</td>
       <td>camera</td>
       <td>5000</td>
-      <td><input type="button" value="submit"></td>
+     
     <tr class="disabled">
       <td>3</td>
       <td>24-08=2023</td>
       <td>Reynolds</td>
       <td>camera</td>
       <td>5000</td>
-      <td><input type="button" value="submit"></td>
-    <tr>
-      <td>4</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-      <td><input type="button" value="submit"></td>
-    <tr>
-      <td>5</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-      <td><input type="button" value="submit"></td>
+     
+    
     <tr>
 
-      <td>6
-      
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-      <td><input type="button" value="submit"></td>
-    <tr>
-      <td>7</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-      <td><input type="button" value="submit"></td>
+   
     <tr>
       <td>8</td>
       <td>24-08=2023</td>
       <td>Reynolds</td>
       <td>camera</td>
       <td>5000</td>
-      <td><input type="button" value="submit"></td>
+     
       <tr>
        
       <td colspan="4" style="text-align:right;"> Total:</td>
       <td>7809458</td>
 </tr>
 
-<td><input type="button" value="create new"></td>
-</tr>
+
+
   </tbody>
 </table>
+
 
 		    <!------main-content-end-----------> 
 		  
