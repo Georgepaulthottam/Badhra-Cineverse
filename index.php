@@ -5,12 +5,17 @@ if (!isset($_SESSION['user'])) {
     header('Location: login.php');
 }
 include "connection.php";
+$user=$_SESSION['user'];
+$att_query=("SELECT * FROM users WHERE username='".mysqli_real_escape_string($conn,$user)."' limit 0,4");
+$att_result=mysqli_query($conn,$att_query);
+$att_row=mysqli_fetch_assoc($att_result);
+$attendance=$att_row['attendance'];
 $query8=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."' limit 0,4");
 $result8=mysqli_query($conn,$query8);
 $query=("SELECT * FROM attendance_request limit 0,4");
 $result=mysqli_query($conn,$query);
-if (isset($_GET['accept'])) {
-	$id=$_GET['accept'];
+if (isset($_POST['accept_req'])) {
+	$id=$_POST['req_id'];
     $query9 = ("update cart set status='approved' where id='$id'") ;
 
     $quer=mysqli_query($conn, $query9);
@@ -19,10 +24,26 @@ if (isset($_GET['accept'])) {
 
 
   }
+if(isset($_POST['settime'])){
+	 $timestamp = strtotime($_POST['time']);
+ $mysql_date = date("Y-m-d H:m:s", $timestamp);
+	$timequer="UPDATE schedule_day SET pooja_time = '$mysql_date' where DATE(date)=".mysqli_real_escape_string($conn,'DATE(NOW())')."";
+    $timeres=mysqli_query($conn,$timequer);
+	header("location:index.php");
+
+  }
+
+if(isset($_POST['setloctn'])){
+	$loctn=$_POST['loctn'];
+	$locquer="UPDATE schedule_day SET location = '".$loctn."' WHERE  DATE(date)=".mysqli_real_escape_string($conn,'DATE(NOW())')."";
+    $locres=mysqli_query($conn,$locquer);
+	header("location:index.php");
+
+  }
 // admin attendance
-if(isset($_GET['acc'])){
+if(isset($_POST['accept'])){
 	
-$delid=$_GET['acc'];
+$delid=$_POST['id'];
 $query2=("SELECT *FROM attendance_request WHERE id=".mysqli_real_escape_string($conn,$delid)." ");
 $result2=mysqli_query($conn,$query2);
 $row2=mysqli_fetch_assoc($result2);
@@ -112,7 +133,7 @@ if (isset($_POST['punchin'])) {
 		  <i class="material-icons">aspect_ratio</i>Profile
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-		     <li><a href="profile.html">Profile</a></li>
+		     <li><a href="profile.php">Profile</a></li>
 			 
 		  </ul>
 		  </li>
@@ -321,34 +342,29 @@ if (isset($_POST['punchin'])) {
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Pooja Location</h3>
-                        <div class="request-status">
-                        <table class="table table-striped table-hover">
-                                <tr>
+                        <div class="request-status" id="request1">
+                        
+                                    <form action="" method ="post">
+                                        <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
                                     
-                                        <th><input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
                                     
-                                    
-                                </tr>
-                                <tr>
-                                    <th><input type="text" class="time-input" placeholder="Enter Pooja Location" required></th>
-                                    
-                                </tr>
-                                <tr>
-                                    <th> <input type="text" class="time-input" placeholder="Enter Current Location" required></th>
-                                    
-                                </tr>
                                 
-                            </table>
-                            <table>
-                                <tr>
-                                    <th style="text-align: left;"><a href="user_view_request.html"
-                                            class="punch-in-btn">Set Pooja Details</a>
-                                    </th>
-                                    <th style="text-align: right;"><a href="user_make_request.html"
-                                            class="punch-in-btn">Set Location </a>
-                                    </th>
-                                </tr>
-                            </table>
+                                    <input type="text" class="time-input" name="loctn" placeholder="Enter Pooja Location" ></th>
+                                    
+                               
+                                    <input type="text" class="time-input" placeholder="Enter Current Location" ></th>
+                                    
+                                
+                         
+                                    <input name="settime"
+                                         type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
+                                   
+                                    <input 
+                                           type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
+                                    
+									<input name="submit" type="button"
+                                            class="punch-in-btn" value="Submit" id="submitbtn">
+                           </form>
                         </div>
                     </div>
                     <div class="profile-box">
@@ -370,9 +386,9 @@ if (isset($_POST['punchin'])) {
                                 
                             </table>
                         </div>
-						<input type="button"  name="bata1"  value="Bata 1" class="bata-btn">
-						<input type="button"  name="bata2" value="Bata 2"class="bata-btn">
-						<input type="button"  name="bata3"  value="Bata 3" class="bata-btn">
+						<input type="button" id="bata1" name="bata1"  value="Bata 1" class="bata-btn">
+						<input type="button"  id="bata2"name="bata2" value="Bata 2"class="bata-btn">
+						<input type="button"  id="bata3" name="bata3"  value="Bata 3" class="bata-btn">
 						
                     </div>
                 </div>
@@ -402,22 +418,21 @@ if (isset($_POST['punchin'])) {
 								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
 									echo('
 								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox1"></label></th>
+
 									<th>'.$row['username'].'</th>
 									<th>'.$row['dept'].'</th>
 									<th>Time</th>
 									<th>702341231</th>
 
 									<th>
-										<a href="index.php?acc='.$row['id'].'" class="edit" >
-											<span>Accept</span>
-										</a>
-										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+									<form action="index.php" method="post">
+									    <input type="text" name="id" value="'.$row['id'].'" hidden>
+										<input type="submit" name="accept" value="Accept" class="edit" >
+											
+										
+										<input type="submit" value="Decline" class="delete" data-toggle="modal">
 
-											<span>Decline</span>
-										</a>
+										</form>
 									</th>
 								</tr>');
 	                            }
@@ -476,12 +491,14 @@ if (isset($_POST['punchin'])) {
 
 
                                         <th>
-										<a href="index.php?accept='.$row['id'].'" class="edit" >
-											<span>Accept</span>
-										</a>
-										<a href="Requests.php?accept='.$row['id'].'" class="delete" data-toggle="modal">
+									<form action="index.php" method="post">
+									    <input type="text" name="req_id" value="'.$row['id'].'" hidden>
+										<input type="submit" name="req_accept" value="Accept" class="edit" >
+											
+										
+										<input type="submit" value="Decline" class="delete" data-toggle="modal">
 
-											<span>Decline</span>
+										</form>
 										</a>
 										</th>
 
@@ -571,7 +588,7 @@ if (isset($_POST['punchin'])) {
         // updatePieChart(0);  // This will update the pie chart to 0%.
         <?php echo("
         // Example: To update the pie chart with the percentage value from the progress bar:
-        const progressBarPercentage = ".$_SESSION['attendance']."; // Replace this with your desired percentage value.
+        const progressBarPercentage = ".$attendance."; // Replace this with your desired percentage value.
         updatePieChart(progressBarPercentage);
 
         //script for Accomodation Textbox (other)
