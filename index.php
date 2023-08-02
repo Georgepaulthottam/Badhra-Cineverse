@@ -5,12 +5,17 @@ if (!isset($_SESSION['user'])) {
     header('Location: login.php');
 }
 include "connection.php";
+$user=$_SESSION['user'];
+$att_query=("SELECT * FROM users WHERE username='".mysqli_real_escape_string($conn,$user)."' limit 0,4");
+$att_result=mysqli_query($conn,$att_query);
+$att_row=mysqli_fetch_assoc($att_result);
+$attendance=$att_row['attendance'];
 $query8=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."' limit 0,4");
 $result8=mysqli_query($conn,$query8);
 $query=("SELECT * FROM attendance_request limit 0,4");
 $result=mysqli_query($conn,$query);
-if (isset($_GET['accept'])) {
-	$id=$_GET['accept'];
+if (isset($_POST['accept_req'])) {
+	$id=$_POST['req_id'];
     $query9 = ("update cart set status='approved' where id='$id'") ;
 
     $quer=mysqli_query($conn, $query9);
@@ -19,10 +24,18 @@ if (isset($_GET['accept'])) {
 
 
   }
+  if(isset($_POST['settime'])){
+	 $timestamp = strtotime($_POST['time']);
+ $mysql_date = date("Y-m-d H:m:s", $timestamp);
+	$timequer="UPDATE schedule_day SET pooja_time = '$mysql_date' where DATE(date)=".mysqli_real_escape_string($conn,'DATE(NOW())')."";
+    $timeres=mysqli_query($conn,$timequer);
+	header("location:index.php");
+
+  }
 // admin attendance
-if(isset($_GET['acc'])){
+if(isset($_POST['accept'])){
 	
-$delid=$_GET['acc'];
+$delid=$_POST['id'];
 $query2=("SELECT *FROM attendance_request WHERE id=".mysqli_real_escape_string($conn,$delid)." ");
 $result2=mysqli_query($conn,$query2);
 $row2=mysqli_fetch_assoc($result2);
@@ -323,27 +336,27 @@ if (isset($_POST['punchin'])) {
                             Pooja Location</h3>
                         <div class="request-status" id="request1">
                         
-                                    
-                                        <input type="text" class="time-input" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
+                                    <form action="" method ="post">
+                                        <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
                                     
                                     
                                 
-                                    <input type="text" class="time-input" placeholder="Enter Pooja Location" required></th>
+                                    <input type="text" name="location" class="time-input" placeholder="Enter Pooja Location" ></th>
                                     
                                
-                                    <input type="text" class="time-input" placeholder="Enter Current Location" required></th>
+                                    <input type="text"  class="time-input" placeholder="Enter Current Location" ></th>
                                     
                                 
                          
-                                    <input name="settime"
-                                            class="punch-in-btn" value="Set Time" id="settimebtn">
+                                    <input type="submit" name="settime"
+                                            class="punch-in-btn" value="Set Time" name="settime" id="settimebtn">
                                    
                                     <input name="setlocation"
-                                            class="punch-in-btn" value="Set Location" id="setlocbtn">
+                                            class="punch-in-btn" value="Set Location" name="setloctn"id="setlocbtn">
                                     
 									<input name="submit"
                                             class="punch-in-btn" value="Submit" id="submitbtn">
-                          
+                           </form>
                         </div>
                     </div>
                     <div class="profile-box">
@@ -397,22 +410,21 @@ if (isset($_POST['punchin'])) {
 								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
 									echo('
 								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox1"></label></th>
+
 									<th>'.$row['username'].'</th>
 									<th>'.$row['dept'].'</th>
 									<th>Time</th>
 									<th>702341231</th>
 
 									<th>
-										<a href="index.php?acc='.$row['id'].'" class="edit" >
-											<span>Accept</span>
-										</a>
-										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+									<form action="index.php" method="post">
+									    <input type="text" name="id" value="'.$row['id'].'" hidden>
+										<input type="submit" name="accept" value="Accept" class="edit" >
+											
+										
+										<input type="submit" value="Decline" class="delete" data-toggle="modal">
 
-											<span>Decline</span>
-										</a>
+										</form>
 									</th>
 								</tr>');
 	                            }
@@ -471,12 +483,14 @@ if (isset($_POST['punchin'])) {
 
 
                                         <th>
-										<a href="index.php?accept='.$row['id'].'" class="edit" >
-											<span>Accept</span>
-										</a>
-										<a href="Requests.php?accept='.$row['id'].'" class="delete" data-toggle="modal">
+									<form action="index.php" method="post">
+									    <input type="text" name="req_id" value="'.$row['id'].'" hidden>
+										<input type="submit" name="req_accept" value="Accept" class="edit" >
+											
+										
+										<input type="submit" value="Decline" class="delete" data-toggle="modal">
 
-											<span>Decline</span>
+										</form>
 										</a>
 										</th>
 
@@ -566,7 +580,7 @@ if (isset($_POST['punchin'])) {
         // updatePieChart(0);  // This will update the pie chart to 0%.
         <?php echo("
         // Example: To update the pie chart with the percentage value from the progress bar:
-        const progressBarPercentage = ".$_SESSION['attendance']."; // Replace this with your desired percentage value.
+        const progressBarPercentage = ".$attendance."; // Replace this with your desired percentage value.
         updatePieChart(progressBarPercentage);
 
         //script for Accomodation Textbox (other)
