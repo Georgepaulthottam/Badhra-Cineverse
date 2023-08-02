@@ -24,11 +24,19 @@ if (isset($_POST['accept_req'])) {
 
 
   }
-  if(isset($_POST['settime'])){
+if(isset($_POST['settime'])){
 	 $timestamp = strtotime($_POST['time']);
  $mysql_date = date("Y-m-d H:m:s", $timestamp);
 	$timequer="UPDATE schedule_day SET pooja_time = '$mysql_date' where DATE(date)=".mysqli_real_escape_string($conn,'DATE(NOW())')."";
     $timeres=mysqli_query($conn,$timequer);
+	header("location:index.php");
+
+  }
+
+if(isset($_POST['setloctn'])){
+	$loctn=$_POST['loctn'];
+	$locquer="UPDATE schedule_day SET location = '".$loctn."' WHERE  DATE(date)=".mysqli_real_escape_string($conn,'DATE(NOW())')."";
+    $locres=mysqli_query($conn,$locquer);
 	header("location:index.php");
 
   }
@@ -341,18 +349,18 @@ if (isset($_POST['punchin'])) {
                                     
                                     
                                 
-                                    <input type="text" class="time-input" placeholder="Enter Pooja Location" required></th>
+                                    <input type="text" class="time-input" name="loctn" placeholder="Enter Pooja Location" ></th>
                                     
                                
-                                    <input type="text" class="time-input" placeholder="Enter Current Location" required></th>
+                                    <input type="text" class="time-input" placeholder="Enter Current Location" ></th>
                                     
                                 
                          
                                     <input name="settime"
-                                            class="punch-in-btn" value="Set Time" id="settimebtn">
+                                         type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
                                    
-                                    <input name="setlocation"
-                                            class="punch-in-btn" value="Set Location" id="setlocbtn">
+                                    <input 
+                                           type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
                                     
 									<input name="submit" type="button"
                                             class="punch-in-btn" value="Submit" id="submitbtn">
