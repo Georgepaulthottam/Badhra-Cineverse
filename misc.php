@@ -7,12 +7,13 @@ if (!isset($_SESSION['user'])) {
 }
 //inserting data into miscellaneous table 
 require 'connection.php';
+if(isset($_POST['misc-submit'])){
  $user = $_SESSION['user'];
  $name = $_POST['misc-name'];
  $purpose = $_POST['misc-purpose'];
  $amount = $_POST['misc-amount'];
  $remark = $_POST['misc-remark'];
- if(isset($_POST['misc-submit'])){
+ 
 	$sql = "INSERT INTO miscellaneous (username,name,purpose,amount,remark) VALUES ('$user', '$name','$purpose','$amount','$remark')";
 	$result = mysqli_query($conn,$sql);
  }
