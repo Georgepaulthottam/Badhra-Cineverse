@@ -328,20 +328,20 @@ if (isset($_POST['punchin'])) {
                                     
                                     
                                 
-                                    <input type="text" class="time-input" placeholder="Enter Pooja Location" required></th>
+                                    <input type="text" class="time-input" placeholder="Select Location" required></th>
                                     
                                
-                                    <input type="text" class="time-input" placeholder="Enter Current Location" required></th>
+                                    <input type="text" class="time-input" placeholder="Extra Location Rent" required></th>
                                     
                                 
                          
-                                    <input name="settime"
+                                    <input name="settime" type="button"
                                             class="punch-in-btn" value="Set Time" id="settimebtn">
                                    
-                                    <input name="setlocation"
+                                    <input name="setlocation" type="button"
                                             class="punch-in-btn" value="Set Location" id="setlocbtn">
                                     
-									<input name="submit"
+									<input name="submit" type="button"
                                             class="punch-in-btn" value="Submit" id="submitbtn">
                           
                         </div>
