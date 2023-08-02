@@ -1,8 +1,40 @@
-
- 
 <!doctype html>
 <html lang="en">
   <head>
+    <style>
+  @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
+
+
+
+
+table {
+  background: #012B39;
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: #E2B842;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background: #014055;
+}
+
+    </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -13,7 +45,7 @@
 	    <!----css3---->
         <link rel="stylesheet" href="css/custom.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		
+       
 		<!--google fonts -->
 	    <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,6 +63,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 	  <script type="text/javascript" src="main.js"></script>
 	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+      
+      
   </head>
   <body>
   
@@ -243,16 +277,102 @@
 		  
 		  
 		   <!------main-content-start-----------> 
-		     
-		   
+           <h1 style="text-align:center;">miscellaneous</h1>
+          <table>
+            
+  <thead>
+    <tr>
+      <th>SI NO</th>
+      <th>DATE</th>
+      <th> Name</th>
+      <th>PURPOSE</th>
+    
+      <th>AMOUNT</th>
+      <th>STATUS</th>
+     
+  </thead>
+  <tbody>
+    <tr>
+      <td>1</td>
+    
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+      <td><input type="button" value="submit"></td>
+
+      
+    <tr>
+      <td>2</td>
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+      <td><input type="button" value="submit"></td>
+    <tr class="disabled">
+      <td>3</td>
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+      <td><input type="button" value="submit"></td>
+    <tr>
+      <td>4</td>
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+      <td><input type="button" value="submit"></td>
+    <tr>
+      <td>5</td>
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+      <td><input type="button" value="submit"></td>
+    <tr>
+
+      <td>6
+      
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+      <td><input type="button" value="submit"></td>
+    <tr>
+      <td>7</td>
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+      <td><input type="button" value="submit"></td>
+    <tr>
+      <td>8</td>
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+      <td><input type="button" value="submit"></td>
+      <tr>
+       
+      <td colspan="4" style="text-align:right;"> Total:</td>
+      <td>7809458</td>
+</tr>
+
+<td><input type="button" value="create new"></td>
+</tr>
+  </tbody>
+</table>
+
 		    <!------main-content-end-----------> 
 		  
 		 
 		 
 		 <!----footer-design------------->
 		 
-		 <footer class="footer">
+		 
 		    <div class="container-fluid">
+            <footer class="footer">
 			   <div class="footer-in">
 			      <p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
 			   </div>
