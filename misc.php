@@ -264,7 +264,7 @@ tbody tr:hover {
 		<ul class="list-unstyled component m-0">
 
 		  <li class="active">
-		  <a href="#" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+		  <a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 		  </li>
 		  
 
@@ -274,7 +274,7 @@ tbody tr:hover {
 		  <i class="material-icons">aspect_ratio</i>Profile
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-		     <li><a href="profile.html">Profile</a></li>
+		     <li><a href="profile.php">Profile</a></li>
 			 
 		  </ul>
 		  </li>
