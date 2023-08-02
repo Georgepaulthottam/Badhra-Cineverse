@@ -125,7 +125,7 @@ if (isset($_POST['punchin'])) {
 		  <i class="material-icons">aspect_ratio</i>Profile
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-		     <li><a href="profile.html">Profile</a></li>
+		     <li><a href="profile.php">Profile</a></li>
 			 
 		  </ul>
 		  </li>
@@ -341,20 +341,20 @@ if (isset($_POST['punchin'])) {
                                     
                                     
                                 
-                                    <input type="text" name="location" class="time-input" placeholder="Enter Pooja Location" ></th>
+                                    <input type="text" class="time-input" placeholder="Enter Pooja Location" required></th>
                                     
                                
-                                    <input type="text"  class="time-input" placeholder="Enter Current Location" ></th>
+                                    <input type="text" class="time-input" placeholder="Enter Current Location" required></th>
                                     
                                 
                          
-                                    <input type="submit" name="settime"
-                                            class="punch-in-btn" value="Set Time" name="settime" id="settimebtn">
+                                    <input name="settime"
+                                            class="punch-in-btn" value="Set Time" id="settimebtn">
                                    
                                     <input name="setlocation"
-                                            class="punch-in-btn" value="Set Location" name="setloctn"id="setlocbtn">
+                                            class="punch-in-btn" value="Set Location" id="setlocbtn">
                                     
-									<input name="submit"
+									<input name="submit" type="button"
                                             class="punch-in-btn" value="Submit" id="submitbtn">
                            </form>
                         </div>
