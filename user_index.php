@@ -221,7 +221,7 @@ if (isset($_POST['punch-in-btn'])) {
 
                                         <li class="dropdown nav-item">
                                             <a class="nav-link" href="#" data-toggle="dropdown">
-                                                <img src="img/user.jpg" style="width:40px; border-radius:50%;" />
+                                                <img src="profile2.avif" style="width:40px; border-radius:50%;" />
                                                 <span class="xp-user-live"></span>
                                             </a>
                                             <ul class="dropdown-menu small-menu">

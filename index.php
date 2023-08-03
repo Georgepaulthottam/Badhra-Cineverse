@@ -101,7 +101,7 @@ if (isset($_POST['punchin'])) {
 	  <link rel="stylesheet" href="css/style.css" />
 	  <link rel="stylesheet" href="css/admin.css" />
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-	  <script type="text/javascript" src="main.js"></script>
+	  
 	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
@@ -277,7 +277,7 @@ if (isset($_POST['punchin'])) {
 								  <span class="xp-user-live"></span>
 								 </a>
 								  <ul class="dropdown-menu small-menu">
-								     <li><a href="#editEmployeeModal">
+								     <li><a href="#">
 									 <span class="material-icons">person_outline</span>
 									 Profile
 									 </a></li>
@@ -345,21 +345,25 @@ if (isset($_POST['punchin'])) {
                         <div class="request-status" id="request1">
                         
                                     <form action="" method ="post">
-                                        <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
-										<input name="settime"
-											 type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
+                          <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
+										<input name="settime" type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
                                     
+                             
+                       
+						<select id="optionsList" onchange="hideSelectOptions()" class="time-input">
+
+        <option value="option0" selected>Set Location</option>
+        <option value="option1">Location 1</option>
+        <option value="option2">Location 2</option>
+        <option value="option3">Location 3</option>
+        <option value="option4">Other</option>
+      </select>
                                     
-                                
-                                    <input type="text" class="time-input" name="loctn" placeholder="Enter Pooja Location" ></th>
-                                    
-                                    <input 
-                                           type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
+                                    <input type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
                                
-                                    <input type="text" class="time-input" placeholder="Enter Current Location" ></th>
+                         <input type="text" class="time-input" placeholder="Extra Location Rent" ></th>
                                     
-									<input name="submit" type="button"
-                                            class="punch-in-btn" value="Set Location" id="submitbtn">
+									<input name="submit" type="button" class="punch-in-btn" value="Set Location" id="submitbtn">
                                 
                          
                                    
@@ -624,7 +628,7 @@ if (isset($_POST['punchin'])) {
   
   
   <script type="text/javascript">
-       $(document).ready(function(){
+       $(document).ready(function (){
 	      $(".xp-menubar").on('click',function(){
 		    $("#sidebar").toggleClass('active');
 			$("#content").toggleClass('active');

@@ -406,9 +406,6 @@ header('location:Attendance.php');
 	</script>
 
 
-
-
-
 </body>
 
 </html>
