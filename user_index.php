@@ -25,6 +25,7 @@ if (isset($_POST['punch-in-btn'])) {
         $_SESSION['status']='requested';
 
         echo "<script>alert('ATTENDANCE REQUEST SUBMITTED')</script>";  
+        header('Location: user_index.php');
         
 }
 

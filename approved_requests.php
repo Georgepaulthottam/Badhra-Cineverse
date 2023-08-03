@@ -7,16 +7,9 @@ if (!isset($_SESSION['user'])) {
 }
 require 'connection.php';
 $user=$_SESSION['user'];
-$query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"approved")."'");
-$result=mysqli_query($conn,$query);
- if (isset($_GET['accept'])) {
-	$id=$_GET['accept'];
-    $query2 = ("update cart set status='approved' where id='$id'") ;
 
-    $quer=mysqli_query($conn, $query2);
+$where;
 
-
-  }
 
 
 
@@ -169,6 +162,9 @@ $result=mysqli_query($conn,$query);
 				<li class="">
 					<a href="#" class=""><i class="material-icons">library_books</i>calender </a>
 				</li>
+				<li class="">
+					<a href="expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
+				</li>
 
 			</ul>
 		</div>
@@ -266,8 +262,16 @@ $result=mysqli_query($conn,$query);
 			<!------main-content-start----------->
 			<div class="main-content">
 				<div class="attendence" style="overflow-x:auto;">
-					<form action="#">
+
 						<table class="table table-striped table-hover">
+                            <form action="approved_requests.php" method="post">
+                                <input type="submit" name="accept" value="Accepted" class="edit" >		
+								<input type="submit" name="requested"value="pending" class="edit">
+                                <input type="submit" name="rejected" value="rejected" class="edit" >		
+								<input type="submit" name="all"value="all" class="edit">
+
+
+    </form>
 							<thead>
 								<tr>
                                             <th>Name</th>
@@ -282,6 +286,109 @@ $result=mysqli_query($conn,$query);
 
                                 <tbody>
                                     <?php 
+                                     if (isset($_POST['accept'])) {
+                                        $query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"approved")."'");
+                                      $result=mysqli_query($conn,$query);
+
+
+                                  while($row=mysqli_fetch_assoc($result)){
+                                        
+
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+
+                                        <th>'.$row['name'].'</th>
+                                        <th>'.$row['dept'].'</th>
+                                        <th>'.$row['details'].'</th>
+                                        <th>'.$row['price'].'</th>
+                                        <th>'.$row['number'].'</th>
+                                        <th>'.$date.'</th>
+                                        <th>'.$time.'</th>
+
+
+								</tr>');}
+    
+	
+
+
+  }
+   if (isset($_POST['requested'])) {
+    $query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."'");
+    $result=mysqli_query($conn,$query);
+
+
+    
+	
+
+
+
+     while($row=mysqli_fetch_assoc($result)){
+                                        
+     $time = new DateTime($row['date']);
+     $date = $time->format('n.j.Y');
+     $time = $time->format('H:i');
+
+      echo('
+     <tr>
+
+     <th>'.$row['name'].'</th>
+     <th>'.$row['dept'].'</th>
+     <th>'.$row['details'].'</th>
+     <th>'.$row['price'].'</th>
+     <th>'.$row['number'].'</th>
+     <th>'.$date.'</th>
+     <th>'.$time.'</th>
+
+                                   
+
+
+								</tr>');}
+                                    }
+                                       if (isset($_POST['rejected'])) {
+    $query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"rejected")."'");
+    $result=mysqli_query($conn,$query);
+
+
+    
+	
+
+
+  
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        
+
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i A');
+
+                                        echo('
+                                        <tr>
+
+                                        <th>'.$row['name'].'</th>
+                                        <th>'.$row['dept'].'</th>
+                                        <th>'.$row['details'].'</th>
+                                        <th>'.$row['price'].'</th>
+                                        <th>'.$row['number'].'</th>
+                                        <th>'.$date.'</th>
+                                        <th>'.$time.'</th>
+
+
+								</tr>');}
+                                    }
+    if (isset($_POST['all'])) {
+    $query=("SELECT * FROM cart");
+    $result=mysqli_query($conn,$query);
+
+
+    
+	
+
+
+  
                                     while($row=mysqli_fetch_assoc($result)){
                                         
 
@@ -302,6 +409,7 @@ $result=mysqli_query($conn,$query);
 
 
 								</tr>');}
+                                    }
 								?>
 
 
