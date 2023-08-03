@@ -122,7 +122,7 @@ header('location:Attendance.php');
 						<i class="material-icons">equalizer</i>Request Panel
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
-						<li><a href="Requests.html">Pending Requests</a></li>
+						<li><a href="Requests.php">Pending Requests</a></li>
 			 <li><a href="#">Dept 1</a></li>
 			 <li><a href="#">Dept 2</a></li>
 					</ul>
@@ -323,7 +323,7 @@ header('location:Attendance.php');
 	                            }
 							}
 							else{
-								echo('<h2>NO PENDINTNG REQUESTS</h2>');
+								echo('<h2>NO PENDTING REQUESTS</h2>');
 							}
 
 								?>
