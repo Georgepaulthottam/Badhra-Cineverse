@@ -170,6 +170,9 @@ $result=mysqli_query($conn,$query);
 				<li class="">
 					<a href="#" class=""><i class="material-icons">library_books</i>calender </a>
 				</li>
+				<li class="">
+					<a href="expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
+				</li>
 
 			</ul>
 		</div>

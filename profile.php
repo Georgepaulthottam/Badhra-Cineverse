@@ -146,7 +146,10 @@ if (!isset($_SESSION['user'])) {
 		  </li>
 		  <li class="">
 		  <a href="#" class=""><i class="material-icons">library_books</i>Calender </a>
-		  </li>
+		  </li> <li class="">
+					<a href="expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
+				</li>
+
 		
 		</ul>
 	 </div>
