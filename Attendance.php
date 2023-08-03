@@ -8,10 +8,10 @@ if (!isset($_SESSION['user'])) {
 require 'connection.php';
 $query=("SELECT * FROM attendance_request");
 $result=mysqli_query($conn,$query);
-if(isset($_GET['acc'])){
-	echo "<script>alert('wait for admin to enable punch-in')</script>";  
+if(isset($_POST['acc'])){
+	
 
-$delid=$_GET['acc'];
+$delid=$_POST['id'];
 $query2=("SELECT *FROM attendance_request WHERE id=".mysqli_real_escape_string($conn,$delid)." ");
 $result2=mysqli_query($conn,$query2);
 $row2=mysqli_fetch_assoc($result2);
@@ -278,7 +278,7 @@ header('location:Attendance.php');
 
 			<div class="main-content">
 				<div class="attendence" style="overflow-x:auto;">
-					<form action="#">
+					
 						<table class="table table-striped table-hover">
 							<thead>
 								<tr>
@@ -311,13 +311,14 @@ header('location:Attendance.php');
 									<th>702341231</th>
 
 									<th>
-										<a href="Attendance.php?acc='.$row['id'].'" class="edit" >
-											<span>Accept</span>
-										</a>
-										<a href="#deleteEmployeeModal" class="delete" data-toggle="modal">
+									<form action="Attendance.php" method="post">
+									    <input type="text" name="id" value="'.$row['id'].'" hidden>
+										<input type="submit" name="acc" value="Accept" class="edit" >
+											
+										
+										<input type="submit" value="Decline" class="delete" data-toggle="modal">
 
-											<span>Decline&#xE872;</span>
-										</a>
+										</form>
 									</th>
 								</tr>');
 	                            }
@@ -332,7 +333,7 @@ header('location:Attendance.php');
 							<button id="acceptAllBtn" formaction="#">Accept All</button>
 							<button id="rejectAllBtn" formaction="#">Reject All</button>
 						</div><br>
-					</form>
+			
 				</div>
 			</div>
 			<!------main-content-end----------->

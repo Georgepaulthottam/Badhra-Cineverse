@@ -14,7 +14,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     while($row=mysqli_fetch_assoc($conquer))  
     {  
     $dbusername=$row['username'];  
-    $dbpassword=  $row['password'];  
+    $dbpassword= $row['password'];  
     $dbuserdept=$row['dept'];
     $dbattendance=$row['attendance'];
     $status=$row['status'];
@@ -27,7 +27,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     $_SESSION['status']=$status;
     $_SESSION['Firstname']=$firstname;
     $_SESSION['Lastname']=$lastname;
-   if($dbuserdept=="Artist"){    
+   if($dbuserdept=="Artist" or $dbuserdept=="camera" or $dbuserdept=="Makeup"){    
     header("location:user_index.php");
     }
     elseif($dbusername=="Admin"){
