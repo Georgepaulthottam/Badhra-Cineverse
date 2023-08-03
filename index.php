@@ -461,6 +461,9 @@ if (isset($_POST['punchin'])) {
 
                             <table class="table table-striped table-hover">
                                 <thead>
+									<?php
+			                        if(mysqli_num_rows($result8)!=0){ 
+			                        ?>
                                     <tr>
 							
                                         <th>Date</th>
@@ -506,6 +509,10 @@ if (isset($_POST['punchin'])) {
 										</th>
 
 								</tr>');}
+									}
+								else{
+								echo('<h2>No Pending Requests</h2>');
+							}
 								?>
 
 
