@@ -323,10 +323,10 @@ if (isset($_POST['punch-in-btn'])) {
                             </table>
                             <table>
                                 <tr>
-                                    <th style="text-align: left;"><a href="user_view_request.html"
+                                    <th style="text-align: left;"><a href="user_view_request.php"
                                             class="punch-in-btn">View Requests</a>
                                     </th>
-                                    <th style="text-align: right;"><a href="user_make_request.html"
+                                    <th style="text-align: right;"><a href="user_make_request.php"
                                             class="punch-in-btn">Make Requests</a>
                                     </th>
                                 </tr>

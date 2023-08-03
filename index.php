@@ -346,24 +346,24 @@ if (isset($_POST['punchin'])) {
                         
                                     <form action="" method ="post">
                                         <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
+										<input name="settime"
+											 type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
                                     
                                     
                                 
                                     <input type="text" class="time-input" name="loctn" placeholder="Enter Pooja Location" ></th>
                                     
+                                    <input 
+                                           type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
                                
                                     <input type="text" class="time-input" placeholder="Enter Current Location" ></th>
                                     
+									<input name="submit" type="button"
+                                            class="punch-in-btn" value="Set Location" id="submitbtn">
                                 
                          
-                                    <input name="settime"
-                                         type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
                                    
-                                    <input 
-                                           type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
                                     
-									<input name="submit" type="button"
-                                            class="punch-in-btn" value="Submit" id="submitbtn">
                            </form>
                         </div>
                     </div>
@@ -562,7 +562,7 @@ if (isset($_POST['punchin'])) {
                 type: 'doughnut',
                 data: chartData,
                 options: {
-                    cutout: '60%',
+                    cutout: '70%',
                     responsive: true,
                     maintainAspectRatio: false,
                     legend: {

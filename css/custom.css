@@ -124,16 +124,7 @@ overflow:auto;
 	  align-items: center;
 	  
 	}
-	input[type="submit"]
-	{
-	margin-left:100px;
-	margin-top:6px;
-	letter-spacing:4px;
-	color: red;
-    border: 2px solid rgb(252,60,69);
-    border-radius: 5px;
-	padding:3px;
-	}
+	
 	.circular-progress
 	{ 
 		position:relative;
