@@ -190,7 +190,7 @@ header('location:Attendance.php');
 					</ul>
 				</li>
 
-				<li class="active">
+				<li class="dropdown">
 					<a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 						<i class="material-icons">grid_on</i>Miscellaneous
 					</a>
@@ -201,7 +201,7 @@ header('location:Attendance.php');
 				</li>
 
 
-				<li class="dropdown">
+				<li class="active">
 					<a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 						<i class="material-icons">content_copy</i>Notification
 					</a>
