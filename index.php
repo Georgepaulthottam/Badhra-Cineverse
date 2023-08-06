@@ -193,10 +193,10 @@ if (isset($_POST['punchin'])) {
 		  <li class="dropdown">
 		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>miscellaneous
+		  <i class="material-icons">grid_on</i>Miscellaneous
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="misc.php">miscellaneous</a></li>
+		     <li><a href="misc.php">Miscellaneous</a></li>
 			 
 		  </ul>
 		  </li>
@@ -205,12 +205,10 @@ if (isset($_POST['punchin'])) {
 		  <li class="dropdown">
 		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">content_copy</i>Pages
+		  <i class="material-icons">content_copy</i>Notifications
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-		     <li><a href="#">Pages 1</a></li>
-			 <li><a href="#">Pages 2</a></li>
-			 <li><a href="#">Pages 3</a></li>
+		     <li><a href="Notifications.php">Notification</a></li>
 		  </ul>
 		  </li>
 		  
@@ -307,10 +305,8 @@ if (isset($_POST['punchin'])) {
 				 <div class="xp-breadcrumbbar text-center">
 				    <h4 class="page-title">Dashboard</h4>
 					<ol class="breadcrumb">
-				
 					</ol>
 				 </div>
-				 
 				 
 			 </div>
 		  </div>
@@ -354,7 +350,6 @@ if (isset($_POST['punchin'])) {
                              
                        
 						<select id="optionsList" onchange="hideSelectOptions()" class="time-input">
-
         <option value="option0" selected>Set Location</option>
         <option value="option1">Location 1</option>
         <option value="option2">Location 2</option>
