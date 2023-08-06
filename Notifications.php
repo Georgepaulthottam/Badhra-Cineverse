@@ -146,7 +146,7 @@ header('location:Attendance.php');
 				</li>
 
 
-				<li class="active">
+				<li class="dropdown">
 					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 						<i class="material-icons">aspect_ratio</i>Attendance
 					</a>
@@ -190,26 +190,24 @@ header('location:Attendance.php');
 					</ul>
 				</li>
 
-				<li class="dropdown">
+				<li class="active">
 					<a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">grid_on</i>Locations
+						<i class="material-icons">grid_on</i>Miscellaneous
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu6">
-						<li><a href="#">table 1</a></li>
-						<li><a href="#">table 2</a></li>
-						<li><a href="#">table 3</a></li>
+						<li><a href="misc.php"></a>Miscellaneous</li>
+						
 					</ul>
 				</li>
 
 
 				<li class="dropdown">
 					<a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">content_copy</i>Pages
+						<i class="material-icons">content_copy</i>Notification
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu7">
-						<li><a href="#">Pages 1</a></li>
-						<li><a href="#">Pages 2</a></li>
-						<li><a href="#">Pages 3</a></li>
+						<li><a href="Notifications.php">Notification</a></li>
+						
 					</ul>
 				</li>
 
