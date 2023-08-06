@@ -523,6 +523,79 @@ if (isset($_POST['punchin'])) {
                         <a href="Requests.php" style="color: red;">View more</a>
                     </div>
                 </div>
+
+				<!--- Misc Section Box--->
+				<div id="middle-container" class="bottom-section">
+                    <div class="detailed-box" id="request-table">
+                        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Miscellaneous
+                        </h3>
+                        <div class="request-table" style="overflow-x:auto;">
+
+                            <table class="table table-striped table-hover">
+                                <thead>
+									<?php
+			                        if(mysqli_num_rows($result8)!=0){ 
+			                        ?>
+                                    <tr>
+							
+                                        <th>SI No</th>
+                                        <th>Date</th>
+                                        <th>Name</th>
+                                        <th>Purpose</th>
+                                        <th>Time</th>
+                                        <th>Remark</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+								<?php 
+                                    while($row=mysqli_fetch_assoc($result8)){
+                                        
+
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+                                        <th>'.$date.'</th>
+                                        <th>'.$time.'</th>
+                                        <th>'.$row['name'].'</th>
+                                        <th>'.$row['details'].'</th>
+                                        <th>'.$row['price'].'</th>
+                                        <th>'.$row['number'].'</th>
+
+
+
+                                        <th>
+									<form action="index.php" method="post">
+									    <input type="text" name="req_id" value="'.$row['id'].'" hidden>
+										<input type="submit" name="req_accept" value="Accept" class="edit" >
+											
+										
+										<input type="submit" value="Decline" class="delete" data-toggle="modal">
+
+										</form>
+										</a>
+										</th>
+
+								</tr>');}
+									}
+								else{
+								echo('<h2>No Pending Requests</h2>');
+							}
+								?>
+
+
+                                </tbody>
+                                 
+                            </table>
+									</form>
+                        </div>
+                        <a href="misc.php" style="color: red;">View more</a>
+                    </div>
+                </div>
 						
 				  <!------Packup Button-----------> 
 				  <input type="button" value="Packup" name="Packup" class="packupbtn">
