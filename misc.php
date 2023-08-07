@@ -264,7 +264,7 @@ tbody tr:hover {
 		
 		<ul class="list-unstyled component m-0">
 
-		  <li class="active">
+		  <li class="dropdown">
 		  <a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 		  </li>
 		  
@@ -332,13 +332,13 @@ tbody tr:hover {
 		  </ul>
 		  </li>
 		  
-		  <li class="dropdown">
+		  <li class="active">
 		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>miscellaneous
+		  <i class="material-icons">grid_on</i>Miscellaneous
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="misc.php">miscellaneous</a></li>
+		     <li><a href="misc.php">Miscellaneous</a></li>
 			 
 		  </ul>
 		  </li>
@@ -347,12 +347,11 @@ tbody tr:hover {
 		  <li class="dropdown">
 		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">content_copy</i>Pages
+		  <i class="material-icons">content_copy</i>Notifications
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-		     <li><a href="#">Pages 1</a></li>
-			 <li><a href="#">Pages 2</a></li>
-			 <li><a href="#">Pages 3</a></li>
+		     <li><a href="Notifications.php">Notifications</a></li>
+			
 		  </ul>
 		  </li>
 		  
@@ -499,13 +498,60 @@ tbody tr:hover {
       <th> Name</th>
       <th>PURPOSE</th>
     
+      <th>TIME</th>
+      <th>REMARK</th>
       <th>AMOUNT</th>
-     
      
   </thead>
   <tbody>
-    <tr>
-      <td>1</td>
+    <?php
+//   $sql1 = "SELECT id, name, amount, remark FROM miscellaneous";
+//   $result1 = mysqli_query($conn, $sql);
+//   if (!$result1) {
+//     die("Query failed: " . mysqli_error($conn));
+// }
+
+//   if ($result1->num_rows > 0) {
+        
+//         while ($row = $result1->fetch_assoc()) {
+//             echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["amount"]. "</td><td>" . $row["remark"] . "</td></tr>";
+//         }
+//     } else {
+//         echo "0 results";
+//     }
+
+
+
+// showing values in the table
+      $rowsql = "SELECT id, timestamp, name, amount, purpose, remark FROM miscellaneous";
+      $rowresult = mysqli_query($conn, $rowsql);
+      $sum =0;
+			if(mysqli_num_rows($rowresult)!=0){ 
+		
+while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
+  $time = new DateTime($row['timestamp']);
+  $date = $time->format('j.n.Y');
+  $time = $time->format('H:i A');
+  
+  echo('
+								<tr>
+  <td>'.$row['id'].'</td>
+      <td>'.$date.'</td>
+      <td>'.$row['name'].'</td>
+      <td>'.$row['purpose'].'</td>
+      <td>'.$time.'</td>
+      <td>'.$row['remark'].'</td>
+      <td>'.$row['amount'].'</td>');
+      $sum = $sum + $row['amount'];
+
+}
+      }
+      else{
+        echo('<h2>NO PENDTING REQUESTS</h2>');
+      }
+    ?>
+    <!-- <tr>
+      <td>1</td>  
     
       <td>24-08=2023</td>
       <td>Reynolds</td>
@@ -538,11 +584,11 @@ tbody tr:hover {
       <td>Reynolds</td>
       <td>camera</td>
       <td>5000</td>
-     
+      -->
       <tr>
        
       <td colspan="4" style="text-align:right;"> Total:</td>
-      <td>7809458</td>
+      <td><?php  echo $sum;?></td>
 </tr>
 
 

@@ -101,8 +101,9 @@ if (isset($_POST['punchin'])) {
 	  <link rel="stylesheet" href="css/style.css" />
 	  <link rel="stylesheet" href="css/admin.css" />
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-	  <script type="text/javascript" src="main.js"></script>
+	  
 	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	 
   </head>
   <body>
   
@@ -193,10 +194,10 @@ if (isset($_POST['punchin'])) {
 		  <li class="dropdown">
 		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>miscellaneous
+		  <i class="material-icons">grid_on</i>Miscellaneous
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="misc.php">miscellaneous</a></li>
+		     <li><a href="misc.php">Miscellaneous</a></li>
 			 
 		  </ul>
 		  </li>
@@ -205,12 +206,10 @@ if (isset($_POST['punchin'])) {
 		  <li class="dropdown">
 		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">content_copy</i>Pages
+		  <i class="material-icons">content_copy</i>Notifications
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-		     <li><a href="#">Pages 1</a></li>
-			 <li><a href="#">Pages 2</a></li>
-			 <li><a href="#">Pages 3</a></li>
+		     <li><a href="Notifications.php">Notification</a></li>
 		  </ul>
 		  </li>
 		  
@@ -248,10 +247,8 @@ if (isset($_POST['punchin'])) {
 					 </div>
 					 
 					 <div class="col-md-5 col-lg-3 order-3 order-md-2">
-					     <div class="xp-searchbar">
-						    
-							 </form>
-						 </div>
+					     
+						 
 					 </div>
 					 
 					 
@@ -265,7 +262,7 @@ if (isset($_POST['punchin'])) {
 								  <span class="notification">4</span>
 								 </a>
 								  <ul class="dropdown-menu">
-								     <li><a href="#">You Have 4 New Messages</a></li>
+								     <li><a href="Notifications.php	">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
@@ -276,11 +273,11 @@ if (isset($_POST['punchin'])) {
 							   
 							   <li class="dropdown nav-item">
 							     <a class="nav-link" href="#" data-toggle="dropdown">
-								  <img src="profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
+								 <img src="profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
 								  <span class="xp-user-live"></span>
 								 </a>
 								  <ul class="dropdown-menu small-menu">
-								     <li><a href="#editEmployeeModal">
+								     <li><a href="profile.php">
 									 <span class="material-icons">person_outline</span>
 									 Profile
 									 </a></li>
@@ -307,10 +304,8 @@ if (isset($_POST['punchin'])) {
 				 <div class="xp-breadcrumbbar text-center">
 				    <h4 class="page-title">Dashboard</h4>
 					<ol class="breadcrumb">
-				
 					</ol>
 				 </div>
-				 
 				 
 			 </div>
 		  </div>
@@ -348,26 +343,39 @@ if (isset($_POST['punchin'])) {
                         <div class="request-status" id="request1">
                         
                                     <form action="" method ="post">
-                                        <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
-										<input name="settime"
-											 type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
+                          <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
+										<input name="settime" type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
                                     
+                             
+
+									 <!------Select Optionss with popup----------->	
+										<select id="mySelect">
+											<option value="option0" selected>Set Location</option>
+											<option value="option1">Location 1</option>
+											<option value="option2">Location 2</option>
+											<option value="option3">Location 3</option>
+											<option value="others">Others</option>
+										</select>
+										<div class="popup" id="popup">
+											<h5>Enter Manually:</h5>
+											
+											<input type="text" id="location" placeholder="Enter Location">
+											<br>
+											
+											<input type="text" id="rent" placeholder="Enter Rent">
+											<br>
+											<button onclick="saveChoice()" id="popupbtn">Save</button>
+										</div>
+										
+										<input type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
+                   
+										<!---Location rent --->
+                         <input type="text" class="time-input" placeholder="Extra Location Rent" ></th>
                                     
-                                
-                                    <input type="text" class="time-input" name="loctn" placeholder="Enter Pooja Location" ></th>
-                                    
-                                    <input 
-                                           type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
-                               
-                                    <input type="text" class="time-input" placeholder="Enter Current Location" ></th>
-                                    
-									<input name="submit" type="button"
-                                            class="punch-in-btn" value="Set Location" id="submitbtn">
-                                
-                         
-                                   
-                                    
+									<input name="submit" type="button" class="punch-in-btn" value="Set Location" id="submitbtn">  
                            </form>
+
+
                         </div>
                     </div>
                     <div class="profile-box">
@@ -461,6 +469,9 @@ if (isset($_POST['punchin'])) {
 
                             <table class="table table-striped table-hover">
                                 <thead>
+									<?php
+			                        if(mysqli_num_rows($result8)!=0){ 
+			                        ?>
                                     <tr>
 							
                                         <th>Date</th>
@@ -506,6 +517,10 @@ if (isset($_POST['punchin'])) {
 										</th>
 
 								</tr>');}
+									}
+								else{
+								echo('<h2>No Pending Requests</h2>');
+							}
 								?>
 
 
@@ -515,6 +530,79 @@ if (isset($_POST['punchin'])) {
 									</form>
                         </div>
                         <a href="Requests.php" style="color: red;">View more</a>
+                    </div>
+                </div>
+
+				<!--- Misc Section Box--->
+				<div id="middle-container" class="bottom-section">
+                    <div class="detailed-box" id="request-table">
+                        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Miscellaneous
+                        </h3>
+                        <div class="request-table" style="overflow-x:auto;">
+
+                            <table class="table table-striped table-hover">
+                                <thead>
+									<?php
+			                        if(mysqli_num_rows($result8)!=0){ 
+			                        ?>
+                                    <tr>
+							
+                                        <th>SI No</th>
+                                        <th>Date</th>
+                                        <th>Name</th>
+                                        <th>Purpose</th>
+                                        <th>Time</th>
+                                        <th>Remark</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+								<?php 
+                                    while($row=mysqli_fetch_assoc($result8)){
+                                        
+
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+                                        <th>'.$date.'</th>
+                                        <th>'.$time.'</th>
+                                        <th>'.$row['name'].'</th>
+                                        <th>'.$row['details'].'</th>
+                                        <th>'.$row['price'].'</th>
+                                        <th>'.$row['number'].'</th>
+
+
+
+                                        <th>
+									<form action="index.php" method="post">
+									    <input type="text" name="req_id" value="'.$row['id'].'" hidden>
+										<input type="submit" name="req_accept" value="Accept" class="edit" >
+											
+										
+										<input type="submit" value="Decline" class="delete" data-toggle="modal">
+
+										</form>
+										</a>
+										</th>
+
+								</tr>');}
+									}
+								else{
+								echo('<h2>No Pending Requests</h2>');
+							}
+								?>
+
+
+                                </tbody>
+                                 
+                            </table>
+									</form>
+                        </div>
+                        <a href="misc.php" style="color: red;">View more</a>
                     </div>
                 </div>
 						
@@ -612,36 +700,64 @@ if (isset($_POST['punchin'])) {
    ");
     ?>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
 
      <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <script src="js/jquery-3.3.1.slim.min.js"></script>
-   <script src="js/popper.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/jquery-3.3.1.min.js"></script>
-  
-  
-  <script type="text/javascript">
-       $(document).ready(function(){
-	      $(".xp-menubar").on('click',function(){
-		    $("#sidebar").toggleClass('active');
-			$("#content").toggleClass('active');
-		  });
-		  
-		  $('.xp-menubar,.body-overlay').on('click',function(){
-		     $("#sidebar,.body-overlay").toggleClass('show-nav');
-		  });
-		  
-	   });
+    <!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".xp-menubar").on('click', function () {
+				$("#sidebar").toggleClass('active');
+				$("#content").toggleClass('active');
+			});
+
+			$('.xp-menubar,.body-overlay').on('click', function () {
+				$("#sidebar,.body-overlay").toggleClass('show-nav');
+			});
+
+		});
   </script>
   
   
+  <script>
+    // Function to show the popup when "Others" option is selected
+    document.getElementById("mySelect").addEventListener("change", function () {
+      var popup = document.getElementById("popup");
+      var select = document.getElementById("mySelect");
+      if (select.value === "others") {
+        popup.style.display = "block";
+      } else {
+        popup.style.display = "none";
+      }
+    });
 
+    // Function to save the choice and hide the popup
+    function saveChoice() {
+      var select = document.getElementById("mySelect");
+      var locationInput = document.getElementById("location").value;
+      var rentInput = document.getElementById("rent").value;
+      var newOptionText = locationInput + " - " + rentInput;
+
+      if (locationInput && rentInput) {
+        var newOption = document.createElement("option");
+        newOption.value = "custom";
+        newOption.innerHTML = newOptionText;
+        select.appendChild(newOption);
+        select.value = "custom";
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+      } else {
+        alert("Please enter both location and rent.");
+      }
+    }
+  </script>
 
 
   </body>

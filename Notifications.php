@@ -73,7 +73,77 @@ header('location:Attendance.php');
 		#rejectAllBtn {
 			color: green;
 			visibility: hidden;
+			
 		}
+		table {
+  background: #152935;
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+  margin-top: 700px;
+  width: 1200px;
+  margin-left:30px;
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: #E2B842;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background: #014055;
+}
+
+		
+    /* Inline CSS for simplicity (Ideally, you should use separate CSS files) */
+    
+    
+    .container {
+      max-width: 900px;
+      max-height: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    
+    .form-group {
+      margin-bottom: 10px;
+    }
+    
+    label {
+      display: block;
+      font-weight: bold;
+    }
+    
+    select, input[type="text"], textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+    
+    .submit-btn {
+      background-color: #007bff;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  
 	</style>
 </head>
 
@@ -107,7 +177,7 @@ header('location:Attendance.php');
 				</li>
 
 
-				<li class="active">
+				<li class="dropdown">
 					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 						<i class="material-icons">aspect_ratio</i>Attendance
 					</a>
@@ -153,24 +223,22 @@ header('location:Attendance.php');
 
 				<li class="dropdown">
 					<a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">grid_on</i>Locations
+						<i class="material-icons">grid_on</i>Miscellaneous
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu6">
-						<li><a href="#">table 1</a></li>
-						<li><a href="#">table 2</a></li>
-						<li><a href="#">table 3</a></li>
+						<li><a href="misc.php">Miscellaneous</a></li>
+						
 					</ul>
 				</li>
 
 
-				<li class="dropdown">
+				<li class="active">
 					<a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">content_copy</i>Pages
+						<i class="material-icons">content_copy</i>Notification
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu7">
-						<li><a href="#">Pages 1</a></li>
-						<li><a href="#">Pages 2</a></li>
-						<li><a href="#">Pages 3</a></li>
+						<li><a href="Notifications.php">Notification</a></li>
+						
 					</ul>
 				</li>
 
@@ -262,7 +330,7 @@ header('location:Attendance.php');
 					</div>
 
 					<div class="xp-breadcrumbbar text-center">
-						<h4 class="page-title">Attendence Request</h4>
+						<h4 class="page-title">Notifications Panel</h4>
 						<ol class="breadcrumb">
 
 						</ol>
@@ -277,65 +345,131 @@ header('location:Attendance.php');
 			<!------main-content-start----------->
 
 			<div class="main-content">
-				<div class="attendence" style="overflow-x:auto;">
-					
-						<table class="table table-striped table-hover">
-							<thead>
-								<tr>
-												<?php
-			if(mysqli_num_rows($result)!=0){ 
-			?>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" onchange='selects()' id="selectAll">
-											<label for="selectAll"></label></th>
-									<th>Name</th>
-									<th>Department</th>
-									<th>Time</th>
-									<th>Phone</th>
-									<th>Actions</th>
-								</tr>
-							</thead>
-
-							<tbody>
-								<?php
-								
-								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-									echo('
-								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox1"></label></th>
-									<th>'.$row['username'].'</th>
-									<th>'.$row['dept'].'</th>
-									<th>Time</th>
-									<th>702341231</th>
-
-									<th>
-									<form action="Attendance.php" method="post">
-									    <input type="text" name="id" value="'.$row['id'].'" hidden>
-										<input type="submit" name="acc" value="Accept" class="edit" >
-											
-										
-										<input type="submit" value="Decline" class="delete" data-toggle="modal">
-
-										</form>
-									</th>
-								</tr>');
-	                            }
-							}
-							else{
-								echo('<h2>NO PENDTING REQUESTS</h2>');
-							}
-
-								?>
-						</table>
-						<div>
-							<button id="acceptAllBtn" formaction="#">Accept All</button>
-							<button id="rejectAllBtn" formaction="#">Reject All</button>
-						</div><br>
-			
-				</div>
+			<div class="container">
+    <form>
+      <div class="form-group">
+        <label for="to">To:</label>
+        <select id="to" name="to">
+          <option value="">Select recipient</option>
+          <option value="recipient1@example.com">Camera Dept.</option>
+          <option value="recipient2@example.com">Makeup Dept.</option>
+          <option value="recipient3@example.com">Artist Dept</option>
+          <option value="recipient4@example.com">Costume Dept.</option>
+          <option value="recipient5@example.com">Art Dept.</option>
+          <option value="recipient6@example.com">Camerman Dept.</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" name="subject" placeholder="Enter subject">
+      </div>
+      <div class="form-group">
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="6" placeholder="Compose your email"></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send</button>
+    </form>
+  </div>
 			</div>
+			<table>
+            
+  <thead>
+    <tr>
+      <th>SI NO</th>
+      <th>DATE</th>
+      <th> Name</th>
+      <th>PURPOSE</th>
+      
+      
+     
+  </thead>
+  <tbody>
+    <?php
+//   $sql1 = "SELECT id, name, amount, remark FROM miscellaneous";
+//   $result1 = mysqli_query($conn, $sql);
+//   if (!$result1) {
+//     die("Query failed: " . mysqli_error($conn));
+// }
+
+//   if ($result1->num_rows > 0) {
+        
+//         while ($row = $result1->fetch_assoc()) {
+//             echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["amount"]. "</td><td>" . $row["remark"] . "</td></tr>";
+//         }
+//     } else {
+//         echo "0 results";
+//     }
+
+
+
+// showing values in the table
+      $rowsql = "SELECT id, timestamp, name, amount, purpose, remark FROM miscellaneous";
+      $rowresult = mysqli_query($conn, $rowsql);
+      $sum =0;
+			if(mysqli_num_rows($rowresult)!=0){ 
+		
+while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
+  $time = new DateTime($row['timestamp']);
+  $date = $time->format('j.n.Y');
+  $time = $time->format('H:i A');
+  
+  echo('
+								<tr>
+  <td>'.$row['id'].'</td>
+      <td>'.$date.'</td>
+      <td>'.$row['name'].'</td>
+      <td>'.$row['purpose'].'</td>
+      <td>'.$time.'</td>');
+      $sum = $sum + $row['amount'];
+
+}
+      }
+      else{
+        echo('<h2>NO PENDTING REQUESTS</h2>');
+      }
+    ?>
+    <!-- <tr>
+      <td>1</td>  
+    
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+     
+
+      
+    <tr>
+      <td>2</td>
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+     
+    <tr class="disabled">
+      <td>3</td>
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+     
+    
+    <tr>
+
+   
+    <tr>
+      <td>8</td>
+      <td>24-08=2023</td>
+      <td>Reynolds</td>
+      <td>camera</td>
+      <td>5000</td>
+      -->
+     
+
+
+
+  </tbody>
+</table>
+
 			<!------main-content-end----------->
 
 
@@ -362,10 +496,6 @@ header('location:Attendance.php');
 	<!-------complete html----------->
 
 
-
-
-
-
 	<!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 	<script src="js/jquery-3.3.1.slim.min.js"></script>
@@ -387,26 +517,8 @@ header('location:Attendance.php');
 
 		});
 
-		//select all and reject all
-		function selects() {
-			var ele = document.getElementsByName("checkbox");
-			if (document.getElementById("selectAll").checked == true) {
-				document.getElementById("acceptAllBtn").style.visibility = "visible";
-				document.getElementById("rejectAllBtn").style.visibility = "visible";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = true;
-				}
-			}
-			else{
-				document.getElementById("acceptAllBtn").style.visibility = "hidden";
-				document.getElementById("rejectAllBtn").style.visibility = "hidden";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = false;
-				}
-			}
-		}
+	
+		
 	</script>
 
 
