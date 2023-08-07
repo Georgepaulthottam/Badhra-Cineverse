@@ -262,7 +262,7 @@ if (isset($_POST['punchin'])) {
 								  <span class="notification">4</span>
 								 </a>
 								  <ul class="dropdown-menu">
-								     <li><a href="#">You Have 4 New Messages</a></li>
+								     <li><a href="Notifications.php	">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
