@@ -49,7 +49,7 @@ if (!isset($_SESSION['user'])) {
 		 .expensebox {
       width: 400px;
       height: 160px;
-      background-color: lightgray;
+      background-color:#cfcfc4 ;
       border: 1px solid gray;
       padding: 20px;
 	  box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
