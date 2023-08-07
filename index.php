@@ -103,6 +103,7 @@ if (isset($_POST['punchin'])) {
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 	  
 	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+	 
   </head>
   <body>
   
@@ -246,10 +247,8 @@ if (isset($_POST['punchin'])) {
 					 </div>
 					 
 					 <div class="col-md-5 col-lg-3 order-3 order-md-2">
-					     <div class="xp-searchbar">
-						    
-							 </form>
-						 </div>
+					     
+						 
 					 </div>
 					 
 					 
@@ -274,11 +273,11 @@ if (isset($_POST['punchin'])) {
 							   
 							   <li class="dropdown nav-item">
 							     <a class="nav-link" href="#" data-toggle="dropdown">
-								  <img src="profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
+								 <img src="profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
 								  <span class="xp-user-live"></span>
 								 </a>
 								  <ul class="dropdown-menu small-menu">
-								     <li><a href="#">
+								     <li><a href="profile.php">
 									 <span class="material-icons">person_outline</span>
 									 Profile
 									 </a></li>
@@ -348,25 +347,35 @@ if (isset($_POST['punchin'])) {
 										<input name="settime" type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
                                     
                              
-                       
-						<select id="optionsList" onchange="hideSelectOptions()" class="time-input">
-        <option value="option0" selected>Set Location</option>
-        <option value="option1">Location 1</option>
-        <option value="option2">Location 2</option>
-        <option value="option3">Location 3</option>
-        <option value="option4">Other</option>
-      </select>
-                                    
-                                    <input type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
-                               
+
+									 <!------Select Optionss with popup----------->	
+										<select id="mySelect">
+											<option value="option0" selected>Set Location</option>
+											<option value="option1">Location 1</option>
+											<option value="option2">Location 2</option>
+											<option value="option3">Location 3</option>
+											<option value="others">Others</option>
+										</select>
+										<div class="popup" id="popup">
+											<h5>Enter Manually:</h5>
+											
+											<input type="text" id="location" placeholder="Enter Location">
+											<br>
+											
+											<input type="text" id="rent" placeholder="Enter Rent">
+											<br>
+											<button onclick="saveChoice()" id="popupbtn">Save</button>
+										</div>
+										
+										<input type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
+                   
+										<!---Location rent --->
                          <input type="text" class="time-input" placeholder="Extra Location Rent" ></th>
                                     
-									<input name="submit" type="button" class="punch-in-btn" value="Set Location" id="submitbtn">
-                                
-                         
-                                   
-                                    
+									<input name="submit" type="button" class="punch-in-btn" value="Set Location" id="submitbtn">  
                            </form>
+
+
                         </div>
                     </div>
                     <div class="profile-box">
@@ -691,36 +700,64 @@ if (isset($_POST['punchin'])) {
    ");
     ?>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
 
      <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <script src="js/jquery-3.3.1.slim.min.js"></script>
-   <script src="js/popper.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/jquery-3.3.1.min.js"></script>
-  
-  
-  <script type="text/javascript">
-       $(document).ready(function (){
-	      $(".xp-menubar").on('click',function(){
-		    $("#sidebar").toggleClass('active');
-			$("#content").toggleClass('active');
-		  });
-		  
-		  $('.xp-menubar,.body-overlay').on('click',function(){
-		     $("#sidebar,.body-overlay").toggleClass('show-nav');
-		  });
-		  
-	   });
+    <!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="js/jquery-3.3.1.slim.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery-3.3.1.min.js"></script>
+
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			$(".xp-menubar").on('click', function () {
+				$("#sidebar").toggleClass('active');
+				$("#content").toggleClass('active');
+			});
+
+			$('.xp-menubar,.body-overlay').on('click', function () {
+				$("#sidebar,.body-overlay").toggleClass('show-nav');
+			});
+
+		});
   </script>
   
   
+  <script>
+    // Function to show the popup when "Others" option is selected
+    document.getElementById("mySelect").addEventListener("change", function () {
+      var popup = document.getElementById("popup");
+      var select = document.getElementById("mySelect");
+      if (select.value === "others") {
+        popup.style.display = "block";
+      } else {
+        popup.style.display = "none";
+      }
+    });
 
+    // Function to save the choice and hide the popup
+    function saveChoice() {
+      var select = document.getElementById("mySelect");
+      var locationInput = document.getElementById("location").value;
+      var rentInput = document.getElementById("rent").value;
+      var newOptionText = locationInput + " - " + rentInput;
+
+      if (locationInput && rentInput) {
+        var newOption = document.createElement("option");
+        newOption.value = "custom";
+        newOption.innerHTML = newOptionText;
+        select.appendChild(newOption);
+        select.value = "custom";
+        var popup = document.getElementById("popup");
+        popup.style.display = "none";
+      } else {
+        alert("Please enter both location and rent.");
+      }
+    }
+  </script>
 
 
   </body>

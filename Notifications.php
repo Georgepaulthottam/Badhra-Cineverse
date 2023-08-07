@@ -195,7 +195,7 @@ header('location:Attendance.php');
 						<i class="material-icons">grid_on</i>Miscellaneous
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu6">
-						<li><a href="misc.php"></a>Miscellaneous</li>
+						<li><a href="misc.php">Miscellaneous</a></li>
 						
 					</ul>
 				</li>
@@ -299,7 +299,7 @@ header('location:Attendance.php');
 					</div>
 
 					<div class="xp-breadcrumbbar text-center">
-						<h4 class="page-title">Attendence Request</h4>
+						<h4 class="page-title">Notifications Panel</h4>
 						<ol class="breadcrumb">
 
 						</ol>

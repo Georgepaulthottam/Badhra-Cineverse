@@ -264,7 +264,7 @@ tbody tr:hover {
 		
 		<ul class="list-unstyled component m-0">
 
-		  <li class="active">
+		  <li class="dropdown">
 		  <a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 		  </li>
 		  
@@ -332,13 +332,13 @@ tbody tr:hover {
 		  </ul>
 		  </li>
 		  
-		  <li class="dropdown">
+		  <li class="active">
 		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>miscellaneous
+		  <i class="material-icons">grid_on</i>Miscellaneous
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="misc.php">miscellaneous</a></li>
+		     <li><a href="misc.php">Miscellaneous</a></li>
 			 
 		  </ul>
 		  </li>
@@ -347,12 +347,11 @@ tbody tr:hover {
 		  <li class="dropdown">
 		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">content_copy</i>Pages
+		  <i class="material-icons">content_copy</i>Notifications
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-		     <li><a href="#">Pages 1</a></li>
-			 <li><a href="#">Pages 2</a></li>
-			 <li><a href="#">Pages 3</a></li>
+		     <li><a href="Notifications.php">Notifications</a></li>
+			
 		  </ul>
 		  </li>
 		  
