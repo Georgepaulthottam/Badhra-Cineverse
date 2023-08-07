@@ -54,6 +54,11 @@
       display: inline-block;
       margin-right: 20px;
     }
+	table.table td:last-child{
+		   opacity:0.9;
+		   font-size:16px;
+		   margin:0px 5px;
+	   }
 
     /* Style for the label element */
     label {
@@ -68,14 +73,54 @@
 	.bata-btn{
 		margin-top: 50px;
         letter-spacing: 4px;
-		margin-left:178px;
+		margin-left:220px;
         color: red;
         border: 2px solid rgb(252,60,69);
         border-radius: 5px;
         padding: 3px;
 	}
+	.form-container {
+            display: flex;
+        }
+
+		.form {
+            flex: -2;
+           
+        }
+		.hidden-row {
+            display: none;
+        }
 		
 	</style>
+	 <script>
+        function toggleRows() {
+            var rows = document.getElementsByClassName("hidden-row");
+            for (var i = 0; i < rows.length; i++) {
+                rows[i].style.display = "table-row";
+            }
+        }
+
+        function calculateTotals() {
+            var amountInputs = document.getElementsByName("amount");
+            var totalExpense = 0;
+
+            for (var i = 0; i < amountInputs.length; i++) {
+                var amountValue = parseFloat(amountInputs[i].value);
+                if (!isNaN(amountValue)) {
+                    totalExpense += amountValue;
+                }
+            }
+			var closingBalanceInput = document.getElementById("closing-balance");
+            var totalExpenseField = document.getElementById("total-expense");
+
+            var closingBalance = parseFloat(closingBalanceInput.value);
+            if (!isNaN(closingBalance)) {
+                var remainingBalance = closingBalance - totalExpense;
+                totalExpenseField.textContent = totalExpense.toFixed(2);
+                closingBalanceInput.value = remainingBalance.toFixed(2);
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -281,7 +326,7 @@
 
 			<div class="main-content">
 				<div class="attendence" style="overflow-x:auto;">
-					<form action="#">
+					
 					<table class="profile-box">
 							<thead>
 					            <tr>
@@ -312,53 +357,67 @@
                           </div>
                         </th>
                     </table>
-					<div>
-					<form action="" method="post">
-					<input name="Add Approved Expense" type="submit"
-                                            class="bata-btn" value="Add Approved Expense" id="aprovexpbtn">
-					<input name="Add Miscellanious" type="submit"
-                                            class="bata-btn" value="Add Miscellanious" id="submitbtn">
+					<div class="form-container">
+					<form form class="form" action="approved_requests.php" method="post">
+					    <input name="Approved Expense" type="submit" 
+						                    class="bata-btn" value="Approved Expense" id="aprovexpbtn">
+					  
+                    </form>	
+					<form form class="form" action="miscellanious.php" method="post">
+
+					    <input name="Miscellanious" type="submit"
+                                            class="bata-btn" value="Miscellanious" id="submitbtn">
 					</form> 
 											
                     </div>
 					<br>
 					<br>
 					<br>
-					<table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-									
-                                    <th>SI No.</th>
-									<th>Name</th>
-									<th>Purpose</th>
-									<th>Amount</th>
-                                    </tr>
-                                </thead>
+		<div class="attendence" style="overflow-x:auto;">
+			<form action="#">
+				<table class="table table-striped table-hover">
+					<tr>
+                      <th>SI No.</th>
+                      <th>Name</th>
+                      <th>Purpose</th>
+                      <th>Amount</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Sajith</td>
+                      <td>Salary</td>
+                      <td>$1000</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Lakshmi</td>
+                      <td>Rent</td>
+                      <td>$800</td>
+                    </tr>
+                    <tr class="hidden-row">
+                      <td><input type="text" name="si_no" placeholder="SI No."></td>
+                      <td><input type="text" name="name" placeholder="Enter Name"></td>
+                      <td><input type="text" name="purpose" placeholder="Enter Purpose"></td>
+                      <td><input type="text" name="amount" placeholder="Enter Amount"></td>
+                    </tr>
+                     
+                </table>
 
-                                <tbody>
-								
-                                </tbody>
-                                 
-                    </table>
-						
-							
-					
-												<?php
-		//	if(mysqli_num_rows($result)!=0){ 
+                <button onclick="toggleRows()">Add Expense</button>
 
+                <div>
+                  <label>Closing Balance: </label>
+                  <input type="text" id="closing-balance" placeholder="Enter Closing Balance">
+                </div>
+                <div>
+                  <label>Total Expense: </label>
+                  <span id="total-expense">0.00</span>
+                </div>
 
-			?>
-			 
-								<?php
-								
-								/*while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-								   $time = new DateTime($row['datetime']);
-                                   $date = $time->format('j.n.Y');
-                                   $time = $time->format('H:i A');
-									echo(' */
-                                    ?>
-								
-						<div>
+                 <button onclick="calculateTotals()"  class="bata-btn">Calculate Totals</button>
+				 <button onclick="calculateTotals()"  class="bata-btn">Submit</button>
+
+				<div>
 							<button id="acceptAllBtn" formaction="#">Accept All</button>
 							<button id="rejectAllBtn" formaction="#">Reject All</button>
 						</div><br>
