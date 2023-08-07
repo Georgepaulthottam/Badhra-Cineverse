@@ -18,6 +18,8 @@ if (!isset($_SESSION['user'])) {
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!----css3---->
 	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+	
 
 
 	<!--google fonts -->
@@ -46,13 +48,14 @@ if (!isset($_SESSION['user'])) {
 		 /* Styling for the box container */
 		 .expensebox {
       width: 400px;
-      height: 130px;
-      background-color: lightgray;
+      height: 160px;
+      background-color:#cfcfc4 ;
       border: 1px solid gray;
       padding: 20px;
 	  box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
-	  margin-left:100px;
-	  margin-top:70px;
+	  margin-left:60px;
+	  flex:-1;
+	  margin-top:10px;
       box-sizing: border-box;
     }
 
@@ -61,11 +64,16 @@ if (!isset($_SESSION['user'])) {
       display: inline-block;
       margin-right: 20px;
     }
+	table.table td:last-child{
+		   opacity:0.9;
+		   font-size:16px;
+		   margin:0px 5px;
+	   }
 
     /* Style for the label element */
     label {
       display: inline-block;
-      font-weight: bold;
+      
     }
 
     /* Style for the value element */
@@ -73,16 +81,119 @@ if (!isset($_SESSION['user'])) {
       display: inline-block;
     }
 	.bata-btn{
-		margin-top: 50px;
-        letter-spacing: 4px;
-		margin-left:178px;
-        color: red;
-        border: 2px solid rgb(252,60,69);
-        border-radius: 5px;
-        padding: 3px;
-	}
+		display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 280px;
+  margin-top: 27px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+.primary-button {
+  background-color:  #002147  ;
+  color: #ffffff;
+  border: 2px solid #002e63 ;
+}
+
+.primary-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+	.form-container {
+            display: flex;
+        }
+
+		.form {
+            flex: -2;
+           
+        }
+		.hidden-row {
+            display: none;
+        }
+		
+		table {
+  background: #152935;
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+ 
+ 
+  width: 1200px;
+  margin-left:30px;
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: #da9100;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background: #014055;
+}
+
+  .add-icon {
+      font-size: 15px;
+      color: #007bff;
+	  width:24px;
+	  height:24px;
+	  text-align: center;
+
+	  background: #002147;
+    }
+	.tick-icon {
+      font-size: 15px;
+      color: #3cb371;
+	  width:28px;
+	  height:28px;
+	  background: #002147;
+    }
+
 		
 	</style>
+	 <script>
+        function toggleRows() {
+            var rows = document.getElementsByClassName("hidden-row");
+            for (var i = 0; i < rows.length; i++) {
+                rows[i].style.display = "table-row";
+            }
+        }
+
+        function calculateTotals() {
+            var amountInputs = document.getElementsByName("amount");
+            var totalExpense = 0;
+
+            for (var i = 0; i < amountInputs.length; i++) {
+                var amountValue = parseFloat(amountInputs[i].value);
+                if (!isNaN(amountValue)) {
+                    totalExpense += amountValue;
+                }
+            }
+			var closingBalanceInput = document.getElementById("closing-balance");
+            var totalExpenseField = document.getElementById("total-expense");
+
+            var closingBalance = parseFloat(closingBalanceInput.value);
+            if (!isNaN(closingBalance)) {
+                var remainingBalance = closingBalance - totalExpense;
+                totalExpenseField.textContent = totalExpense.toFixed(2);
+                closingBalanceInput.value = remainingBalance.toFixed(2);
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -159,6 +270,16 @@ if (!isset($_SESSION['user'])) {
 						<li><a href="#">Pages 3</a></li>
 					</ul>
 				</li>
+				<li class="dropdown">
+		           <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
+		           class="dropdown-toggle">
+		          <i class="material-icons">grid_on</i>Miscellaneous
+		          </a>
+		           <ul class="collapse list-unstyled menu" id="homeSubmenu6">
+		          <li><a href="misc.php">Miscellaneous</a></li>
+			 
+		           </ul>
+		       </li>
 
 				<li class="dropdown">
 					<a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
@@ -288,12 +409,12 @@ if (!isset($_SESSION['user'])) {
 
 			<div class="main-content">
 				<div class="attendence" style="overflow-x:auto;">
-					<form action="#">
+					
 					<table class="profile-box">
 							<thead>
 					            <tr>
-								<th>TITLE: &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp;</th>
-			                    <th>DATE</th>
+								<th>TITLE:</th>
+			                    <th>DATE:</th>
 	                            </tr>
                     </table>
 					<table>
@@ -301,9 +422,9 @@ if (!isset($_SESSION['user'])) {
                           <div class="expensebox">
                             <div class="expensefield">
                               <label for="opening-balance">Opening Balance: &emsp; </label>
-                              <span class="expensevalue">19215</span>
-	                          <label for="opening-balance">Advance: &emsp; &emsp; &emsp; &emsp; &nbsp;</label>
-                              <span class="expensevalue">5000</span>
+                              <span class="expensevalue">19215</span><br>
+	                          <label for="opening-balance">Advance: &emsp; &nbsp; &emsp; &emsp;  &emsp; </label>
+                              <span class="expensevalue">5000</span><br>
 	                          <label for="opening-balance">Total: &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&nbsp;</label>
                               <span class="expensevalue">69215</span>
                             </div>
@@ -319,53 +440,92 @@ if (!isset($_SESSION['user'])) {
                           </div>
                         </th>
                     </table>
-					<div>
-					<form action="" method="post">
-					<input name="Add Approved Expense" type="submit"
-                                            class="bata-btn" value="Add Approved Expense" id="aprovexpbtn">
-					<input name="Add Miscellanious" type="submit"
-                                            class="bata-btn" value="Add Miscellanious" id="submitbtn">
+					<div class="form-container">
+					<form form class="form" action="approved_requests.php" method="post">
+					    <input name="Approved Expense" type="submit" 
+						                    class="bata-btn primary-button" value="Approved Expense" id="aprovexpbtn">
+					  
+                    </form>	 
+					<form form class="form" action="misc.php" method="post">
+
+					    <input name="Miscellanious" type="submit"
+                                            class="bata-btn primary-button" value="Miscellanious" id="submitbtn">
 					</form> 
 											
                     </div>
 					<br>
 					<br>
 					<br>
-					<table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-									
-                                    <th>SI No.</th>
-									<th>Name</th>
-									<th>Purpose</th>
-									<th>Amount</th>
-                                    </tr>
-                                </thead>
-
-                                <tbody>
-								
-                                </tbody>
-                                 
-                    </table>
-						
-							
+		<div class="attendence" style="overflow-x:auto;">
+			<form action="#">
+				<table >
+					<tr>
+                      <th>SI No.</th>
+                      <th>Name</th>
+                      <th>Purpose</th>
+                      <th>Amount</th>
+                    </tr>
+                    <tr>
+                      <td>1</td>
+                      <td>Sajith</td>
+                      <td>Salary</td>
+                      <td>$1000</td>
+                    </tr>
+                    <tr>
+                      <td>2</td>
+                      <td>Lakshmi</td>
+                      <td>Rent</td>
+                      <td>$800</td>
+                    </tr>
+                    <tr class="hidden-row">
+                      <td><input type="text" name="si_no" placeholder="SI No."></td>
+                      <td><input type="text" name="name" placeholder="Enter Name"></td>
+                      <td><input type="text" name="purpose" placeholder="Enter Purpose"></td>
+                      <td><input type="text" name="amount" placeholder="Enter Amount"></td>
+					  <td> <Button class="tick-icon" type="submit">
+    <i class="fas fa-check-circle"></i></td>
+                    </tr>
+					<tr>
+                      <td><button onclick="toggleRows()"><div class="add-icon">
+    <i class="fas fa-plus-circle"></i></button></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+					<tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+					<tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+					<tr>
+                      <td></td>
+                      <td></td>
+                      <td>Closing Balance:</td>
+                      <td>$400</td>
+                    </tr>
+					<tr>
+                      <td></td>
+                      <td></td>
+                      <td>Total Expense:</td>
+                      <td>$600</td>
+                    </tr>
 					
-												<?php
-		//	if(mysqli_num_rows($result)!=0){ 
+                     
+                </table>
 
+                
 
-			?>
-			 
-								<?php
-								
-								/*while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
-								   $time = new DateTime($row['datetime']);
-                                   $date = $time->format('j.n.Y');
-                                   $time = $time->format('H:i A');
-									echo(' */
-                                    ?>
-								
-						<div>
+               
+
+                
+				<div>
 							<button id="acceptAllBtn" formaction="#">Accept All</button>
 							<button id="rejectAllBtn" formaction="#">Reject All</button>
 						</div><br>
