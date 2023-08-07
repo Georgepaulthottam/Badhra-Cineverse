@@ -242,7 +242,7 @@ if (!isset($_SESSION['user'])) {
 		  
  <!------main-content-start-----------> 
 		     
-<div class="main-content">
+ <div class="main-content">
 
 <div class="main-body">
 
@@ -251,13 +251,13 @@ if (!isset($_SESSION['user'])) {
 <div class="card">
 <div class="card-body">
 <div class="d-flex flex-column align-items-center text-center">
-<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+<img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="200">
 <div class="mt-3">
-<h4>Demin</h4>
+<h4>Bobby</h4>
 <p class="text-secondary mb-1">Production Department</p>
-<p class="text-muted font-size-sm">Phone :+91 9685412322</p>
+<p class="text-muted font-size-sm">Kozikode, Kerala, India</p>
 <button class="btn btn-primary">Upload Photo</button>
-<!-- <button class="btn btn-outline-primary">Message</button> -->
+<a href="#editPasswordModal" data-toggle="modal"><button class="btn btn-outline-primary" >Change Password</button></a>
 </div>
 </div>
 </div>
@@ -295,7 +295,7 @@ if (!isset($_SESSION['user'])) {
 <h6 class="mb-0">User Name</h6>
 </div>
 <div class="col-sm-9 text-secondary">
-Demin KB
+Bobby p k
 </div>
 </div>
 <hr>
@@ -303,7 +303,7 @@ Demin KB
 <div class="col-sm-3">
 <h6 class="mb-0">Email</h6>
 </div>
-<div class="col-sm-9 text-secondary">deminkb012@gmail.com</a>
+<div class="col-sm-9 text-secondary">bobbypk012@gmail.com</a>
 </div>
 </div>
 <hr>
@@ -321,31 +321,20 @@ Demin KB
 <h6 class="mb-0">Address</h6>
 </div>
 <div class="col-sm-9 text-secondary">
-Kochi, Kerala, India
+Kozikode, Kerala, India
 </div>
 </div>
 <hr>
 <div class="row">
-<div class="col-sm-12">
-<a class="btn btn-primary" target="__blank" href="profileedit.html">Edit</a>
+<div class="col-sm-3">
+<h6 class="mb-0">Account Holder</h6>
+</div>
+<div class="col-sm-9 text-secondary">
+Bobby p k
 </div>
 </div>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-	<div class="card mb-3">
-	<div class="card-body">
-	<div class="row">
-	<div class="col-sm-3">
-	<h6 class="mb-0">Account Holder</h6>
-	</div>
-	<div class="col-sm-9 text-secondary">
-	Demin K B
-	</div>
-	</div>
-	<hr>
-	<div class="row">
+<hr>
+<div class="row">
 	<div class="col-sm-3">
 	<h6 class="mb-0">Account Number</h6>
 	</div>
@@ -379,18 +368,73 @@ Kochi, Kerala, India
 		MFWPK2311G
 		</div>
 		</div>
-	<hr>
-	<div class="row">
-	<div class="col-sm-12">
-	<a class="btn btn-primary" href="profileedit.html">Edit</a>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
+		<hr>
+<div class="row">
+<div class="col-sm-12">
+	<a href="#editDetailsModal" data-toggle="modal"><button class="btn btn-primary" >Edit</button></a>
+</div>
+</div>
+</div>
+</div>
+</div>
 
+<!-- <div class="row gutters-sm">
+<div class="col-sm-6 mb-3">
+<div class="card h-100">
+<div class="card-body">
+<h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
+<small>Web Design</small>
+<div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<small>Website Markup</small>
+<div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<small>One Page</small>
+<div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<small>Mobile Template</small>
+<div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<small>Backend API</small>
+<div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-sm-6 mb-3">
+<div class="card h-100">
+<div class="card-body">
+<h6 class="d-flex align-items-center mb-3"><i class="material-icons text-info mr-2">assignment</i>Project Status</h6>
+<small>Web Design</small>
+<div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<small>Website Markup</small>
+<div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<small>One Page</small>
+<div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 89%" aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<small>Mobile Template</small>
+<div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 55%" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+<small>Backend API</small>
+ <div class="progress mb-3" style="height: 5px">
+<div class="progress-bar bg-primary" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+</div>
+</div>
+</div>
+</div>
 
-
+</div> -->
 </div>
 </div>
 
@@ -415,13 +459,134 @@ Kochi, Kerala, India
 			   </div>
 			</div>
 		 </footer>
-		 
-		 
-		 
+ 
 		 
 	  </div>
-   
-</div>
+				   <!----edit-modal start--------->
+				   <div class="modal fade" tabindex="-1" id="editPasswordModal" role="dialog">
+					<div class="modal-dialog" role="document">
+					  <div class="modal-content">
+						<div class="modal-header">
+						  <h5 class="modal-title">Change Password</h5>
+						  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </button>
+						</div>
+						<div class="modal-body">
+						  <div class="form-group">
+							  <label>Current Password</label>
+							  <input type="password" class="form-control" required>
+						  </div>
+						  <div class="form-group">
+							  <label>New Password</label>
+							  <input type="password" class="form-control" required>
+						  </div>
+						  <div class="form-group">
+							  <label>Confirm Password</label>
+							  <input type="password" class="form-control" required>
+						  </div>
+						</div>
+						<div class="modal-footer">
+							<input type="button" class="btn btn-primary" value="Save Changes">
+							<input type="button" class="btn btn-primary" data-dismiss="modal" value="Cancel">
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  
+										 <!----edit-modal end--------->
+
+										 <!----edit-detailsmodal start--------->
+				   <div class="modal fade" tabindex="-1" id="editDetailsModal" role="dialog">
+					<div class="modal-dialog" role="document">
+					  <div class="modal-content">
+						<div class="modal-header">
+						  <h5 class="modal-title">Edit Details</h5>
+						  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						  </button>
+						</div>
+						<div class="modal-body">
+						  <div class="row mb-3">
+							<div class="col-sm-3">
+							<h6 class="mb-0">User name</h6>
+							</div>
+							<div class="col-sm-9 text-secondary">
+							<input type="text" class="form-control" placeholder="Enter your name">
+							</div>
+							</div>
+							<div class="row mb-3">
+							<div class="col-sm-3">
+							<h6 class="mb-0">Email</h6>
+							</div>
+							<div class="col-sm-9 text-secondary">
+							<input type="text" class="form-control" placeholder="Enter your email">
+							</div>
+							</div>
+							<div class="row mb-3">
+							<div class="col-sm-3">
+							<h6 class="mb-0">Phone</h6>
+							</div>
+							<div class="col-sm-9 text-secondary">
+							<input type="text" class="form-control" placeholder="Enter your password">
+							</div>
+							</div>
+							<div class="row mb-3">
+							<div class="col-sm-3">
+							<h6 class="mb-0">Address</h6>
+							</div>
+							<div class="col-sm-9 text-secondary">
+							<textarea class="form-control" placeholder="Enter your Address"></textarea>
+							</div>
+							</div>
+							<div class="row">
+							<div class="col-sm-3"></div>
+							<div class="col-sm-9 text-secondary">
+							</div>
+							</div>
+							<div class="row mb-3">
+							<div class="col-sm-3">
+							<h6 class="mb-0">Account Holder</h6>
+							</div>
+							<div class="col-sm-9 text-secondary">
+							<input type="text" class="form-control" placeholder="Enter your name">
+							</div>
+							</div>
+							<div class="row mb-3">
+							<div class="col-sm-3">
+							<h6 class="mb-0">Account Number</h6>
+							</div>
+							<div class="col-sm-9 text-secondary">
+							<input type="number" class="form-control" placeholder="Enter your account no">
+							</div>
+							</div>
+							<div class="row mb-3">
+							<div class="col-sm-3">
+							<h6 class="mb-0">Branch Name</h6>
+							</div>
+							<div class="col-sm-9 text-secondary">
+							<input type="text" class="form-control" placeholder="Enter your branch name">
+							</div>
+							</div>
+							<div class="row mb-3">
+							<div class="col-sm-3">
+							<h6 class="mb-0">Branch IFSC</h6>
+						    </div>
+							<div class="col-sm-9 text-secondary">
+							<input type="text" class="form-control" placeholder="Enter your branch ifsc">
+							</div>
+							</div>
+						</div>
+						<div class="modal-footer">
+						<input type="button" class="btn btn-primary" value="Save Changes">
+						<input type="button" class="btn btn-primary" data-dismiss="modal" value="Cancel">
+						</div>
+					  </div>
+					</div>
+				  </div>
+				  
+										 <!----edit-modal end--------->
+
 </div>
 
 
@@ -431,8 +596,10 @@ Kochi, Kerala, India
 
 
 
- <!-- jQuery first, then Popper.js, then Bootstrap JS -->
- <script src="js/jquery-3.3.1.slim.min.js"></script>
+  
+     <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="js/jquery-3.3.1.slim.min.js"></script>
    <script src="js/popper.min.js"></script>
    <script src="js/bootstrap.min.js"></script>
    <script src="js/jquery-3.3.1.min.js"></script>
@@ -451,7 +618,6 @@ Kochi, Kerala, India
 		  
 	   });
   </script>
-  
   
 
 
