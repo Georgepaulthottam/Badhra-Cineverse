@@ -165,6 +165,9 @@ tbody tr {
 tbody tr:hover {
   background: #014055;
 }
+.rowiee {
+	background-color: #436b95;
+}
 
   .addnew {
 	display: inline-block;
@@ -613,17 +616,20 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
                       <td></td>
                       <td></td>
                     </tr>
-					<tr>
-                      <td></td>
-                      <td></td>
+					<tr class="rowiee">
+  
+                      <td ></td>
                       <td>Closing Balance:</td>
                       <td>$400</td>
+                      <td>Total Expense:</td>
+					  <td><?php echo('₹'.$sum.'');?></td>
+					  <td ></td>
                     </tr>
 					<tr>
                       <td></td>
                       <td></td>
-                      <td>Total Expense:</td>
-                      <td><?php echo('₹'.$sum.'');?></td>
+                      <td></td>
+                      <td></td>
                     </tr>
 					
                      
