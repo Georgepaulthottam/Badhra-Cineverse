@@ -566,6 +566,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
     </svg>
   </div>
+  </td>
   <div class="delete-prompt" id="deletePrompt">
     <i>Are you sure you want to delete this expense?</i>
     <div class="btn-container">
@@ -575,7 +576,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
 	  </form>
     </div>
-  </div></td>
+  </div>
 
 					');
 					$sum=$sum+$row['price'];
