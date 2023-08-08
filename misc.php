@@ -160,7 +160,21 @@ tbody tr:hover {
   background-color: #0056b3;
   border-color: #0056b3;
 }
-	
+	/* css for acceptAll and rejectAll Button*/
+	.btnsCheck{
+		margin-left:3%;
+	}
+	#acceptAllBtn {
+			color: rgb(229, 117, 56);
+			visibility: hidden;
+			
+		}
+
+		#rejectAllBtn {
+			color: green;
+			visibility: hidden;
+			margin-left:20px;
+		}
 		
     </style>
     <!-- Required meta tags -->
@@ -474,8 +488,8 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   echo('
 								<tr>
 								<td><span class="custom-checkbox">
-											<input type="checkbox"  id="selectAll">
-											<label for="selectAll"></label></td>
+								<input type="checkbox" id="checkbox" name="checkbox" value="1">
+								<label for="checkbox1"></label></th>
   <td>'.$no.'</td>
       <td>'.$date.'</td>
       <td>'.$row['name'].'</td>
@@ -507,7 +521,10 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
   </tbody>
 </table>
-
+<div class="btnsCheck">
+							<button id="acceptAllBtn" formaction="#">Accept All</button>
+							<button id="rejectAllBtn" formaction="#">Reject All</button>
+						</div>
 </div>
           
 <br>
@@ -571,6 +588,28 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 		  });
 		  
 	   });
+
+	   //Select all boxes of table
+
+	   function selects() {
+			var ele = document.getElementsByName("checkbox");
+			if (document.getElementById("selectAll").checked == true ) {
+				document.getElementById("acceptAllBtn").style.visibility = "visible";
+				document.getElementById("rejectAllBtn").style.visibility = "visible";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = true;
+				}
+			}
+			else{
+				document.getElementById("acceptAllBtn").style.visibility = "hidden";
+				document.getElementById("rejectAllBtn").style.visibility = "hidden";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = false;
+				}
+			}
+		}
   </script>
   
   

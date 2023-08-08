@@ -359,6 +359,7 @@ if (isset($_POST['punchin'])) {
 											<option value="others">Others</option>
 										</select>
 										<div class="popup" id="popup">
+										<a class="close" href="#">X</a>
 											<h5>Enter Manually:</h5>
 											
 											<input type="text" id="location" placeholder="Enter Location">
@@ -725,6 +726,7 @@ if (isset($_POST['punchin'])) {
     document.getElementById("mySelect").addEventListener("change", function () {
       var popup = document.getElementById("popup");
       var select = document.getElementById("mySelect");
+	
       if (select.value === "others") {
         popup.style.display = "block";
       } else {
@@ -751,7 +753,16 @@ if (isset($_POST['punchin'])) {
         alert("Please enter both location and rent.");
       }
     }
+	//Close the popup
+	// From http://jsfiddle.net/LxauG/606/
 
+$('.close').click(function() {
+   $(".popup").fadeOut(300);
+});
+
+$(".popup").on('blur',function(){
+    $(this).fadeOut(300);
+});
 
   </script>
 
