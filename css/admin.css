@@ -104,18 +104,17 @@
   /* Styling for the popup */
   .popup {
     display: none;
-    position: relative;
-    top: 40%;
-    left: 50.5%;
+    position: absolute;
+    left: 50%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 2px;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius:25px;
+    border-radius:15px;
     box-shadow: 1px 2px 3px 4px rgba(42, 42, 42, 0.4);
     font-size:15px;
-    width:100%;
-    margin:0;
+    width:23vw;
+  
   }
 
 
@@ -205,18 +204,16 @@
     }
     .popup {
       display: none;
-      position: relative;
-      top: 40%;
-      left: 50.5%;
-      transform: translate(-50%, -50%);
-      background-color: white;
-      padding: 2px;
-      border: 1px solid #ccc;
-      border-radius:25px;
-      box-shadow: 1px 2px 3px 4px rgba(42, 42, 42, 0.4);
-      font-size:15px;
-      width:100%;
-      margin:0;
+    position: absolute;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius:15px;
+    box-shadow: 1px 2px 3px 4px rgba(42, 42, 42, 0.4);
+    font-size:15px;
+    width:82vw;
     }   
     
 
@@ -253,16 +250,17 @@
     margin-bottom:20px;
   }
 
-  table {
-    background: #152935;
-    border-radius: 0.25em;
-    border-collapse: collapse;
-    margin: 1em;
-    margin-top: 700px;
-   
-    min-width:20px;
-    margin-left:10px;
-  }
+ .misctable{
+  width:98%;
+  margin-left:-10px;
+ border-radius:20px;
+ }
+ .misctable table{
+ 
+  border-radius:10px;
+ }
+
+
   }
 
   
