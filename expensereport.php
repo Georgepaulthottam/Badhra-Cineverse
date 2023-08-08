@@ -140,8 +140,6 @@ if(isset($_POST['delete'])){
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
- 
- 
   width: 1200px;
   margin-left:30px;
 }

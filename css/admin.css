@@ -104,17 +104,18 @@
   /* Styling for the popup */
   .popup {
     display: none;
-    position: fixed;
-    top: 50%;
-    left: 58.5%;
+    position: relative;
+    top: 40%;
+    left: 50.5%;
     transform: translate(-50%, -50%);
     background-color: white;
-    padding: 8px;
+    padding: 2px;
     border: 1px solid #ccc;
     border-radius:25px;
     box-shadow: 1px 2px 3px 4px rgba(42, 42, 42, 0.4);
     font-size:15px;
-    width:24.5%;
+    width:100%;
+    margin:0;
   }
 
 
@@ -202,6 +203,66 @@
       padding:20px;
       width:210px;
     }
+    .popup {
+      display: none;
+      position: relative;
+      top: 40%;
+      left: 50.5%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 2px;
+      border: 1px solid #ccc;
+      border-radius:25px;
+      box-shadow: 1px 2px 3px 4px rgba(42, 42, 42, 0.4);
+      font-size:15px;
+      width:100%;
+      margin:0;
+    }   
+    
+
+    /*   For responsive Misc Page*/
+    .login-box{
+      width:90%;
+      margin-top:140px;
+    }
+    .login-box form a input{
+      position: relative;
+      display: block;
+      padding: 10px 20px;
+      color: white;
+      background:black;
+      font-size: 16px;
+      text-decoration: none;
+      text-transform: uppercase;
+      margin-left: 70px;
+      margin-top: -10px;
+      letter-spacing: 3px
+    }
+    #miscbuttons .bata-btn{
+      display: inline-block;
+    padding: 8px 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 50px;
+    margin-top: 25px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    cursor: pointer;
+    margin-bottom:20px;
+  }
+
+  table {
+    background: #152935;
+    border-radius: 0.25em;
+    border-collapse: collapse;
+    margin: 1em;
+    margin-top: 700px;
+   
+    min-width:20px;
+    margin-left:10px;
+  }
   }
 
   
