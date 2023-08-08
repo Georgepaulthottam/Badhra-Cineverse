@@ -163,16 +163,33 @@ tbody tr {
 tbody tr:hover {
   background: #014055;
 }
+.rowiee {
+	background-color: #436b95;
+}
 
-  .add-icon {
-      font-size: 15px;
-      color: #007bff;
-	  width:24px;
-	  height:24px;
-	  text-align: center;
-
-	  background: #002147;
+  .addnew {
+	display: inline-block;
+  padding: 8px 13px;
+  font-size: 12px;
+  
+  text-align: center;
+  margin-left:30px;
+  margin-top: 27px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+	 
     }
+	.sec-button {
+		background-color:  #da9100  ;
+  color: #ffffff;
+  border: 2px solid #da9100 ;
+}
+.sec-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
 	.tick-icon {
       font-size: 15px;
       color: #3cb371;
@@ -189,13 +206,13 @@ tbody tr:hover {
     display: none;
 	font-family: Arial, sans-serif;
     position: fixed;
-    top: 50%;
-    left: 60%;
+    top: 57%;
+    left: 67%;
 	font: size 5px;
 	height:160px;
 	width: 270px;
     transform: translate(-50%, -50%);
-    background-color: #8b8589 ;
+    background-color: #e5e4e2 ;
     border: 1px solid #ccc;
     padding: 20px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
@@ -231,26 +248,7 @@ tbody tr:hover {
             }
         }
 
-        function calculateTotals() {
-            var amountInputs = document.getElementsByName("amount");
-            var totalExpense = 0;
-
-            for (var i = 0; i < amountInputs.length; i++) {
-                var amountValue = parseFloat(amountInputs[i].value);
-                if (!isNaN(amountValue)) {
-                    totalExpense += amountValue;
-                }
-            }
-			var closingBalanceInput = document.getElementById("closing-balance");
-            var totalExpenseField = document.getElementById("total-expense");
-
-            var closingBalance = parseFloat(closingBalanceInput.value);
-            if (!isNaN(closingBalance)) {
-                var remainingBalance = closingBalance - totalExpense;
-                totalExpenseField.textContent = totalExpense.toFixed(2);
-                closingBalanceInput.value = remainingBalance.toFixed(2);
-            }
-        }
+       
 		function showDeletePrompt() {
             document.getElementById("deletePrompt").style.display = "block";
          }
@@ -526,8 +524,9 @@ tbody tr:hover {
 											
                     </div>
 					<br>
-					<br>
-					<br>
+					<button onclick="toggleRows()" class="addnew sec-button">ADD EXPENSE
+                      </button>
+
 		<div class="attendence" style="overflow-x:auto;">
 		
 				<table >
@@ -568,6 +567,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
     </svg>
   </div>
+  </td>
   <div class="delete-prompt" id="deletePrompt">
     <i>Are you sure you want to delete this expense?</i>
     <div class="btn-container">
@@ -577,7 +577,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
 	  </form>
     </div>
-  </div></td>
+  </div>
 
 					');
 					$sum=$sum+$row['price'];
@@ -588,6 +588,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       }?>
                     <tr class="hidden-row">
 						<form action="expensereport.php" method="post">
+					  <td></td>
                       <td><input type="text" name="name" placeholder="Enter Name"></td>
                       <td><input type="text" name="purpose" placeholder="Enter Purpose"></td>
                       <td><input type="text" name="amount" placeholder="Enter Amount"></td>
@@ -597,13 +598,6 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
     <i class="fas fa-check-circle"></i></td>
                     </tr>
 					<tr>
-                      <td><button onclick="toggleRows()"><div class="add-icon">
-    <i class="fas fa-plus-circle"></i></button></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-					<tr>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -618,14 +612,23 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 					<tr>
                       <td></td>
                       <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+					<tr class="rowiee">
+  
+                      <td ></td>
                       <td>Closing Balance:</td>
                       <td>$400</td>
+                      <td>Total Expense:</td>
+					  <td><?php echo('₹'.$sum.'');?></td>
+					  <td ></td>
                     </tr>
 					<tr>
                       <td></td>
                       <td></td>
-                      <td>Total Expense:</td>
-                      <td><?php echo('₹'.$sum.'');?></td>
+                      <td></td>
+                      <td></td>
                     </tr>
 					
                      
