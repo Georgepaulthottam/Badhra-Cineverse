@@ -590,6 +590,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       }?>
                     <tr class="hidden-row">
 						<form action="expensereport.php" method="post">
+					  <td></td>
                       <td><input type="text" name="name" placeholder="Enter Name"></td>
                       <td><input type="text" name="purpose" placeholder="Enter Purpose"></td>
                       <td><input type="text" name="amount" placeholder="Enter Amount"></td>
