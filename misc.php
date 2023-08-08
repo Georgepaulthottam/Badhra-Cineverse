@@ -534,6 +534,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td>'.$row['remark'].'</td>
       <td>'.$row['amount'].'</td>');
       $sum = $sum + $row['amount'];
+      echo('</tr>');
 
 }
  echo('      <tr>

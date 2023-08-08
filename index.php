@@ -546,6 +546,9 @@ if (isset($_POST['punchin'])) {
                                 <thead>
 									<?php
 			                        if(mysqli_num_rows($msresult)!=0){ 
+										 $sum=0;
+								   $no=0;
+
 			                        ?>
                                     <tr>
 							
@@ -564,34 +567,23 @@ if (isset($_POST['punchin'])) {
                                     while($msrow=mysqli_fetch_assoc($msresult)){
                                         
 
-                                   $time = new DateTime($row['date']);
-                                   $date = $time->format('n.j.Y');
-                                   $time = $time->format('H:i');
+                                 $time = new DateTime($msrow['timestamp']);
+                                 $date = $time->format('j.n.Y');
+                                 $time = $time->format('H:i A');
+								  
+								   $no=$no+1;
 
                                         echo('
                                         <tr>
-                                        <th>'.$date.'</th>
-                                        <th>'.$time.'</th>
-                                        <th>'.$msrow['name'].'</th>
-                                        <th>'.$msrow['details'].'</th>
-                                        <th>'.$msrow['price'].'</th>
-                                        <th>'.$msrow['number'].'</th>
-
-
-
-                                        <th>
-									<form action="index.php" method="post">
-									    <input type="text" name="req_id" value="'.$row['id'].'" hidden>
-										<input type="submit" name="req_accept" value="Accept" class="edit" >
-											
-										
-										<input type="submit" value="Decline" class="delete" data-toggle="modal">
-
-										</form>
-										</a>
-										</th>
-
-								</tr>');}
+  <td>'.$no.'</td>
+      <td>'.$date.'</td>
+      <td>'.$msrow['name'].'</td>
+      <td>'.$msrow['purpose'].'</td>
+      <td>'.$time.'</td>
+      <td>'.$msrow['remark'].'</td>
+      <td>'.$msrow['amount'].'</td>');
+      $sum = $sum + $msrow['amount'];
+      echo('</tr>');}
 									}
 								else{
 								echo('<h2>No Pending Requests</h2>');
