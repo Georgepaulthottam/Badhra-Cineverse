@@ -109,7 +109,18 @@ if(isset($_POST['misc-submit'])){
 }
 
 #misc-submit{
-
+	display: inline-block;
+  padding: 10px 15px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 10px;
+  margin-top:1px;
+  margin-bottom: 12   px;
+  text-decoration: none;
+  border-radius: 2px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
 }
 
 
@@ -138,6 +149,7 @@ td {
   font-weight: 400;
   padding: 0.65em 1em;
 }
+
 
 tbody tr {
   transition: background 0.25s ease;
@@ -463,7 +475,9 @@ tbody tr:hover {
   </form>
 </div>
 
-          <table>
+	<div class="misctable" style="overflow-x:auto;">
+
+          <table >
 
   <thead>
                    <?php
@@ -532,14 +546,15 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
   </tbody>
 </table>
+</div>
 <br>
 <div class="form-container">
-					<form form class="form" action="approved_requests.php" method="post">
+					<form form class="form" action="#" method="post">
 					    <input name="Approved Expense" type="submit" 
 						                    class="bata-btn primary-button" value="Send to Expense" id="aprovexpbtn">
 					  
                     </form>	 
-					<form form class="form" action="misc.php" method="post">
+					<form form class="form" action="#" method="post">
 
 					    <input name="Miscellanious" type="submit"
                                             class="bata-btn primary-button" value="Delete" id="submitbtn">
