@@ -165,6 +165,7 @@ tbody tr:hover {
 	.delete-icon {
     display: inline-block;
     cursor: pointer;
+	font-size: 8px;
   }
   .delete-prompt {
     display: none;
