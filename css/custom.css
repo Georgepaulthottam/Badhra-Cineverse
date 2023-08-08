@@ -440,8 +440,7 @@ overflow:auto;
 	 .breadcrumb-item.active{
 		 color:#6c757d;
 	 }
-	  
-	  
+	
 	   .breadcrumb-item+.breadcrumb-item{
 		   padding-left:.5rem;
 	   }
@@ -977,9 +976,6 @@ min-width:380px;
 			margin-top:-54px;
 			position:absolute;
 		}
-	
-		
-	
 	
 	}
 	
