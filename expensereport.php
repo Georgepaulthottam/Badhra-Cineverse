@@ -4,6 +4,10 @@ session_start();
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
 }
+if(isset($_POST['inp']){
+	$name=$_POST['name'];
+	$purpose=$_POST['purpose'];
+})
 ?>
 <!doctype html>
 <html lang="en">
@@ -559,11 +563,12 @@ tbody tr:hover {
   </div></td>
                     </tr>
                     <tr class="hidden-row">
-                      <td><input type="text" name="si_no" placeholder="SI No."></td>
+						<form action="expensereport.php" method="post">
                       <td><input type="text" name="name" placeholder="Enter Name"></td>
                       <td><input type="text" name="purpose" placeholder="Enter Purpose"></td>
                       <td><input type="text" name="amount" placeholder="Enter Amount"></td>
-					  <td> <Button class="tick-icon" type="submit">
+					  <td> <button class="tick-icon" name="inp" type="submit">
+						</form>
     <i class="fas fa-check-circle"></i></td>
                     </tr>
 					<tr>
