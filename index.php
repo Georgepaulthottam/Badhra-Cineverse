@@ -12,6 +12,8 @@ $att_row=mysqli_fetch_assoc($att_result);
 $attendance=$att_row['attendance'];
 $query8=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."' limit 0,4");
 $result8=mysqli_query($conn,$query8);
+$msquery=("SELECT * FROM miscellaneous limit 0,4");
+$msresult=mysqli_query($conn,$msquery);
 $query=("SELECT * FROM attendance_request limit 0,4");
 $result=mysqli_query($conn,$query);
 if (isset($_POST['accept_req'])) {
@@ -543,7 +545,7 @@ if (isset($_POST['punchin'])) {
                             <table class="table table-striped table-hover">
                                 <thead>
 									<?php
-			                        if(mysqli_num_rows($result8)!=0){ 
+			                        if(mysqli_num_rows($msresult)!=0){ 
 			                        ?>
                                     <tr>
 							
@@ -559,7 +561,7 @@ if (isset($_POST['punchin'])) {
 
                                 <tbody>
 								<?php 
-                                    while($row=mysqli_fetch_assoc($result8)){
+                                    while($msrow=mysqli_fetch_assoc($msresult)){
                                         
 
                                    $time = new DateTime($row['date']);
@@ -570,10 +572,10 @@ if (isset($_POST['punchin'])) {
                                         <tr>
                                         <th>'.$date.'</th>
                                         <th>'.$time.'</th>
-                                        <th>'.$row['name'].'</th>
-                                        <th>'.$row['details'].'</th>
-                                        <th>'.$row['price'].'</th>
-                                        <th>'.$row['number'].'</th>
+                                        <th>'.$msrow['name'].'</th>
+                                        <th>'.$msrow['details'].'</th>
+                                        <th>'.$msrow['price'].'</th>
+                                        <th>'.$msrow['number'].'</th>
 
 
 

@@ -16,6 +16,7 @@ if(isset($_POST['misc-submit'])){
  
 	$sql = "INSERT INTO miscellaneous (username,name,purpose,amount,remark) VALUES ('$user', '$name','$purpose','$amount','$remark')";
 	$result = mysqli_query($conn,$sql);
+  header("location:misc.php");
  }
 
 
@@ -492,9 +493,18 @@ tbody tr:hover {
     </a>
   </form>
 </div>
+
           <table>
-            
+
   <thead>
+                   <?php
+// showing values in the table
+      $rowsql = "SELECT id, timestamp, name, amount, purpose, remark FROM miscellaneous";
+      $rowresult = mysqli_query($conn, $rowsql);
+      $sum =0;
+      $no=0;
+			if(mysqli_num_rows($rowresult)!=0){ 
+        ?>
     <tr>
       <th>SI NO</th>
       <th>DATE</th>
@@ -507,38 +517,16 @@ tbody tr:hover {
      
   </thead>
   <tbody>
-    <?php
-//   $sql1 = "SELECT id, name, amount, remark FROM miscellaneous";
-//   $result1 = mysqli_query($conn, $sql);
-//   if (!$result1) {
-//     die("Query failed: " . mysqli_error($conn));
-// }
 
-//   if ($result1->num_rows > 0) {
-        
-//         while ($row = $result1->fetch_assoc()) {
-//             echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["amount"]. "</td><td>" . $row["remark"] . "</td></tr>";
-//         }
-//     } else {
-//         echo "0 results";
-//     }
-
-
-
-// showing values in the table
-      $rowsql = "SELECT id, timestamp, name, amount, purpose, remark FROM miscellaneous";
-      $rowresult = mysqli_query($conn, $rowsql);
-      $sum =0;
-			if(mysqli_num_rows($rowresult)!=0){ 
-		
+		<?php
 while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   $time = new DateTime($row['timestamp']);
   $date = $time->format('j.n.Y');
   $time = $time->format('H:i A');
-  
+  $no=$no+1;
   echo('
 								<tr>
-  <td>'.$row['id'].'</td>
+  <td>'.$no.'</td>
       <td>'.$date.'</td>
       <td>'.$row['name'].'</td>
       <td>'.$row['purpose'].'</td>
@@ -548,51 +536,19 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       $sum = $sum + $row['amount'];
 
 }
-      }
-      else{
-        echo('<h2>NO PENDTING REQUESTS</h2>');
-      }
-    ?>
-    <!-- <tr>
-      <td>1</td>  
-    
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-     
-
-      
-    <tr>
-      <td>2</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-     
-    <tr class="disabled">
-      <td>3</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-     
-    
-    <tr>
-
-   
-    <tr>
-      <td>8</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-      -->
-      <tr>
+ echo('      <tr>
        
       <td colspan="4" style="text-align:right;"> Total:</td>
-      <td><?php  echo $sum;?></td>
-</tr>
+      <td>'.$sum.'</td>
+</tr>');
+      }
+      
+   
+   
+
+ else{
+        echo('<h2>NO PENDTING REQUESTS</h2>');
+      }?>
 
 
 
