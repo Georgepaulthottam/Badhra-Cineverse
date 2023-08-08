@@ -1,8 +1,37 @@
 <?php
 session_start();
+require 'connection.php';
 // Check if the user is not logged in
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
+
+}
+if(isset($_POST['chpass'])){
+	$pass=$_POST['curpass'];
+	$query=("SELECT * FROM users WHERE username='".mysqli_real_escape_string($conn,$_SESSION['user'])."' AND password='".mysqli_real_escape_string($conn,$pass)."'");  
+    $conquer=mysqli_query($conn, $query);
+    $numrows=mysqli_num_rows($conquer);  
+    if($numrows!=0)  
+    {  
+        
+    while($row=mysqli_fetch_assoc($conquer))  
+    {  if($row['password']==$pass){
+		$newpass=$_POST['newpass'];
+		$confpass=$_POST['confirmpass'];
+		if($newpass==$confpass){
+				$query2=("update  users set password='".mysqli_real_escape_string($conn,$newpass)."' WHERE username='".mysqli_real_escape_string($conn,$_SESSION['user'])."'");  
+                $conquer2=mysqli_query($conn, $query2);
+				header("location:profile.php");
+
+		}
+		else{echo "<script>alert('Enter the same password')</script>";}
+
+
+	}
+		else{echo "<script>alert('Enter correct password')</script>";}
+	
+}
+	}else{echo "<script>alert('Enter correct password')</script>";}
 
 }
 ?>
@@ -243,7 +272,7 @@ if (!isset($_SESSION['user'])) {
  <!------main-content-start-----------> 
 		     
  <div class="main-content">
-
+<?php echo('
 <div class="main-body">
 
 <div class="row gutters-sm">
@@ -253,8 +282,8 @@ if (!isset($_SESSION['user'])) {
 <div class="d-flex flex-column align-items-center text-center">
 <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="200">
 <div class="mt-3">
-<h4>Bobby</h4>
-<p class="text-secondary mb-1">Production Department</p>
+<h4>'.$_SESSION['user'].'</h4>
+<p class="text-secondary mb-1">'.$_SESSION['userdept'].'</p>
 <p class="text-muted font-size-sm">Kozikode, Kerala, India</p>
 <button class="btn btn-primary">Upload Photo</button>
 <a href="#editPasswordModal" data-toggle="modal"><button class="btn btn-outline-primary" >Change Password</button></a>
@@ -287,6 +316,7 @@ if (!isset($_SESSION['user'])) {
 </ul>
 </div> -->
 </div>
+
 <div class="col-md-8">
 <div class="card mb-3">
 <div class="card-body">
@@ -295,7 +325,7 @@ if (!isset($_SESSION['user'])) {
 <h6 class="mb-0">User Name</h6>
 </div>
 <div class="col-sm-9 text-secondary">
-Bobby p k
+'.$_SESSION['user'].'
 </div>
 </div>
 <hr>
@@ -303,7 +333,7 @@ Bobby p k
 <div class="col-sm-3">
 <h6 class="mb-0">Email</h6>
 </div>
-<div class="col-sm-9 text-secondary">bobbypk012@gmail.com</a>
+<div class="col-sm-9 text-secondary">'.$_SESSION['email'].'</a>
 </div>
 </div>
 <hr>
@@ -312,7 +342,7 @@ Bobby p k
 <h6 class="mb-0">Phone</h6>
 </div>
 <div class="col-sm-9 text-secondary">
-+91 9685412322
++91 '.$_SESSION['phone'].'
 </div>
 </div>
 <hr>
@@ -330,7 +360,7 @@ Kozikode, Kerala, India
 <h6 class="mb-0">Account Holder</h6>
 </div>
 <div class="col-sm-9 text-secondary">
-Bobby p k
+'.$_SESSION['user'].'
 </div>
 </div>
 <hr>
@@ -437,6 +467,7 @@ Bobby p k
 </div> -->
 </div>
 </div>
+')?>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -474,24 +505,27 @@ Bobby p k
 						</div>
 						<div class="modal-body">
 						  <div class="form-group">
+							<form action="profile.php" method="post">
 							  <label>Current Password</label>
-							  <input type="password" class="form-control" required>
+							  <input type="password" class="form-control" name="curpass" required>
 						  </div>
 						  <div class="form-group">
 							  <label>New Password</label>
-							  <input type="password" class="form-control" required>
+							  <input type="password" class="form-control" name="newpass" required>
 						  </div>
 						  <div class="form-group">
 							  <label>Confirm Password</label>
-							  <input type="password" class="form-control" required>
+							  <input type="password" class="form-control" name="confirmpass" required>
 						  </div>
+						 
 						</div>
 						<div class="modal-footer">
-							<input type="button" class="btn btn-primary" value="Save Changes">
+							<input type="submit" name="chpass" class="btn btn-primary" value="Save Changes">
 							<input type="button" class="btn btn-primary" data-dismiss="modal" value="Cancel">
 						</div>
 					  </div>
 					</div>
+					 </form>
 				  </div>
 				  
 										 <!----edit-modal end--------->
