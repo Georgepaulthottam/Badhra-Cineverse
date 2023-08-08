@@ -108,6 +108,9 @@ if(isset($_POST['misc-submit'])){
   display: block;
 }
 
+#misc-submit{
+
+}
 
 
 
@@ -141,7 +144,44 @@ tbody tr {
 }
 tbody tr:hover {
   background: #014055;
+} 	
+.bata-btn{
+		display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 300px;
+  margin-top:1px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
 }
+.primary-button {
+  background-color:  #152935  ;
+  color: #ffffff;
+  border: 2px solid #002e63 ;
+}
+
+.primary-button:hover {
+  background-color: #152935;
+  border-color: #0056b3;
+}
+	.form-container {
+            display: flex;
+        }
+
+		.form {
+            flex: -2;
+           
+        }
+		.hidden-row {
+            display: none;
+        }
+		
+
 
     </style>
     <!-- Required meta tags -->
@@ -435,6 +475,9 @@ tbody tr:hover {
 			if(mysqli_num_rows($rowresult)!=0){ 
         ?>
     <tr>
+	<th><span class="custom-checkbox">
+											<input type="checkbox" onchange='selects()' id="selectAll">
+											<label for="selectAll"></label></th>
       <th>SI NO</th>
       <th>DATE</th>
       <th> Name</th>
@@ -455,6 +498,9 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   $no=$no+1;
   echo('
 								<tr>
+								<td><span class="custom-checkbox">
+											<input type="checkbox"  id="selectAll">
+											<label for="selectAll"></label></td>
   <td>'.$no.'</td>
       <td>'.$date.'</td>
       <td>'.$row['name'].'</td>
@@ -462,13 +508,15 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td>'.$time.'</td>
       <td>'.$row['remark'].'</td>
       <td>'.$row['amount'].'</td>');
+      
       $sum = $sum + $row['amount'];
       echo('</tr>');
 
 }
  echo('      <tr>
        
-      <td colspan="4" style="text-align:right;"> Total:</td>
+      <td colspan="7" style="text-align:right;"> TOTAL:</td>
+	  
       <td>'.$sum.'</td>
 </tr>');
       }
@@ -484,6 +532,20 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
   </tbody>
 </table>
+<br>
+<div class="form-container">
+					<form form class="form" action="approved_requests.php" method="post">
+					    <input name="Approved Expense" type="submit" 
+						                    class="bata-btn primary-button" value="Send to Expense" id="aprovexpbtn">
+					  
+                    </form>	 
+					<form form class="form" action="misc.php" method="post">
+
+					    <input name="Miscellanious" type="submit"
+                                            class="bata-btn primary-button" value="Delete" id="submitbtn">
+					</form> 
+											
+                    </div>
 
 
 		    <!------main-content-end-----------> 
