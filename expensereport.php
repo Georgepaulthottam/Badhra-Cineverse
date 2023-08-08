@@ -1,8 +1,28 @@
 <?php 
 session_start();
+require 'connection.php';
 // Check if the user is not logged in
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
+}
+if(isset($_POST['inp'])){
+	$name=$_POST['name'];
+	$purpose=$_POST['purpose'];
+	$amount=$_POST['amount'];
+	$number=$_POST['quantity'];
+	$user=$_SESSION['user'];
+	$quer="INSERT INTO `daily_expense`( `username`, `name`, `description`, `quantity`, `price`) values('".$user."','".$name."','".$purpose."',".$number.",".$amount.")";
+	$result=mysqli_query($conn,$quer);
+	header("location:expensereport.php");
+
+
+}
+if(isset($_POST['delete'])){
+	$id=$_POST['id'];
+	$quer2="DELETE FROM daily_expense where id=".mysqli_real_escape_string($conn,$id).""; 
+		$result2=mysqli_query($conn,$quer2);
+	header("location:expensereport.php");
+
 }
 ?>
 <!doctype html>
@@ -507,58 +527,72 @@ tbody tr:hover {
                       </button>
 
 		<div class="attendence" style="overflow-x:auto;">
-			<form action="#">
+		
 				<table >
+										<?php
+// showing values in the table
+      $rowsql = "SELECT * FROM daily_expense";
+      $rowresult = mysqli_query($conn, $rowsql);
+      $sum=0;
+      $no=0;
+			if(mysqli_num_rows($rowresult)!=0){ 
+        ?>
 					<tr>
                       <th>SI No.</th>
                       <th>Name</th>
                       <th>Purpose</th>
                       <th>Amount</th>
+					  <th>Quantity</th>
 
                     </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>Sajith</td>
-                      <td>Salary</td>
-                      <td>$1000</td>
-					  <td><div class="delete-icon" onclick="showDeletePrompt()">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
-                          <path d="M0 0h24v24H0z" fill="none"/>
-                          <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
-                          </svg>
-						  </div></td>
-                    </tr>
-
-					<div class="delete-prompt" id="deletePrompt">
-                     <i>Are you sure you want to delete this expense?</i>
-                     <div class="btn-container">
-                     <button class="btn delete" onclick="deleteExpense()">Delete</button>
-                     <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
-                     </div>
-                     </div>
+					<?php
+while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
+  $time = new DateTime($row['datetime']);
+  $date = $time->format('j.n.Y');
+  $time = $time->format('H:i A');
+  $no=$no+1;
+  echo('
 
                     <tr>
-                      <td>2</td>
-                      <td>Lakshmi</td>
-                      <td>Rent</td>
-                      <td>$800</td>
+                      <td>'.$no.'</td>
+                      <td>'.$row['name'].'</td>
+                      <td>'.$row['description'].'</td>
+                      <td>'.$row['price'].'</td>
+					  <td>'.$row['quantity'].'</td>
+					  
 					  <td><div class="delete-icon" onclick="showDeletePrompt()">
-                          <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
-                          <path d="M0 0h24v24H0z" fill="none"/>
-                          <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
-                          </svg>
-                          </div>
-						  </td>
-					</tr>
- 
-                    
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none"/>
+      <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
+    </svg>
+  </div>
+  <div class="delete-prompt" id="deletePrompt">
+    <i>Are you sure you want to delete this expense?</i>
+    <div class="btn-container">
+	 <form action="expensereport.php" method="post">
+	 <input type="text" name="id" value="'.$row['id'].'" hidden>
+      <button class="btn delete" type="submit" name="delete" onclick="deleteExpense()">Delete</button>
+      <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
+	  </form>
+    </div>
+  </div></td>
+
+					');
+					$sum=$sum+$row['price'];
+}
+      }
+   else{
+        echo('<h2>NO PENDTING REQUESTS</h2>');
+      }?>
                     <tr class="hidden-row">
-                      <td><input type="text" name="si_no" placeholder="SI No."></td>
+						<form action="expensereport.php" method="post">
                       <td><input type="text" name="name" placeholder="Enter Name"></td>
                       <td><input type="text" name="purpose" placeholder="Enter Purpose"></td>
                       <td><input type="text" name="amount" placeholder="Enter Amount"></td>
-					  <td> <Button class="tick-icon" type="submit">
-                      <i class="fas fa-check-circle"></i></td>
+					  <td><input type="text" name="quantity" placeholder="Enter quantity"></td>
+					  <td> <button class="tick-icon" name="inp" type="submit">
+						</form>
+    <i class="fas fa-check-circle"></i></td>
                     </tr>
 					<tr>
                       <td></td>
@@ -588,7 +622,7 @@ tbody tr:hover {
                       <td></td>
                       <td></td>
                       <td>Total Expense:</td>
-                      <td>$600</td>
+                      <td><?php echo('₹'.$sum.'');?></td>
                     </tr>
 					
                      
@@ -603,7 +637,7 @@ tbody tr:hover {
 							<button id="acceptAllBtn" formaction="#">Accept All</button>
 							<button id="rejectAllBtn" formaction="#">Reject All</button>
 						</div><br>
-					</form>
+	
 				</div>
 			</div>
 			<!------main-content-end----------->
