@@ -16,6 +16,7 @@ if(isset($_POST['misc-submit'])){
  
 	$sql = "INSERT INTO miscellaneous (username,name,purpose,amount,remark) VALUES ('$user', '$name','$purpose','$amount','$remark')";
 	$result = mysqli_query($conn,$sql);
+  header("location:misc.php");
  }
 
 
@@ -89,7 +90,7 @@ if(isset($_POST['misc-submit'])){
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #03e9f4;
+  color: yellow;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -107,81 +108,12 @@ if(isset($_POST['misc-submit'])){
   display: block;
 }
 
-.login-box a span:nth-child(1) {
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #03e9f4);
-  animation: btn-anim1 1s linear infinite;
+#misc-submit{
+
 }
 
-@keyframes btn-anim1 {
-  0% {
-    left: -100%;
-  }
-  50%,100% {
-    left: 100%;
-  }
-}
 
-.login-box a span:nth-child(2) {
-  top: -100%;
-  right: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(180deg, transparent, #03e9f4);
-  animation: btn-anim2 1s linear infinite;
-  animation-delay: .25s
-}
 
-@keyframes btn-anim2 {
-  0% {
-    top: -100%;
-  }
-  50%,100% {
-    top: 100%;
-  }
-}
-
-.login-box a span:nth-child(3) {
-  bottom: 0;
-  right: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(270deg, transparent, #03e9f4);
-  animation: btn-anim3 1s linear infinite;
-  animation-delay: .5s
-}
-
-@keyframes btn-anim3 {
-  0% {
-    right: -100%;
-  }
-  50%,100% {
-    right: 100%;
-  }
-}
-
-.login-box a span:nth-child(4) {
-  bottom: -100%;
-  left: 0;
-  width: 2px;
-  height: 100%;
-  background: linear-gradient(360deg, transparent, #03e9f4);
-  animation: btn-anim4 1s linear infinite;
-  animation-delay: .75s
-}
-
-@keyframes btn-anim4 {
-  0% {
-    bottom: -100%;
-  }
-  50%,100% {
-    bottom: 100%;
-  }
-  
-}
 
 
 table {
@@ -212,7 +144,44 @@ tbody tr {
 }
 tbody tr:hover {
   background: #014055;
+} 	
+.bata-btn{
+		display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 300px;
+  margin-top:1px;
+  margin-bottom: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
 }
+.primary-button {
+  background-color:  #152935  ;
+  color: #ffffff;
+  border: 2px solid #002e63 ;
+}
+
+.primary-button:hover {
+  background-color: #152935;
+  border-color: #0056b3;
+}
+	.form-container {
+            display: flex;
+        }
+
+		.form {
+            flex: -2;
+           
+        }
+		.hidden-row {
+            display: none;
+        }
+		
+
 
     </style>
     <!-- Required meta tags -->
@@ -479,7 +448,8 @@ tbody tr:hover {
       <label>Amount</label>
     </div>
 	<div class="user-box">
-      <input type="text" name="misc-remark" id = "misc-remark">
+      <input type="text" name="misc-remark" id = "misc-remark"  required="false">
+      
       <label>Remark</label>
     </div>
     <a href="#">
@@ -492,10 +462,22 @@ tbody tr:hover {
     </a>
   </form>
 </div>
+
           <table>
-            
+
   <thead>
+                   <?php
+// showing values in the table
+      $rowsql = "SELECT id, timestamp, name, amount, purpose, remark FROM miscellaneous";
+      $rowresult = mysqli_query($conn, $rowsql);
+      $sum =0;
+      $no=0;
+			if(mysqli_num_rows($rowresult)!=0){ 
+        ?>
     <tr>
+	<th><span class="custom-checkbox">
+											<input type="checkbox" onchange='selects()' id="selectAll">
+											<label for="selectAll"></label></th>
       <th>SI NO</th>
       <th>DATE</th>
       <th> Name</th>
@@ -507,97 +489,63 @@ tbody tr:hover {
      
   </thead>
   <tbody>
-    <?php
-//   $sql1 = "SELECT id, name, amount, remark FROM miscellaneous";
-//   $result1 = mysqli_query($conn, $sql);
-//   if (!$result1) {
-//     die("Query failed: " . mysqli_error($conn));
-// }
 
-//   if ($result1->num_rows > 0) {
-        
-//         while ($row = $result1->fetch_assoc()) {
-//             echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["amount"]. "</td><td>" . $row["remark"] . "</td></tr>";
-//         }
-//     } else {
-//         echo "0 results";
-//     }
-
-
-
-// showing values in the table
-      $rowsql = "SELECT id, timestamp, name, amount, purpose, remark FROM miscellaneous";
-      $rowresult = mysqli_query($conn, $rowsql);
-      $sum =0;
-			if(mysqli_num_rows($rowresult)!=0){ 
-		
+		<?php
 while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   $time = new DateTime($row['timestamp']);
   $date = $time->format('j.n.Y');
   $time = $time->format('H:i A');
-  
+  $no=$no+1;
   echo('
 								<tr>
-  <td>'.$row['id'].'</td>
+								<td><span class="custom-checkbox">
+											<input type="checkbox"  id="selectAll">
+											<label for="selectAll"></label></td>
+  <td>'.$no.'</td>
       <td>'.$date.'</td>
       <td>'.$row['name'].'</td>
       <td>'.$row['purpose'].'</td>
       <td>'.$time.'</td>
       <td>'.$row['remark'].'</td>
       <td>'.$row['amount'].'</td>');
+      
       $sum = $sum + $row['amount'];
+      echo('</tr>');
 
 }
-      }
-      else{
-        echo('<h2>NO PENDTING REQUESTS</h2>');
-      }
-    ?>
-    <!-- <tr>
-      <td>1</td>  
-    
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-     
-
-      
-    <tr>
-      <td>2</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-     
-    <tr class="disabled">
-      <td>3</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-     
-    
-    <tr>
-
-   
-    <tr>
-      <td>8</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-      -->
-      <tr>
+ echo('      <tr>
        
-      <td colspan="4" style="text-align:right;"> Total:</td>
-      <td><?php  echo $sum;?></td>
-</tr>
+      <td colspan="7" style="text-align:right;"> TOTAL:</td>
+	  
+      <td>'.$sum.'</td>
+</tr>');
+      }
+      
+   
+   
+
+ else{
+        echo('<h2>NO PENDTING REQUESTS</h2>');
+      }?>
 
 
 
   </tbody>
 </table>
+<br>
+<div class="form-container">
+					<form form class="form" action="approved_requests.php" method="post">
+					    <input name="Approved Expense" type="submit" 
+						                    class="bata-btn primary-button" value="Send to Expense" id="aprovexpbtn">
+					  
+                    </form>	 
+					<form form class="form" action="misc.php" method="post">
+
+					    <input name="Miscellanious" type="submit"
+                                            class="bata-btn primary-button" value="Delete" id="submitbtn">
+					</form> 
+											
+                    </div>
 
 
 		    <!------main-content-end-----------> 

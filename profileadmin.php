@@ -287,6 +287,7 @@ if (!isset($_SESSION['user'])) {
 </ul>
 </div> -->
 </div>
+<?php echo('
 <div class="col-md-8">
 <div class="card mb-3">
 <div class="card-body">
@@ -295,7 +296,7 @@ if (!isset($_SESSION['user'])) {
 <h6 class="mb-0">User Name</h6>
 </div>
 <div class="col-sm-9 text-secondary">
-Demin KB
+'.$_SESSION['user'].'
 </div>
 </div>
 <hr>
@@ -303,7 +304,7 @@ Demin KB
 <div class="col-sm-3">
 <h6 class="mb-0">Email</h6>
 </div>
-<div class="col-sm-9 text-secondary">deminkb012@gmail.com</a>
+<div class="col-sm-9 text-secondary">'.$_SESSION['email'].'</a>
 </div>
 </div>
 <hr>
@@ -312,7 +313,7 @@ Demin KB
 <h6 class="mb-0">Phone</h6>
 </div>
 <div class="col-sm-9 text-secondary">
-+91 9685412322
++91 '.$_SESSION['phone'].'
 </div>
 </div>
 <hr>
@@ -478,6 +479,7 @@ Kochi, Kerala, India
 	  </div>
    
 </div>
+')?>
 </div>
 
 
