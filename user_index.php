@@ -100,7 +100,7 @@ if (isset($_POST['punch-in-btn'])) {
                         <i class="material-icons">aspect_ratio</i>Profile
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                        <li><a href="profileadmin.php">Profile</a></li>
+                        <li><a href="profile.php">Profile</a></li>
                        
                     </ul>
                 </li>
