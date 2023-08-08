@@ -20,6 +20,8 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     $status=$row['status'];
     $firstname=$row['firstname'];
     $lastname=$row['lastname'];
+    $email=$row['email'];
+    $phone=$row['phone'];
     }  
     $_SESSION['user']=$user;
     $_SESSION['userdept']=$dbuserdept;
@@ -27,6 +29,8 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     $_SESSION['status']=$status;
     $_SESSION['Firstname']=$firstname;
     $_SESSION['Lastname']=$lastname;
+    $_SESSION['email']=$email;
+    $_SESSION['phone']=$phone;
    if($dbuserdept=="Artist" or $dbuserdept=="camera" or $dbuserdept=="Makeup"){    
     header("location:user_index.php");
     }

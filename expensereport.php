@@ -162,6 +162,46 @@ tbody tr:hover {
 	  height:28px;
 	  background: #002147;
     }
+	.delete-icon {
+    display: inline-block;
+    cursor: pointer;
+	font-size: 8px;
+  }
+  .delete-prompt {
+    display: none;
+	font-family: Arial, sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 60%;
+	font: size 5px;
+	height:160px;
+	width: 270px;
+    transform: translate(-50%, -50%);
+    background-color: #8b8589 ;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .delete-prompt h2 {
+    margin-top: 0;
+  }
+  .btn-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .btn {
+    padding: 8px 16px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .btn.delete {
+    background-color: #f44336;
+    color: white;
+  }
+  .btn.cancel {
+    background-color: #ccc;
+    color: black;
+  }
 
 		
 	</style>
@@ -193,6 +233,20 @@ tbody tr:hover {
                 closingBalanceInput.value = remainingBalance.toFixed(2);
             }
         }
+		function showDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "block";
+         }
+
+        function hideDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "none";
+         }
+
+        function deleteExpense() {
+      // Code to delete the expense
+           hideDeletePrompt();
+      
+         }
+		
     </script>
 </head>
 
@@ -464,18 +518,45 @@ tbody tr:hover {
                       <th>Name</th>
                       <th>Purpose</th>
                       <th>Amount</th>
+
                     </tr>
                     <tr>
                       <td>1</td>
                       <td>Sajith</td>
                       <td>Salary</td>
                       <td>$1000</td>
+					  <td><div class="delete-icon" onclick="showDeletePrompt()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none"/>
+      <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
+    </svg>
+  </div>
+  <div class="delete-prompt" id="deletePrompt">
+    <i>Are you sure you want to delete this expense?</i>
+    <div class="btn-container">
+      <button class="btn delete" onclick="deleteExpense()">Delete</button>
+      <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
+    </div>
+  </div></td>
                     </tr>
                     <tr>
                       <td>2</td>
                       <td>Lakshmi</td>
                       <td>Rent</td>
                       <td>$800</td>
+					  <td><div class="delete-icon" onclick="showDeletePrompt()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none"/>
+      <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
+    </svg>
+  </div>
+  <div class="delete-prompt" id="deletePrompt">
+    <i>Are you sure you want to delete this expense?</i>
+    <div class="btn-container">
+      <button class="btn delete" onclick="deleteExpense()">Delete</button>
+      <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
+    </div>
+  </div></td>
                     </tr>
                     <tr class="hidden-row">
                       <td><input type="text" name="si_no" placeholder="SI No."></td>
