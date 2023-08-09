@@ -1,8 +1,28 @@
 <?php 
 session_start();
+require 'connection.php';
 // Check if the user is not logged in
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
+}
+if(isset($_POST['inp'])){
+	$name=$_POST['name'];
+	$purpose=$_POST['purpose'];
+	$amount=$_POST['amount'];
+	$number=$_POST['quantity'];
+	$user=$_SESSION['user'];
+	$quer="INSERT INTO `daily_expense`( `username`, `name`, `description`, `quantity`, `price`) values('".$user."','".$name."','".$purpose."',".$number.",".$amount.")";
+	$result=mysqli_query($conn,$quer);
+	header("location:expensereport.php");
+
+
+}
+if(isset($_POST['delete'])){
+	$id=$_POST['id'];
+	$quer2="DELETE FROM daily_expense where id=".mysqli_real_escape_string($conn,$id).""; 
+		$result2=mysqli_query($conn,$quer2);
+	header("location:expensereport.php");
+
 }
 ?>
 <!doctype html>
@@ -32,6 +52,7 @@ if (!isset($_SESSION['user'])) {
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css" />
+	
 	<script type="text/javascript" src="main.js"></script>
 	<style>
 		/* css for acceptAll and rejectAll Button*/
@@ -120,8 +141,6 @@ if (!isset($_SESSION['user'])) {
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
- 
- 
   width: 1200px;
   margin-left:30px;
 }
@@ -145,16 +164,33 @@ tbody tr {
 tbody tr:hover {
   background: #014055;
 }
+.rowiee {
+	background-color: #436b95;
+}
 
-  .add-icon {
-      font-size: 15px;
-      color: #007bff;
-	  width:24px;
-	  height:24px;
-	  text-align: center;
-
-	  background: #002147;
+  .addnew {
+	display: inline-block;
+  padding: 8px 13px;
+  font-size: 12px;
+  
+  text-align: center;
+  margin-left:30px;
+  margin-top: 27px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+	 
     }
+	.sec-button {
+		background-color:  #da9100  ;
+  color: #ffffff;
+  border: 2px solid #da9100 ;
+}
+.sec-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
 	.tick-icon {
       font-size: 15px;
       color: #3cb371;
@@ -162,7 +198,68 @@ tbody tr:hover {
 	  height:28px;
 	  background: #002147;
     }
+	.delete-icon {
+    display: inline-block;
+    cursor: pointer;
+	font-size: 8px;
+  }
+  .delete-prompt {
+    display: none;
+	font-family: Arial, sans-serif;
+    position: fixed;
+    top: 57%;
+    left: 67%;
+	font: size 5px;
+	height:160px;
+	width: 270px;
+    transform: translate(-50%, -50%);
+    background-color: #e5e4e2 ;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .delete-prompt h2 {
+    margin-top: 0;
+  }
+  .btn-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .btn {
+    padding: 8px 16px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .btn.delete {
+    background-color: #f44336;
+    color: white;
+  }
+  .btn.cancel {
+    background-color: #ccc;
+    color: black;
+  }
+  @media only screen and (max-width: 767px){
+	.expensebox {
+      width: 300px;
+      height: 160px;
+      background-color:#cfcfc4 ;
+      border: 1px solid gray;
+      padding: 20px;
+	  box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
+	  margin-left:5px;
+	  flex:-1;
+	  margin-top:10px;
+      box-sizing: border-box;
+    }
+	
 
+    /* Styling for the fields inside the box */
+    .expensefield {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+  }
 		
 	</style>
 	 <script>
@@ -173,26 +270,21 @@ tbody tr:hover {
             }
         }
 
-        function calculateTotals() {
-            var amountInputs = document.getElementsByName("amount");
-            var totalExpense = 0;
+       
+		function showDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "block";
+         }
 
-            for (var i = 0; i < amountInputs.length; i++) {
-                var amountValue = parseFloat(amountInputs[i].value);
-                if (!isNaN(amountValue)) {
-                    totalExpense += amountValue;
-                }
-            }
-			var closingBalanceInput = document.getElementById("closing-balance");
-            var totalExpenseField = document.getElementById("total-expense");
+        function hideDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "none";
+         }
 
-            var closingBalance = parseFloat(closingBalanceInput.value);
-            if (!isNaN(closingBalance)) {
-                var remainingBalance = closingBalance - totalExpense;
-                totalExpenseField.textContent = totalExpense.toFixed(2);
-                closingBalanceInput.value = remainingBalance.toFixed(2);
-            }
-        }
+        function deleteExpense() {
+      // Code to delete the expense
+           hideDeletePrompt();
+      
+         }
+		
     </script>
 </head>
 
@@ -431,7 +523,7 @@ tbody tr:hover {
                           </div>
                         </th>
                         <th>
-				          <div class="expensebox">
+				          <div class="expensebox" id="expensebox">
                              <div class="expensefield">
                                 <label for="opening-balance">Location: &emsp; </label>
                                 <span class="expensevalue"> Diamond Plaza Trivanathapuram</span>
@@ -449,50 +541,85 @@ tbody tr:hover {
 					<form form class="form" action="misc.php" method="post">
 
 					    <input name="Miscellanious" type="submit"
-                                            class="bata-btn primary-button" value="Miscellanious" id="submitbtn">
+                                            class="bata-btn primary-button" value="Miscellaneous" id="submitbtn">
 					</form> 
 											
                     </div>
 					<br>
-					<br>
-					<br>
+					<button onclick="toggleRows()" class="addnew sec-button">ADD EXPENSE
+                      </button>
+
 		<div class="attendence" style="overflow-x:auto;">
-			<form action="#">
+		
 				<table >
+										<?php
+// showing values in the table
+      $rowsql = "SELECT * FROM daily_expense";
+      $rowresult = mysqli_query($conn, $rowsql);
+      $sum=0;
+      $no=0;
+			if(mysqli_num_rows($rowresult)!=0){ 
+        ?>
 					<tr>
                       <th>SI No.</th>
                       <th>Name</th>
                       <th>Purpose</th>
                       <th>Amount</th>
+					  <th>Quantity</th>
+
                     </tr>
+					<?php
+while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
+  $time = new DateTime($row['datetime']);
+  $date = $time->format('j.n.Y');
+  $time = $time->format('H:i A');
+  $no=$no+1;
+  echo('
+
                     <tr>
-                      <td>1</td>
-                      <td>Sajith</td>
-                      <td>Salary</td>
-                      <td>$1000</td>
-                    </tr>
-                    <tr>
-                      <td>2</td>
-                      <td>Lakshmi</td>
-                      <td>Rent</td>
-                      <td>$800</td>
-                    </tr>
+                      <td>'.$no.'</td>
+                      <td>'.$row['name'].'</td>
+                      <td>'.$row['description'].'</td>
+                      <td>'.$row['price'].'</td>
+					  <td>'.$row['quantity'].'</td>
+					  
+					  <td><div class="delete-icon" onclick="showDeletePrompt()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none"/>
+      <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
+    </svg>
+  </div>
+  </td>
+  <div class="delete-prompt" id="deletePrompt">
+    <i>Are you sure you want to delete this expense?</i>
+    <div class="btn-container">
+	 <form action="expensereport.php" method="post">
+	 <input type="text" name="id" value="'.$row['id'].'" hidden>
+      <button class="btn delete" type="submit" name="delete" onclick="deleteExpense()">Delete</button>
+      <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
+	  </form>
+    </div>
+  </div>
+
+					');
+					$sum=$sum+$row['price'];
+}
+      }
+   else{
+        echo('<h2>NO PENDTING REQUESTS</h2>');
+      }?>
                     <tr class="hidden-row">
-                      <td><input type="text" name="si_no" placeholder="SI No."></td>
+						<form action="expensereport.php" method="post">
+					  <td></td>
                       <td><input type="text" name="name" placeholder="Enter Name"></td>
                       <td><input type="text" name="purpose" placeholder="Enter Purpose"></td>
                       <td><input type="text" name="amount" placeholder="Enter Amount"></td>
-					  <td> <Button class="tick-icon" type="submit">
+					  <td><input type="text" name="quantity" placeholder="Enter quantity"></td>
+					  <td> <button class="tick-icon" name="inp" type="submit">
+						</form>
     <i class="fas fa-check-circle"></i></td>
                     </tr>
 					<tr>
-                      <td><button onclick="toggleRows()"><div class="add-icon">
-    <i class="fas fa-plus-circle"></i></button></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-					<tr>
                       <td></td>
                       <td></td>
                       <td></td>
@@ -507,14 +634,23 @@ tbody tr:hover {
 					<tr>
                       <td></td>
                       <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+					<tr class="rowiee">
+  
+                      <td ></td>
                       <td>Closing Balance:</td>
                       <td>$400</td>
+                      <td>Total Expense:</td>
+					  <td><?php echo('₹'.$sum.'');?></td>
+					  <td ></td>
                     </tr>
 					<tr>
                       <td></td>
                       <td></td>
-                      <td>Total Expense:</td>
-                      <td>$600</td>
+                      <td></td>
+                      <td></td>
                     </tr>
 					
                      
@@ -529,7 +665,7 @@ tbody tr:hover {
 							<button id="acceptAllBtn" formaction="#">Accept All</button>
 							<button id="rejectAllBtn" formaction="#">Reject All</button>
 						</div><br>
-					</form>
+	
 				</div>
 			</div>
 			<!------main-content-end----------->

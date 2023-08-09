@@ -75,36 +75,7 @@ header('location:Attendance.php');
 			visibility: hidden;
 			
 		}
-		table {
-  background: #152935;
-  border-radius: 0.25em;
-  border-collapse: collapse;
-  margin: 1em;
-  margin-top: 700px;
-  width: 1200px;
-  margin-left:30px;
-}
-th {
-  border-bottom: 1px solid #364043;
-  color: #E2B842;
-  font-size: 0.85em;
-  font-weight: 600;
-  padding: 0.5em 1em;
-  text-align: left;
-}
-td {
-  color: #fff;
-  font-weight: 400;
-  padding: 0.65em 1em;
-}
-
-tbody tr {
-  transition: background 0.25s ease;
-}
-tbody tr:hover {
-  background: #014055;
-}
-
+		
 		
     /* Inline CSS for simplicity (Ideally, you should use separate CSS files) */
     
@@ -371,104 +342,7 @@ tbody tr:hover {
     </form>
   </div>
 			</div>
-			<table>
-            
-  <thead>
-    <tr>
-      <th>SI NO</th>
-      <th>DATE</th>
-      <th> Name</th>
-      <th>PURPOSE</th>
-      
-      
-     
-  </thead>
-  <tbody>
-    <?php
-//   $sql1 = "SELECT id, name, amount, remark FROM miscellaneous";
-//   $result1 = mysqli_query($conn, $sql);
-//   if (!$result1) {
-//     die("Query failed: " . mysqli_error($conn));
-// }
-
-//   if ($result1->num_rows > 0) {
-        
-//         while ($row = $result1->fetch_assoc()) {
-//             echo "<tr><td>" . $row["id"] . "</td><td>" . $row["name"] . "</td><td>" . $row["amount"]. "</td><td>" . $row["remark"] . "</td></tr>";
-//         }
-//     } else {
-//         echo "0 results";
-//     }
-
-
-
-// showing values in the table
-      $rowsql = "SELECT id, timestamp, name, amount, purpose, remark FROM miscellaneous";
-      $rowresult = mysqli_query($conn, $rowsql);
-      $sum =0;
-			if(mysqli_num_rows($rowresult)!=0){ 
-		
-while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
-  $time = new DateTime($row['timestamp']);
-  $date = $time->format('j.n.Y');
-  $time = $time->format('H:i A');
-  
-  echo('
-								<tr>
-  <td>'.$row['id'].'</td>
-      <td>'.$date.'</td>
-      <td>'.$row['name'].'</td>
-      <td>'.$row['purpose'].'</td>
-      <td>'.$time.'</td>');
-      $sum = $sum + $row['amount'];
-
-}
-      }
-      else{
-        echo('<h2>NO PENDTING REQUESTS</h2>');
-      }
-    ?>
-    <!-- <tr>
-      <td>1</td>  
-    
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-     
-
-      
-    <tr>
-      <td>2</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-     
-    <tr class="disabled">
-      <td>3</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-     
-    
-    <tr>
-
-   
-    <tr>
-      <td>8</td>
-      <td>24-08=2023</td>
-      <td>Reynolds</td>
-      <td>camera</td>
-      <td>5000</td>
-      -->
-     
-
-
-
-  </tbody>
-</table>
+			
 
 			<!------main-content-end----------->
 

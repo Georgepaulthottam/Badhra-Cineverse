@@ -136,7 +136,7 @@ if (isset($_POST['punchin'])) {
 		  <i class="material-icons">aspect_ratio</i>Profile
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-		     <li><a href="profile.php">Profile</a></li>
+		     <li><a href="profileadmin.php">Profile</a></li>
 			 
 		  </ul>
 		  </li>
@@ -359,6 +359,7 @@ if (isset($_POST['punchin'])) {
 											<option value="others">Others</option>
 										</select>
 										<div class="popup" id="popup">
+										<a class="close" href="#">X</a>
 											<h5>Enter Manually:</h5>
 											
 											<input type="text" id="location" placeholder="Enter Location">
@@ -376,10 +377,10 @@ if (isset($_POST['punchin'])) {
                                     
 									<input name="submit" type="button" class="punch-in-btn" value="Set Location" id="submitbtn">  
                            </form>
-
-
                         </div>
                     </div>
+
+					
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Bata Details</h3>
@@ -725,6 +726,8 @@ if (isset($_POST['punchin'])) {
     document.getElementById("mySelect").addEventListener("change", function () {
       var popup = document.getElementById("popup");
       var select = document.getElementById("mySelect");
+	 
+
       if (select.value === "others") {
         popup.style.display = "block";
       } else {
@@ -751,7 +754,20 @@ if (isset($_POST['punchin'])) {
         alert("Please enter both location and rent.");
       }
     }
+	//Close the popup
+	// From http://jsfiddle.net/LxauG/606/
+
+$('.close').click(function() {
+   $(".popup").fadeOut(300);
+   location.reload();	
+});
+
+$(".popup").on('blur',function(){
+    $(this).fadeOut(300);
+});
+
   </script>
+
 
 
   </body>
