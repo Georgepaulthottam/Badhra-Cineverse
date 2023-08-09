@@ -139,11 +139,13 @@ td {
 
 .current-day {
     background-color: #ffcccb;
+    border-radius: 10px;
 }
 
 .important-date {
-    background-color: #f9a825;
-    color: #fff;
+  border-radius: 10px;
+  background-color: #f9a825;
+  color: #fff;
 }
 
 .navigation {
