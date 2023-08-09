@@ -192,6 +192,9 @@ td {
     border-radius: 10px;
     color:black;
 }
+#popupContent table tr td{
+  text-align:left;
+}
 
   @media only screen and (max-width: 767px) {
     .middle-section {

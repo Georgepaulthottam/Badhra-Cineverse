@@ -271,12 +271,12 @@
         // Include your database connection file here
         // Replace 'YOUR_DB_CONNECTION' with the actual connection code
         <?php
-        $conn = mysqli_connect('localhost', 'root', '', 'sample') or die(mysqli_error());
+        $conn = mysqli_connect('localhost', 'root', '', 'bhadra') or die(mysqli_error());
 
         // Function to fetch events from the database
         function getEventsFromDatabase() {
             // Replace 'calendar_events' with your actual table name
-            $query = "SELECT * FROM calendar_events";
+            $query = "SELECT DATE(date) AS extracted_date FROM `absent_dates`";
             $result = mysqli_query($GLOBALS['conn'], $query);
 
             $events = array();
@@ -306,27 +306,46 @@
             calendarDates.forEach(date => {
                 date.addEventListener('click', () => {
                     const selectedDate = date.dataset.date;
-                    console.log(selectedDate);
                     fetchDateDetails(selectedDate);
                 });
             });
             function fetchDateDetails(selectedDate) {
+                var absent=false;
                 // Send a request to the PHP backend to retrieve salary and request details
                 fetch(`get_date_details.php?date=${selectedDate}`)
                     .then(response => response.json())
                     .then(data => {
-                        if (Object.keys(data).length < 2) {
-                popupContent.innerHTML = `<p>No data available for ${selectedDate}</p>`;
+                    for(var i=0;i<importantDates.length;i++){
+                        
+                        if(importantDates[i].extracted_date===selectedDate){
+                            absent=true;
+                        }
+                    }
+                        console.log(absent);
+                        if (absent===true) {
+                popupContent.innerHTML = `<p style="color:red">You were Absent on ${selectedDate}</p>`;
             } else {
                 // Display salary and request details in the popup
+                
                 popupContent.innerHTML = `
-                    <h4>Details for ${selectedDate}</h4>
-                    <p>Salary: ${data.salary}</p>
-                    <p>Requests: ${data.requests}</p>
-                    <p style="color:green">Accepted: ${data.requests}</p>
-                    <p style="color:red">Rejected: ${data.requests}</p>
+                    <h5>Details for ${selectedDate}</h5>
+                    <table>
+                    <tr><td>Salary:</td><td> 1000</td></tr>
+                    <tr><td>Stay:</td><td> Hotel1</td></tr>
+                    <tr><td><a href="user_view_request.php">Requests:</td><td> ${data.details1}</a></td></tr>
+                    <tr><td><a style="color:green" href="user_view_request.php?status=approvrd">Accepted:</td><td> ${data.details2}</a></td></tr>
+                    <tr><td><a  style="color:red" href="user_view_request.php?status=rejected">Rejected:</td><td> ${data.details2}</a></td></tr>
+                    </table>
                     <a style="color:red; margin-left:35%;" href="details_page.html?date=${selectedDate}">View More</a>
-                `
+                `;
+
+                //add salary and accomodation as below
+                // <h4>Details for ${selectedDate}</h4>
+                // <p>Salary: ${data.details4.salary}</p>
+                // <p>Accomodation: ${data.details5.accomodation}</p>
+                // <p style="color:green">Accepted: ${data.detail2}</p>
+                // <p style="color:red">Rejected: ${data.detail2}</p>
+                // <a style="color:red; margin-left:35%;" href="details_page.html?date=${selectedDate}">View More</a>
             }
                         // Show the popup
                         popup.style.display = 'block';
@@ -407,7 +426,7 @@
 
                 if (i >= firstDayOfWeek && currentDay <= daysInMonth) {
                     var currentDate = new Date(year, month - 1, currentDay + 1).toISOString().split('T')[0];
-                    var eventsForCurrentDate = importantDates.filter(event => event.date === currentDate);
+                    var eventsForCurrentDate = importantDates.filter(event => event.extracted_date === currentDate);
 
                     // Create markers for important dates
                     if (eventsForCurrentDate.length > 0) {
