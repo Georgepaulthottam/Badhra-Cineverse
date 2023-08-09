@@ -103,7 +103,7 @@
                     <tr><td><a style="color:green" href="user_view_request.php?status=approvrd">Accepted:</td><td> ${data.details2}</a></td></tr>
                     <tr><td><a  style="color:red" href="user_view_request.php?status=rejected">Rejected:</td><td> ${data.details2}</a></td></tr>
                     </table>
-                    <a style="color:red; margin-left:35%;" href="user_datewise_data?date=${selectedDate}">View More</a>
+                    <a style="color:red; margin-left:35%;" href="user_datewise_data.php?date=${selectedDate}">View More</a>
                 `;
 
                 //add salary and accomodation as below

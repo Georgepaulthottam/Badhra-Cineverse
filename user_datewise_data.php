@@ -3,7 +3,7 @@
             <!------main-content-start----------->
             <div id="main-container" class="middle-section">
                <div class="bottom-section">
-                <div class="profile-box">
+                <div class="profile-box" style="overflow-x:auto;">
                     <h5 style="color:red;">2023-07-24</h5>
                     <table id="datewisetbl">
                         <tr>
