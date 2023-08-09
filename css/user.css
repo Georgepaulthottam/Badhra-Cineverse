@@ -195,6 +195,11 @@ td {
 #popupContent table tr td{
   text-align:left;
 }
+#datewisetbl tr td{
+  text-align:left;
+  color:black;
+  font-weight: bolder;
+}
 
   @media only screen and (max-width: 767px) {
     .middle-section {
