@@ -726,12 +726,7 @@ if (isset($_POST['punchin'])) {
     document.getElementById("mySelect").addEventListener("change", function () {
       var popup = document.getElementById("popup");
       var select = document.getElementById("mySelect");
-	  const inputField1 = document.getElementById('inputField1');
-const inputField2 = document.getElementById('inputField2');
-
-// Load saved input field values from localStorage (if available)
-inputField1.value = localStorage.getItem('inputField1Value') || '';
-inputField2.value = localStorage.getItem('inputField2Value') || '';
+	 
 
       if (select.value === "others") {
         popup.style.display = "block";
