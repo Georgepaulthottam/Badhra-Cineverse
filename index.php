@@ -758,6 +758,7 @@ if (isset($_POST['punchin'])) {
 
 $('.close').click(function() {
    $(".popup").fadeOut(300);
+   location.reload();
 });
 
 $(".popup").on('blur',function(){
