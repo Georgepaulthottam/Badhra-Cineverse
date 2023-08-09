@@ -52,6 +52,7 @@ if(isset($_POST['delete'])){
 	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 	<link rel="stylesheet" href="css/style.css" />
+	
 	<script type="text/javascript" src="main.js"></script>
 	<style>
 		/* css for acceptAll and rejectAll Button*/
@@ -237,7 +238,28 @@ tbody tr:hover {
     background-color: #ccc;
     color: black;
   }
+  @media only screen and (max-width: 767px){
+	.expensebox {
+      width: 300px;
+      height: 160px;
+      background-color:#cfcfc4 ;
+      border: 1px solid gray;
+      padding: 20px;
+	  box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
+	  margin-left:5px;
+	  flex:-1;
+	  margin-top:10px;
+      box-sizing: border-box;
+    }
+	
 
+    /* Styling for the fields inside the box */
+    .expensefield {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+  }
 		
 	</style>
 	 <script>
@@ -501,7 +523,7 @@ tbody tr:hover {
                           </div>
                         </th>
                         <th>
-				          <div class="expensebox">
+				          <div class="expensebox" id="expensebox">
                              <div class="expensefield">
                                 <label for="opening-balance">Location: &emsp; </label>
                                 <span class="expensevalue"> Diamond Plaza Trivanathapuram</span>
@@ -519,7 +541,7 @@ tbody tr:hover {
 					<form form class="form" action="misc.php" method="post">
 
 					    <input name="Miscellanious" type="submit"
-                                            class="bata-btn primary-button" value="Miscellanious" id="submitbtn">
+                                            class="bata-btn primary-button" value="Miscellaneous" id="submitbtn">
 					</form> 
 											
                     </div>
