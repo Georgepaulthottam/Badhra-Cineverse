@@ -47,6 +47,41 @@
     border-radius: 5px;
     
   }
+  .button-container {
+    text-align: center;
+    margin-left: 27%;
+}
+
+.punch-button {
+    background: linear-gradient(135deg, #ff5656, #ff8e8e); /* Reddish gradient */
+    color: white;
+    padding: 15px 20px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.punch-button i {
+    font-size: 24px;
+    margin-right: 10px;
+}
+
+.punch-button.requested {
+    background: #f4d03f; /* Yellow background for Requested state */
+}
+
+.punch-button.accepted {
+    background: #27ae60; /* Green background for Accepted state */
+}
+
+.punch-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+}
  
     
  
@@ -62,6 +97,7 @@
   }
   .request-status table tr th{
     height: 48px;
+    background-color: white;
   }
   .request-filter{
     width: 100%;
@@ -114,7 +150,6 @@ th {
     padding: 10px;
     text-align: center;
     border-spacing: 50px;
-    background-color: #f2f2f2;
     font-weight: bolder;
     color: #333;
 }

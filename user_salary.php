@@ -3,7 +3,7 @@
             <!------main-content-start----------->
             <div id="main-container" class="middle-section">
             <div class="top-section">
-                <div class="profile-box" style="border:5px solid red; overflow-x:auto;">
+                <div class="profile-box" style="overflow-x:auto;">
                     <h4>Todays Salary</h4>
                     <table class="table table-striped table-hover">
                         <thead>
@@ -17,7 +17,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr style="border:5px solid red;">
                                 <td>Second</td>
                                 <td>1000</td>
                                 <td>200</td>
@@ -34,7 +34,8 @@
                     <h4>Salary list</h4>
                     <table class="table table-striped table-hover">
                         <thead>
-                        <tr>
+                            <tr>
+                                <th>Date</th>
                                 <th>Bata</th>
                                 <th>Salary</th>
                                 <th>EA</th>
@@ -45,6 +46,7 @@
                         </thead>
                         <tbody>
                             <tr>
+                                <td>2023-08-02</td>
                                 <td>Second</td>
                                 <td>1000</td>
                                 <td>200</td>
@@ -52,6 +54,7 @@
                                 <td>100</td>
                                 <td>800</td>
                             <tr>
+                               <td>2023-08-02</td>
                                <td>Second</td>
                                 <td>1000</td>
                                 <td>200</td>

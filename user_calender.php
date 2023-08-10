@@ -98,10 +98,9 @@
                     <h5>Details for ${selectedDate}</h5>
                     <table>
                     <tr><td>Salary:</td><td> 1000</td></tr>
-                    <tr><td>Stay:</td><td> Hotel1</td></tr>
                     <tr><td><a href="user_view_request.php">Requests:</td><td> ${data.details1}</a></td></tr>
                     <tr><td><a style="color:green" href="user_view_request.php?status=approvrd">Accepted:</td><td> ${data.details2}</a></td></tr>
-                    <tr><td><a  style="color:red" href="user_view_request.php?status=rejected">Rejected:</td><td> ${data.details2}</a></td></tr>
+                    <tr><td><a  style="color:red" href="user_view_request.php?status=rejected">Rejected:</td><td> ${data.details3}</a></td></tr>
                     </table>
                     <a style="color:red; margin-left:35%;" href="user_datewise_data.php?date=${selectedDate}">View More</a>
                 `;

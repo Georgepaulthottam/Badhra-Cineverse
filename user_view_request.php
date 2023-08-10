@@ -287,14 +287,14 @@ $result=mysqli_query($conn,$query);
 
                                         echo('
                                         <tr>
-                                        <th>'.$date.'</th>
-                                        <th>'.$time.'</th>
-                                        <th>'.$row['name'].'</th>
-                                        <th>'.$row['details'].'</th>
-                                        <th>'.$row['price'].'</th>
-                                        <th>'.$row['number'].'</th>
-                                        <th>'.$row['price']*$row['number'].'</th>
-                                        <th>'.$row['status'].'</th>
+                                        <td>'.$date.'</td>
+                                        <td>'.$time.'</td>
+                                        <td>'.$row['name'].'</td>
+                                        <td>'.$row['details'].'</td>
+                                        <td>'.$row['price'].'</td>
+                                        <td>'.$row['number'].'</td>
+                                        <td>'.$row['price']*$row['number'].'</td>
+                                        <td>'.$row['status'].'</td>
                                     </tr>');
                                     }
                                     
