@@ -512,19 +512,7 @@ tbody tr:hover {
                           </div>
                         </th>
                     </table>
-					<div class="form-container">
-					<form form class="form" action="approved_requests.php" method="post">
-					    <input name="Approved Expense" type="submit" 
-						                    class="bata-btn primary-button" value="Approved Expense" id="aprovexpbtn">
-					  
-                    </form>	 
-					<form form class="form" action="misc.php" method="post">
-
-					    <input name="Miscellanious" type="submit"
-                                            class="bata-btn primary-button" value="Miscellanious" id="submitbtn">
-					</form> 
-											
-                    </div>
+					
 					<br>
 					<button onclick="toggleRows()" class="addnew sec-button">ADD EXPENSE
                       </button>
@@ -546,6 +534,7 @@ tbody tr:hover {
                       <th>Purpose</th>
                       <th>Amount</th>
 					  <th>Quantity</th>
+					  <th>Mode</th>
 
                     </tr>
 					<?php
@@ -560,8 +549,9 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
                       <td>'.$no.'</td>
                       <td>'.$row['name'].'</td>
                       <td>'.$row['description'].'</td>
-                      <td>'.$row['price'].'</td>
+                      <td>₹'.$row['price'].'</td>
 					  <td>'.$row['quantity'].'</td>
+					  <td></td>
 					  
 					  <td><div class="delete-icon" onclick="showDeletePrompt()">
     <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
@@ -595,6 +585,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
                       <td><input type="text" name="purpose" placeholder="Enter Purpose"></td>
                       <td><input type="text" name="amount" placeholder="Enter Amount"></td>
 					  <td><input type="text" name="quantity" placeholder="Enter quantity"></td>
+					  <td></td>
 					  <td> <button class="tick-icon" name="inp" type="submit">
 						</form>
     <i class="fas fa-check-circle"></i></td>
@@ -604,18 +595,21 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
                       <td></td>
                       <td></td>
                       <td></td>
+					  <td></td>
                     </tr>
 					<tr>
                       <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
+					  <td></td>
                     </tr>
 					<tr>
                       <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
+					  <td></td>
                     </tr>
 					<tr class="rowiee">
   
@@ -624,12 +618,14 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
                       <td>$400</td>
                       <td>Total Expense:</td>
 					  <td><?php echo('₹'.$sum.'');?></td>
+					  <td></td>
 					  <td ></td>
                     </tr>
 					<tr>
                       <td></td>
                       <td></td>
                       <td></td>
+					  <td></td>
                       <td></td>
                     </tr>
 					
