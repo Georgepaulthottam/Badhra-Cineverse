@@ -44,6 +44,7 @@ if (isset($_POST['punch-in-btn'])) {
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- css3 -->
     <link rel="stylesheet" href="css/custom.css">
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!--google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -280,16 +281,28 @@ if (isset($_POST['punch-in-btn'])) {
 
                         <!------punch in button starts----------->
 
-                            <form action="" method ="post"><?php 
+                            <form style="margin-left:26%" action="" method ="post"><?php 
                             if($_SESSION['status']=='requested'){
-                                echo("<h3> punch-in requested</h3>");
+                                echo(' <button class="punch-button" id="punchButton" style=" background: #f4d03f; /* Yellow background for Requested state */">
+            <i class="fas fa-fingerprint"></i>Requested</button>');
                             }
                             elseif($_SESSION['status']=='accepted'){
-                                echo("<h5 class='punch-in-btn'> Punched-in</h5>");
+                                echo(  '<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */">
+            <i class="fas fa-check"></i>
+            Punched In
+        </button>');
                             }
-                            else{echo('
-                            
-                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punch-in-btn" value = "PUNCH IN" >
+                            else{echo(' <button style=" background: linear-gradient(135deg, #ff5656, #ff8e8e); /* Reddish gradient */
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center"  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punch-in-btn">
+            <i class="fas fa-fingerprint"></i>&nbsp;Punch-in</button>
                                 ');}
                                 ?> 
 
