@@ -1,17 +1,3 @@
-<?php  
-session_start();
-// Check if the user is not logged in
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-
-}
-require 'connection.php';
-$user=$_SESSION['user'];
-$query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."'");
-$result=mysqli_query($conn,$query);
-
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -20,24 +6,29 @@ $result=mysqli_query($conn,$query);
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Admin Dashboard</title>
+    <title>Art Department</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!----css3---->
+    <!-- css3 -->
     <link rel="stylesheet" href="css/custom.css">
-
 
     <!--google fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-
     <!--google material icon-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css" />
+
+    <!--user css-->
+    <link rel="stylesheet" href="css/user.css" />
+
     <script type="text/javascript" src="main.js"></script>
+
+    <!-- Include Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 
 <body>
@@ -56,16 +47,16 @@ $result=mysqli_query($conn,$query);
 			<h3><span  > &nbsp;Badhra Cineverse</span></h3>
             </div>
             <ul class="list-unstyled component m-0">
-                <li >
-                    <a href="#" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+                <li class="active">
+                    <a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
                 </li>
 
-                <li class="active">
+                <li class="dropdown">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="material-icons">aspect_ratio</i>Requests
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                    <li class="active"><a href="user_view_request.php">Pending Requests</a></li>
+                    <li><a href="user_view_request.php">Pending Requests</a></li>
 			
                     </ul>
                 </li>
@@ -73,10 +64,10 @@ $result=mysqli_query($conn,$query);
 
                 <li class="dropdown">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">aspect_ratio</i>Salary Manager
+                        <i class="material-icons">aspect_ratio</i>Profile
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                        <li><a href="#">layout 1</a></li>
+                        <li><a href="profile.php">Profile</a></li>
                        
                     </ul>
                 </li>
@@ -153,11 +144,6 @@ $result=mysqli_query($conn,$query);
 
 
 
-
-        <!-------sidebar--design- close----------->
-
-
-
         <!-------page-content start----------->
 
         <div id="content">
@@ -174,17 +160,7 @@ $result=mysqli_query($conn,$query);
                         </div>
 
                         <div class="col-md-5 col-lg-3 order-3 order-md-2">
-                            <div class="xp-searchbar">
-                                <form>
-                                    <div class="input-group">
-                                        <input type="search" class="form-control" placeholder="Search">
-                                        <div class="input-group-append">
-                                            <button class="btn" type="submit" id="button-addon2">Go
-                                            </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
+                            
                         </div>
 
 
@@ -213,7 +189,7 @@ $result=mysqli_query($conn,$query);
 
                                         <li class="dropdown nav-item">
                                             <a class="nav-link" href="#" data-toggle="dropdown">
-                                                <img src="img/user.jpg" style="width:40px; border-radius:50%;" />
+                                                <img src="profile2.avif" style="width:40px; border-radius:50%;" />
                                                 <span class="xp-user-live"></span>
                                             </a>
                                             <ul class="dropdown-menu small-menu">
@@ -242,7 +218,7 @@ $result=mysqli_query($conn,$query);
                     </div>
 
                     <div class="xp-breadcrumbbar text-center">
-                        <h4 class="page-title">Request Details</h4>
+                        <h4 class="page-title">Art Department</h4>
                         <ol class="breadcrumb">
 
                         </ol>
@@ -252,121 +228,3 @@ $result=mysqli_query($conn,$query);
                 </div>
             </div>
             <!------top-navbar-end----------->
-
-
-            <!------main-content-start----------->
-            <div class="main-content">
-                <section id="view-request">
-                    <div class="detailed-box" id="request-table">
-                        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Request
-                        </h3>
-                        <div class="attendence" style="overflow-x:auto;">
-    
-                            <table class="table table-striped table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Item</th>
-                                        <th>Description</th>
-                                        <th>price</th>
-                                        <th>Quantity</th>
-                                        <th>Amount</th>
-                                        <th>Status</th>
-                                    </tr>
-                                </thead>
-    
-                                <tbody>
-                                    <?php 
-                                    while($row=mysqli_fetch_assoc($result)){
-                                        
-
-                                   $time = new DateTime($row['date']);
-                                   $date = $time->format('n.j.Y');
-                                   $time = $time->format('H:i');
-
-                                        echo('
-                                        <tr>
-                                        <td>'.$date.'</td>
-                                        <td>'.$time.'</td>
-                                        <td>'.$row['name'].'</td>
-                                        <td>'.$row['details'].'</td>
-                                        <td>'.$row['price'].'</td>
-                                        <td>'.$row['number'].'</td>
-                                        <td>'.$row['price']*$row['number'].'</td>
-                                        <td>'.$row['status'].'</td>
-                                    </tr>');
-                                    }
-                                    
-                                   
-                                    
-
-
-                                ?></tbody>
-    
-    
-                            </table>
-    
-                        </div>
-                </section>
-            </div>
-            <!------main-content-end----------->
-
-
-
-            <!----footer-design------------->
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="footer-in">
-                        <p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
-                    </div>
-                </div>
-            </footer>
-
-
-
-
-        </div>
-
-    </div>
-
-
-
-    <!-------complete html----------->
-
-
-
-
-
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/jquery-3.3.1.min.js"></script>
-
-
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $(".xp-menubar").on('click', function () {
-                $("#sidebar").toggleClass('active');
-                $("#content").toggleClass('active');
-            });
-
-            $('.xp-menubar,.body-overlay').on('click', function () {
-                $("#sidebar,.body-overlay").toggleClass('show-nav');
-            });
-
-        });
-
-    </script>
-
-
-
-
-
-</body>
-
-</html>

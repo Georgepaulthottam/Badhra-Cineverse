@@ -27,15 +27,14 @@ if(isset($_POST['misc-submit'])){
     <style>
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
-
-
 .login-box {
   position: absolute;
   top: 17%;
   left: 50%;
-  width: 500px;
+  width: 40%;
   height: 540px;
   padding: 40px;
+  
   transform: translate(-50%, -50%);
   background: #152935;
   box-sizing: border-box;
@@ -86,46 +85,24 @@ if(isset($_POST['misc-submit'])){
   font-size: 12px;
 }
 
-.login-box form a {
+.login-box form a input{
   position: relative;
-  display: inline-block;
+  display: block;
   padding: 10px 20px;
-  color: yellow;
+  color: white;
+  background:black;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
-  overflow: hidden;
-  transition: .5s;
-  margin-top: 40px;
+  margin-left: 140px;
+  margin-top: 20px;
   margin-bottom:100px;
-  letter-spacing: 4px
-}
-
-
-
-.login-box a span {
-  position: absolute;
-  display: block;
+  letter-spacing: 3px
 }
 
 #misc-submit{
-	display: inline-block;
-  padding: 10px 15px;
-  font-size: 13px;
-  font-weight: bold;
-  text-align: center;
-  margin-left: 10px;
-  margin-top:1px;
-  margin-bottom: 12   px;
-  text-decoration: none;
-  border-radius: 2px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  cursor: pointer;
+
 }
-
-
-
-
 
 table {
   background: #152935;
@@ -133,7 +110,7 @@ table {
   border-collapse: collapse;
   margin: 1em;
   margin-top: 700px;
-  width: 1200px;
+  width: 95%;
   margin-left:30px;
 }
 th {
@@ -150,51 +127,55 @@ td {
   padding: 0.65em 1em;
 }
 
-
 tbody tr {
   transition: background 0.25s ease;
 }
 tbody tr:hover {
   background: #014055;
 } 	
+.miscform-container {
+            display: flex;
+        }
 .bata-btn{
 		display: inline-block;
-  padding: 12px 20px;
+  padding: 8px 8px;
   font-size: 16px;
   font-weight: bold;
   text-align: center;
-  margin-left: 300px;
-  margin-top:1px;
-  margin-bottom: 20px;
+  margin-left: 400px;
+  margin-top: 27px;
   text-decoration: none;
   border-radius: 4px;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   cursor: pointer;
+  margin-bottom:20px;
 }
 .primary-button {
-  background-color:  #152935  ;
+  background-color:  #002147  ;
   color: #ffffff;
   border: 2px solid #002e63 ;
 }
 
 .primary-button:hover {
-  background-color: #152935;
+  background-color: #0056b3;
   border-color: #0056b3;
 }
-	.form-container {
-            display: flex;
-        }
+	/* css for acceptAll and rejectAll Button*/
+	.btnsCheck{
+		margin-left:3%;
+	}
+	#acceptAllBtn {
+			color: rgb(229, 117, 56);
+			visibility: hidden;
+			
+		}
 
-		.form {
-            flex: -2;
-           
-        }
-		.hidden-row {
-            display: none;
-        }
+		#rejectAllBtn {
+			color: green;
+			visibility: hidden;
+			margin-left:20px;
+		}
 		
-
-
     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -464,20 +445,14 @@ tbody tr:hover {
       
       <label>Remark</label>
     </div>
-    <a href="#">
-      <span></span>
-      <span></span>
-      <input type ="submit" name  = "misc-submit" id = "misc-submit" value = " Submit ">
-      <span></span>
-      <span></span>
-    
-    </a>
+	<a href="#">
+	  <input type ="submit" name  = "misc-submit" id = "misc-submit" value = " Submit ">
+	</a>
   </form>
 </div>
 
-	<div class="misctable" style="overflow-x:auto;">
-
-          <table >
+<div class="misctable" style="overflow-x:auto;">
+<table>
 
   <thead>
                    <?php
@@ -513,8 +488,8 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   echo('
 								<tr>
 								<td><span class="custom-checkbox">
-											<input type="checkbox"  id="selectAll">
-											<label for="selectAll"></label></td>
+								<input type="checkbox" id="checkbox" name="checkbox" value="1">
+								<label for="checkbox1"></label></th>
   <td>'.$no.'</td>
       <td>'.$date.'</td>
       <td>'.$row['name'].'</td>
@@ -546,21 +521,26 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
   </tbody>
 </table>
+<div class="btnsCheck">
+							<button id="acceptAllBtn" formaction="#">Accept All</button>
+							<button id="rejectAllBtn" formaction="#">Reject All</button>
+						</div>
 </div>
+          
 <br>
-<div class="form-container">
-					<form form class="form" action="#" method="post">
+<div class="miscform-container" id="miscbuttons">
+					<form form class="form" action="approved_requests.php" method="post">
 					    <input name="Approved Expense" type="submit" 
 						                    class="bata-btn primary-button" value="Send to Expense" id="aprovexpbtn">
 					  
                     </form>	 
-					<form form class="form" action="#" method="post">
+					<form form class="form" action="misc.php" method="post">
 
 					    <input name="Miscellanious" type="submit"
                                             class="bata-btn primary-button" value="Delete" id="submitbtn">
 					</form> 
 											
-                    </div>
+</div>
 
 
 		    <!------main-content-end-----------> 
@@ -608,6 +588,28 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 		  });
 		  
 	   });
+
+	   //Select all boxes of table
+
+	   function selects() {
+			var ele = document.getElementsByName("checkbox");
+			if (document.getElementById("selectAll").checked == true ) {
+				document.getElementById("acceptAllBtn").style.visibility = "visible";
+				document.getElementById("rejectAllBtn").style.visibility = "visible";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = true;
+				}
+			}
+			else{
+				document.getElementById("acceptAllBtn").style.visibility = "hidden";
+				document.getElementById("rejectAllBtn").style.visibility = "hidden";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = false;
+				}
+			}
+		}
   </script>
   
   
