@@ -24,6 +24,7 @@
 
     <!--user css-->
     <link rel="stylesheet" href="css/user.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script type="text/javascript" src="main.js"></script>
 
@@ -48,95 +49,42 @@
             </div>
             <ul class="list-unstyled component m-0">
                 <li class="active">
-                    <a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+                    <a href="user_index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
                 </li>
 
                 <li class="dropdown">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">aspect_ratio</i>Requests
+                        <i class="material-icons">account_circle</i>Profile
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                    <li><a href="user_view_request.php">Pending Requests</a></li>
-			
+                        <li><a href="user_profile.php">View Profile</a></li>
+                        <li><a href="user_edit_profile.php">Edit Profile</a></li>
                     </ul>
                 </li>
 
 
                 <li class="dropdown">
-                    <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">aspect_ratio</i>Profile
+                    <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        <i class="material-icons">request_page</i>Request
                     </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                        <li><a href="profile.php">Profile</a></li>
-                       
+                    <ul class="collapse list-unstyled menu" id="homeSubmenu2">
+                        <li><a href="user_view_request.php">View Request</a></li>
+                        <li><a href="user_make_request.php">Make Request</a></li>
                     </ul>
                 </li>
 
-                <li class="dropdown">
-                    <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">equalizer</i>Locations
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu3">
-                        <li><a href="#">Pages 1</a></li>
-                        <li><a href="#">Pages 2</a></li>
-                       
-                    </ul>
-                </li>
-
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">extension</i>Calender
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu4">
-                        <li><a href="#">Pages 1</a></li>
-                        <li><a href="#">Pages 2</a></li>
-                        <li><a href="#">Pages 3</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">border_color</i>Suggestions
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu5">
-                        <li><a href="#">Pages 1</a></li>
-                        <li><a href="#">Pages 2</a></li>
-                        <li><a href="#">Pages 3</a></li>
-                    </ul>
-                </li>
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">grid_on</i>tables
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-                        <li><a href="#">table 1</a></li>
-                        <li><a href="#">table 2</a></li>
-                        <li><a href="#">table 3</a></li>
-                    </ul>
-                </li>
-
-
-                <li class="dropdown">
-                    <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <i class="material-icons">content_copy</i>Pages
-                    </a>
-                    <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-                        <li><a href="#">Pages 1</a></li>
-                        <li><a href="#">Pages 2</a></li>
-                        <li><a href="#">Pages 3</a></li>
-                    </ul>
+                <li class="">
+                    <a href="user_salary.php" class=""><i class="material-icons">currency_rupee</i>Salary</a>
                 </li>
 
 
                 <li class="">
-                    <a href="#" class=""><i class="material-icons">date_range</i>copy </a>
-                </li>
-                <li class="">
-                    <a href="#" class=""><i class="material-icons">library_books</i>calender </a>
+                    <a href="user_calender.php" class=""><i class="material-icons">calendar_month</i>Calendar</a>
                 </li>
 
+                <li class="">
+                    <a href="user_notification.php" class=""><i class="material-icons">notifications</i>Notifications</a>
+                </li>
             </ul>
         </div>
 
@@ -144,87 +92,82 @@
 
 
 
-        <!-------page-content start----------->
-
-        <div id="content">
-
-            <!------top-navbar-start----------->
-
-            <div class="top-navbar">
-                <div class="xd-topbar">
-                    <div class="row">
-                        <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
-                            <div class="xp-menubar">
-                                <span class="material-icons text-white">signal_cellular_alt</span>
-                            </div>
-                        </div>
-
-                        <div class="col-md-5 col-lg-3 order-3 order-md-2">
-                            
-                        </div>
-
-
-                        <div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
-                            <div class="xp-profilebar text-right">
-                                <nav class="navbar p-0">
-                                    <ul class="nav navbar-nav flex-row ml-auto">
-                                        <li class="dropdown nav-item active">
-                                            <a class="nav-link" href="#" data-toggle="dropdown">
-                                                <span class="material-icons">notifications</span>
-                                                <span class="notification">4</span>
-                                            </a>
-                                            <ul class="dropdown-menu">
-                                                <li><a href="#">You Have 4 New Messages</a></li>
-                                                <li><a href="#">You Have 4 New Messages</a></li>
-                                                <li><a href="#">You Have 4 New Messages</a></li>
-                                                <li><a href="#">You Have 4 New Messages</a></li>
-                                            </ul>
-                                        </li>
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="#">
-                                                <span class="material-icons">question_answer</span>
-                                            </a>
-                                        </li>
-
-                                        <li class="dropdown nav-item">
-                                            <a class="nav-link" href="#" data-toggle="dropdown">
-                                                <img src="profile2.avif" style="width:40px; border-radius:50%;" />
-                                                <span class="xp-user-live"></span>
-                                            </a>
-                                            <ul class="dropdown-menu small-menu">
-                                                <li><a href="#">
-                                                        <span class="material-icons">person_outline</span>
-                                                        Profile
-                                                    </a></li>
-                                                <li><a href="#">
-                                                        <span class="material-icons">settings</span>
-                                                        Settings
-                                                    </a></li>
-                                                <li><a href="logout.php">
-                                                        <span class="material-icons">logout</span>
-                                                        Logout
-                                                    </a></li>
-
-                                            </ul>
-                                        </li>
-
-
-                                    </ul>
-                                </nav>
-                            </div>
-                        </div>
-
+         <!-------page-content start----------->
+   
+      <div id="content">
+	     
+         <!------top-navbar-start-----------> 
+            
+         <div class="top-navbar">
+            <div class="xd-topbar">
+                <div class="row">
+                    <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+                       <div class="xp-menubar">
+                           <span class="material-icons text-white">signal_cellular_alt</span>
+                       </div>
                     </div>
-
-                    <div class="xp-breadcrumbbar text-center">
-                        <h4 class="page-title">Art Department</h4>
-                        <ol class="breadcrumb">
-
-                        </ol>
+                    
+                    <div class="col-md-5 col-lg-3 order-3 order-md-2">
+                        
+                        
                     </div>
-
-
+                    
+                    
+                    <div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
+                        <div class="xp-profilebar text-right">
+                           <nav class="navbar p-0">
+                              <ul class="nav navbar-nav flex-row ml-auto">
+                              <li class="dropdown nav-item active">
+                                <a class="nav-link" href="" data-toggle="dropdown">
+                                 <span class="material-icons">notifications</span>
+                                 <span class="notification">4</span>
+                                </a>
+                                 <ul class="dropdown-menu">
+                                    <li><a href="">You Have 4 New Messages</a></li>
+                                    <li><a href="#">You Have 4 New Messages</a></li>
+                                    <li><a href="#">You Have 4 New Messages</a></li>
+                                    <li><a href="#">You Have 4 New Messages</a></li>
+                                 </ul>
+                              </li>
+                              
+                              
+                              
+                              <li class="dropdown nav-item">
+                                <a class="nav-link" href="#" data-toggle="dropdown">
+                                <img src="profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
+                                 <span class="xp-user-live"></span>
+                                </a>
+                                 <ul class="dropdown-menu small-menu">
+                                    <li><a href="profile.php">
+                                    <span class="material-icons">person_outline</span>
+                                    Profile
+                                    </a></li>
+                                    <li><a href="#">
+                                    <span class="material-icons">settings</span>
+                                    Settings
+                                    </a></li>
+                                    <li><a href="logout.php">
+                                    <span class="material-icons">logout</span>
+                                    Logout
+                                    </a></li>
+                                    
+                                 </ul>
+                              </li>
+                              
+                              
+                              </ul>
+                           </nav>
+                        </div>
+                    </div>
+                    
                 </div>
+                
+                <div class="xp-breadcrumbbar text-center">
+                   <h4 class="page-title">Dashboard</h4>
+                   <ol class="breadcrumb">
+                   </ol>
+                </div>
+                
             </div>
-            <!------top-navbar-end----------->
+         </div>
+         <!------top-navbar-end-----------> 

@@ -160,6 +160,7 @@
             navrow.appendChild(navcell1);
             navrow.appendChild(navcell2);
             navrow.appendChild(navcell3);
+            navrow.classList.add('navrow');
             table.appendChild(navrow);
 
             // Create the table header row with day names
