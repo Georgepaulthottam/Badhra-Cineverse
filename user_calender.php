@@ -1,4 +1,6 @@
-<?php require("user_header.php"); ?>
+<?php 
+require("user_header.php"); 
+?>
             <!------main-content-start----------->
             <div id="main-container" class="middle-section">
                 <div id="calendar" style="overflow-x:auto;"></div>
@@ -38,7 +40,8 @@
         // Include your database connection file here
         // Replace 'YOUR_DB_CONNECTION' with the actual connection code
         <?php
-        $conn = mysqli_connect('localhost', 'root', '', 'bhadra') or die(mysqli_error());
+        require "connection.php"; 
+        //$conn = mysqli_connect('localhost', 'root', '', 'bhadra') or die(mysqli_error());
 
         // Function to fetch events from the database
         function getEventsFromDatabase() {
