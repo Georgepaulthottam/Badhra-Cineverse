@@ -99,12 +99,19 @@
     height: 48px;
     background-color: white;
   }
-  .request-filter{
+  .requestfilter{
     width: 100%;
   }
-  .request-filter table tr th{
-     padding: 5%;
-
+  .requestfilter form button{
+    color:white;
+    padding: 5px 10px;
+    font-size: 18px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    align-items: center
+    
   }
   /* Styles for Pie Chart */
   .pie-chart-container {
@@ -157,12 +164,18 @@ th {
 caption {
     font-size: 24px;
     font-weight: bold;
+    color: white;
     
 }
 .captioncell{
-    margin-left:375px
+    margin-left:375px;
 }
-
+.navrow td{
+  color: white;
+  background-color: #5f99bd;
+  padding: 0%;
+  margin: 0%;
+}
 td {
     position: relative;
     cursor: pointer;
@@ -235,7 +248,41 @@ td {
   color:black;
   font-weight: bolder;
 }
+/**/
+.recieve {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+.recieve p{
+  float:;
+}
+.recieve::after {
+  content: "";
+  clear: both;
+  display: table;
+}
 
+.recieve img {
+  float: left;
+  max-width: 60px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.recieve img.right {
+  float: right;
+  margin-left: 20px;
+  margin-right:0;
+}
+
+.time-right {
+  float: right;
+  color: #aaa;
+}
   @media only screen and (max-width: 767px) {
     .middle-section {
       flex: 1 1 100%;
