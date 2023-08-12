@@ -125,7 +125,9 @@ if (isset($_POST['punch-in-btn'])) {
                                 <tr>
                                     <a href="">
                                         <th>Date</th>
-                                        <th>23/07/2023</th>
+                                        <th><?php $time = new DateTime();
+                                   $date = $time->format('j.n.Y');
+                                   echo($date);?></th>
                                     </a>
                                 </tr>
                                 <tr>
