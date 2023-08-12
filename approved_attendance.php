@@ -6,7 +6,7 @@ if (!isset($_SESSION['user'])) {
 
 }
 require 'connection.php';
-$query=("SELECT * FROM approved_attendance where DATE(`datetime`) = DATE(NOW())");
+$query=("SELECT * FROM approved_attendance where DATE(datetime)=".mysqli_real_escape_string($conn,'DATE(NOW())')."");
 $result=mysqli_query($conn,$query);
 
 

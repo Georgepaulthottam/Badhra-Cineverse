@@ -1,10 +1,22 @@
-<?php require("user_header.php"); ?>
+<?php
+session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+
+}
+require("user_header.php");
+require 'connection.php';
+$date=DATE($_GET['date']);
+$user=$_SESSION['user'];
+
+?>
 
             <!------main-content-start----------->
             <div id="main-container" class="middle-section">
                <div class="bottom-section">
                 <div class="profile-box" style="overflow-x:auto;">
-                    <h5 style="color:red;">2023-07-24</h5>
+                    <h5 style="color:red;"><?php echo $date?></h5>
                     <table id="datewisetbl">
                         <tr>
                             <td>Salary : </td>
@@ -26,22 +38,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Costume</td>
-                                <td>Costume</td>
-                                <td>1200</td>
-                                <td>3</td>
-                                <td>3600</td>
-                                <td>Apprroved</td>
-                            </tr>
-                            <tr>
-                                <td>Costume</td>
-                                <td>Costume</td>
-                                <td>1200</td>
-                                <td>3</td>
-                                <td>3600</td>
-                                <td>Apprroved</td>
-                            </tr>
+                            <?php
+                            $date=DATE($_GET['date']);
+                           $query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."' and date>='".mysqli_real_escape_string($conn,$date.' 00:00:00')."' and date <='".mysqli_real_escape_string($conn,$date.' 23:59:59')."'");
+                                      $result=mysqli_query($conn,$query); 
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        
+
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+                                        <td>'.$row['name'].'</td>
+                                        <td>'.$row['details'].'</td>
+                                        <td>'.$row['price'].'</td>
+                                        <td>'.$row['number'].'</td>
+                                        <td>'.$row['price']*$row['number'].'</td>
+                                        <td>'.$row['status'].'</td>
+                                    </tr>');
+                                    }
+                                    ?>
                         </tbody>
                     </table>
                 </div>
