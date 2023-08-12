@@ -7,8 +7,7 @@ if (!isset($_SESSION['user'])) {
 }
 require 'connection.php';
 $user=$_SESSION['user'];
-$query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."'");
-$result=mysqli_query($conn,$query);
+
 
 ?>
 
@@ -23,11 +22,11 @@ $result=mysqli_query($conn,$query);
                         </h3>
                         <div class="attendence" style="overflow-x:auto;">
                             <div class="requestfilter">
-                               <form action="">
-                                        <button type="submit" style="background:#27ae60;" value="">Accepted</button>
-                                        <button type="submit" style="background:#FF5733 ;" value="">Rejected</button>
-                                        <button type="submit" style="background:#F8BA03;" value="">Pending</button>
-                                        <button type="submit" style="background:#036DF8 ;" value="">All</button>
+                               <form action="user_view_request.php" method="post">
+                                        <button type="submit" name="accept" style="background:#27ae60;" value="">Accepted</button>
+                                        <button type="submit" name="rejected" style="background:#FF5733 ;" value="">Rejected</button>
+                                        <button type="submit" name="requested" style="background:#F8BA03;" value="">Pending</button>
+                                        <button type="submit" name="all" style="background:#036DF8 ;" value="">All</button>
                                 </form>
                                 <br>
                             </div>
@@ -46,7 +45,10 @@ $result=mysqli_query($conn,$query);
                                 </thead>
     
                                 <tbody>
-                                    <?php 
+                                    <?php
+                                    if (isset($_POST['accept'])) {
+                                     $query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"approved")."' and username='".mysqli_real_escape_string($conn,$user)."'");
+                                      $result=mysqli_query($conn,$query); 
                                     while($row=mysqli_fetch_assoc($result)){
                                         
 
@@ -65,7 +67,73 @@ $result=mysqli_query($conn,$query);
                                         <td>'.$row['price']*$row['number'].'</td>
                                         <td>'.$row['status'].'</td>
                                     </tr>');
-                                    }
+                                    }}
+                                    if (isset($_POST['rejected'])) {
+                                     $query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"rejected")."' and username='".mysqli_real_escape_string($conn,$user)."'");
+                                      $result=mysqli_query($conn,$query); 
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        
+
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+                                        <td>'.$date.'</td>
+                                        <td>'.$time.'</td>
+                                        <td>'.$row['name'].'</td>
+                                        <td>'.$row['details'].'</td>
+                                        <td>'.$row['price'].'</td>
+                                        <td>'.$row['number'].'</td>
+                                        <td>'.$row['price']*$row['number'].'</td>
+                                        <td>'.$row['status'].'</td>
+                                    </tr>');
+                                    }}
+                                    if (isset($_POST['requested'])) {
+                                     $query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."'and username='".mysqli_real_escape_string($conn,$user)."'");
+                                      $result=mysqli_query($conn,$query); 
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        
+
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+                                        <td>'.$date.'</td>
+                                        <td>'.$time.'</td>
+                                        <td>'.$row['name'].'</td>
+                                        <td>'.$row['details'].'</td>
+                                        <td>'.$row['price'].'</td>
+                                        <td>'.$row['number'].'</td>
+                                        <td>'.$row['price']*$row['number'].'</td>
+                                        <td>'.$row['status'].'</td>
+                                    </tr>');
+                                    }}
+                                    if (isset($_POST['all'])) {
+                                     $query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."'");
+                                      $result=mysqli_query($conn,$query); 
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        
+
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+                                        <td>'.$date.'</td>
+                                        <td>'.$time.'</td>
+                                        <td>'.$row['name'].'</td>
+                                        <td>'.$row['details'].'</td>
+                                        <td>'.$row['price'].'</td>
+                                        <td>'.$row['number'].'</td>
+                                        <td>'.$row['price']*$row['number'].'</td>
+                                        <td>'.$row['status'].'</td>
+                                    </tr>');
+                                    }}
                                     
                                    
                                     
