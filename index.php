@@ -2,7 +2,7 @@
 
 session_start();
 // Check if the user is not logged in
-if (!isset($_SESSION['user']) or $_SESSION['user']!=="admin") {
+if (!isset($_SESSION['user']) or $_SESSION['user']!=="Admin") {
     header('Location: login.php');
 }
 include "connection.php";

@@ -7,8 +7,6 @@ if (!isset($_SESSION['user'])) {
 }
 require 'connection.php';
 $user=$_SESSION['user'];
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
