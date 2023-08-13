@@ -1,3 +1,15 @@
+<?php  
+session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user'])) {
+    header('Location: login.php');
+
+}
+require 'connection.php';
+$user=$_SESSION['user'];
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,18 +30,7 @@
 
 
 
-<?php  
-session_start();
-// Check if the user is not logged in
-if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
 
-}
-require 'connection.php';
-$user=$_SESSION['user'];
-
-
-?>
 
 <?php require('user_header.php'); //header and siderbar?>
 
