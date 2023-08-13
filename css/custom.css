@@ -701,19 +701,24 @@ background-color:rgba(0,0,0,0.09);
 		}
 		
 		.edit{
-			color:#FFC107;
-			border:1px solid black;
+			color:#fff;
+			border:1px solid rgb(2, 8, 3);
 			border-radius:10%;
 			padding:5px;
-			
+			background-color: #2bcd72;
+			letter-spacing: 2px;
+			cursor: pointer;
 		}
 		
 	 .delete{
-			color:#F44336;
+			color:#fff;
+			background-color:#F44336;
 			border:1px solid black;
 			border-radius:10%;
-			padding:5px;
-			margin-left:20px;
+			padding:4px;
+			margin-left:18px;
+			letter-spacing: 1px;
+			cursor: pointer;
 		}
 		
 		table.table td  i{

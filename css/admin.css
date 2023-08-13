@@ -81,7 +81,7 @@
 
   .request-status input[type="text"]{
 		border:1px solid #c9ccce;
-	    border-radius:25px;
+	  border-radius:25px;
 		padding:3px;
 		background:#f2f2f2;
 		color:rgb(8, 4, 4);
