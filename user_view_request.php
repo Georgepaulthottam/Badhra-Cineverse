@@ -3,71 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="CSS/buttons.css">
 
-<style>
- 
-
-  .button-container {
-   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #f0f0f0;
-   
-  
-    
-  }
-
-  .custom-button {
-    padding: 10px 20px;
-    margin: 0 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 13px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
-    color: white;
-    margin-top: 30px;
-  }
-
-  .accepted {
-    background: linear-gradient(45deg, #00e676, #1de9b6);
-  }
-
-  .rejected {
-    background: linear-gradient(45deg, #ff1744, #ff5252);
-  }
-
-  .pending {
-    background: linear-gradient(45deg, #ffc400, #ffea00);
-  }
-
-  .all {
-    background: linear-gradient(45deg, #2979ff, #448aff);
-  }
-
-  .custom-button:active {
-    transform: scale(1.04);
-    background: #696969;
-  }
-
-  .selected {
-    animation: pulseAnimation 1s infinite;
-    
-   
-  }
-
-  @keyframes pulseAnimation {
-    0%, 100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.1);
-    }
-  }
-</style>
 </head>
 <script>
   function selectButton(button) {
