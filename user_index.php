@@ -13,6 +13,18 @@ $user=$_SESSION['user'];
 $status=$_SESSION['status'];
 $query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."' limit 0,5");
 $result=mysqli_query($conn,$query);
+ $query1 = "SELECT * FROM `cart` WHERE username='".mysqli_real_escape_string($conn,$user)."'";
+    $query2 = "SELECT * FROM `cart` WHERE status='approved'and username='".mysqli_real_escape_string($conn,$user)."'";
+    $query3 = "SELECT * FROM `cart` WHERE status='rejected' and username='".mysqli_real_escape_string($conn,$user)."'";
+    $query4 = "SELECT * FROM `cart` WHERE status='requested' and username='".mysqli_real_escape_string($conn,$user)."'";
+
+
+    
+
+    $result1 = mysqli_query($conn, $query1);
+    $result2 = mysqli_query($conn, $query2);
+    $result3 = mysqli_query($conn, $query3);
+    $result4 = mysqli_query($conn, $query4);
 
 // user punch in
 // for accepting punchin requests into the attendance_request table
@@ -89,20 +101,20 @@ if (isset($_POST['punch-in-btn'])) {
                                 <tr>
                                     <a href="">
                                         <th>Accepted</th>
-                                        <th>2</th>
+                                        <th><?php echo($result2->num_rows)?></th>
                                     </a>
                                 </tr>
                                 <tr>
                                     <th>Rejected</th>
-                                    <th>2</th>
+                                    <th><?php echo($result3->num_rows)?></th>
                                 </tr>
                                 <tr>
                                     <th>pending</th>
-                                    <th>2</th>
+                                    <th><?php echo($result4->num_rows)?></th>
                                 </tr>
                                 <tr>
                                     <th>Total</th>
-                                    <th>10</th>
+                                    <th><?php echo($result1->num_rows)?></th>
                                 </tr>
                             </table>
                             <table>
