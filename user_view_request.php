@@ -1,3 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+ 
+
+  .button-container {
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+   
+  
+    
+  }
+
+  .custom-button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    color: white;
+    margin-top: 30px;
+  }
+
+  .accepted {
+    background: linear-gradient(45deg, #00e676, #1de9b6);
+  }
+
+  .rejected {
+    background: linear-gradient(45deg, #ff1744, #ff5252);
+  }
+
+  .pending {
+    background: linear-gradient(45deg, #ffc400, #ffea00);
+  }
+
+  .all {
+    background: linear-gradient(45deg, #2979ff, #448aff);
+  }
+
+  .custom-button:active {
+    transform: scale(1.04);
+    background: #696969;
+  }
+
+  .selected {
+    animation: pulseAnimation 1s infinite;
+    
+   
+  }
+
+  @keyframes pulseAnimation {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+  }
+</style>
+</head>
+<script>
+  function selectButton(button) {
+    const buttons = document.querySelectorAll('.custom-button');
+    buttons.forEach(btn => {
+      btn.classList.remove('selected');
+    });
+    button.classList.add('selected');
+  }
+</script>
+
+
+
 <?php  
 session_start();
 // Check if the user is not logged in
@@ -15,21 +98,23 @@ $user=$_SESSION['user'];
 
 
             <!------main-content-start----------->
+            
             <div class="main-content">
                 <section id="view-request">
                     <div class="detailed-box" id="request-table">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Request
                         </h3>
                         <div class="attendence" style="overflow-x:auto;">
-                            <div class="requestfilter">
+                        <body>
                                <form action="user_view_request.php" method="post">
-                                        <button type="submit" name="accept" style="background:#27ae60;" value="">Accepted</button>
-                                        <button type="submit" name="rejected" style="background:#FF5733 ;" value="">Rejected</button>
-                                        <button type="submit" name="requested" style="background:#F8BA03;" value="">Pending</button>
-                                        <button type="submit" name="all" style="background:#036DF8 ;" value="">All</button>
+                                        <button class="custom-button accepted" onclick="selectButton(this)" type="submit" name="accept"  value="">Accepted</button>
+                                        <button class="custom-button rejected" onclick="selectButton(this)"  type="submit" name="rejected" value="">Rejected</button>
+                                        <button class="custom-button pending" onclick="selectButton(this)" type="submit"  name="requested"  value="">Pending</button>
+                                        <button class="custom-button all" onclick="selectButton(this)"  type="submit" name="all"  value="">All</button>
                                 </form>
                                 <br>
-                            </div>
+                        </body>
+                            
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -204,6 +289,6 @@ $user=$_SESSION['user'];
 
 
 
-</body>
+
 
 </html>
