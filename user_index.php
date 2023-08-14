@@ -310,7 +310,7 @@ if (isset($_POST['punch-in-btn'])) {
 
             // Update the percentage label
             const percentageLabel = document.getElementById('percentageLabel');
-            percentageLabel.textContent = `${percentage}%`;
+            percentageLabel.textContent = `${percentage}`;
         }
 
         // Call this function with the desired percentage value to update the pie chart.

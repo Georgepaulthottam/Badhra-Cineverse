@@ -51,7 +51,12 @@ if(isset($_POST['submit'])){
                                             <th><input type="text" id="cost" name="cost"></th>
                                         </tr>
                                         <tr>
-                                            <th>Quantity:</th>
+                                            <th>Bill No:</th>
+                                            <th>:</th>
+                                            <th><input type="text" id="billnumber" name="billnumber"></th>
+                                        </tr>
+                                        <tr>
+                                            <th>Remark:</th>
                                             <th>:</th>
                                             <th><input type="text" id="number" name="number"></th>
                                         </tr>

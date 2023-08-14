@@ -144,9 +144,30 @@ include 'adminheadersidebar.php';
 
                         <!------punch in button starts----------->
 
-                            <form action="" method ="post">
-                            
-                                <input  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punchin" value = "PUNCH IN" >
+                        <form style="margin-left:29%" action="" method ="post"><?php 
+                            if($_SESSION['status']=='requested'){
+                                echo(' <button class="punch-button" id="punchButton" style=" background: #f4d03f; /* Yellow background for Requested state */">
+            <i class="fas fa-fingerprint"></i>Requested</button>');
+                            }
+                            elseif($_SESSION['status']=='accepted'){
+                                echo(  '<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */">
+            <i class="fas fa-check"></i>
+            Punched In
+        </button>');
+                            }
+                            else{echo(' <button style=" background: linear-gradient(135deg, #ff5656, #ff8e8e); /* Reddish gradient */
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center"  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punch-in-btn">
+            <i class="fas fa-fingerprint"></i>&nbsp;Punch-in</button>
+                                ');}
+                                ?> 
 
                             </form>
 
