@@ -42,6 +42,9 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     echo "<script>alert('invalid username or password!')</script>";  
     } 
 }
+else {  
+    echo "<script>alert('invalid username or password!')</script>";  
+    } 
 }
 }
 ?>

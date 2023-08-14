@@ -7,29 +7,50 @@ if (!isset($_SESSION['user'])) {
 }
 require 'connection.php';
 $user=$_SESSION['user'];
-
-
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="CSS/buttons.css">
+
+</head>
+<script>
+  function selectButton(button) {
+    const buttons = document.querySelectorAll('.custom-button');
+    buttons.forEach(btn => {
+      btn.classList.remove('selected');
+    });
+    button.classList.add('selected');
+  }
+</script>
+
+
+
+
 
 <?php require('user_header.php'); //header and siderbar?>
 
 
             <!------main-content-start----------->
+            
             <div class="main-content">
                 <section id="view-request">
                     <div class="detailed-box" id="request-table">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Request
                         </h3>
                         <div class="attendence" style="overflow-x:auto;">
-                            <div class="requestfilter">
+                        <body>
                                <form action="user_view_request.php" method="post">
-                                        <button type="submit" name="accept" style="background:#27ae60;" value="">Accepted</button>
-                                        <button type="submit" name="rejected" style="background:#FF5733 ;" value="">Rejected</button>
-                                        <button type="submit" name="requested" style="background:#F8BA03;" value="">Pending</button>
-                                        <button type="submit" name="all" style="background:#036DF8 ;" value="">All</button>
+                                        <button class="custom-button accepted" onclick="selectButton(this)" type="submit" name="accept"  value="">Accepted</button>
+                                        <button class="custom-button rejected" onclick="selectButton(this)"  type="submit" name="rejected" value="">Rejected</button>
+                                        <button class="custom-button pending" onclick="selectButton(this)" type="submit"  name="requested"  value="">Pending</button>
+                                        <button class="custom-button all" onclick="selectButton(this)"  type="submit" name="all"  value="">All</button>
                                 </form>
                                 <br>
-                            </div>
+                        </body>
+                            
                             <table class="table table-striped table-hover">
                                 <thead>
                                     <tr>
@@ -204,6 +225,6 @@ $user=$_SESSION['user'];
 
 
 
-</body>
+
 
 </html>
