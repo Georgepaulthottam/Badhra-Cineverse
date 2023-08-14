@@ -274,7 +274,7 @@ include 'adminheadersidebar.php';
                                  
                             </table>
                         </div>
-                        <a href="Attendance.php" style="color: red;">View more</a>
+                        <a href="Attendance.php" style="color:#E2B842;">View more</a>
                     </div>
                 </div>
                 <!------bottom-container contains Other requests panel----------->
@@ -346,7 +346,7 @@ include 'adminheadersidebar.php';
                             </table>
 									</form>
                         </div>
-                        <a href="Requests.php" style="color: red;">View more</a>
+                        <a href="Requests.php" style="color: #E2B842;">View more</a>
                     </div>
                 </div>
 
@@ -411,7 +411,7 @@ include 'adminheadersidebar.php';
                             </table>
 									</form>
                         </div>
-                        <a href="misc.php" style="color: red;">View more</a>
+                        <a href="misc.php" style="color: #E2B842;">View more</a>
                     </div>
                 </div>
 						
