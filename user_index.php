@@ -138,7 +138,7 @@ if (isset($_POST['punch-in-btn'])) {
                                     <a href="">
                                         <th>Date</th>
                                         <th><?php $time = new DateTime();
-                                   $date = $time->format('j.n.Y');
+                                   $date = $time->format('j-n-Y');
                                    echo($date);?></th>
                                     </a>
                                 </tr>
@@ -186,7 +186,7 @@ if (isset($_POST['punch-in-btn'])) {
                                         
 
                                    $time = new DateTime($row['date']);
-                                   $date = $time->format('n.j.Y');
+                                   $date = $time->format('n-j-Y');
                                    $time = $time->format('H:i');
 
                                         echo('

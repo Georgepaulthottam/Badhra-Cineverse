@@ -16,6 +16,13 @@ $result=mysqli_query($conn,$query);
 
 
   }
+  if (isset($_POST['reject'])) {
+	$id=$_POST['id'];
+    $query2 = ("update cart set status='rejected' where id='$id'") ;
+    $quer=mysqli_query($conn, $query2);
+
+
+  }
 
 
 
@@ -308,7 +315,7 @@ $result=mysqli_query($conn,$query);
 										<input type="submit" name="accept" value="Accept" class="edit" >
 											
 										
-										<input type="submit" value="Decline" class="delete" data-toggle="modal">
+										<input type="submit" name="reject" value="Decline" class="delete" >
 
 										</form>
 										</th>

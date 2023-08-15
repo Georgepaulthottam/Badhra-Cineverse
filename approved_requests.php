@@ -295,7 +295,7 @@ $user=$_SESSION['user'];
                                         
 
                                    $time = new DateTime($row['date']);
-                                   $date = $time->format('n.j.Y');
+                                   $date = $time->format('j-n-Y');
                                    $time = $time->format('H:i');
 
                                         echo('

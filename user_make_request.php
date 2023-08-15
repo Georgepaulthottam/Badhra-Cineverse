@@ -18,7 +18,9 @@ if(isset($_POST['submit'])){
     $conquer=mysqli_query($conn,$quer);
     echo "<script>alert('order submitted successfuly')</script>";  
 
+
 }
+
 ?>
 
 <?php require('user_header.php'); //header and siderbar?>
