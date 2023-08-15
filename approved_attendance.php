@@ -300,7 +300,7 @@ $result=mysqli_query($conn,$query);
 	                            }
 							}
 							else{
-								echo('<h2>NO PENDINTNG REQUESTS</h2>');
+								echo('<h2>NO PENDTING REQUESTS</h2>');
 							}
 
 								?>

@@ -270,6 +270,8 @@ $user=$_SESSION['user'];
                                 <input type="submit" name="rejected" value="rejected" class="edit" >		
 								<input type="submit" name="all"value="all" class="edit">
 
+								
+
 
     </form>
 							<thead>
