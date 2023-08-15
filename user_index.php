@@ -247,7 +247,7 @@ if (isset($_POST['punch-in-btn'])) {
                                     </tr>
                                 </table>
                             </div>
-                        <a href="user_notification.php" style="color: red;">View more</a>
+                        <a href="user_notification.php" style="color:#E2B842;">View more</a>
                     </div>
                 </div>
             </div>
