@@ -1,195 +1,214 @@
 .middle-section {
-    flex: 0 0 55%;
-    padding: 3%;
-    display: flex;
-    flex-direction: column;
-    
+  flex: 0 0 55%;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+
 }
+
 .top-section {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 20px;
-  }
-  .bottom-section{
-    display: flex;
-    flex-direction: column;
-    padding-left: 3%;
-    padding-right: 3%;
-    justify-content: space-between;
-  
-  }
-.profile-box , .notfication-box{
-    text-align: center;
-    flex: 1;
-    background-color: #fdfdfd;
-    padding: 20px;
-    margin-right: 20px;
-    box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
-    border-radius: 10px;
-    
-  }
-  .detailed-box {
-    text-align: center;
-    background-color: #152935;
-    padding: 20px;
-    margin-right: 10px;
-    color:#f1f1f1;
-    margin-bottom: 20px;
-    box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
-    border-radius: 10px;
-  }
-  .profile-box:last-child {
-    margin-right: 0;
-  }
-  .punch-in-btn{
-    padding: 3px;
-    color: red;
-    border:1px solid rgb(252, 60, 69);
-    border-radius: 5px;
-    
-  }
-  .button-container {
-    text-align: center;
-    margin-left: 27%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3%;
+  padding-right: 3%;
+  justify-content: space-between;
+
+}
+
+.profile-box,
+.notfication-box {
+  text-align: center;
+  flex: 1;
+  background-color: #fdfdfd;
+  padding: 20px;
+  margin-right: 20px;
+  box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+  border-radius: 10px;
+
+}
+
+.detailed-box {
+  text-align: center;
+  background-color: #152935;
+  padding: 20px;
+  margin-right: 10px;
+  color: #f1f1f1;
+  margin-bottom: 20px;
+  box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+  border-radius: 10px;
+}
+
+.profile-box:last-child {
+  margin-right: 0;
+}
+
+.punch-in-btn {
+  padding: 3px;
+  color: red;
+  border: 1px solid rgb(252, 60, 69);
+  border-radius: 5px;
+
+}
+
+.button-container {
+  text-align: center;
+  margin-left: 27%;
 }
 
 .punch-button {
-    background: linear-gradient(135deg, #ff5656, #ff8e8e); /* Reddish gradient */
-    color: white;
-    padding: 15px 20px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    display: flex;
-    align-items: center;
+  background: linear-gradient(135deg, #ff5656, #ff8e8e);
+  /* Reddish gradient */
+  color: white;
+  padding: 15px 20px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  align-items: center;
 }
 
 .punch-button i {
-    font-size: 24px;
-    margin-right: 10px;
+  font-size: 24px;
+  margin-right: 10px;
 }
 
 .punch-button.requested {
-    background: #f4d03f; /* Yellow background for Requested state */
+  background: #f4d03f;
+  /* Yellow background for Requested state */
 }
 
 .punch-button.accepted {
-    background: #27ae60; /* Green background for Accepted state */
+  background: #27ae60;
+  /* Green background for Accepted state */
 }
 
 .punch-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
 }
- 
-    
- 
 
-  .request-status table{
-    color: black;
-    width: 100%;
-    height: 100%;
-    margin-bottom: 10px;
-  }
-  .request-status table tr{
-    padding: 10%;
-  }
-  .request-status table tr th{
-    height: 48px;
-    background-color: white;
-  }
-  .requestfilter{
-    width: 100%;
-  }
-  .requestfilter form button{
-    color:white;
-    padding: 5px 10px;
-    font-size: 18px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: transform 0.3s, box-shadow 0.3s;
-    align-items: center
-    
-  }
-  /* Styles for Pie Chart */
-  .pie-chart-container {
-    position: relative;
-    margin-left: 20%;
-    width: 200px;
-    height: 180px;
-  }
-  .percentage-label {
-    position: absolute;
-    top: 63%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    font-weight: bold;
-    color: #000;
-  }
 
-  #calendar {
-    flex:1;
-    text-align: center;
-    background-color: #fdfdfd;
-    padding: 20px;
-    box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
-    border-radius: 10px;
+
+
+.request-status table {
+  color: black;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.request-status table tr {
+  padding: 10%;
+}
+
+.request-status table tr th {
+  height: 48px;
+  background-color: white;
+}
+
+.requestfilter {
+  width: 100%;
+}
+
+.requestfilter form button {
+  color: white;
+  padding: 5px 10px;
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s, box-shadow 0.3s;
+  align-items: center
+}
+
+/* Styles for Pie Chart */
+.pie-chart-container {
+  position: relative;
+  margin-left: 20%;
+  width: 200px;
+  height: 180px;
+}
+
+.percentage-label {
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+#calendar {
+  flex: 1;
+  text-align: center;
+  background-color: #fdfdfd;
+  padding: 20px;
+  box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+  border-radius: 10px;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: center;
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
 }
 
 td {
-    padding: 10px;
-    text-align: center;
-    background-color: white;
-    align-items: center;
-    justify-content:center;
+  padding: 10px;
+  text-align: center;
+  background-color: white;
+  align-items: center;
+  justify-content: center;
 }
 
 th {
-    padding: 10px;
-    text-align: center;
-    border-spacing: 50px;
-    font-weight: bolder;
-    color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-spacing: 50px;
+  font-weight: bolder;
+  color: #fff;
 }
 
 caption {
-    font-size: 24px;
-    font-weight: bold;
-    color: white;
-    
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+
 }
-.captioncell{
-    margin-left:375px;
+
+.captioncell {
+  margin-left: 375px;
 }
-.navrow td{
+
+.navrow td {
   color: white;
   background-color: #5f99bd;
   padding: 0%;
   margin: 0%;
 }
+
 td {
-    position: relative;
-    cursor: pointer;
+  position: relative;
+  cursor: pointer;
 }
 
 .current-month {
-    color: #333;
+  color: #333;
 }
 
 .current-day {
-    background-color: #ffcccb;
-    border-radius: 10px;
+  background-color: #ffcccb;
+  border-radius: 10px;
 }
 
 .important-date {
@@ -199,57 +218,61 @@ td {
 }
 
 .navigation {
-    text-align: center;
-    margin-top: 10px;
+  text-align: center;
+  margin-top: 10px;
 }
 
 .navigation-btn-container {
-    display: inline-block;
+  display: inline-block;
 }
 
 .navigation-btn {
-    cursor: pointer;
-    font-size: 50px;
-    margin: 0 10px;
+  cursor: pointer;
+  font-size: 50px;
+  margin: 0 10px;
 }
 
 .navigation-btn:hover {
-    color: #777;
+  color: #777;
 }
 
 .dateLink {
-    text-decoration: none;
-    color: black;
+  text-decoration: none;
+  color: black;
 }
+
 /* Styles for the popup */
 .popup {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .popup-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    color:black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  color: black;
 }
-#popupContent table tr td{
-  text-align:left;
+
+#popupContent table tr td {
+  text-align: left;
 }
-#datewisetbl tr td{
-  text-align:left;
-  color:black;
+
+#datewisetbl tr td {
+  text-align: left;
+  color: black;
   font-weight: bolder;
 }
+
 /**/
 .recieve {
   border: 2px solid #dedede;
@@ -258,9 +281,11 @@ td {
   padding: 10px;
   margin: 10px 0;
 }
-.recieve p{
-  float:;
+
+.recieve p {
+  float: ;
 }
+
 .recieve::after {
   content: "";
   clear: both;
@@ -278,30 +303,34 @@ td {
 .recieve img.right {
   float: right;
   margin-left: 20px;
-  margin-right:0;
+  margin-right: 0;
 }
 
 .time-right {
   float: right;
   color: #aaa;
 }
-  @media only screen and (max-width: 767px) {
-    .middle-section {
-      flex: 1 1 100%;
-      margin-bottom: 20px;
-    }
-    .top-section {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        margin-bottom: 20px;
-      }
-    .profile-box {
-      flex: 0 0 100%;
-      margin-bottom: 20px;
-    }
-    .captioncell{
-      margin-left:65px
+
+@media only screen and (max-width: 767px) {
+  .middle-section {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
   }
-   
+
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
   }
+
+  .profile-box {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+
+  .captioncell {
+    margin-left: 65px
+  }
+
+}
