@@ -141,7 +141,7 @@
 		  
 		   
 		  <li class="">
-		  <a href="#" class=""><i class="material-icons">date_range</i>Projects </a>
+		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
 		  <li class="">
 		  <a href="#" class=""><i class="material-icons">library_books</i>Calender </a>
