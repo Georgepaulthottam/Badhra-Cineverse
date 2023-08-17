@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Make Request
                         </h3>
-                        <div class="attendence" style="overflow-x:auto;">
+                        <div class="attendence" style="overflow-x:auto;" id="makerequest">
     
                             <table class="table table-striped table-hover">
                                 <tbody>

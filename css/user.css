@@ -35,7 +35,7 @@
   
 
 }
-#request_box table th,#schedule_box table th{
+#request_box table th,#schedule_box table th,#makerequest table th{
   color:#555e58;  
   font-weight:500;
   cursor:pointer;
