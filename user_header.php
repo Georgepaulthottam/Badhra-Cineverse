@@ -1,3 +1,28 @@
+<?php 
+if($activePage == 'home'){
+	$PageTitle="Dashboard";
+}
+else if($activePage == 'notification'){
+	$PageTitle="Notification Panel";
+}
+
+else if($activePage == 'profile'){
+	$PageTitle="Profile ";
+}
+else if($activePage == 'request'){
+	$PageTitle="Requests Panel ";
+}
+else if($activePage == 'salary'){
+	$PageTitle="Salary Panel ";
+}
+else if($activePage == 'calender'){
+	$PageTitle="Calender Report ";
+}
+
+
+
+?>
+
 <!doctype html>
 <html lang="en">
 
@@ -48,11 +73,11 @@
 			<h3><span  > &nbsp;Badhra Cineverse</span></h3>
             </div>
             <ul class="list-unstyled component m-0">
-                <li class="active">
+                <li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
                     <a href="user_index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
                 </li>
 
-                <li class="dropdown">
+                <li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
                     <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="material-icons">account_circle</i>Profile
                     </a>
@@ -63,7 +88,7 @@
                 </li>
 
 
-                <li class="dropdown">
+                <li class="<?php echo ($activePage === 'request') ? 'active' : ''; ?>">
                     <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                         <i class="material-icons">request_page</i>Request
                     </a>
@@ -73,16 +98,16 @@
                     </ul>
                 </li>
 
-                <li class="">
+                <li class="<?php echo ($activePage === 'salary') ? 'active' : ''; ?>">
                     <a href="user_salary.php" class=""><i class="material-icons">currency_rupee</i>Salary</a>
                 </li>
 
 
-                <li class="">
+                <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
                     <a href="user_calender.php" class=""><i class="material-icons">calendar_month</i>Calendar</a>
                 </li>
 
-                <li class="">
+                <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
                     <a href="user_notification.php" class=""><i class="material-icons">notifications</i>Notifications</a>
                 </li>
             </ul>
@@ -163,7 +188,7 @@
 				 </div>
 				 
 				 <div class="xp-breadcrumbbar text-center">
-				    <h4 class="page-title">Dashboard</h4>
+				    <h4 class="page-title"><?php echo $PageTitle; ?></h4>
 					<ol class="breadcrumb">
 					</ol>
 				 </div>

@@ -1,4 +1,4 @@
-<?php require("user_header.php"); ?>
+<?php $activePage = 'salary'; include 'user_header.php'; ?>
 
         <!------main-content-start----------->
         <div id="main-container" class="middle-section">

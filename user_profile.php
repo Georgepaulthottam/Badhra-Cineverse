@@ -35,7 +35,7 @@ if(isset($_POST['chpass'])){
 
 }
 ?>
-<?php require("user_header.php"); ?>
+<?php $activePage = 'profile'; include 'user_header.php'; ?>
 <div class="main-content">
 <?php echo('
 <div class="main-body">

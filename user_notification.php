@@ -1,1 +1,1 @@
-<?php require("user_header.php"); ?>
+<?php $activePage = 'notification'; include 'user_header.php'; ?>

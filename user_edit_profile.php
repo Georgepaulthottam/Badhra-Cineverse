@@ -1,4 +1,4 @@
-<?php require("user_header.php"); ?>
+<?php $activePage = 'profile'; include 'user_header.php'; ?>
 <!------main-content-start-----------> 
 		     
 <div class="main-content">

@@ -23,7 +23,7 @@ if(isset($_POST['submit'])){
 
 ?>
 
-<?php require('user_header.php'); //header and siderbar?>
+<?php $activePage = 'request'; include 'user_header.php'; ?>
 
 
             <!------main-content-start----------->

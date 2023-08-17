@@ -1,6 +1,4 @@
-<?php 
-require("user_header.php"); 
-?>
+<?php $activePage = 'calender'; include 'user_header.php'; ?>
             <!------main-content-start----------->
             <div id="main-container" class="middle-section">
                 <div id="calendar" style="overflow-x:auto;"></div>
