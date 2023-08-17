@@ -284,7 +284,7 @@ if (isset($_POST['punch-in-btn'])) {
                 labels: ['Attended', 'Missed'],
                 datasets: [{
                     data: [percentage, 100 - percentage],
-                    backgroundColor: ['#8ec2ea', '#f0f0f0'],
+                    backgroundColor: ['#152935', '#f0f0f0'],
                     borderWidth: 0,
                 }],
             };
