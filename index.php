@@ -182,7 +182,7 @@ if(isset($_POST['Packup'])){
                         
                                     <form action="" method ="post">
                           <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
-										<input name="settime" type="submit"   class="punch-in-btn" value="Set Time" name="settime "id="settimebtn">
+										<input name="settime" type="submit"    value="Set Time" name="settime "id="settimebtn">
                                     
                              
 

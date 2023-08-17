@@ -165,18 +165,7 @@ tbody tr:hover {
 	.btnsCheck{
 		margin-left:3%;
 	}
-	#acceptAllBtn {
-			color: rgb(229, 117, 56);
-			visibility: hidden;
-			
-		}
-
-		#rejectAllBtn {
-			color: green;
-			visibility: hidden;
-			margin-left:20px;
-		}
-		
+	
     </style>
     <!-- Required meta tags -->
     <meta charset="utf-8">
