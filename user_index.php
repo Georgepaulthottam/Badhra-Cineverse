@@ -96,7 +96,7 @@ if (isset($_POST['punch-in-btn'])) {
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Request Status</h3>
-                        <div class="request-status">
+                        <div class="request-status" id="request_box">
                         <table class="table table-striped table-hover">
                                 <tr>
                                     <a href="">
@@ -132,7 +132,7 @@ if (isset($_POST['punch-in-btn'])) {
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Schedule</h3>
-                        <div class="request-status">
+                        <div class="request-status" id="schedule_box">
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <a href="">
