@@ -1,6 +1,4 @@
-<?php
-include 'adminheadersidebar.php';
- ?>	
+<?php $activePage = 'vehicle'; include 'adminheadersidebar.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>

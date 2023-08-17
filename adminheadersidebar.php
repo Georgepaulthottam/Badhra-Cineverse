@@ -49,12 +49,12 @@
 		
 		<ul class="list-unstyled component m-0">
 
-		  <li class="active">
-		  <a href="#" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+		  <li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
+		  <a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 		  </li>
 		  
 
-		  <li class="dropdown">
+		  <li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">aspect_ratio</i>Profile
@@ -66,7 +66,7 @@
 		  </li>
 		  
 		  
-		   <li class="dropdown">
+		   <li class="<?php echo ($activePage === 'attendance') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">apps</i>Attendance
@@ -78,7 +78,7 @@
 		  </ul>
 		  </li>
 		  
-		   <li class="dropdown">
+		   <li class="<?php echo ($activePage === 'request') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">equalizer</i>Request Panel
@@ -93,7 +93,7 @@
 		  </li>
 		  
 		  
-		   <li class="dropdown">
+		   <li class="<?php echo ($activePage === 'crew') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">extension</i>Crew Management
@@ -105,7 +105,7 @@
 		  </ul>
 		  </li>
 		  
-		   <li class="dropdown">
+		   <li class="<?php echo ($activePage === 'salary') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">border_color</i>Salary Manager
@@ -117,7 +117,7 @@
 		  </ul>
 		  </li>
 		  
-		  <li class="dropdown">
+		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">grid_on</i>Miscellaneous
@@ -129,7 +129,7 @@
 		  </li>
 		  
 		  
-		  <li class="dropdown">
+		  <li class="<?php echo ($activePage === 'notifcation') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">content_copy</i>Notifications
@@ -140,13 +140,13 @@
 		  </li>
 		  
 		   
-		  <li class="">
+		  <li class=""<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>"">
 		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
-		  <li class="">
+		  <li class=""<?php echo ($activePage === 'calender') ? 'active' : ''; ?>"">
 		  <a href="#" class=""><i class="material-icons">library_books</i>Calender </a>
 		  </li>
-		  <li class="">
+		  <li class=""<?php echo ($activePage === 'expense') ? 'active' : ''; ?>"">
 					<a href="expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
 		
