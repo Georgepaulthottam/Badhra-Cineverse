@@ -1,3 +1,33 @@
+<?php 
+if($activePage == 'vehicle')
+{
+	$PageTitle="Vehicle Department";
+}
+else if($activePage == 'home'){
+	$PageTitle="Dashboard";
+}
+else if($activePage == 'notification'){
+	$PageTitle="Notification Panel";
+}
+else if($activePage == 'misc'){
+	$PageTitle="Miscellaneous";
+}
+else if($activePage == 'profile'){
+	$PageTitle="Profile ";
+}
+else if($activePage == 'request'){
+	$PageTitle="Requests Panel ";
+}
+else if($activePage == 'attendance'){
+	$PageTitle="Attendance Panel ";
+}
+else if($activePage == 'expense'){
+	$PageTitle="Expense Report ";
+}
+
+
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -140,13 +170,13 @@
 		  </li>
 		  
 		   
-		  <li class=""<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>"">
+		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
 		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
-		  <li class=""<?php echo ($activePage === 'calender') ? 'active' : ''; ?>"">
+		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
 		  <a href="#" class=""><i class="material-icons">library_books</i>Calender </a>
 		  </li>
-		  <li class=""<?php echo ($activePage === 'expense') ? 'active' : ''; ?>"">
+		  <li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
 					<a href="expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
 		
@@ -188,7 +218,7 @@
 								  <span class="notification">4</span>
 								 </a>
 								  <ul class="dropdown-menu">
-								     <li><a href="Notifications.php	">You Have 4 New Messages</a></li>
+								     <li><a href="Notifications.php	">You Have 3 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
@@ -228,7 +258,7 @@
 				 </div>
 				 
 				 <div class="xp-breadcrumbbar text-center">
-				    <h4 class="page-title">Dashboard</h4>
+				    <h4 class="page-title"><?php echo $PageTitle; ?></h4>
 					<ol class="breadcrumb">
 					</ol>
 				 </div>
