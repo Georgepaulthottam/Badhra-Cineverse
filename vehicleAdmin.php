@@ -58,8 +58,9 @@ input[type="number"]{
     background-color: #555;
     color: #fff;
     border-radius: 5px;
-    border:2px solid black;
+    border:1px solid black;
     width: 100%;
+border-bottom:2px solid grey;
 }
 
 input[type="file"] {
@@ -69,21 +70,35 @@ input[type="file"] {
     color: #fff;
     border-radius: 5px;
     width: 230px;
-    border:2px solid black;
+    border:1px solid black;
 }
 
 button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #007BFF;
-    color: #fff;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+ padding: 17px 30px;
+ border-radius: 50px;
+ border: 0;
+ background-color: white;
+ box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+ letter-spacing: 1.5px;
+ text-transform: uppercase;
+ font-size: 18px;
+ transition: all .5s ease;
 }
 
 button:hover {
-    background-color: #0056b3;
+ letter-spacing: 3px;
+ background-color: hsl(261deg 80% 48%);
+ color: hsl(0, 0%, 100%);
+ box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
+}
+
+button:active {
+ letter-spacing: 3px;
+ background-color: hsl(261deg 80% 48%);
+ color: hsl(0, 0%, 100%);
+ box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
+ transform: translateY(10px);
+ transition: 100ms;
 }
 select {
     display: block;
