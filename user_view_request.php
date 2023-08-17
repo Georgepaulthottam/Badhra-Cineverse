@@ -51,7 +51,7 @@ $user=$_SESSION['user'];
                                 <br>
                         </body>
                             
-                            <table class="table table-striped table-hover">
+                            <table class="table user_req table-striped table-hover">
                                 <thead>
                                     <tr>
                                         <th>Date</th>
