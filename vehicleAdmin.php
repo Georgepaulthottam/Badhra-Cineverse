@@ -72,7 +72,7 @@ input[type="file"] {
 }
 
 button {
- padding: 17px 30px;
+ padding: 5px 8px;
  border-radius: 50px;
  border: 0;
  background-color: white;

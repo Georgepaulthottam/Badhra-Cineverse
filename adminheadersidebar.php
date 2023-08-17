@@ -87,7 +87,7 @@ else if($activePage == 'expense'){
 		  <li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">aspect_ratio</i>Profile
+		  <i class="material-icons">account_circle</i>Profile
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu1">
 		     <li><a href="profile.php">Profile</a></li>
@@ -99,7 +99,7 @@ else if($activePage == 'expense'){
 		   <li class="<?php echo ($activePage === 'attendance') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">apps</i>Attendance
+		  <i class="material-icons">stacked_line_chart</i>Attendance
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu2">
 		     <li><a href="Attendance.php">Attendance Requests</a></li>
@@ -162,7 +162,7 @@ else if($activePage == 'expense'){
 		  <li class="<?php echo ($activePage === 'notifcation') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">content_copy</i>Notifications
+		  <i class="material-icons">notifications_active</i>Notifications
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
 		     <li><a href="Notifications.php">Notification</a></li>
@@ -174,7 +174,7 @@ else if($activePage == 'expense'){
 		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
-		  <a href="#" class=""><i class="material-icons">library_books</i>Calender </a>
+		  <a href="#" class=""><i class="material-icons">calendar_month</i>Calender </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
 					<a href="expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
