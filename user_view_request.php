@@ -66,6 +66,30 @@ $user=$_SESSION['user'];
                                 </thead>
     
                                 <tbody>
+                                     <?php
+                                    
+                                     $query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"approved")."' and username='".mysqli_real_escape_string($conn,$user)."'");
+                                      $result=mysqli_query($conn,$query); 
+                                    while($row=mysqli_fetch_assoc($result)){
+                                        
+
+                                   $time = new DateTime($row['date']);
+                                   $date = $time->format('n.j.Y');
+                                   $time = $time->format('H:i');
+
+                                        echo('
+                                        <tr>
+                                        <td>'.$date.'</td>
+                                        <td>'.$time.'</td>
+                                        <td>'.$row['name'].'</td>
+                                        <td>'.$row['details'].'</td>
+                                        <td>'.$row['price'].'</td>
+                                        <td>'.$row['number'].'</td>
+                                        <td>'.$row['price']*$row['number'].'</td>
+                                        <td>'.$row['status'].'</td>
+                                    </tr>');
+                                    }
+                                    ?>
                                     <?php
                                     if (isset($_POST['accept'])) {
                                      $query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"approved")."' and username='".mysqli_real_escape_string($conn,$user)."'");
