@@ -1,6 +1,4 @@
-<?php 
-require("user_header.php"); 
-?>
+<?php $activePage = 'calender'; include 'user_header.php'; ?>
             <!------main-content-start----------->
             <div id="main-container" class="middle-section">
                 <div id="calendar" style="overflow-x:auto;"></div>
@@ -14,7 +12,7 @@ require("user_header.php");
             <!------main-content-end----------->
 
 
-
+<br><br><br>
             <!----footer-design------------->
 
             <footer class="footer">
@@ -263,31 +261,7 @@ require("user_header.php");
         // Add navigation buttons to the container with 'navigation' class
         </script>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-   <script src="js/popper.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/jquery-3.3.1.min.js"></script>
-  
-  
-  <script type="text/javascript">
-       $(document).ready(function(){
-	      $(".xp-menubar").on('click',function(){
-		    $("#sidebar").toggleClass('active');
-			$("#content").toggleClass('active');
-		  });
-		  
-		  $('.xp-menubar,.body-overlay').on('click',function(){
-		     $("#sidebar,.body-overlay").toggleClass('show-nav');
-		  });
-		  
-	   });
-  </script>
+    
 </body>
 
 </html>

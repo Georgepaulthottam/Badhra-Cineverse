@@ -13,6 +13,18 @@ $user=$_SESSION['user'];
 $status=$_SESSION['status'];
 $query=("SELECT * FROM cart WHERE username='".mysqli_real_escape_string($conn,$user)."' limit 0,5");
 $result=mysqli_query($conn,$query);
+ $query1 = "SELECT * FROM `cart` WHERE username='".mysqli_real_escape_string($conn,$user)."'";
+    $query2 = "SELECT * FROM `cart` WHERE status='approved'and username='".mysqli_real_escape_string($conn,$user)."'";
+    $query3 = "SELECT * FROM `cart` WHERE status='rejected' and username='".mysqli_real_escape_string($conn,$user)."'";
+    $query4 = "SELECT * FROM `cart` WHERE status='requested' and username='".mysqli_real_escape_string($conn,$user)."'";
+
+
+    
+
+    $result1 = mysqli_query($conn, $query1);
+    $result2 = mysqli_query($conn, $query2);
+    $result3 = mysqli_query($conn, $query3);
+    $result4 = mysqli_query($conn, $query4);
 
 // user punch in
 // for accepting punchin requests into the attendance_request table
@@ -31,7 +43,7 @@ if (isset($_POST['punch-in-btn'])) {
 
 ?>
 
-<?php require('user_header.php'); //header and siderbar?>
+<?php $activePage = 'home'; include 'user_header.php'; ?>
 
 
             <!------main-content-start----------->
@@ -84,25 +96,25 @@ if (isset($_POST['punch-in-btn'])) {
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Request Status</h3>
-                        <div class="request-status">
+                        <div class="request-status" id="request_box">
                         <table class="table table-striped table-hover">
                                 <tr>
                                     <a href="">
                                         <th>Accepted</th>
-                                        <th>2</th>
+                                        <th><?php echo($result2->num_rows)?></th>
                                     </a>
                                 </tr>
                                 <tr>
                                     <th>Rejected</th>
-                                    <th>2</th>
+                                    <th><?php echo($result3->num_rows)?></th>
                                 </tr>
                                 <tr>
                                     <th>pending</th>
-                                    <th>2</th>
+                                    <th><?php echo($result4->num_rows)?></th>
                                 </tr>
                                 <tr>
                                     <th>Total</th>
-                                    <th>10</th>
+                                    <th><?php echo($result1->num_rows)?></th>
                                 </tr>
                             </table>
                             <table>
@@ -120,12 +132,14 @@ if (isset($_POST['punch-in-btn'])) {
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Schedule</h3>
-                        <div class="request-status">
+                        <div class="request-status" id="schedule_box">
                             <table class="table table-striped table-hover">
                                 <tr>
                                     <a href="">
                                         <th>Date</th>
-                                        <th>23/07/2023</th>
+                                        <th><?php $time = new DateTime();
+                                   $date = $time->format('j-n-Y');
+                                   echo($date);?></th>
                                     </a>
                                 </tr>
                                 <tr>
@@ -172,7 +186,7 @@ if (isset($_POST['punch-in-btn'])) {
                                         
 
                                    $time = new DateTime($row['date']);
-                                   $date = $time->format('n.j.Y');
+                                   $date = $time->format('n-j-Y');
                                    $time = $time->format('H:i');
 
                                         echo('
@@ -197,7 +211,7 @@ if (isset($_POST['punch-in-btn'])) {
                                  
                             </table>
                         </div>
-                        <a href="user_view_request.php" style="color: red;">View more</a>
+                        <a href="user_view_request.php" style="color:#E2B842;">View more</a>
                     </div>
                 </div>
                 <!------bottom-container contains accomodation and notification----------->
@@ -233,7 +247,7 @@ if (isset($_POST['punch-in-btn'])) {
                                     </tr>
                                 </table>
                             </div>
-                        <a href="user_notification.php" style="color: red;">View more</a>
+                        <a href="user_notification.php" style="color:#E2B842;">View more</a>
                     </div>
                 </div>
             </div>
@@ -270,7 +284,7 @@ if (isset($_POST['punch-in-btn'])) {
                 labels: ['Attended', 'Missed'],
                 datasets: [{
                     data: [percentage, 100 - percentage],
-                    backgroundColor: ['#8ec2ea', '#f0f0f0'],
+                    backgroundColor: ['#152935', '#f0f0f0'],
                     borderWidth: 0,
                 }],
             };
@@ -296,7 +310,7 @@ if (isset($_POST['punch-in-btn'])) {
 
             // Update the percentage label
             const percentageLabel = document.getElementById('percentageLabel');
-            percentageLabel.textContent = `${percentage}%`;
+            percentageLabel.textContent = `${percentage}`;
         }
 
         // Call this function with the desired percentage value to update the pie chart.
@@ -326,31 +340,7 @@ if (isset($_POST['punch-in-btn'])) {
    ");
     ?>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-
-    <script src="js/jquery-3.3.1.slim.min.js"></script>
-   <script src="js/popper.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/jquery-3.3.1.min.js"></script>
-  
-  
-  <script type="text/javascript">
-       $(document).ready(function(){
-	      $(".xp-menubar").on('click',function(){
-		    $("#sidebar").toggleClass('active');
-			$("#content").toggleClass('active');
-		  });
-		  
-		  $('.xp-menubar,.body-overlay').on('click',function(){
-		     $("#sidebar,.body-overlay").toggleClass('show-nav');
-		  });
-		  
-	   });
-  </script>
+    
 </body>
 
 </html>

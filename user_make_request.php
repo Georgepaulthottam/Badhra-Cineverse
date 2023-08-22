@@ -18,10 +18,12 @@ if(isset($_POST['submit'])){
     $conquer=mysqli_query($conn,$quer);
     echo "<script>alert('order submitted successfuly')</script>";  
 
+
 }
+
 ?>
 
-<?php require('user_header.php'); //header and siderbar?>
+<?php $activePage = 'request'; include 'user_header.php'; ?>
 
 
             <!------main-content-start----------->
@@ -30,7 +32,7 @@ if(isset($_POST['submit'])){
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Make Request
                         </h3>
-                        <div class="attendence" style="overflow-x:auto;">
+                        <div class="attendence" style="overflow-x:auto;" id="makerequest">
     
                             <table class="table table-striped table-hover">
                                 <tbody>
@@ -50,8 +52,9 @@ if(isset($_POST['submit'])){
                                             <th>:</th>
                                             <th><input type="text" id="cost" name="cost"></th>
                                         </tr>
+                                      
                                         <tr>
-                                            <th>Quantity:</th>
+                                            <th>Remark:</th>
                                             <th>:</th>
                                             <th><input type="text" id="number" name="number"></th>
                                         </tr>
