@@ -151,7 +151,9 @@
                           
                            <tr>
                                <th>Advance Amount</th>
-                               <th>2000</th>
+                               <th>
+                                <input type="text" placeholder="Enter Amount" id="amountinput">
+                            </th>
                            </tr>
                           
                            <tr>
@@ -452,9 +454,9 @@
         //Script for puchin buttton
         
 
-    </script>
-   ");
-    ?>
+        ");
+        ?>
+        </script>
 
 
   </body>

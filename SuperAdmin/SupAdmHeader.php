@@ -80,7 +80,7 @@ else if($activePage == 'expense'){
 		<ul class="list-unstyled component m-0">
 
 		  <li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
-		  <a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+		  <a href="SupAdmIndex.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 		  </li>
 		  
 
