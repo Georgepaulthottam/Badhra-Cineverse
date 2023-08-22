@@ -1,0 +1,292 @@
+.middle-section {
+  flex: 0 0 55%;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+
+}
+
+.top-section {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.bottom-section {
+  display: flex;
+  flex-direction: column;
+  padding-left: 3%;
+  padding-right: 3%;
+  justify-content: space-between;
+
+}
+
+.profile-box,
+.notfication-box {
+  text-align: center;
+  flex: 1;
+  background-color: #fdfdfd;
+  padding: 20px;
+  margin-right: 20px;
+  box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+  border-radius: 10px;
+}
+
+.detailed-box {
+  text-align: center;
+  background-color: #1c303d;
+  padding: 20px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+  border-radius: 10px;
+  color: #fff;
+}
+
+.profile-box:last-child {
+  margin-right: 0;
+}
+
+.punch-in-btn {
+  padding: 3px;
+  color: red;
+  border: 1px solid rgb(252, 60, 69);
+  border-radius: 5px;
+
+}
+
+#settimebtn {
+  width: 110px;
+  text-align: center;
+
+}
+
+#setlocbtn {
+  width: 110px;
+  text-align: center;
+
+
+}
+
+#submitbtn {
+  width: 110px;
+  text-align: center;
+
+
+}
+
+.profile-box input[type="submit"],
+#popupbtn {
+
+  margin-top: 3px;
+  color: red;
+  border: 1px solid rgb(252, 60, 69);
+  border-radius: 5px;
+  width: 100%;
+  padding: 2px;
+  margin-bottom: 20px;
+
+}
+
+
+.request-status input[type="text"] {
+  border: 1px solid #c9ccce;
+  border-radius: 25px;
+  padding: 3px;
+  background: #f2f2f2;
+  color: rgb(8, 4, 4);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+
+
+}
+
+#mySelect {
+  border: 1px solid #c9ccce;
+  border-radius: 25px;
+  padding: 3px;
+  background: #f2f2f2;
+  color: rgb(8, 4, 4);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Styling for the popup */
+.popup {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 1px 2px 3px 4px rgba(42, 42, 42, 0.4);
+  font-size: 15px;
+  width: 23vw;
+
+}
+
+
+::placeholder {
+  text-align: center;
+}
+
+input[name="Packup"] {
+  color: red;
+  border: 2px solid rgb(252, 60, 69);
+  border-radius: 5px;
+  margin-left: 500px;
+  margin-bottom: 30px;
+  padding: 15px;
+  width: 110px;
+}
+
+#bata1,
+#bata2,
+#bata3 {
+
+  color: red;
+  border: 1px solid rgb(252, 60, 69);
+  border-radius: 5px;
+  margin-top: 90px;
+  padding: 3px;
+  width: 90px;
+
+}
+
+
+.request-status table {
+  color: black;
+  width: 100%;
+  height: 100%;
+  margin-bottom: 10px;
+}
+
+.request-status table tr {
+  padding: 10%;
+}
+
+.request-status table tr th {
+  height: 48px;
+}
+
+.request-filter {
+  width: 100%;
+}
+
+.request-filter table tr th {
+  padding: 5%;
+
+}
+
+/* Styles for Pie Chart */
+.pie-chart-container {
+  position: relative;
+  margin-left: 20%;
+  width: 200px;
+  height: 180px;
+}
+
+.percentage-label {
+  position: absolute;
+  top: 63%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+@media only screen and (max-width: 767px) {
+  .middle-section {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+  }
+
+  .top-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+
+  .profile-box {
+    flex: 0 0 100%;
+    margin-bottom: 20px;
+  }
+
+  input[name="Packup"] {
+    margin-top: 20px;
+    margin-left: 80px;
+    margin-bottom: 10px;
+    padding: 20px;
+    width: 210px;
+  }
+
+  .popup {
+    display: none;
+    position: absolute;
+    left: 48%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 1px 2px 3px 4px rgba(42, 42, 42, 0.4);
+    font-size: 15px;
+    width: 82vw;
+  }
+
+
+  /*   For responsive Misc Page*/
+  .login-box {
+    width: 90%;
+    margin-top: 140px;
+  }
+
+  .login-box form a input {
+    position: relative;
+    display: block;
+    padding: 10px 20px;
+    color: white;
+    background: black;
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    margin-left: 70px;
+    margin-top: -10px;
+    letter-spacing: 3px
+  }
+
+  #miscbuttons .bata-btn {
+    display: inline-block;
+    padding: 8px 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 50px;
+    margin-top: 25px;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+
+  .misctable {
+    width: 99%;
+    margin-left: -10px;
+    border-radius: 20px;
+  }
+
+  .misctable table {
+    width: 95%;
+    border-radius: 10px;
+  }
+
+
+}
