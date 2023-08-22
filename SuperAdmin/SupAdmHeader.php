@@ -35,11 +35,11 @@ else if($activePage == 'expense'){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-        <title>Admin Dashboard</title>
+        <title>Super Admin Dashboard</title>
 	    <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
 	    <!----css3---->
-        <link rel="stylesheet" href="css/custom.css">
+        <link rel="stylesheet" href="../css/custom.css">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		
 		<!--google fonts -->
@@ -54,8 +54,8 @@ else if($activePage == 'expense'){
 	   <!--google material icon-->
       <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
 	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-	  <link rel="stylesheet" href="css/style.css" />
-	  <link rel="stylesheet" href="css/admin.css" />
+	  <link rel="stylesheet" href="../css/style.css" />
+	  <link rel="stylesheet" href="../css/SupAdmin.css" />
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 	  
 	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -73,7 +73,7 @@ else if($activePage == 'expense'){
 	 
 	 <div id="sidebar">
 	    <div class="sidebar-header">
-		<img src="Bc_logo.png" width="50px" height="50px">
+		<img src="../Bc_logo.png" width="50px" height="50px">
 		   <h3><span  > &nbsp;Badhra Cineverse</span></h3>
 		</div>
 		
@@ -147,25 +147,25 @@ else if($activePage == 'expense'){
 		  </ul>
 		  </li>
 		  
-		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
+		  <li class="<?php echo ($activePage === '	') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>Miscellaneous
+		  <i class="material-icons">grid_on</i>Location
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="misc.php">Miscellaneous</a></li>
+		     <li><a href="misc.php">Location</a></li>
 			 
 		  </ul>
 		  </li>
 		  
 		  
-		  <li class="<?php echo ($activePage === 'notifcation') ? 'active' : ''; ?>">
+		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">notifications_active</i>Notifications
+		  <i class="material-icons">notifications_active</i>Calender
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-		     <li><a href="Notifications.php">Notification</a></li>
+		     <li><a href="Notifications.php">Calender</a></li>
 		  </ul>
 		  </li>
 		  
@@ -173,8 +173,7 @@ else if($activePage == 'expense'){
 		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
 		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
-		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
-		  <a href="#" class=""><i class="material-icons">calendar_month</i>Calender </a>
+		
 		  </li>
 		  <li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
 					<a href="expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
@@ -229,7 +228,7 @@ else if($activePage == 'expense'){
 							   
 							   <li class="dropdown nav-item">
 							     <a class="nav-link" href="#" data-toggle="dropdown">
-								 <img src="profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
+								 <img src="../profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
 								  <span class="xp-user-live"></span>
 								 </a>
 								  <ul class="dropdown-menu small-menu">
