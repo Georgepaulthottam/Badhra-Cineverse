@@ -35,7 +35,7 @@ else if($activePage == 'expense'){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-        <title>Admin Dashboard</title>
+        <title>Super Admin Dashboard</title>
 	    <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap.min.css">
 	    <!----css3---->
@@ -55,7 +55,7 @@ else if($activePage == 'expense'){
       <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
 	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 	  <link rel="stylesheet" href="css/style.css" />
-	  <link rel="stylesheet" href="css/admin.css" />
+	  <link rel="stylesheet" href="css/sp_admin.css" />
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 	  
 	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -80,7 +80,7 @@ else if($activePage == 'expense'){
 		<ul class="list-unstyled component m-0">
 
 		  <li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
-		  <a href="index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+		  <a href="sp_index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 		  </li>
 		  
 
@@ -90,7 +90,7 @@ else if($activePage == 'expense'){
 		  <i class="material-icons">account_circle</i>Profile
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-		     <li><a href="profile.php">Profile</a></li>
+		     <li><a href="sp_profile.php">Profile</a></li>
 			 
 		  </ul>
 		  </li>

@@ -32,7 +32,23 @@
   box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
   border-radius: 10px;
 }
-
+#super_profile_box{
+  text-align: center;
+  
+  background-color: #fdfdfd;
+  padding: 5px;
+ 
+  box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+  border-radius: 10px;
+ 
+}
+.super_top-section {
+  display: flex;
+  flex-direction: row;
+  padding:10px;
+  margin-bottom: 20px;
+  
+}
 .detailed-box {
   text-align: center;
   background-color: #1c303d;
