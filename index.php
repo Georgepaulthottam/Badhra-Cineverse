@@ -64,8 +64,10 @@ if (isset($_POST['punchin'])) {
     $dbuserdept = $_SESSION['userdept'];
     $sql = "INSERT INTO attendance (username, dept) VALUES ('$user','$dbuserdept')";
     $result7 = mysqli_query($conn, $sql);
-    $sql2 = ("UPDATE users SET attendance = attendance+1 where username='" . mysqli_real_escape_string($conn, $user) . "' ");
+    $sql2 = ("UPDATE users SET attendance = attendance+1 ,status='accepted' where username='" . mysqli_real_escape_string($conn, $user) . "' ");
     $result1 = mysqli_query($conn, $sql2);
+    $_SESSION['status'] = 'accepted';
+    header('location:index.php');
     // echo "alert('ATTENDANCE REQUEST SUBMITTED')";
 }
 if (isset($_POST['Packup'])) {
@@ -140,16 +142,22 @@ include 'adminheadersidebar.php'; ?>
                 <!------punch in button starts----------->
 
                 <form style="margin-left:29%" action="" method="post"><?php
-                                                                        if ($_SESSION['status'] == 'requested') {
-                                                                            echo (' <button class="punch-button" id="punchButton" style=" background: #f4d03f; /* Yellow background for Requested state */">
-            <i class="fas fa-fingerprint"></i>Requested</button>');
-                                                                        } elseif ($_SESSION['status'] == 'accepted') {
-                                                                            echo ('<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */">
+                    if ($_SESSION['status'] == 'accepted') {
+               echo ('<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */
+               color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center"">
             <i class="fas fa-check"></i>
             Punched In
         </button>');
-                                                                        } else {
-                                                                            echo (' <button style=" background: linear-gradient(135deg, #ff5656, #ff8e8e); /* Reddish gradient */
+                 } else {
+              echo (' <button style=" background: linear-gradient(135deg, #ff5656, #ff8e8e); /* Reddish gradient */
             color: white;
             padding: 15px 20px;
             font-size: 18px;
@@ -158,7 +166,7 @@ include 'adminheadersidebar.php'; ?>
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
-            align-items: center"  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punch-in-btn">
+            align-items: center"  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punchin">
             <i class="fas fa-fingerprint"></i>&nbsp;Punch-in</button>
                                 ');
                                                                         }

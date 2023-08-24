@@ -63,11 +63,29 @@ include 'user_header.php'; ?>
             <!------punch in button starts----------->
 
             <form style="margin-left:25%" action="" method="post"><?php
-                                                                    if ($_SESSION['status'] == 'requested') {
-                                                                        echo (' <button class="punch-button" id="punchButton" style=" background: #f4d03f; /* Yellow background for Requested state */">
+           if ($_SESSION['status'] == 'requested') {
+             echo (' <button class="punch-button" id="punchButton" style=" background: #f4d03f; /* Yellow background for Requested state */
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center"">
             <i class="fas fa-fingerprint"></i>Requested</button>');
-                                                                    } elseif ($_SESSION['status'] == 'accepted') {
-                                                                        echo ('<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */">
+                } elseif ($_SESSION['status'] == 'accepted') {
+            echo ('<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */ 
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            align-items: center">
             <i class="fas fa-check"></i>
             Punched In
         </button>');
