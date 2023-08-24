@@ -378,7 +378,7 @@
         <footer class="footer">
             <div class="container-fluid">
                 <div class="footer-in">
-                    <p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
+                    <p class="mb-0">&copy 2023 Team Helios. All Rights Reserved.</p>
                 </div>
             </div>
         </footer>
