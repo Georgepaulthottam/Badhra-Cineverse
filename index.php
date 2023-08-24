@@ -524,16 +524,15 @@ include 'adminheadersidebar.php'; ?>
         //Script for puchin buttton
         
 
-    </script>
-   ");
+        ");
         ?>
 
+        </script>
 
 
 
 
-            <
-            script >
+            <script >
             // Function to show the popup when "Others" option is selected
             document.getElementById("mySelect").addEventListener("change", function() {
                 var popup = document.getElementById("popup");
