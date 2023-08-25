@@ -24,6 +24,9 @@ else if($activePage == 'attendance'){
 else if($activePage == 'expense'){
 	$PageTitle="Expense Report ";
 }
+else if($activePage == 'calender'){
+	$PageTitle="Calender View ";
+}
 
 
 
@@ -102,8 +105,8 @@ else if($activePage == 'expense'){
 		  <i class="material-icons">stacked_line_chart</i>Attendance
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu2">
-		     <li><a href="Attendance.php">Attendance Requests</a></li>
-			 <li><a href="approved_attendance.php">Approved attendance</a></li>
+		     <li><a href="sp_attendance.php">Attendance Requests</a></li>
+			 <li><a href="sp_approved_attendance.php">Approved attendance</a></li>
 			 
 		  </ul>
 		  </li>
@@ -114,11 +117,8 @@ else if($activePage == 'expense'){
 		  <i class="material-icons">equalizer</i>Request Panel
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu3">
-		     <li><a href="Requests.php">Pending Requests</a></li>
-			 <li><a href="approved_requests.php">Approved requests</a></li
-
-			 <li><a href="#">Pages 2</a></li>
-			 <li><a href="#">Pages 3</a></li>
+		     <li><a href="sp_requests.php">Pending Requests</a></li>
+			 <li><a href="sp_approved_requests.php">Approved requests</a></li>
 		  </ul>
 		  </li>
 		  
@@ -130,8 +130,7 @@ else if($activePage == 'expense'){
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu4">
 		     <li><a href="#">Pages 1</a></li>
-			 <li><a href="#">Pages 2</a></li>
-			 <li><a href="#">Pages 3</a></li>
+			
 		  </ul>
 		  </li>
 		  
@@ -142,8 +141,7 @@ else if($activePage == 'expense'){
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu5">
 		     <li><a href="#">Pages 1</a></li>
-			 <li><a href="#">Pages 2</a></li>
-			 <li><a href="#">Pages 3</a></li>
+			 
 		  </ul>
 		  </li>
 		  
@@ -153,7 +151,7 @@ else if($activePage == 'expense'){
 		  <i class="material-icons">grid_on</i>Miscellaneous
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="misc.php">Miscellaneous</a></li>
+		     <li><a href="sp_misc.php">Miscellaneous</a></li>
 			 
 		  </ul>
 		  </li>
@@ -165,7 +163,7 @@ else if($activePage == 'expense'){
 		  <i class="material-icons">notifications_active</i>Notifications
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-		     <li><a href="Notifications.php">Notification</a></li>
+		     <li><a href="sp_notifications.php">Notification</a></li>
 		  </ul>
 		  </li>
 		  
@@ -174,10 +172,10 @@ else if($activePage == 'expense'){
 		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
-		  <a href="#" class=""><i class="material-icons">calendar_month</i>Calender </a>
+		  <a href="sp_calender.php" class=""><i class="material-icons">calendar_month</i>Calender </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
-					<a href="expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
+					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
 		
 		</ul>
