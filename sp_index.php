@@ -395,9 +395,6 @@
     <!-------complete html----------->
 
 
-
-
-
     <script>
         //script for attendance piechart
         function updatePieChart(percentage) {
