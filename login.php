@@ -36,6 +36,9 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
     }
     elseif($dbusername=="Admin"){
         header("location:index.php");
+    }
+    elseif($dbusername=="super"){
+        header("location:sp_index.php");
 
      
     } else {  
