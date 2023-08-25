@@ -16,9 +16,9 @@ else if($activePage == 'profile'){
 	$PageTitle="Profile ";
 }
 else if($activePage == 'request'){
-	$PageTitle="Requests Panel ";
+	$PageTitle="Request Panel ";
 }
-else if($activePage == 'attendance'){
+else if($activePage == 'attendance'){ 
 	$PageTitle="Attendance Panel ";
 }
 else if($activePage == 'expense'){
@@ -216,7 +216,7 @@ else if($activePage == 'calender'){
 								  <span class="notification">4</span>
 								 </a>
 								  <ul class="dropdown-menu">
-								     <li><a href="Notifications.php	">You Have 3 New Messages</a></li>
+								     <li><a href="sp_notifications.php	">You Have 3 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
