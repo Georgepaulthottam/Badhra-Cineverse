@@ -121,7 +121,7 @@ include 'connection.php';
                 <div id="super_top-container" class="super_top-section">
                 
                     <div class="profile-box" id="super_profile_box">
-                        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+                        <h3 style="font-family: 'Exo', sans-serif;">
                           Status</h3>
                         <div class="request-status" id="request1">
                         
