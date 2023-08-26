@@ -348,8 +348,8 @@ tbody tr:hover {
                       <th>Name</th>
                       <th>Purpose</th>
                       <th>Amount</th>
-					  <th>Quantity</th>
-					  <th>Mode</th>
+					            <th>Quantity</th>
+                       <th>Mode</th>
 
                     </tr>
 					<?php

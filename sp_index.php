@@ -187,7 +187,7 @@ include 'connection.php';
         <!------middle-container contains  attendance request details----------->
         <div id="middle-container" class="bottom-section">
             <div class="detailed-box" id="request-table">
-                <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Attendance Requests
+                <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Expense Report
                 </h3>
                 <div class="request-table" style="overflow-x:auto;">
 
@@ -197,11 +197,12 @@ include 'connection.php';
                                 <?php
                                 if (mysqli_num_rows($result) != 0) {
                                 ?>
-                                    <th>Name</th>
-                                    <th>Department</th>
-                                    <th>Time</th>
-                                    <th>Phone</th>
-                                    <th>Actions</th>
+                                    <th>SI No.</th>
+                      <th>Name</th>
+                      <th>Purpose</th>
+                      <th>Amount</th>
+					  <th>Quantity</th>
+					  <th>Mode</th>
                             </tr>
                         </thead>
 
@@ -237,83 +238,11 @@ include 'connection.php';
 
                     </table>
                 </div>
-                <a href="Attendance.php" style="color:#E2B842;">View more</a>
+                <a href="sp_expensereport.php" style="color:#E2B842;">View more</a>
             </div>
         </div>
         <!------bottom-container contains Other requests panel----------->
-        <div id="middle-container" class="bottom-section">
-            <div class="detailed-box" id="request-table">
-                <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Other Requests
-                </h3>
-                <div class="request-table" style="overflow-x:auto;">
-
-                    <table class="table table-striped table-hover">
-                        <thead>
-                            <?php
-                            if (mysqli_num_rows($result8) != 0) {
-                            ?>
-                                <tr>
-
-                                    <th>Date</th>
-                                    <th>Time</th>
-                                    <th>Item</th>
-                                    <th>Description</th>
-                                    <th>price</th>
-                                    <th>Remark</th>
-                                    <th>Bill No</th>
-                                    <th>actions</th>
-                                </tr>
-                        </thead>
-
-                        <tbody>
-                        <?php
-                                while ($row = mysqli_fetch_assoc($result8)) {
-
-
-                                    $time = new DateTime($row['date']);
-                                    $date = $time->format('n.j.Y');
-                                    $time = $time->format('H:i');
-
-                                    echo ('
-                                        <tr>
-                                        <th>' . $date . '</th>
-                                        <th>' . $time . '</th>
-                                        <th>' . $row['name'] . '</th>
-                                        <th>' . $row['details'] . '</th>
-                                        <th>' . $row['price'] . '</th>
-                                        <th>' . $row['remark'] . '</th>
-                                        <th>' . $row['billno'] . '</th>
-
-
-
-                                        <th>
-									<form action="index.php" method="post">
-									    <input type="text" name="req_id" value="' . $row['id'] . '" hidden>
-										<input type="submit" name="req_accept" value="Accept" class="edit" >
-											
-										
-										<input type="submit" value="Decline" class="delete" data-toggle="modal">
-
-										</form>
-										</a>
-										</th>
-
-								</tr>');
-                                }
-                            } else {
-                                echo ('<h2>No Pending Requests</h2>');
-                            }
-                        ?>
-
-
-                        </tbody>
-
-                    </table>
-                    </form>
-                </div>
-                <a href="Requests.php" style="color: #E2B842;">View more</a>
-            </div>
-        </div>
+        <
 
         <!--- Misc Section Box--->
         <div id="middle-container" class="bottom-section">
