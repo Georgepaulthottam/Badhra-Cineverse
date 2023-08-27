@@ -305,7 +305,7 @@ include 'connection.php';
                     </table>
                     </form>
                 </div>
-                <a href="misc.php" style="color: #E2B842;">View more</a>
+                <a href="sp_misc.php" style="color: #E2B842;">View more</a>
             </div>
         </div>
 
