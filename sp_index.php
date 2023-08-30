@@ -309,10 +309,7 @@ include 'connection.php';
             </div>
         </div>
 
-        <!------Packup Button----------->
-        <form action="index.php" method="post">
-            <input type="submit" value="Packup" name="Packup" class="packupbtn">
-        </form>
+       
         <!------main-content-end----------->
 
 
