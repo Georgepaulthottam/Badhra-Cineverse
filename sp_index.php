@@ -260,7 +260,6 @@ include 'connection.php';
 
                             ?>
                                 <tr>
-
                                     <th>SI No</th>
                                     <th>Date</th>
                                     <th>Name</th>
@@ -326,8 +325,6 @@ include 'connection.php';
                 </div>
             </div>
         </footer>
-
-
 
 
     </div>
