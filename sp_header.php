@@ -133,8 +133,8 @@ else if($activePage == 'crew'){
 		  <i class="material-icons">extension</i>Crew Management
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu4">
-		     <li><a href="sp_crewmanagement.php">Crew Manegement</a></li>
-			
+		     <li><a href="sp_crewmanagement.php">Admin Crew Manegement</a></li>
+			 <li><a href="#">User Crew Manegement</a></li>
 		  </ul>
 		  </li>
 		  
