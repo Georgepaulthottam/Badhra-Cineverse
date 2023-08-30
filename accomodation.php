@@ -35,7 +35,7 @@ header('location:Attendance.php');
 }
 
 ?>
-<?php $activePage = 'Accomodation'; include 'adminheadersidebar.php'; ?>
+<?php $activePage = 'accomodation'; include 'adminheadersidebar.php'; ?>
 <!doctype html>
 <html lang="en">
 
