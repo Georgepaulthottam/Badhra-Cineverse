@@ -58,7 +58,7 @@ include 'connection.php';
 
     <div id="main-container" class="middle-section" >
                 <div id="top-container" class="top-section">
-                    <div class="profile-box">
+                    <div class="profile-box" id="card1">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Users  Attendance</h3>
                         <a href="#">
@@ -74,7 +74,7 @@ include 'connection.php';
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                            Total Crew</h3>
-                        <div class="request-status" id="request1">
+                        <div class="request-status" id="card2">
                         
                         <div class="request-status">
                             <table class="table table-striped table-hover">
@@ -101,7 +101,7 @@ include 'connection.php';
                     </div>
 
                     
-                    <div class="profile-box">
+                    <div class="profile-box" id="card3">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Admin  Attendance</h3>
                             <a href="#">
@@ -121,7 +121,7 @@ include 'connection.php';
 		     
                 <div id="super_top-container" class="super_top-section">
                 
-                    <div class="profile-box" id="super_profile_box">
+                    <div class="profile-box" id="super_profile_box" id="card4">
                         <h3 style="font-family: 'Exo', sans-serif;">
                           Status</h3>
                         <div class="request-status" id="request1">
@@ -153,7 +153,7 @@ include 'connection.php';
 
                         </div>
                     </div>
-                     <div class="profile-box" id="super_profile_box">
+                     <div class="profile-box" id="super_profile_box" id="card5">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                            Daily Expense</h3>
                         <div class="request-status" id="request1">
