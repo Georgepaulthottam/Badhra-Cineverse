@@ -1,3 +1,4 @@
+<!-- Active page is for splitting the header into seperate files.. and to recognise each pages -->
 <?php 
 if($activePage == 'vehicle')
 {

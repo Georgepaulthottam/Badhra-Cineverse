@@ -85,6 +85,7 @@ include 'sp_header.php';
   }
 
   .info-container {
+    height: 130px;
     display: none;
     text-align: center;
     margin-left:30px;
@@ -101,7 +102,7 @@ include 'sp_header.php';
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-right:600px;
   }
   .fontcol{
@@ -124,13 +125,16 @@ include 'sp_header.php';
   .card {
     height:270px;
     width: 530px;
-    background: linear-gradient(45deg, #152935,#053e4c, #152935);
-    color: #ffffff;
+    background: #ffff;
+    color: #0000;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+   
     text-align: center;
     transition: transform 0.3s, box-shadow 0.3s;
+
+    border-radius: 8px;
+    border-color:  #0000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   }
 
   .card:hover {
@@ -229,6 +233,13 @@ thead{
 
   .schedule-btn:hover {
     background-color: #0056b3;
+  }
+  p.card-heading{
+    color: #000;
+  }
+  div.status-label{
+    color:#000;
+    font-size:17px;
   }
 </style>
 
