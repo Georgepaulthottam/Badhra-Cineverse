@@ -400,7 +400,7 @@ include 'connection.php';
         labels: ['Attended', 'Missed'],
         datasets: [{
             data: [percentage, 100 - percentage],
-            backgroundColor: ['#007BFF', '#f0f0f0'],
+            backgroundColor: ['#152935', '#f0f0f0'],
             borderWidth: 0,
         }],
     };

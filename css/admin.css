@@ -1,5 +1,5 @@
 body,html{
-  background:#e6e6e6;
+  background:#dcdcdc;
 }
 .middle-section {
   flex: 0 0 55%;
@@ -82,9 +82,8 @@ body,html{
 #popupbtn {
 
   margin-top: 3px;
-  color: #fff;
-  border: 2px solid #1c303d;
-background:#04243d;
+  color: red;
+  border: 1px solid red;
   border-radius: 5px;
   width: 100%;
   padding: 2px;
@@ -292,6 +291,7 @@ input[name="Packup"] {
 
   .detailed-box {
     
+     width:1%;
      width:104%;
     
     margin-left:-9px;
