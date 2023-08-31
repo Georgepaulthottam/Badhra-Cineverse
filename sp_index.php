@@ -58,7 +58,7 @@ include 'connection.php';
 
     <div id="main-container" class="middle-section" >
                 <div id="top-container" class="top-section">
-                    <div class="profile-box">
+                    <div class="profile-box" id="card1">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Users  Attendance</h3>
                         <a href="#">
@@ -74,7 +74,7 @@ include 'connection.php';
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                            Total Crew</h3>
-                        <div class="request-status" id="request1">
+                        <div class="request-status" id="card2">
                         
                         <div class="request-status">
                             <table class="table table-striped table-hover">
@@ -101,15 +101,16 @@ include 'connection.php';
                     </div>
 
                     
-                    <div class="profile-box">
+                    <div class="profile-box" id="card3">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Admin  Attendance</h3>
-                        <a href="#">
+                            <a href="#">
                             <div class="pie-chart-container">
-                                <canvas id="attendance-chart"></canvas>
-                                <div class="percentage-label" id="percentageLabel"></div>
+                                <canvas id="admin-attendance-chart"></canvas>
+                                <div class="percentage-label" id="adminPercentageLabel"></div>
                             </div>
-                        </a><br>
+                            </a><br>
+                               <br>
 
                        
  
@@ -120,7 +121,7 @@ include 'connection.php';
 		     
                 <div id="super_top-container" class="super_top-section">
                 
-                    <div class="profile-box" id="super_profile_box">
+                    <div class="profile-box" id="super_profile_box" id="card4">
                         <h3 style="font-family: 'Exo', sans-serif;">
                           Status</h3>
                         <div class="request-status" id="request1">
@@ -152,7 +153,7 @@ include 'connection.php';
 
                         </div>
                     </div>
-                     <div class="profile-box" id="super_profile_box">
+                     <div class="profile-box" id="super_profile_box" id="card5">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                            Daily Expense</h3>
                         <div class="request-status" id="request1">
@@ -308,10 +309,7 @@ include 'connection.php';
             </div>
         </div>
 
-        <!------Packup Button----------->
-        <form action="index.php" method="post">
-            <input type="submit" value="Packup" name="Packup" class="packupbtn">
-        </form>
+       
         <!------main-content-end----------->
 
 
@@ -397,6 +395,44 @@ include 'connection.php';
 
         ");
         ?>
+        function updateAdminPieChart(percentage) {
+    const chartData = {
+        labels: ['Attended', 'Missed'],
+        datasets: [{
+            data: [percentage, 100 - percentage],
+            backgroundColor: ['#007BFF', '#f0f0f0'],
+            borderWidth: 0,
+        }],
+    };
+
+    const chartConfig = {
+        type: 'doughnut',
+        data: chartData,
+        options: {
+            cutout: '70%',
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                display: false,
+            },
+            tooltips: {
+                enabled: false,
+            },
+        },
+    };
+
+    const adminAttendanceChart = document.getElementById('admin-attendance-chart').getContext('2d');
+    new Chart(adminAttendanceChart, chartConfig);
+
+    // Update the percentage label
+    const adminPercentageLabel = document.getElementById('adminPercentageLabel');
+    adminPercentageLabel.textContent = `${percentage}%`;
+}
+
+// Example: To update the admin pie chart with a percentage value (e.g., 65%):
+const adminProgressBarPercentage = 65; // Replace this with your desired percentage value.
+updateAdminPieChart(adminProgressBarPercentage);
+
         </script>
 
 </body>
