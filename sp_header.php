@@ -30,7 +30,7 @@ else if($activePage == 'calender'){
 else if($activePage == 'crew'){
 	$PageTitle="Crew Manegement ";
 }
-else if($activePage == 'crewadmin'){
+else if($activePage == 'crewuser'){
 	$PageTitle="Crew Manegement ";
 }
 
@@ -137,7 +137,7 @@ else if($activePage == 'crewadmin'){
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu4">
 		     <li><a href="sp_crewmanagement.php">Admin Crew Manegement</a></li>
-			 <li><a href="#">User Crew Manegement</a></li>
+			 <li><a href="sp_usercrewmanagement.php">User Crew Manegement</a></li>
 		  </ul>
 		  </li>
 		  
