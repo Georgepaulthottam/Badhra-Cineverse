@@ -90,14 +90,7 @@ else if($activePage == 'accomodation'){
 		  
 
 		  <li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">account_circle</i>Profile
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-		     <li><a href="profile.php">Profile</a></li>
-			 
-		  </ul>
+		  <a href="profile.php" class=""><i class="material-icons">account_circle</i> Profile</a>
 		  </li>
 		  
 		  
@@ -157,7 +150,6 @@ else if($activePage == 'accomodation'){
 		  <a href="Notifications.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 		  </li>
 		  
-		   
 		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
 		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
@@ -175,8 +167,6 @@ else if($activePage == 'accomodation'){
 	 </div>
 	 
    <!-------sidebar--design- close----------->
-   
-   
    
       <!-------page-content start----------->
    
