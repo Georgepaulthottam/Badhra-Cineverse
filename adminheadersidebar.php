@@ -24,7 +24,7 @@ else if($activePage == 'attendance'){
 else if($activePage == 'expense'){
 	$PageTitle="Expense Report ";
 }
-else if($activePage == 'Accomodation'){
+else if($activePage == 'accomodation'){
 	$PageTitle="Accomodation";
 }
 
@@ -177,7 +177,7 @@ else if($activePage == 'Accomodation'){
 		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
 		  <a href="#" class=""><i class="material-icons">calendar_month</i>Calender </a>
 		  </li>
-		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
+		  <li class="<?php echo ($activePage === 'accomodation') ? 'active' : ''; ?>">
 		  <a href="accomodation.php" class=""><i class="material-icons">bed</i>Accomodation </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
