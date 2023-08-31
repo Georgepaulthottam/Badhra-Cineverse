@@ -244,6 +244,7 @@ include 'adminheadersidebar.php'; ?>
 
             </div>
         </div>
+        <br>
         <!------middle-container contains  attendance request details----------->
         <div id="middle-container" class="bottom-section">
             <div class="detailed-box" id="request-table">
@@ -300,6 +301,7 @@ include 'adminheadersidebar.php'; ?>
                 <a href="Attendance.php" style="color:#E2B842;">View more</a>
             </div>
         </div>
+        <br>
         <!------bottom-container contains Other requests panel----------->
         <div id="middle-container" class="bottom-section">
             <div class="detailed-box" id="request-table">
@@ -374,7 +376,7 @@ include 'adminheadersidebar.php'; ?>
                 <a href="Requests.php" style="color: #E2B842;">View more</a>
             </div>
         </div>
-
+<br>
         <!--- Misc Section Box--->
         <div id="middle-container" class="bottom-section">
             <div class="detailed-box" id="request-table">
