@@ -87,10 +87,14 @@ include 'sp_header.php';
   .info-container {
     display: none;
     text-align: center;
+    margin-left:30px;
+    flex: 1;
+    background-color: #fdfdfd;
     padding: 20px;
-    background-color: #dcdcdc;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    margin-right: 20px;
+    box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+    border-radius: 10px;
+    border: 1px solid grey;
   }
 
   .info-title {
@@ -105,6 +109,7 @@ include 'sp_header.php';
   }
 
   .schedule-select {
+    margin-left:550px;
     margin-top: 10px;
   }
 
@@ -207,9 +212,11 @@ thead{
   .scedule {
     margin-top:-60px;
     font-size: larger;
+    margin-left:550px;
   }
 
   .schedule-btn {
+    
     background-color: #007bff;
     color: #fff;
     border: none;
