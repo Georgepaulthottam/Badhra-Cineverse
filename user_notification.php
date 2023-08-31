@@ -229,6 +229,13 @@ include 'user_header.php'; ?>
         
         min-height: 100px;
       }
+      .open-button {
+        position: fixed;
+        bottom: 23px;
+        right: 58px;
+        width: 280px;
+        
+      }
       }
     </style>
   </head>
