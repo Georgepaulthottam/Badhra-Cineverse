@@ -15,9 +15,11 @@ else if($activePage == 'request'){
 else if($activePage == 'salary'){
 	$PageTitle="Salary Panel ";
 }
-else if($activePage == 'calender'){
+else if($activePage =='calender'){
 	$PageTitle="Calender Report ";
 }
+
+
 
 
 
