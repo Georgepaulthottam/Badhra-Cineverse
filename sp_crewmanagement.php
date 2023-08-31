@@ -67,8 +67,8 @@ include 'sp_header.php';
 
   select {
     appearance: none;
-    background-color: #ffffff;
-    border: 1px solid #ccc;
+    background-color:#fffff ;
+    border: 2px solid #ccc;
     padding: 10px;
     border-radius: 5px;
     cursor: pointer;
@@ -88,7 +88,7 @@ include 'sp_header.php';
     display: none;
     text-align: center;
     padding: 20px;
-    background-color: #ffffff;
+    background-color: #dcdcdc;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   }
@@ -97,6 +97,8 @@ include 'sp_header.php';
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
+    margin-top: 60px;
+    margin-right:600px;
   }
   .fontcol{
     background-color: ffff;
@@ -110,13 +112,13 @@ include 'sp_header.php';
     
     display: none;
     justify-content: space-around;
-    margin-top: 20px;
+    margin-top: 60px;
    
   }
 
   .card {
-    height:300px;
-    width: 350px;
+    height:270px;
+    width: 530px;
     background: linear-gradient(45deg, #152935,#053e4c, #152935);
     color: #ffffff;
     padding: 20px;
@@ -127,7 +129,7 @@ include 'sp_header.php';
   }
 
   .card:hover {
-    transform: scale(1.05);
+    transform: scale(1.03);
     box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
   }
 
@@ -145,6 +147,13 @@ include 'sp_header.php';
   .status-label {
     font-size: 14px;
   }
+  .tables-container {
+    display: none;
+    margin-top: 20px;
+    width: 1300px;
+   
+    background-color:#dcdcdc;
+  }
 
   table {
   background: #152935;
@@ -152,8 +161,9 @@ include 'sp_header.php';
   border-collapse: collapse;
   margin: 1em;
   margin-top: 70px;
-  width: 95%;
-  margin-left:30px;
+  margin-left: 100px;
+  width: 1050px;
+  
 }
 th {
   border-bottom: 1px solid #364043;
@@ -180,6 +190,39 @@ thead{
   padding: 0.5em 1em;
    
 }
+.attendence{
+ 
+    width: 1200px;
+   
+
+}
+ .card-container {
+    background-color: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .scedule {
+    margin-top:-60px;
+    font-size: larger;
+  }
+
+  .schedule-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  .schedule-btn:hover {
+    background-color: #0056b3;
+  }
 </style>
 
     <!------top-navbar-end----------->
@@ -201,7 +244,7 @@ thead{
 
   <div class="info-container" id="infoContainer">
     <p class="info-title">Title: Geetha Govindam</p>
-    <p>Schedule:</p>
+    <p class="scedule"><b>Schedule:</b></p>
     <div class="schedule-select">
       <select id="scheduleSelect">
         <option value="default" disabled selected>Select a month</option>
@@ -240,6 +283,7 @@ thead{
   </div>
 
   <div class="misctable" style="overflow-x:auto;">
+  <div class="tables-container" id="tablesContainer">
 <table>
 
 
@@ -334,37 +378,45 @@ thead{
                   
                 
 					<tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-					  <td></td>
+                      <td>hsjdfs</td>
+                      <td>snacjkADJN</td>
+                      <td>ssnc</td>
+                      <td>scn</td>
+                      <td>ssnc</td>
+                      <td>scn</td>
+					  
                     </tr>
 					<tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-					  <td></td>
+                      <td>zcdzD</td>
+                      <td>dzvd</td>
+                      <td>dvdV</td>
+                      <td>ddVv</td>
+                      <td>ssnc</td>
+                      <td>scn</td>
+					 
                     </tr>
 					<tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-					  <td></td>
+                      <td>dvZDV</td>
+                      <td>zvzdV</td>
+                      <td>zdvzdv</td>
+                      <td>zvdv</td>
+                      <td>ssnc</td>
+                      <td>scn</td>
+					  
                     </tr>
 					
 					<tr>
                       <td></td>
                       <td></td>
                       <td></td>
-					  <td></td>
-                      <td></td>
+                      <td>ssnc</td>
+                      <td>scn</td>
+					 
                     </tr>
 					
                      
                 </table>
+</div>
 
 
   <script>
@@ -372,6 +424,7 @@ thead{
      const scheduleSelect = document.getElementById("scheduleSelect");
     const infoContainer = document.getElementById("infoContainer");
     const cardsContainer = document.getElementById("cardsContainer");
+    const tablesContainer = document.getElementById("tablesContainer");
 
     userSelect.addEventListener("change", function() {
       if (userSelect.value !== "default") {
@@ -387,6 +440,7 @@ thead{
       if (scheduleSelect.value !== "default") {
         infoContainer.style.display = "block";
         cardsContainer.style.display = "flex";
+        tablesContainer.style.display = "block";
       } else {
         infoContainer.style.display = "none";
         cardsContainer.style.display = "none";
