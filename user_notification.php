@@ -56,7 +56,6 @@ include 'user_header.php'; ?>
     <style>
      
      
-
       .container {
         border: 2px solid #dedede;
         background-color: #f1f1f1;
@@ -189,6 +188,48 @@ include 'user_header.php'; ?>
         margin-left:60px;
       }
       
+      @media only screen and (max-width: 767px) {
+      
+        .container {
+        border: 2px solid #dedede;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        padding: 10px;
+        margin-left: 30px;
+        margin-top:20px;
+        width:330px;
+        word-break: break-all;
+      }
+
+      .darker {
+        border-color: #ccc;
+        background-color: #ddd;
+      }
+      .notification-box{
+       margin-left:70px;
+       margin-top:20px;
+
+      }
+      .notification-box button{
+        margin-left:30px;
+      }
+      h3{
+        font-size:25px;
+      }
+      .form-container {
+        max-width: 350px;
+        padding: 10px;
+        height:45vh;
+        background-color: white;
+      }
+      .form-container h1{
+       font-size:25px;
+      }
+      .form-container textarea {
+        
+        min-height: 100px;
+      }
+      }
     </style>
   </head>
 
