@@ -353,36 +353,6 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 <!-------complete html----------->
 
  
-  
-  <script type="text/javascript">
-
-	   //Select all boxes of table
-
-	   function selects() {
-			var ele = document.getElementsByName("checkbox");
-			if (document.getElementById("selectAll").checked == true ) {
-				document.getElementById("acceptAllBtn").style.visibility = "visible";
-				document.getElementById("rejectAllBtn").style.visibility = "visible";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = true;
-				}
-			}
-			else{
-				document.getElementById("acceptAllBtn").style.visibility = "hidden";
-				document.getElementById("rejectAllBtn").style.visibility = "hidden";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = false;
-				}
-			}
-		}
-  </script>
-  
-  
-
-
-
   </body>
   
   </html>
