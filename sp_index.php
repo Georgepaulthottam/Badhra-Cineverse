@@ -104,12 +104,13 @@ include 'connection.php';
                     <div class="profile-box" id="card3">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Admin  Attendance</h3>
-                        <a href="#">
+                            <a href="#">
                             <div class="pie-chart-container">
-                                <canvas id="attendance-chart"></canvas>
-                                <div class="percentage-label" id="percentageLabel"></div>
+                                <canvas id="admin-attendance-chart"></canvas>
+                                <div class="percentage-label" id="adminPercentageLabel"></div>
                             </div>
-                        </a><br>
+                            </a><br>
+                               <br>
 
                        
  
@@ -394,6 +395,44 @@ include 'connection.php';
 
         ");
         ?>
+        function updateAdminPieChart(percentage) {
+    const chartData = {
+        labels: ['Attended', 'Missed'],
+        datasets: [{
+            data: [percentage, 100 - percentage],
+            backgroundColor: ['#007BFF', '#f0f0f0'],
+            borderWidth: 0,
+        }],
+    };
+
+    const chartConfig = {
+        type: 'doughnut',
+        data: chartData,
+        options: {
+            cutout: '70%',
+            responsive: true,
+            maintainAspectRatio: false,
+            legend: {
+                display: false,
+            },
+            tooltips: {
+                enabled: false,
+            },
+        },
+    };
+
+    const adminAttendanceChart = document.getElementById('admin-attendance-chart').getContext('2d');
+    new Chart(adminAttendanceChart, chartConfig);
+
+    // Update the percentage label
+    const adminPercentageLabel = document.getElementById('adminPercentageLabel');
+    adminPercentageLabel.textContent = `${percentage}%`;
+}
+
+// Example: To update the admin pie chart with a percentage value (e.g., 65%):
+const adminProgressBarPercentage = 65; // Replace this with your desired percentage value.
+updateAdminPieChart(adminProgressBarPercentage);
+
         </script>
 
 </body>
