@@ -45,7 +45,7 @@ include 'sp_header.php';
 <style>
   body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #dcdcdc;
     display: flex;
     flex-direction: column;
     
@@ -157,7 +157,7 @@ include 'sp_header.php';
     margin-top: 20px;
     width: 1300px;
    
-    background-color:#dcdcdc;
+    background-color:fffff;
   }
 
   table {
