@@ -140,8 +140,8 @@ require 'connection.php';
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
-  width: 1118px;
-  margin-left:30px;
+  width: 1090px;
+  margin-left:90px;
 }
 th {
   border-bottom: 1px solid #364043;
@@ -301,8 +301,7 @@ tbody tr {
                     </table>
 					
 					<br>
-					<button onclick="toggleRows()" class="addnew sec-button">ADD EXPENSE
-                      </button>
+					
 
 		<div class="attendence" style="overflow-x:auto;">
 		
@@ -340,20 +339,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 					  <td>'.$row['quantity'].'</td>
 					  <td></td>
 					  
-					  <td><div class="delete-icon" onclick="showDeletePrompt()">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
-      <path d="M0 0h24v24H0z" fill="none"/>
-      <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
-    </svg>
-  </div>
-  </td>
-  <div class="delete-prompt" id="deletePrompt">
-    <i>Are you sure you want to delete this expense?</i>
-    <div class="btn-container">
-	 <form action="expensereport.php" method="post">
-	 <input type="text" name="id" value="'.$row['id'].'" hidden>
-      <button class="btn delete" type="submit" name="delete" onclick="deleteExpense()">Delete</button>
-      <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
+					
 	  </form>
     </div>
   </div>
@@ -365,33 +351,25 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
    else{
         echo('<h2>NO PENDTING REQUESTS</h2>');
       }?>
-                    <tr class="hidden-row">
-						<form action="expensereport.php" method="post">
-					  <td></td>
-                      <td><input type="text" name="name" placeholder="Enter Name"></td>
-                      <td><input type="text" name="purpose" placeholder="Enter Purpose"></td>
-                      <td><input type="text" name="amount" placeholder="Enter Amount"></td>
-					  <td><input type="text" name="quantity" placeholder="Enter quantity"></td>
-					  <td></td>
-					  <td> <button class="tick-icon" name="inp" type="submit">
-						</form>
-    <i class="fas fa-check-circle"></i></td>
+                  
+					<tr>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+					  
                     </tr>
 					<tr>
                       <td></td>
                       <td></td>
                       <td></td>
                       <td></td>
-					  <td></td>
+                      <td></td>
+					  
                     </tr>
 					<tr>
                       <td></td>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-					  <td></td>
-                    </tr>
-					<tr>
                       <td></td>
                       <td></td>
                       <td></td>

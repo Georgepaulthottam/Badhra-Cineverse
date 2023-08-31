@@ -85,6 +85,7 @@ include 'sp_header.php';
   }
 
   .info-container {
+    height: 130px;
     display: none;
     text-align: center;
     margin-left:30px;
@@ -101,7 +102,7 @@ include 'sp_header.php';
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
-    margin-top: 60px;
+    margin-top: 30px;
     margin-right:600px;
   }
   .fontcol{
