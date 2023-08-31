@@ -56,7 +56,7 @@ include 'connection.php';
 
 
     <!------main-content-start----------->
-
+<!------FIrst Chart----------->
     <div id="main-container" class="middle-section" >
                 <div id="top-container" class="top-section">
                     <div class="profile-box" id="card1">
@@ -68,10 +68,9 @@ include 'connection.php';
                                 <div class="percentage-label" id="percentageLabel"></div>
                             </div>
                         </a><br>
-
-                       
- 
                     </div>  
+
+    <!------First Chart ends----------->                
                     <div class="profile-box">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                            Total Crew</h3>
@@ -101,7 +100,7 @@ include 'connection.php';
                         </div>
                     </div>
 
-                    
+   <!------Second Chart----------->                 
                     <div class="profile-box" id="card3">
                         <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                             Admin  Attendance</h3>
@@ -117,7 +116,9 @@ include 'connection.php';
  
                     </div>  	
                     </div>
+                    <!------Second Chart ends-----------> 
                 </div>
+
                   <!------Second block items-----------> 
 		     
                 <div id="super_top-container" class="super_top-section">
