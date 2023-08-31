@@ -141,7 +141,7 @@ require 'connection.php';
   border-collapse: collapse;
   margin: 1em;
   width: 1090px;
-  margin-left:90px;
+  margin-left:60px;
 }
 th {
   border-bottom: 1px solid #364043;
