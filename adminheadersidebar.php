@@ -1,3 +1,4 @@
+<!-- Active page is for splitting the header into seperate files.. and to recognise each pages -->
 <?php 
 if($activePage == 'vehicle')
 {
@@ -23,6 +24,9 @@ else if($activePage == 'attendance'){
 }
 else if($activePage == 'expense'){
 	$PageTitle="Expense Report ";
+}
+else if($activePage == 'Accomodation'){
+	$PageTitle="Accomodation";
 }
 
 
@@ -54,6 +58,7 @@ else if($activePage == 'expense'){
 	   <!--google material icon-->
       <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
 	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 	  <link rel="stylesheet" href="css/style.css" />
 	  <link rel="stylesheet" href="css/admin.css" />
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
@@ -172,6 +177,9 @@ else if($activePage == 'expense'){
 		  </li>
 		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
 		  <a href="#" class=""><i class="material-icons">calendar_month</i>Calender </a>
+		  </li>
+		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
+		  <a href="accomodation.php" class=""><i class="material-icons">bed</i>Accomodation </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
 					<a href="expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>

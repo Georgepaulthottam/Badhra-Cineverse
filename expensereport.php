@@ -56,6 +56,10 @@ if(isset($_POST['delete'])){
 	
 	<script type="text/javascript" src="main.js"></script>
 	<style>
+
+    body{
+      background-color:#dcdcdc;
+    }
 		/* css for acceptAll and rejectAll Button*/
 		#acceptAllBtn {
 			color: rgb(229, 117, 56);
@@ -68,22 +72,28 @@ if(isset($_POST['delete'])){
 			visibility: hidden;
 		}
 		 /* Styling for the box container */
-		 .expensebox {
-      width: 400px;
-      height: 160px;
-      background-color:#cfcfc4 ;
-      border: 1px solid gray;
-      padding: 20px;
-	  box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
-	  margin-left:60px;
-	  flex:-1;
-	  margin-top:10px;
-      box-sizing: border-box;
+     .expensebox {
+      
+      height:220px;
+    width: 530px;
+    background: #ffff;
+    color: #0000;
+    padding: 20px;
+    border-radius: 8px;
+    border-color:  #0000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
     }
+    .expensebox:hover {
+    transform: scale(1.03);
+    box-shadow: 0px 8px 12px rgba(0, 0, 0, 0.2);
+  }
 
     /* Styling for the fields inside the box */
     .expensefield {
       display: inline-block;
+      padding-top:50px;
       margin-right: 20px;
     }
 	table.table td:last-child{
@@ -95,8 +105,12 @@ if(isset($_POST['delete'])){
     /* Style for the label element */
     label {
       display: inline-block;
+      color:#000;
       
     }
+    span.expensevalue{
+    color:#000;
+  }
 
     /* Style for the value element */
     .expensevalue {
@@ -142,7 +156,7 @@ if(isset($_POST['delete'])){
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
-  width: 1200px;
+  width: 1118px;
   margin-left:30px;
 }
 th {
@@ -162,9 +176,7 @@ td {
 tbody tr {
   transition: background 0.25s ease;
 }
-tbody tr:hover {
-  background: #014055;
-}
+
 .rowiee {
 	background-color: #436b95;
 }
@@ -239,20 +251,15 @@ tbody tr:hover {
     background-color: #ccc;
     color: black;
   }
+  .transperant{
+    background-color:#dcdcdc;
+  }
+  .profile-box{
+    width: 1160px;
+    height: 50px
+  }
   @media only screen and (max-width: 767px){
-	.expensebox {
-      width: 300px;
-      height: 160px;
-      background-color:#cfcfc4 ;
-      border: 1px solid gray;
-      padding: 20px;
-	  box-shadow: 1px 2px 2px 2px rgba(20,20,20,0.4);
-	  margin-left:5px;
-	  flex:-1;
-	  margin-top:10px;
-      box-sizing: border-box;
-    }
-	
+
 
     /* Styling for the fields inside the box */
     .expensefield {
@@ -300,32 +307,32 @@ tbody tr:hover {
 					<table class="profile-box">
 							<thead>
 					            <tr>
-								<th>TITLE:</th>
+								<th><b>TITLE:<b></th>
 			                    <th>DATE:</th>
 	                            </tr>
                     </table>
-					<table>
-						<th>
+					<table class="transperant">
+						<td>
                           <div class="expensebox">
-                            <div class="expensefield">
-                              <label for="opening-balance">Opening Balance: &emsp; </label>
+                            <div class="expensefield"><b>
+                              <label for="opening-balance">Opening Balance&emsp;&emsp;: &emsp;&emsp; </label>
                               <span class="expensevalue">19215</span><br>
-	                          <label for="opening-balance">Advance: &emsp; &nbsp; &emsp; &emsp;  &emsp; </label>
+	                          <label for="opening-balance">Advance&emsp; &emsp;&emsp;  &emsp; &emsp;:    &emsp;&emsp; </label>
                               <span class="expensevalue">5000</span><br>
-	                          <label for="opening-balance">Total: &emsp; &emsp; &emsp; &emsp; &emsp;&emsp;&nbsp;</label>
-                              <span class="expensevalue">69215</span>
+	                          <label for="opening-balance">&emsp;Total &emsp; &emsp; &emsp; &emsp;&emsp;&emsp;: &emsp; &emsp; </label>
+                              <span class="expensevalue">69215</span></b>
                             </div>
                           </div>
-                        </th>
-                        <th>
-				          <div class="expensebox" id="expensebox">
+                        </td>
+                        <td>
+				          <div class="expensebox" id="expensebox"><b>
                              <div class="expensefield">
                                 <label for="opening-balance">Location: &emsp; </label>
                                 <span class="expensevalue"> Diamond Plaza Trivanathapuram</span>
-	                          
+        </b>
                              </div>
                           </div>
-                        </th>
+                        </td>
                     </table>
 					
 					<br>
@@ -348,8 +355,8 @@ tbody tr:hover {
                       <th>Name</th>
                       <th>Purpose</th>
                       <th>Amount</th>
-					  <th>Quantity</th>
-					  <th>Mode</th>
+					            <th>Quantity</th>
+                       <th>Mode</th>
 
                     </tr>
 					<?php

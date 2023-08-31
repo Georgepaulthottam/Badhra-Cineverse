@@ -1,18 +1,18 @@
+body,html{
+  background:#dcdcdc;
+}
 .middle-section {
   flex: 0 0 55%;
   padding: 3%;
   display: flex;
   flex-direction: column;
-
 }
-
 .top-section {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   margin-bottom: 20px;
 }
-
 .bottom-section {
   display: flex;
   flex-direction: column;
@@ -21,27 +21,29 @@
   justify-content: space-between;
 
 }
-
 .profile-box,
 .notfication-box {
   text-align: center;
   flex: 1;
-  background-color: #fdfdfd;
+  background-color: #f8f8ff;
   padding: 20px;
   margin-right: 20px;
-  box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+  box-shadow: 1px 1px 1px 1px rgba(20, 20, 20, 0.1);
   border-radius: 10px;
+  
 }
-
 .detailed-box {
   text-align: center;
   background-color: #1c303d;
-  padding: 20px;
-  margin-right: 10px;
+  padding: 22px;
+   width:105.5%;
   margin-bottom: 20px;
   box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
   border-radius: 10px;
   color: #fff;
+  margin-left:-32px;
+ 
+  
 }
 
 .profile-box:last-child {
@@ -81,14 +83,14 @@
 
   margin-top: 3px;
   color: red;
-  border: 1px solid rgb(252, 60, 69);
+  border: 1px solid red;
   border-radius: 5px;
   width: 100%;
   padding: 2px;
   margin-bottom: 20px;
+  cursor:pointer;
 
 }
-
 
 .request-status input[type="text"] {
   border: 1px solid #c9ccce;
@@ -99,19 +101,19 @@
   text-align: center;
   width: 100%;
   margin-bottom: 20px;
-
-
+ 
 }
-
 #mySelect {
   border: 1px solid #c9ccce;
   border-radius: 25px;
-  padding: 3px;
+  padding: 6px;
+
   background: #f2f2f2;
   color: rgb(8, 4, 4);
   text-align: center;
   width: 100%;
   margin-bottom: 20px;
+ 
 }
 
 /* Styling for the popup */
@@ -129,15 +131,14 @@
   width: 23vw;
 
 }
-
-
 ::placeholder {
   text-align: center;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 input[name="Packup"] {
-  color: red;
-  border: 2px solid rgb(252, 60, 69);
+  color: #1c303d;
+  border: 2px solid #1c303d;
   border-radius: 5px;
   margin-left: 500px;
   margin-bottom: 30px;
@@ -288,5 +289,13 @@ input[name="Packup"] {
     border-radius: 10px;
   }
 
-
+  .detailed-box {
+    
+     width:1%;
+     width:104%;
+    
+    margin-left:-9px;
+   
+    
+  }
 }

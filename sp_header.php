@@ -27,6 +27,10 @@ else if($activePage == 'expense'){
 else if($activePage == 'calender'){
 	$PageTitle="Calender View ";
 }
+else if($activePage == 'crew'){
+	$PageTitle="Crew Manegement ";
+}
+
 
 
 
@@ -129,8 +133,8 @@ else if($activePage == 'calender'){
 		  <i class="material-icons">extension</i>Crew Management
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu4">
-		     <li><a href="#">Pages 1</a></li>
-			
+		     <li><a href="sp_crewmanagement.php">Admin Crew Manegement</a></li>
+			 <li><a href="#">User Crew Manegement</a></li>
 		  </ul>
 		  </li>
 		  
