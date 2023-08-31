@@ -84,6 +84,7 @@ if (isset($_POST['Packup'])) {
 }
 
 ?>
+<!-- Active page is for splitting the header into seperate files.. and to recognise each pages -->
 <?php $activePage = 'home';
 include 'adminheadersidebar.php'; ?>
 <!doctype html>
