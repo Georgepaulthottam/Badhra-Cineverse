@@ -30,9 +30,6 @@ else if($activePage == 'calender'){
 else if($activePage == 'crew'){
 	$PageTitle="Crew Manegement ";
 }
-else if($activePage == 'crewuser'){
-	$PageTitle="Crew Manegement ";
-}
 
 
 

@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-$activePage = 'crewadmin';
+$activePage = 'crew';
 include "sp_header.php";
 ?>
 <!doctype html>
