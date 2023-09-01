@@ -54,23 +54,15 @@ include 'user_header.php'; ?>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <style>
-      * {
-        box-sizing: border-box;
-      }
-
-      body {
-        font-family: Arial, Helvetica, sans-serif;
-        margin: 0 auto;
-        max-width: 800px;
-        padding: 0 20px;
-      }
-
+     
+     
       .container {
         border: 2px solid #dedede;
         background-color: #f1f1f1;
         border-radius: 5px;
         padding: 10px;
-        margin: 10px 0;
+        margin-left: 50px;
+        margin-top:20px;
         word-break: break-all;
       }
 
@@ -192,16 +184,72 @@ include 'user_header.php'; ?>
         padding: 10px 20px;
         z-index: 999;
       }
+      .notification-box{
+        margin-left:60px;
+      }
+      
+      @media only screen and (max-width: 767px) {
+      
+        .container {
+        border: 2px solid #dedede;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+        padding: 10px;
+        margin-left: 30px;
+        margin-top:20px;
+        width:330px;
+        word-break: break-all;
+      }
+
+      .darker {
+        border-color: #ccc;
+        background-color: #ddd;
+      }
+      .notification-box{
+       margin-left:70px;
+       margin-top:20px;
+
+      }
+      .notification-box button{
+        margin-left:30px;
+      }
+      h3{
+        font-size:25px;
+      }
+      .form-container {
+        max-width: 350px;
+        padding: 10px;
+        height:45vh;
+        background-color: white;
+      }
+      .form-container h1{
+       font-size:25px;
+      }
+      .form-container textarea {
+        
+        min-height: 100px;
+      }
+      .open-button {
+        position: fixed;
+        bottom: 23px;
+        right: 58px;
+        width: 280px;
+        
+      }
+      }
     </style>
   </head>
 
   <body>
+    <div class="notification-box">
 
-    <h2>Popup Chat Window</h2>
+
+    <h3>Popup Chat Window</h3>
     <form action="#" method="post">
       <button type="submit" name="super-admin" value="super-admin">Super Admin</button>
       <button type="submit" name="admin" value="admin">Admin</button>
     </form>
+    </div>
     <?php
     if(isset($_POST['super-admin'])){
       $query = ("SELECT * FROM notifications WHERE rec_user='" . mysqli_real_escape_string($conn, $dept) ."'and dept='" . mysqli_real_escape_string($conn, 'super') . "'");
@@ -340,7 +388,14 @@ echo('
         }
       }
     </script>
-
+    <br><br><br>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="footer-in">
+            <p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
   </body>
 
   </html>

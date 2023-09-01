@@ -30,6 +30,9 @@ else if($activePage == 'calender'){
 else if($activePage == 'crew'){
 	$PageTitle="Crew Manegement ";
 }
+else if($activePage == 'crewuser'){
+	$PageTitle="Crew Manegement ";
+}
 
 
 
@@ -134,7 +137,7 @@ else if($activePage == 'crew'){
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu4">
 		     <li><a href="sp_crewmanagement.php">Admin Crew Manegement</a></li>
-			 <li><a href="#">User Crew Manegement</a></li>
+			 <li><a href="sp_usercrewmanagement.php">User Crew Manegement</a></li>
 		  </ul>
 		  </li>
 		  
@@ -150,25 +153,11 @@ else if($activePage == 'crew'){
 		  </li>
 		  
 		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>Miscellaneous
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="sp_misc.php">Miscellaneous</a></li>
-			 
-		  </ul>
+		  <a href="sp_misc.php" class=""><i class="material-icons">grid_on</i>Miscellaneous</a>
 		  </li>
-		  
-		  
-		  <li class="<?php echo ($activePage === 'notifcation') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">notifications_active</i>Notifications
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-		     <li><a href="sp_notifications.php">Notification</a></li>
-		  </ul>
+		 
+		   <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
+		  <a href="sp_notifications.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 		  </li>
 		  
 		   

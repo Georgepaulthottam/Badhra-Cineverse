@@ -5,12 +5,14 @@ if (!isset($_SESSION['user'])) {
     header('Location: login.php');
 
 }
-require("user_header.php");
+
 require 'connection.php';
 $date=DATE($_GET['date']);
 $user=$_SESSION['user'];
-
+$activePage = 'calender'; 
+include 'user_header.php';
 ?>
+
 
             <!------main-content-start----------->
             <div id="main-container" class="middle-section">
