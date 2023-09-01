@@ -62,7 +62,7 @@ section {
 
 text-align:center;
   border-radius: 5px;
-  background: #3D3D3D;
+  background: #333333;
   padding: 8px;
   letter-spacing:1px;
   cursor: text;
@@ -80,7 +80,7 @@ justify-content:right;
 {
     align-items: center;
   border-radius: 5px;
-  background: #3D3D3D;
+  background: #333333;
   padding: 8px;
   text-align:center;
   cursor: text;
@@ -94,7 +94,7 @@ justify-content:right;
     align-items: center;
   border-radius: 5px;
   letter-spacing:1px;
-  background: #3D3D3D;
+  background: #333333;
   text-align:center;
   padding: 5px;
   cursor: text;
@@ -159,7 +159,7 @@ hr {
     align-items: center;
   border-radius: 5px;
   letter-spacing:1px;
-  background: #3D3D3D;
+  background: #333333;
   text-align:center;
   padding: 5px;
   cursor: text;
@@ -173,7 +173,7 @@ hr {
 
 text-align:center;
   border-radius: 5px;
-  background: #3D3D3D;
+  background: #333333;
   padding: 8px;
   letter-spacing:1px;
   cursor: text;
