@@ -73,7 +73,11 @@ include 'sp_header.php';
     border-radius: 5px;
     cursor: pointer;
   }
-
+  #scheduleSelect{
+    margin-left:70px;
+    margin-top:-50px;
+    position:absolute;
+  }
   select:focus {
     outline: none;
     border-color: #007bff;
@@ -85,19 +89,20 @@ include 'sp_header.php';
   }
 
   .info-container {
-    height: 130px;
+    height: 100px;
     display: none;
     text-align: center;
     margin-left:30px;
-    flex: 1;
+    
     background-color: #fdfdfd;
-    padding: 20px;
+    padding: 5px;
+    margin-bottom:40px;
     margin-right: 20px;
     box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
     border-radius: 10px;
     border: 1px solid grey;
   }
-
+ 
   .info-title {
     font-size: 18px;
     font-weight: bold;
@@ -262,6 +267,7 @@ thead{
 
   <div class="info-container" id="infoContainer">
     <p class="info-title">Title: Geetha Govindam</p>
+    <br>
     <p class="scedule"><b>Schedule:</b></p>
     <div class="schedule-select">
       <select id="scheduleSelect">
