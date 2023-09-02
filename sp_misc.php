@@ -12,6 +12,7 @@ require 'connection.php';
 <html lang="en">
 
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -177,6 +178,8 @@ tbody tr:hover {
 
         }
 	
+  
+  
     </style>
      <script>
         function toggleRows() {
@@ -234,7 +237,12 @@ tbody tr:hover {
       <th>TIME</th>
       <th>REMARK</th>
       <th>AMOUNT</th>
+<<<<<<< HEAD
       <th>ACTION</th>
+=======
+    
+     
+>>>>>>> 2923816c519d68a6b91b685555799d446f286cda
   </thead>
   <tbody>
 
@@ -254,8 +262,9 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td>'.$time.'</td>
       <td>'.$row['remark'].'</td>
       <td>'.$row['amount'].'</td>');
-      
+     
       $sum = $sum + $row['amount'];
+<<<<<<< HEAD
       echo('		  <td><div class="delete-icon" onclick="showDeletePrompt()">
       <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
         <path d="M0 0h24v24H0z" fill="none"/>
@@ -276,6 +285,10 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   
             </tr>');
       echo('</tr>');
+=======
+      
+      echo('</tr> ');
+>>>>>>> 2923816c519d68a6b91b685555799d446f286cda
 
 }
  echo('      <tr>
@@ -283,7 +296,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td colspan="7" style="text-align:right;"> TOTAL:</td>
 	  
       <td>'.$sum.'</td>
-</tr>');
+</tr>' );
       }
       
    
