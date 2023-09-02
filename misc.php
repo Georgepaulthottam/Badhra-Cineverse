@@ -104,12 +104,17 @@ if(isset($_POST['misc-submit'])){
 
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label {
-  top: -20px;
+  top: -30px;
   left: 0;
   color: #03e9f4;
   font-size: 12px;
 }
-
+.login-box .user-box input:invalid ~ label::after{
+  top: -30px;
+  left: 0;
+  color: #03e9f4;
+  font-size: 12px;
+}
 .login-box form a input{
   position: relative;
   display: block;
@@ -306,7 +311,7 @@ tbody tr:hover {
       <label>Amount</label>
     </div>
 	<div class="user-box">
-      <input type="text" name="misc-remark" id = "misc-remark"  required="false">
+      <input type="text" name="misc-remark" id = "misc-remark"  >
       
       <label>Remark</label>
     </div>

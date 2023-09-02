@@ -234,7 +234,7 @@ tbody tr:hover {
       <th>TIME</th>
       <th>REMARK</th>
       <th>AMOUNT</th>
-     
+      <th>ACTION</th>
   </thead>
   <tbody>
 
