@@ -12,6 +12,7 @@ require 'connection.php';
 <html lang="en">
 
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -105,6 +106,8 @@ tbody tr:hover {
 		margin-left:3%;
 	}
 	
+  
+  
     </style>
 </head>
 
@@ -138,6 +141,7 @@ tbody tr:hover {
       <th>TIME</th>
       <th>REMARK</th>
       <th>AMOUNT</th>
+    
      
   </thead>
   <tbody>
@@ -158,9 +162,10 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td>'.$time.'</td>
       <td>'.$row['remark'].'</td>
       <td>'.$row['amount'].'</td>');
-      
+     
       $sum = $sum + $row['amount'];
-      echo('</tr>');
+      
+      echo('</tr> ');
 
 }
  echo('      <tr>
@@ -168,7 +173,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td colspan="7" style="text-align:right;"> TOTAL:</td>
 	  
       <td>'.$sum.'</td>
-</tr>');
+</tr>' );
       }
       
    
