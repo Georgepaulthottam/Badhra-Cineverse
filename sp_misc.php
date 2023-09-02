@@ -104,8 +104,104 @@ tbody tr:hover {
 	.btnsCheck{
 		margin-left:3%;
 	}
+  .sec-button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .tick-icon {
+            font-size: 15px;
+            color: #3cb371;
+            width: 28px;
+            height: 28px;
+            background: #002147;
+        }
+
+        .delete-icon {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 8px;
+        }
+
+        .delete-prompt {
+            display: none;
+            font-family: Arial, sans-serif;
+            position: fixed;
+            top: 57%;
+            left: 67%;
+            font: size 5px;
+            height: 160px;
+            width: 270px;
+            transform: translate(-50%, -50%);
+            background-color: #e5e4e2;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .delete-prompt h2 {
+            margin-top: 0;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .btn.delete {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn.cancel {
+            background-color: #ccc;
+            color: black;
+        }
+
+
+
+        @media only screen and (max-width: 767px) {
+
+
+            /* Styling for the fields inside the box */
+            .expensefield {
+                display: inline-block;
+                margin-right: 20px;
+            }
+
+        }
 	
     </style>
+     <script>
+        function toggleRows() {
+            var rows = document.getElementsByClassName("hidden-row");
+            for (var i = 0; i < rows.length; i++) {
+                rows[i].style.display = "table-row";
+            }
+        }
+
+       
+		function showDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "block";
+         }
+
+        function hideDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "none";
+         }
+
+        function deleteExpense() {
+      // Code to delete the expense
+           hideDeletePrompt();
+      
+         }
+		
+    </script>
 </head>
 
 <body>
@@ -160,6 +256,25 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td>'.$row['amount'].'</td>');
       
       $sum = $sum + $row['amount'];
+      echo('		  <td><div class="delete-icon" onclick="showDeletePrompt()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
+      </svg>
+    </div>
+    </td>
+    <div class="delete-prompt" id="deletePrompt">
+      <i>Are you sure you want to delete this expense?</i>
+      <div class="btn-container">
+     <form action="misc.php" method="post">
+     <input type="text" name="id" value="'.$row['id'].'" hidden>
+        <button class="btn delete" type="submit" name="delete" onclick="deleteExpense()">Delete</button>
+        <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
+      </form>
+      </div>
+    </div>
+  
+            </tr>');
       echo('</tr>');
 
 }

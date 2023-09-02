@@ -338,6 +338,7 @@ tbody tr:hover {
       <th>TIME</th>
       <th>REMARK</th>
       <th>AMOUNT</th>
+      <th>ACTION</th>
      
   </thead>
   <tbody>
@@ -399,7 +400,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
         echo('<h2>NO PENDTING REQUESTS</h2>');
       }?>
 
-<i class="fas fa-check-circle"></i></td>
+</td>
 
   </tbody>
 </table>
