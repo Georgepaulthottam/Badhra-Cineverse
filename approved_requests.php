@@ -112,7 +112,7 @@ include 'adminheadersidebar.php'; ?>
 
 					<tbody>
 					<?php
-					if (isset($_POST['accept'])) {
+					if (isset($_POST['accepted'])) {
 						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "approved") . "'");
 						$result = mysqli_query($conn, $query);
 

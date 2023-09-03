@@ -928,8 +928,8 @@ footer {
     text-align: center;
     padding: 10px 30px;
     position: sticky;
+    bottom: 0;
     width: 100%;
-    margin-top: 100px;
 }
 
 /*-------footer design end------*/
