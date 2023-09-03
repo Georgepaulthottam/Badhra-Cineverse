@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Check if the user is not logged in
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") {
 	header('Location: login.php');
 }
 require 'connection.php';
@@ -87,7 +87,7 @@ include 'adminheadersidebar.php'; ?>
             <div class="attendence" style="overflow-x:auto;">
 
                 <body>
-                    <form action="user_view_request.php" method="post">
+                    <form action="" method="post">
                         <button class="custom-button accepted" onclick="selectButton(this)" type="submit" name="accept" value="">Accepted</button>
                         <button class="custom-button rejected" onclick="selectButton(this)" type="submit" name="rejected" value="">Rejected</button>
                         <button class="custom-button pending" onclick="selectButton(this)" type="submit" name="requested" value="">Pending</button>
