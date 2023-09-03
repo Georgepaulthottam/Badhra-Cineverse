@@ -54,7 +54,20 @@ include 'adminheadersidebar.php'; ?>
 			color: green;
 			visibility: hidden;
 		}
+		.detailed-box{
+			max-width:75vw;
+			margin:10px 20px;
+		}
 	</style>
+	<script>
+    function selectButton(button) {
+        const buttons = document.querySelectorAll('.custom-button');
+        buttons.forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        button.classList.add('selected');
+    }
+</script>
 </head>
 
 <body>
@@ -67,19 +80,23 @@ include 'adminheadersidebar.php'; ?>
 
 	<!------main-content-start----------->
 	<div class="main-content">
-		<div class="attendence" style="overflow-x:auto;">
+    <section id="view-request">
+        <div class="detailed-box" id="request-table">
+            <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Request
+            </h3>
+            <div class="attendence" style="overflow-x:auto;">
 
-			<table class="table table-striped table-hover">
+                <body>
+                    <form action="user_view_request.php" method="post">
+                        <button class="custom-button accepted" onclick="selectButton(this)" type="submit" name="accept" value="">Accepted</button>
+                        <button class="custom-button rejected" onclick="selectButton(this)" type="submit" name="rejected" value="">Rejected</button>
+                        <button class="custom-button pending" onclick="selectButton(this)" type="submit" name="requested" value="">Pending</button>
+                        <button class="custom-button all" onclick="selectButton(this)" type="submit" name="all" value="">All</button>
+                    </form>
+                    <br>
+                </body>
 
-				<body>
-					<form action="approved_requests.php" method="post">
-						<button class="custom-button accepted" type="submit" name="accept" value="">Accepted</button>
-						<button class="custom-button rejected" type="submit" name="rejected" value="">Rejected</button>
-						<button class="custom-button pending" type="submit" name="requested" value="">Pending</button>
-						<button class="custom-button all" type="submit" name="all" value="">All</button>
-					</form>
-					<br>
-				</body>
+                <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -93,7 +110,7 @@ include 'adminheadersidebar.php'; ?>
 					</tr>
 				</thead>
 
-				<tbody>
+					<tbody>
 					<?php
 					if (isset($_POST['accept'])) {
 						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "approved") . "'");
@@ -232,15 +249,11 @@ include 'adminheadersidebar.php'; ?>
 
 				</tbody>
 
+                </table>
 
-			</table>
-			<div>
-				<button id="acceptAllBtn" formaction="#">Accept All</button>
-				<button id="rejectAllBtn" formaction="#">Reject All</button>
-			</div><br>
-			</form>
-		</div>
-	</div>
+            </div>
+    </section>
+</div>
 	<!------main-content-end----------->
 
 
@@ -265,39 +278,6 @@ include 'adminheadersidebar.php'; ?>
 
 
 	<!-------complete html----------->
-
-
-
-
-
-
-
-
-	<script type="text/javascript">
-		//select all and reject all
-		function selects() {
-			var ele = document.getElementsByName("checkbox");
-			if (document.getElementById("selectAll").checked == true) {
-				document.getElementById("acceptAllBtn").style.visibility = "visible";
-				document.getElementById("rejectAllBtn").style.visibility = "visible";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = true;
-				}
-			} else {
-				document.getElementById("acceptAllBtn").style.visibility = "hidden";
-				document.getElementById("rejectAllBtn").style.visibility = "hidden";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = false;
-				}
-			}
-		}
-	</script>
-
-
-
-
 
 </body>
 
