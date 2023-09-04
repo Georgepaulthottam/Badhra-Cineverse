@@ -6,6 +6,18 @@ if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") {
 }
 require 'connection.php';
 $user = $_SESSION['user'];
+if (isset($_POST['approve'])) {
+						$id = $_POST['id'];
+						$query2 = ("update cart set status='approved' where id='$id'");
+						$quer = mysqli_query($conn, $query2);
+						header("location:approved_requests.php");
+					}
+					if (isset($_POST['reject'])) {
+						$id = $_POST['id'];
+						$query2 = ("update cart set status='rejected' where id='$id'");
+						$quer = mysqli_query($conn, $query2);
+	header("location:approved_requests.php");
+					}
 
 
 
@@ -96,7 +108,15 @@ include 'adminheadersidebar.php'; ?>
                     <br>
                 </body>
 
-                <table class="table user_req table-striped table-hover">
+               
+
+					<tbody>
+					<?php
+
+					if (isset($_POST['accept'])) {
+						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "approved") . "'");
+						$result = mysqli_query($conn, $query);
+						echo (' <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -108,13 +128,7 @@ include 'adminheadersidebar.php'; ?>
 						<th>Date</th>
 						<th>time</th>
 					</tr>
-				</thead>
-
-					<tbody>
-					<?php
-					if (isset($_POST['accepted'])) {
-						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "approved") . "'");
-						$result = mysqli_query($conn, $query);
+				</thead>');
 
 
 						while ($row = mysqli_fetch_assoc($result)) {
@@ -125,6 +139,7 @@ include 'adminheadersidebar.php'; ?>
 							$time = $time->format('H:i');
 
 							echo ('
+
                                         <tr>
 
                                         <th>' . $row['name'] . '</th>
@@ -143,6 +158,19 @@ include 'adminheadersidebar.php'; ?>
 					if (isset($_POST['requested'])) {
 						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "requested") . "'");
 						$result = mysqli_query($conn, $query);
+						echo (' <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Remark</th>
+						<th>Bill No</th>
+						<th>Date</th>
+						<th>time</th>
+					</tr>
+				</thead>');
 
 
 
@@ -157,9 +185,8 @@ include 'adminheadersidebar.php'; ?>
 							$time = $time->format('H:i');
 
 							echo ('
+							 
                                 <tr>
-
-
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['details'] . '</th>
@@ -167,7 +194,17 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th
                                         <th>' . $date . '</th>
-                                        <th>' . $time . '</th>
+                                        <th>' . $time .'</th>
+									  <th>
+									<form action="approved_requests.php" method="post">
+									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
+										<input type="submit" name="approve" value="Accept" class="edit" >
+											
+										
+										<input type="submit" name="reject" value="Decline" class="delete" >
+
+										</form>
+										</th>
 
                                    
 
@@ -178,6 +215,19 @@ include 'adminheadersidebar.php'; ?>
 					if (isset($_POST['rejected'])) {
 						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "rejected") . "'");
 						$result = mysqli_query($conn, $query);
+						echo (' <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Remark</th>
+						<th>Bill No</th>
+						<th>Date</th>
+						<th>time</th>
+					</tr>
+				</thead>');
 
 
 
@@ -192,7 +242,7 @@ include 'adminheadersidebar.php'; ?>
 							$date = $time->format('n.j.Y');
 							$time = $time->format('H:i A');
 
-							echo ('
+							echo (' 
                                         <tr>
 
                                         <th>' . $row['name'] . '</th>
@@ -211,6 +261,19 @@ include 'adminheadersidebar.php'; ?>
 					if (isset($_POST['all'])) {
 						$query = ("SELECT * FROM cart");
 						$result = mysqli_query($conn, $query);
+						echo(' <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Remark</th>
+						<th>Bill No</th>
+						<th>Date</th>
+						<th>time</th>
+					</tr>
+				</thead>');
 
 
 
