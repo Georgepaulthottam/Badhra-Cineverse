@@ -148,8 +148,9 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th
+                                        <th></th>
                                         <th>' . $date . '</th>
-                                        <th>' . $time . '</th>
+										<th>' . $time . '</th>
 
 
 								</tr>');
@@ -193,6 +194,7 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th
+										<th></th>
                                         <th>' . $date . '</th>
                                         <th>' . $time .'</th>
 									  <th>
@@ -251,6 +253,7 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th
+										<th></th>
                                         <th>' . $date . '</th>
                                         <th>' . $time . '</th>
 
@@ -297,6 +300,7 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th
+										<th></th>
                                         <th>' . $date . '</th>
                                         <th>' . $time . '</th>
 
