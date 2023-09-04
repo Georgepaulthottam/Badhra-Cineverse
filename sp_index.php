@@ -130,6 +130,7 @@ $msresult = mysqli_query($conn, $msquery);
 
 
     <!------main-content-start----------->
+    
     <!------FIrst Chart----------->
     <div id="main-container" class="middle-section">
         <div id="top-container" class="top-section">
