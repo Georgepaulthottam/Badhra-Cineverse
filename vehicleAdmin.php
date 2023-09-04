@@ -1,4 +1,13 @@
-<?php $activePage = 'vehicle'; include 'adminheadersidebar.php'; ?>
+<?php
+session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") {
+    header('Location: login.php');
+
+}
+?>
+<?php $activePage = 'vehicle'; 
+include 'adminheadersidebar.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
