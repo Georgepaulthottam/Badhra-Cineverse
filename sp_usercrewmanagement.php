@@ -1,7 +1,11 @@
 <?php
 session_start(); 
-$activePage = 'crew';
-include "sp_header.php";
+$activePage = 'crew'; 
+// Check if the user is not logged in
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
+    header('Location: login.php');
+}
+include 'sp_header.php';
 ?>
 <!doctype html>
 <html lang="en">
@@ -11,7 +15,7 @@ include "sp_header.php";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>User Crew</title>
+    <title>Super Admin Dashboard</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!----css3---->
@@ -46,14 +50,6 @@ include "sp_header.php";
     flex-direction: column;
     
   }
-  .container {
-    background-color: #fff;
-    border-radius: 10px;
-    padding: 20px;
-    margin: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-
-  }
 
   .user-container {
     margin-top: 50px;
@@ -77,7 +73,11 @@ include "sp_header.php";
     border-radius: 5px;
     cursor: pointer;
   }
-
+  #scheduleSelect{
+    margin-left:70px;
+    margin-top:-50px;
+    position:absolute;
+  }
   select:focus {
     outline: none;
     border-color: #007bff;
@@ -89,19 +89,20 @@ include "sp_header.php";
   }
 
   .info-container {
-    height: 130px;
+    height: 100px;
     display: none;
     text-align: center;
     margin-left:30px;
-    flex: 1;
+    
     background-color: #fdfdfd;
-    padding: 20px;
+    padding: 5px;
+    margin-bottom:40px;
     margin-right: 20px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
     border-radius: 10px;
     border: 1px solid grey;
   }
-
+ 
   .info-title {
     font-size: 18px;
     font-weight: bold;
@@ -253,10 +254,10 @@ thead{
     <!------main-content-start----------->
 
     <body>
-    <div class="container">
+    <div class="user-container">
     <label class="select-label">Select user:</label>
     <select id="userSelect">
-      <option value="default" disabled selected>Select a user</option>
+    <option value="default" disabled selected>Select a user</option>
       <option value="user1">Art</option>
       <option value="user2">Camera</option>
       <option value="user3">Artist</option>
@@ -266,6 +267,7 @@ thead{
 
   <div class="info-container" id="infoContainer">
     <p class="info-title">Title: Geetha Govindam</p>
+    <br>
     <p class="scedule"><b>Schedule:</b></p>
     <div class="schedule-select">
       <select id="scheduleSelect">
@@ -306,80 +308,74 @@ thead{
 
   <div class="misctable" style="overflow-x:auto;">
   <div class="tables-container" id="tablesContainer">
-<table>
-
-
-</table>
-<div class="attendence" style="overflow-x:auto;">
-		
-				<table >
+  <table >
                     
-                <thead>
-                <tr >
-               <td></td>
-              <td></td>
-                <td></td>
-               <td><b>  Report</b></td>
-               <td></td>
-               <td></td>
+                    <thead>
+                    <tr >
+                   <td></td>
                   <td></td>
-               </tr>
-              </thead>
-										
-					<tr>
-                      <th>SI No.</th>
-                      <th>Name</th>
-                      <th>Purpose</th>
-                      <th>Amount</th>
-					            <th>Quantity</th>
-                       <th>Mode</th>
-
-                  
+                    <td></td>
+                   <td><b>  Report</b></td>
+                   <td></td>
+                   <td></td>
+                      <td></td>
+                   </tr>
+                  </thead>
+                        
+              <tr>
+                          <th>SI No.</th>
+                          <th>Name</th>
+                          <th>Purpose</th>
+                          <th>Amount</th>
+                          <th>Quantity</th>
+                           <th>Mode</th>
+    
+                      
+                    
+              <tr>
+                          <td>1</td>
+                          <td>Ram</td>
+                          <td>stuff</td>
+                          <td>scn</td>
+                          <td>2000</td>
+                          <td>upi</td>
                 
-					<tr>
-                      <td>1</td>
-                      <td>Ram</td>
-                      <td>stuff</td>
-                      <td>scn</td>
-                      <td>2000</td>
-                      <td>upi</td>
-					  
-                    </tr>
-					<tr>
-                    <td>2</td>
-                      <td>Ram</td>
-                      <td>stuff</td>
-                      <td>scn</td>
-                      <td>2000</td>
-                      <td>upi</td>
-					 
-                    </tr>
-					<tr>
-                    <td>3</td>
-                      <td>Ram</td>
-                      <td>stuff</td>
-                      <td>scn</td>
-                      <td>2000</td>
-                      <td>upi</td>
-					  
-                    </tr>
-					
-					<tr>
-                    <td>4</td>
-                      <td>Ram</td>
-                      <td>stuff</td>
-                      <td>scn</td>
-                      <td>2000</td>
-                      <td>upi</td>
-					 
-                    </tr>
-					
-                     
-                </table>
+                        </tr>
+              <tr>
+                        <td>2</td>
+                          <td>Ram</td>
+                          <td>stuff</td>
+                          <td>scn</td>
+                          <td>2000</td>
+                          <td>upi</td>
+               
+                        </tr>
+              <tr>
+                        <td>3</td>
+                          <td>Ram</td>
+                          <td>stuff</td>
+                          <td>scn</td>
+                          <td>2000</td>
+                          <td>upi</td>
+                
+                        </tr>
+              
+              <tr>
+                        <td>4</td>
+                          <td>Ram</td>
+                          <td>stuff</td>
+                          <td>scn</td>
+                          <td>2000</td>
+                          <td>upi</td>
+               
+                        </tr>
+              
+                         
+                    </table>
 </div>
 
 
-  <script>
+<script>
      const userSelect = document.getElementById("userSelect");
      const scheduleSelect = document.getElementById("scheduleSelect");
     const infoContainer = document.getElementById("infoContainer");
