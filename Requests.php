@@ -2,32 +2,28 @@
 session_start();
 // Check if the user is not logged in
 if (!isset($_SESSION['user'])) {
-    header('Location: login.php');
-
+	header('Location: login.php');
 }
 require 'connection.php';
-$user=$_SESSION['user'];
-$query=("SELECT * FROM cart WHERE status='".mysqli_real_escape_string($conn,"requested")."'");
-$result=mysqli_query($conn,$query);
- if (isset($_POST['accept'])) {
-	$id=$_POST['id'];
-    $query2 = ("update cart set status='approved' where id='$id'") ;
-    $quer=mysqli_query($conn, $query2);
-
-
-  }
-  if (isset($_POST['reject'])) {
-	$id=$_POST['id'];
-    $query2 = ("update cart set status='rejected' where id='$id'") ;
-    $quer=mysqli_query($conn, $query2);
-
-
-  }
+$user = $_SESSION['user'];
+$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "requested") . "'");
+$result = mysqli_query($conn, $query);
+if (isset($_POST['accept'])) {
+	$id = $_POST['id'];
+	$query2 = ("update cart set status='approved' where id='$id'");
+	$quer = mysqli_query($conn, $query2);
+}
+if (isset($_POST['reject'])) {
+	$id = $_POST['id'];
+	$query2 = ("update cart set status='rejected' where id='$id'");
+	$quer = mysqli_query($conn, $query2);
+}
 
 
 
 ?>
-<?php $activePage = 'request'; include 'adminheadersidebar.php'; ?>
+<?php $activePage = 'request';
+include 'adminheadersidebar.php'; ?>
 <!doctype html>
 <html lang="en">
 
@@ -73,45 +69,49 @@ $result=mysqli_query($conn,$query);
 
 
 
-			<!------main-content-start----------->
-			<div class="main-content">
-				<div class="attendence" style="overflow-x:auto;">
-					
-						<table class="table table-striped table-hover">
-							<thead>
-								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" onchange='selects()' id="selectAll">
-											<label for="selectAll"></label></th>
-                                            <th>Name</th>
-                                            <th>Department</th>
-                                            <th>Description</th>
-                                            <th>Quantity</th>
-                                            <th>Amount</th>
-                                            <th>Actions</th>
-								</tr>
-							</thead>
+	<!------main-content-start----------->
+	<div class="main-content">
+		<div class="attendence" style="overflow-x:auto;">
 
-                                <tbody>
-                                    <?php 
-                                    while($row=mysqli_fetch_assoc($result)){
-                                        
+			<table class="table table-striped table-hover">
+				<thead>
+					<tr>
+						<th><span class="custom-checkbox">
+								<input type="checkbox" onchange='selects()' id="selectAll">
+								<label for="selectAll"></label></th>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Remark</th>
+						<th>Bill No</th>
+						<th>Date</th>
+						<th>time</th>
+					</tr>
+				</thead>
 
-                                   $time = new DateTime($row['date']);
-                                   $date = $time->format('n.j.Y');
-                                   $time = $time->format('H:i');
+				<tbody>
+					<?php
+					while ($row = mysqli_fetch_assoc($result)) {
 
-                                        echo('
-                                        <tr>
-                                        <th>'.$date.'</th>
-                                        <th>'.$time.'</th>
-                                        <th>'.$row['name'].'</th>
-                                        <th>'.$row['details'].'</th>
-                                        <th>'.$row['price'].'</th>
-                                        <th>'.$row['number'].'</th>
-                                        <th>
-									<form action="Requests.php" method="post">
-									    <input type="text" name="id" value="'.$row['id'].'" hidden>
+
+						$time = new DateTime($row['date']);
+						$date = $time->format('n.j.Y');
+						$time = $time->format('H:i');
+
+						echo ('
+                                     <tr>
+                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['dept'] . '</th>
+                                        <th>' . $row['details'] . '</th>
+                                        <th>' . $row['price'] . '</th>
+                                        <th>' . $row['remark'] . '</th>
+                                        <th>' . $row['billno'] . '</th
+                                        <th>' . $date . '</th>
+                                        <th>' . $time . '</th>
+									  <th>
+									<form action="approved_requests.php" method="post">
+									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
 										<input type="submit" name="accept" value="Accept" class="edit" >
 											
 										
@@ -120,43 +120,47 @@ $result=mysqli_query($conn,$query);
 										</form>
 										</th>
 
-								</tr>');}
-								?>
+                                   
 
 
-							
-
-
-
-							</tbody>
-
-
-						</table>
-						<div>
-							<button id="acceptAllBtn" formaction="#">Accept All</button>
-							<button id="rejectAllBtn" formaction="#">Reject All</button>
-						</div><br>
-					
-				</div>
-			</div>
-			<!------main-content-end----------->
+								</tr>');
+					}
+					?>
 
 
 
-			<!----footer-design------------->
-<br> <br> <br> <br><br>
-			<footer class="footer">
-				<div class="container-fluid">
-					<div class="footer-in">
-						<p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
-					</div>
-				</div>
-			</footer>
 
 
 
+				</tbody>
+
+
+			</table>
+			<div>
+				<button id="acceptAllBtn" formaction="#">Accept All</button>
+				<button id="rejectAllBtn" formaction="#">Reject All</button>
+			</div><br>
 
 		</div>
+	</div>
+	<!------main-content-end----------->
+
+
+
+	<!----footer-design------------->
+	<br> <br> <br> <br><br>
+	<footer class="footer">
+		<div class="container-fluid">
+			<div class="footer-in">
+				<p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
+			</div>
+		</div>
+	</footer>
+
+
+
+
+	</div>
 
 	</div>
 
@@ -172,8 +176,6 @@ $result=mysqli_query($conn,$query);
 
 
 	<script type="text/javascript">
-		
-
 		//select all and reject all
 		function selects() {
 			var ele = document.getElementsByName("checkbox");
@@ -184,8 +186,7 @@ $result=mysqli_query($conn,$query);
 					if (ele[i].type == 'checkbox')
 						ele[i].checked = true;
 				}
-			}
-			else{
+			} else {
 				document.getElementById("acceptAllBtn").style.visibility = "hidden";
 				document.getElementById("rejectAllBtn").style.visibility = "hidden";
 				for (var i = 0; i < ele.length; i++) {
