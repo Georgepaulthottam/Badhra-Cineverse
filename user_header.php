@@ -185,7 +185,7 @@ else if($activePage =='calender'){
 									 <span class="material-icons">settings</span>
 									 Settings
 									 </a></li>
-									 <li><a href="logout.php">
+									 <li><a href="#" id="LogoutBtn">
 									 <span class="material-icons">logout</span>
 									 Logout
 									 </a></li>
