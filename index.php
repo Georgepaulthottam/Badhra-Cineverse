@@ -175,6 +175,8 @@ include 'adminheadersidebar.php'; ?>
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-left:100px;
+            margin-top:20px;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             align-items: center"  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punchin">

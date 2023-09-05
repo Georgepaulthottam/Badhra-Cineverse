@@ -325,6 +325,9 @@ transform:translateY(0px);
   cursor: pointer;
   color: var(--white);
   margin-top: 10px;
+  border-radius:5px;
+  border:1px solid white;
+  width:5vw;
 }
 .model .model-content button:hover
 {
@@ -482,5 +485,6 @@ width:89vw;
     z-index: 1001;
     display: none;
     width:320px;
+    
   }
 }
