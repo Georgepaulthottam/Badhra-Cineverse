@@ -205,8 +205,8 @@ tbody tr {
 	font-family: Arial, sans-serif;
     position: fixed;
     top: 57%;
-    left: 67%;
-	font: size 5px;
+    left: 57%;
+	font-size:20px;
 	height:160px;
 	width: 270px;
     transform: translate(-50%, -50%);
@@ -338,11 +338,28 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
                       <td>₹'.$row['price'].'</td>
 					  <td>'.$row['quantity'].'</td>
 					  <td></td>
-					  
+					  <td><div class="delete-icon" onclick="showDeletePrompt()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
+      <path d="M0 0h24v24H0z" fill="none"/>
+      <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
+    </svg>
+  </div>
+  </td>
+  <div class="delete-prompt" id="deletePrompt">
+    <i>Are you sure you want to delete this expense?</i>
+    <div class="btn-container">
+	 <form action="expensereport.php" method="post">
+	 <input type="text" name="id" value="'.$row['id'].'" hidden>
+      <button class="btn delete" type="submit" name="delete" onclick="deleteExpense()">Delete</button>
+      <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
+	  </form>
+    </div>
+  </div>
 					
 	  </form>
     </div>
   </div>
+
 
 					');
 					$sum=$sum+$row['price'];
@@ -399,14 +416,6 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
                 
 
-               
-
-                
-				<div>
-							<button id="acceptAllBtn" formaction="#">Accept All</button>
-							<button id="rejectAllBtn" formaction="#">Reject All</button>
-						</div><br>
-	
 				</div>
 			</div>
         <!------main-content-end----------->
@@ -428,30 +437,30 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
     <!-------complete html----------->
 
 
-    <script type="text/javascript">
-	
+    <script>
+        function toggleRows() {
+            var rows = document.getElementsByClassName("hidden-row");
+            for (var i = 0; i < rows.length; i++) {
+                rows[i].style.display = "table-row";
+            }
+        }
 
-    //select all and reject all
-    function selects() {
-        var ele = document.getElementsByName("checkbox");
-        if (document.getElementById("selectAll").checked == true) {
-            document.getElementById("acceptAllBtn").style.visibility = "visible";
-            document.getElementById("rejectAllBtn").style.visibility = "visible";
-            for (var i = 0; i < ele.length; i++) {
-                if (ele[i].type == 'checkbox')
-                    ele[i].checked = true;
-            }
-        }
-        else{
-            document.getElementById("acceptAllBtn").style.visibility = "hidden";
-            document.getElementById("rejectAllBtn").style.visibility = "hidden";
-            for (var i = 0; i < ele.length; i++) {
-                if (ele[i].type == 'checkbox')
-                    ele[i].checked = false;
-            }
-        }
-    }
-</script>
+       
+		function showDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "block";
+         }
+
+        function hideDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "none";
+         }
+
+        function deleteExpense() {
+      // Code to delete the expense
+           hideDeletePrompt();
+      
+         }
+		
+    </script>
 
 </body>
 
