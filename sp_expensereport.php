@@ -200,15 +200,16 @@ tbody tr {
     cursor: pointer;
 	font-size: 8px;
   }
-  .delete-prompt {
+  .delete-prompt 
+  {
     display: none;
-	font-family: Arial, sans-serif;
+	  font-family: Arial, sans-serif;
     position: fixed;
     top: 57%;
     left: 57%;
-	font-size:20px;
-	height:160px;
-	width: 270px;
+	  font-size:20px;
+	  height:160px;
+	  width: 270px;
     transform: translate(-50%, -50%);
     background-color: #e5e4e2 ;
     border: 1px solid #ccc;
