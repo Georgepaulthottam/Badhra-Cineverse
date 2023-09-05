@@ -514,7 +514,7 @@ transform:translateY(0px);
   margin-bottom: 20px;
   text-align: center;
   font-size: 1.25em;
-  margin-left:10px;
+  
 }
 .model .buttoncontainer
 {
@@ -531,6 +531,9 @@ transform:translateY(0px);
   cursor: pointer;
   color: var(--white);
   margin-top: 10px;
+  border-radius:5px;
+  border:1px solid white;
+  width:5vw;
 }
 .model .model-content button:hover
 {
