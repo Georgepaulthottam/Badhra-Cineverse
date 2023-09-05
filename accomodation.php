@@ -267,9 +267,9 @@ include 'adminheadersidebar.php'; ?>
                                 <div class="col-sm-8 text-secondary">
                             <select id="to" name="to"  onchange="enableAccomo(this)">
                                 <option value="">Select Accomodation</option>
-                                <option value="Hotel1">Hotel 1</option>
-                                <option value="Hotel2">Hotel 2</option>
-                                <option value="Hotel3">Hotel 3</option>
+                                <option value="1">Hotel 1</option>
+                                <option value="2">Hotel 2</option>
+                                <option value="3">Hotel 3</option>
                                 <option value="0">Other</option>
                             </select>
                                 </div>
@@ -298,7 +298,7 @@ include 'adminheadersidebar.php'; ?>
             </div>  
           <br>
 
-          <div class="attendence" style="overflow-x:auto;">
+          <div class="profile-box" style="overflow-x:auto;">
           <table class="table table-striped table-hover" id="">
             <thead>
               <tr>
@@ -325,47 +325,44 @@ include 'adminheadersidebar.php'; ?>
 
 									<th>
 									<form action="#" method="post">
-										<input type="submit" value="Remove" class="delete" data-toggle="modal">
+										<input type="button" value="Remove" class="delete" data-toggle="modal">
 										</form>
 									</th>
 								</tr>
                 <tr>
 									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
+											<input type="checkbox" id="checkbox" name="checkbox" value="2">
 											<label for="checkbox1"></label></th>
 									<th>Camera dept</th>
 									<th>CameraUser1, Cameruser2</th>
 									<th>Hotel2</th>
 									<th>sfgvfsg</th>
-
 									<th>
 									<form action="#" method="post">
-										<input type="submit" value="Remove" class="delete" data-toggle="modal">
+										<input type="button" value="Remove" class="delete" data-toggle="modal">
 										</form>
 									</th>
 								</tr>
                 <tr>
 									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
+											<input type="checkbox" id="checkbox" name="checkbox" value="3">
 											<label for="checkbox1"></label></th>
 									<th>Camera dept</th>
 									<th>CameraUser1, Cameruser2</th>
 									<th>Hotel2</th>
 									<th>sfgvfsg</th>
-
 									<th>
 									<form action="#" method="post">
-										<input type="submit" value="Remove" class="delete" data-toggle="modal">
+										<input type="button" value="Remove" class="delete" data-toggle="modal">
 										</form>
 									</th>
 								</tr>
-
           </table>
+          <div class="modal-footer">
+						<input type="button" class="btn btn-primary" value="Submit">
+      </div>
       </div>
 		</div>
-  
-    
-
 
 			<!------main-content-end----------->
 
