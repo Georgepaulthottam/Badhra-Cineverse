@@ -178,7 +178,19 @@ else if($activePage == 'crew'){
       <!-------page-content start----------->
    
       <div id="content">
-	     
+		
+	  <div id="overlay" class="overlay"></div>
+    <div id="custom-confirm" class="model" style="display:none">
+        <div class="model-content">
+            <div class="confirmationtext">
+            <p>Are you sure you want to log out?</p>
+            </div>
+            <div class="buttoncontainer">
+            <button id="yes-button">Yes</button>
+            <button id="no-button">No</button>
+            </div>
+        </div>
+    </div>
 		  <!------top-navbar-start-----------> 
 		     
 		  <div class="top-navbar">
@@ -254,12 +266,8 @@ else if($activePage == 'crew'){
 				 
 			 </div>
 		  </div>
-		  <!-- Notification message popup -->
-          <div class="notification-popup">
-        
-        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
-        <span class="progress"></span>
-      </div>
+		  
+
      <!-- Optional JavaScript -->
     <!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -281,6 +289,37 @@ else if($activePage == 'crew'){
 			});
 
 		});
+  </script>
+
+  <script>
+	//for logout popup
+	const overlay = document.getElementById('overlay');
+const customConfirm = document.getElementById('custom-confirm');
+const yesButton = document.getElementById('yes-button');
+const noButton = document.getElementById('no-button');
+
+function showDialog() {
+    overlay.style.display = 'block';
+    customConfirm.style.display = 'block';
+}
+
+function hideDialog() {
+    overlay.style.display = 'none';
+    customConfirm.style.display = 'none';
+}
+
+function ShowCustomConfirm() {
+    showDialog();
+
+    yesButton.addEventListener('click', function() {
+        // Perform logout action here
+        hideDialog();
+    });
+
+    noButton.addEventListener('click', function() {
+        hideDialog();
+    });
+}
   </script>
 </body>
 

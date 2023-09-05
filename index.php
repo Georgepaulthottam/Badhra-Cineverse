@@ -127,6 +127,16 @@ include 'adminheadersidebar.php'; ?>
 
 
     <!------main-content-start----------->
+    
+    <!-- Notification message popup -->
+		  
+    <div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
+        
+        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
+        <span class="progress"></span>
+         </div>
+ <!-- Notification message popup ends-->
+
 
     <div id="main-container" class="middle-section">
         <div id="top-container" class="top-section">

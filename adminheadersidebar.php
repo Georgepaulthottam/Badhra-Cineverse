@@ -246,11 +246,7 @@ else if($activePage == 'accomodation'){
 				 
 			 </div>
 		  </div>
-          <div class="notification-popup">
-        
-        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
-        <span class="progress"></span>
-      </div>
+          
      <!-- Optional JavaScript -->
     <!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->

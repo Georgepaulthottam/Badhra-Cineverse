@@ -130,7 +130,17 @@ $msresult = mysqli_query($conn, $msquery);
 
 
     <!------main-content-start----------->
-    
+
+    <!-- Notification message popup -->
+		  
+    <div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
+        
+        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
+        <span class="progress"></span>
+         </div>
+ <!-- Notification message popup ends-->
+
+ 
     <!------FIrst Chart----------->
     <div id="main-container" class="middle-section">
         <div id="top-container" class="top-section">
@@ -399,6 +409,9 @@ $msresult = mysqli_query($conn, $msquery);
                     </form>
                 </div>
                 <a href="sp_misc.php" style="color: #E2B842;">View more</a>
+
+
+                
             </div>
         </div>
 
