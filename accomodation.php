@@ -170,6 +170,7 @@ include 'adminheadersidebar.php'; ?>
                                   <option value="3">Artist Dept</option>
                                   <option value="4">Costume Dept.</option>
                                   <option value="5">Art Dept.</option>
+                                  <option value="6">Other</option>
                                 </select>
                               </div>
                             </div>
@@ -249,6 +250,14 @@ include 'adminheadersidebar.php'; ?>
                                   </select>
                                 </div>
                                 </div>
+                                <div class="row mb-3 user-none" id="appear6">
+                                <div class="col-sm-3">
+                                <h6 class="mb-2">Users</h6>
+                                </div>
+                                <div class="col-sm-8 text-secondary">
+                                <input type="textbox" class="form-control" placeholder="Enter the new users">
+                                </div>
+                                </div>
                                 
                         
                                 <div class="row mb-3">
@@ -256,12 +265,21 @@ include 'adminheadersidebar.php'; ?>
                                 <h6 class="mb-2">Accomodation</h6>
                                 </div>
                                 <div class="col-sm-8 text-secondary">
-                            <select id="to" name="to">
+                            <select id="to" name="to"  onchange="enableAccomo(this)">
                                 <option value="">Select Accomodation</option>
                                 <option value="Hotel1">Hotel 1</option>
                                 <option value="Hotel2">Hotel 2</option>
                                 <option value="Hotel3">Hotel 3</option>
+                                <option value="0">Other</option>
                             </select>
+                                </div>
+                                </div>
+                                <div class="row mb-3 user-none" id="appear7">
+                                <div class="col-sm-3">
+                                <h6 class="mb-2">Accomodation</h6>
+                                </div>
+                                <div class="col-sm-8 text-secondary">
+                                <input type="textbox" class="form-control" placeholder="Enter the new accomodation">
                                 </div>
                                 </div>
 
@@ -413,6 +431,26 @@ include 'adminheadersidebar.php'; ?>
             }
             var userDropdown = document.getElementById('appear5');
             if (answer.value == 5) {
+              userDropdown.classList.remove('user-none');
+            } else {
+              userDropdown.classList.add('user-none');
+            }
+            var userDropdown = document.getElementById('appear6');
+            if (answer.value == 6) {
+              userDropdown.classList.remove('user-none');
+            } else {
+              userDropdown.classList.add('user-none');
+            }
+            var userDropdown = document.getElementById('appear7');
+            if (answer.value == 0) {
+              userDropdown.classList.remove('user-none');
+            } else {
+              userDropdown.classList.add('user-none');
+            } 
+        }
+        function enableAccomo(answer) {
+          var userDropdown = document.getElementById('appear7');
+            if (answer.value == 0) {
               userDropdown.classList.remove('user-none');
             } else {
               userDropdown.classList.add('user-none');
