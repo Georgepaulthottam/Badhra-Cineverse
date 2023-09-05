@@ -171,7 +171,19 @@ else if($activePage == 'accomodation'){
       <!-------page-content start----------->
    
       <div id="content">
-	     
+	  <div id="overlay" class="overlay"></div>
+    <div id="custom-confirm" class="model" style="display:none">
+        <div class="model-content">
+            <div class="confirmationtext">
+            <p>Are you sure you want to log out?</p>
+            </div>
+            <div class="buttoncontainer">
+				<form action="logout.php" method="post">
+            <button type="submit" id="yes-button">Yes</button>
+            <button id="no-button">No</button>
+            </div>
+        </div>
+    </div>
 		  <!------top-navbar-start-----------> 
 		     
 		  <div class="top-navbar">
@@ -222,7 +234,7 @@ else if($activePage == 'accomodation'){
 									 <span class="material-icons">settings</span>
 									 Settings
 									 </a></li>
-									 <li><a href="logout.php">
+									 <li><a href="#" id="LogoutBtn">
 									 <span class="material-icons">logout</span>
 									 Logout
 									 </a></li>
@@ -268,6 +280,33 @@ else if($activePage == 'accomodation'){
 			});
 
 		});
+  </script>
+   <script>
+	//for logout popup
+	const LogoutBtn = document.getElementById("LogoutBtn");
+const overlay = document.getElementById('overlay');
+const customConfirm = document.getElementById('custom-confirm');
+const yesButton = document.getElementById('yes-button');
+const noButton = document.getElementById('no-button');
+
+LogoutBtn.addEventListener("click", () => {
+    overlay.style.display = 'block';
+    customConfirm.style.display = 'block';
+});
+
+    yesButton.addEventListener('click', function()
+	 {
+        // Perform logout action here
+		overlay.style.display = 'none';
+    customConfirm.style.display = 'none';
+    });
+
+    noButton.addEventListener('click', function() 
+	{
+		overlay.style.display = 'none';
+    customConfirm.style.display = 'none';
+    });
+
   </script>
 </body>
 

@@ -186,7 +186,7 @@ else if($activePage == 'crew'){
             </div>
             <div class="buttoncontainer">
 				<form action="logout.php" method="post">
-            <button type="submit"id="yes-button">Yes</button>
+            <button type="submit" id="yes-button">Yes</button>
             <button id="no-button">No</button>
             </div>
         </div>
