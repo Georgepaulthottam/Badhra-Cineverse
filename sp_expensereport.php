@@ -321,6 +321,7 @@ tbody tr {
                       <th>Amount</th>
 					            <th>Quantity</th>
                        <th>Mode</th>
+                       <th>Action</th>
 
                     </tr>
 					<?php

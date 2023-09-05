@@ -295,7 +295,8 @@ $msresult = mysqli_query($conn, $msquery);
                                 <th>Amount</th>
                                 <th>Quantity</th>
                                 <th>Mode</th>
-                        </tr>
+                                <th>Action</th>
+                            </tr>
                     </thead>
 
                     <tbody>
