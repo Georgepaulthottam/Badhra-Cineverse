@@ -140,7 +140,7 @@ $msresult = mysqli_query($conn, $msquery);
          </div>
  <!-- Notification message popup ends-->
 
- 
+
     <!------FIrst Chart----------->
     <div id="main-container" class="middle-section">
         <div id="top-container" class="top-section">
@@ -274,7 +274,7 @@ $msresult = mysqli_query($conn, $msquery);
     </div>
     <!------middle-container contains  attendance request details----------->
     <div id="middle-container" class="bottom-section">
-        <div class="detailed-box" id="request-table">
+        <div class="detailed-box"  id="sp_admin_table1">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Expense Report
             </h3>
             <div class="request-table" style="overflow-x:auto;">
@@ -350,7 +350,7 @@ $msresult = mysqli_query($conn, $msquery);
     <!------bottom-container contains Other requests panel----------->
     < <!--- Misc Section Box--->
         <div id="middle-container" class="bottom-section">
-            <div class="detailed-box" id="request-table">
+            <div class="detailed-box"  id="sp_admin_table2">
                 <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Miscellaneous
                 </h3>
                 <div class="request-table" style="overflow-x:auto;">

@@ -178,7 +178,6 @@ else if($activePage == 'crew'){
       <!-------page-content start----------->
    
       <div id="content">
-		
 	  <div id="overlay" class="overlay"></div>
     <div id="custom-confirm" class="model" style="display:none">
         <div class="model-content">
@@ -241,7 +240,7 @@ else if($activePage == 'crew'){
 									 <span class="material-icons">settings</span>
 									 Settings
 									 </a></li>
-									 <li><a href="logout.php">
+									 <li><a href="#" id="LogoutBtn">
 									 <span class="material-icons">logout</span>
 									 Logout
 									 </a></li>
@@ -266,7 +265,7 @@ else if($activePage == 'crew'){
 				 
 			 </div>
 		  </div>
-		  
+		
 
      <!-- Optional JavaScript -->
     <!-- Optional JavaScript -->
@@ -293,33 +292,30 @@ else if($activePage == 'crew'){
 
   <script>
 	//for logout popup
-	const overlay = document.getElementById('overlay');
+	const LogoutBtn = document.getElementById("LogoutBtn");
+const overlay = document.getElementById('overlay');
 const customConfirm = document.getElementById('custom-confirm');
 const yesButton = document.getElementById('yes-button');
 const noButton = document.getElementById('no-button');
 
-function showDialog() {
+LogoutBtn.addEventListener("click", () => {
     overlay.style.display = 'block';
     customConfirm.style.display = 'block';
-}
+});
 
-function hideDialog() {
-    overlay.style.display = 'none';
-    customConfirm.style.display = 'none';
-}
-
-function ShowCustomConfirm() {
-    showDialog();
-
-    yesButton.addEventListener('click', function() {
+    yesButton.addEventListener('click', function()
+	 {
         // Perform logout action here
-        hideDialog();
+		overlay.style.display = 'none';
+    customConfirm.style.display = 'none';
     });
 
-    noButton.addEventListener('click', function() {
-        hideDialog();
+    noButton.addEventListener('click', function() 
+	{
+		overlay.style.display = 'none';
+    customConfirm.style.display = 'none';
     });
-}
+
   </script>
 </body>
 
