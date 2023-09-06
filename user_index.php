@@ -84,6 +84,7 @@ include 'user_header.php'; ?>
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
+            margin-left:95px;
             align-items: center"">
             <i class="fas fa-fingerprint"></i>Requested</button>');
                 } elseif ($_SESSION['status'] == 'accepted') {
@@ -94,6 +95,7 @@ include 'user_header.php'; ?>
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            margin-left:95px;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             align-items: center">
@@ -106,6 +108,7 @@ include 'user_header.php'; ?>
             padding: 15px 20px;
             font-size: 18px;
             border: none;
+            margin-left:95px;
             border-radius: 5px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;

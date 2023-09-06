@@ -160,6 +160,7 @@ include 'adminheadersidebar.php'; ?>
             font-size: 18px;
             border: none;
             border-radius: 5px;
+            margin-left:100px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
