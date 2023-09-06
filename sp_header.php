@@ -76,8 +76,7 @@ else if($activePage == 'Salary'){
 
 <div class="wrapper">
      
-	  <div class="body-overlay"></div>
-	 
+	  
 	 <!-------sidebar--design------------>
 	 
 	 <div id="sidebar">
@@ -146,7 +145,7 @@ else if($activePage == 'Salary'){
 		  <i class="material-icons">border_color</i>Salary Manager
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu5">
-		     <li><a href="sp_salary.php">Pages 1</a></li>
+		     <li><a href="sp_salary.php">Salary Manager</a></li>
 			 
 		  </ul>
 		  </li>
