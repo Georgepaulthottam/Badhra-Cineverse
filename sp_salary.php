@@ -1,5 +1,7 @@
 <?php 
-$activePage="Salary";
+session_start();
+
+$activePage = 'Salary';
 include 'sp_header.php';
  ?>
 <div class="middle-section">
