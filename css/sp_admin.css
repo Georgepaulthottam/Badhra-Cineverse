@@ -474,7 +474,6 @@ width:89vw;
   animation:progress 4s .4s linear forwards;
   }
 
-<<<<<<< HEAD
   .model {
     position: fixed;
     top: 50%;
@@ -488,8 +487,6 @@ width:89vw;
     width:320px;
     
   }
-}
-=======
 }
 /*salary page css begins*/
 .salary-status{
@@ -578,4 +575,3 @@ width:89vw;
   background-color: #3e8e41;
 }
 /*salary page css ends*/
->>>>>>> joel
