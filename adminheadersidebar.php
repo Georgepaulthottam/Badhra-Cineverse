@@ -178,8 +178,8 @@ else if($activePage == 'accomodation'){
             <p>Are you sure you want to log out?</p>
             </div>
             <div class="buttoncontainer">
-				<form action="logout.php" method="post">
-            <button type="submit" id="yes-button">Yes</button>
+				
+            <button  id="yes-button">Yes</button>
             <button id="no-button">No</button>
             </div>
         </div>
@@ -297,8 +297,7 @@ LogoutBtn.addEventListener("click", () => {
     yesButton.addEventListener('click', function()
 	 {
         // Perform logout action here
-		overlay.style.display = 'none';
-    customConfirm.style.display = 'none';
+		window.location.href = "login.php";
     });
 
     noButton.addEventListener('click', function() 
