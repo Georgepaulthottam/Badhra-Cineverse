@@ -155,7 +155,7 @@ else if($activePage == 'crew'){
 
 
 		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
-		  <a href="sp_misc.php" class=""><i class="material-icons">grid_on</i>Admin Creation</a>
+		  <a href="sp_usercreation.php" class=""><i class="material-icons">grid_on</i>User Creation</a>
 		  </li>
 		   <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
 		  <a href="sp_notifications.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>

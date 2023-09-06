@@ -146,9 +146,7 @@ else if($activePage == 'accomodation'){
 		  <a href="misc.php" class=""><i class="material-icons">grid_on</i>Miscellaneous</a>
 		  </li>
 
-		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
-		  <a href="usercreation.php" class=""><i class="material-icons">grid_on</i>User Creation</a>
-		  </li>
+		 
 		 
 		   <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
 		  <a href="Notifications.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
