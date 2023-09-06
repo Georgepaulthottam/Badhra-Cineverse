@@ -25,7 +25,7 @@
         .popup {
             display: none;
             position: fixed;
-            top: 50%;
+            top: 51%;
             left: 60%;
             transform: translate(-50%, -50%);
             background: linear-gradient(#152935, #0e1f2f);
@@ -35,8 +35,9 @@
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             z-index: 9999;
             color:white;
-            height:86vh;
-            margin:0;
+            height:82vh;
+            
+           
         }
 
         .popup-overlay {
@@ -249,7 +250,7 @@ tbody tr:hover {
 
 
                 <!-- Add other input fields here -->
-                  <hr >
+                 
                 <div class="arrow-icon" onclick="toggleBankPanFields()">&#9660; Bank & Pan (Optional)</div>
                 <div class="bank-pan-fields">
                     <label for="accountHolder">Account Holder:</label>
