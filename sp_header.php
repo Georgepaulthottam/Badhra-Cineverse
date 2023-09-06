@@ -30,7 +30,9 @@ else if($activePage == 'calender'){
 else if($activePage == 'crew'){
 	$PageTitle="Crew Manegement ";
 }
-
+else if($activePage == 'Salary'){
+	$PageTitle="Salary Management ";
+}
 
 
 
@@ -144,7 +146,7 @@ else if($activePage == 'crew'){
 		  <i class="material-icons">border_color</i>Salary Manager
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu5">
-		     <li><a href="#">Pages 1</a></li>
+		     <li><a href="sp_salary.php">Pages 1</a></li>
 			 
 		  </ul>
 		  </li>
