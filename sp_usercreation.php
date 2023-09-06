@@ -37,7 +37,6 @@
             color:white;
             height:82vh;
             
-           
         }
 
         .popup-overlay {
@@ -285,8 +284,6 @@ tbody tr:hover {
 		  
 		  
 		   <!------main-content-start-----------> 
-           
-          
            
            <table>
 
