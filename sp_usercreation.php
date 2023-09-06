@@ -18,7 +18,8 @@
             padding: 10px 20px;
             cursor: pointer;
             position:absolute;
-            margin:40px 30px;
+            margin:40px;
+            left:83%;
         }
         
         /* Popup Styles */
@@ -220,7 +221,7 @@ tbody tr:hover {
   <body>
   
 
-  <button class="add-user-button" id="addUserButton">Add User &#9658;</button>
+  <button class="add-user-button" id="addUserButton">Add User &#1759;</button>
 
 <div class="popup-overlay" id="popupOverlay" ></div>
 <div class="popup" id="popup" style="overflow-x:auto;">
