@@ -30,7 +30,7 @@ else if($activePage == 'calender'){
 else if($activePage == 'crew'){
 	$PageTitle="Crew Manegement ";
 }
-else if($activePage == 'Salary'){
+else if($activePage == 'salary'){
 	$PageTitle="Salary Management ";
 }
 
@@ -76,8 +76,7 @@ else if($activePage == 'Salary'){
 
 <div class="wrapper">
      
-	  <div class="body-overlay"></div>
-	 
+<div class="body-overlay"></div>
 	 <!-------sidebar--design------------>
 	 
 	 <div id="sidebar">
@@ -140,13 +139,13 @@ else if($activePage == 'Salary'){
 		  </ul>
 		  </li>
 		  
-		   <li class="<?php echo ($activePage === 'salary') ? 'active' : ''; ?>">
+		   <li class="<?php echo ($activePage === 'Salary') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">border_color</i>Salary Manager
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu5">
-		     <li><a href="sp_salary.php">Pages 1</a></li>
+		     <li><a href="sp_salary.php">Salary Manager</a></li>
 			 
 		  </ul>
 		  </li>

@@ -197,8 +197,6 @@ $msresult = mysqli_query($conn, $msquery);
                 </a><br>
                 <br>
 
-
-
             </div>
         </div>
         <!------Second Chart ends----------->
@@ -410,9 +408,6 @@ $msresult = mysqli_query($conn, $msquery);
                     </form>
                 </div>
                 <a href="sp_misc.php" style="color: #E2B842;">View more</a>
-
-
-                
             </div>
         </div>
 
