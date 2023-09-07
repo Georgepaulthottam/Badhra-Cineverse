@@ -76,7 +76,7 @@ else if($activePage == 'salary'){
 
 <div class="wrapper">
      
-	  
+<div class="body-overlay"></div>
 	 <!-------sidebar--design------------>
 	 
 	 <div id="sidebar">
