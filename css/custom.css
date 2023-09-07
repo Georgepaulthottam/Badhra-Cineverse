@@ -440,7 +440,7 @@ a:focus {
 .xp-breadcrumbbar .page-title {
     font-size: 20px;
     color: #fff;
-    margin-top: -105px
+    margin-top: -33px
 }
 
 .breadcrumb {
@@ -495,7 +495,7 @@ a:focus {
     color: #fff;
     cursor: pointer;
     background-color: rgba(0, 0, 0, 0.09);
-    margin-top:-55px;
+    margin-top:1px;
 }
 
 
@@ -1014,7 +1014,7 @@ footer {
     }
 
     .xp-breadcrumbbar .page-title {
-        margin-top: -54px;
+        margin-top: -4px;
         position: absolute;
     }
 
