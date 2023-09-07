@@ -139,7 +139,7 @@ else if($activePage == 'salary'){
 		  </ul>
 		  </li>
 		  
-		   <li class="<?php echo ($activePage === 'salary') ? 'active' : ''; ?>">
+		   <li class="<?php echo ($activePage === 'Salary') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">border_color</i>Salary Manager
