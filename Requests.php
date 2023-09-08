@@ -53,14 +53,29 @@ include 'adminheadersidebar.php'; ?>
 	<style>
 		/* css for acceptAll and rejectAll Button*/
 		#acceptAllBtn {
-			color: rgb(229, 117, 56);
+			
 			visibility: hidden;
 			margin-left: 0%;
+			color: #fff;
+    border: 1px solid rgb(2, 8, 3);
+    border-radius: 10%;
+    padding: 5px;
+    background-color: #2bcd72;
+    letter-spacing: 2px;
+    cursor: pointer;
 		}
 
 		#rejectAllBtn {
-			color: green;
+			
 			visibility: hidden;
+			color: #fff;
+    background-color: #F44336;
+    border: 1px solid black;
+    border-radius: 10%;
+    padding: 4px;
+    
+    letter-spacing: 1px;
+    cursor: pointer;
 		}
 	</style>
 </head>
@@ -71,8 +86,11 @@ include 'adminheadersidebar.php'; ?>
 
 	<!------main-content-start----------->
 	<div class="main-content">
-		<div class="attendence" style="overflow-x:auto;">
-
+    <section id="view-request">
+        <div class="detailed-box_admin" id="request-table_admin">
+            <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Pending Requests
+            </h3>
+            
 			<table class="table table-striped table-hover">
 				<thead>
 					<tr>
@@ -86,7 +104,8 @@ include 'adminheadersidebar.php'; ?>
 						<th>Remark</th>
 						<th>Bill No</th>
 						<th>Date</th>
-						<th>time</th>
+						<th>Time</th>
+						<th>Action</th>
 					</tr>
 				</thead>
 
@@ -101,12 +120,16 @@ include 'adminheadersidebar.php'; ?>
 
 						echo ('
                                      <tr>
+									 <th><span class="custom-checkbox">
+											<input type="checkbox" id="checkbox" name="checkbox" value="1">
+											<label for="checkbox1"></label></th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['details'] . '</th>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
-                                        <th>' . $row['billno'] . '</th
+                                        <th>' . $row['billno'] . '</th>
+										
                                         <th>' . $date . '</th>
                                         <th>' . $time . '</th>
 									  <th>
@@ -137,12 +160,12 @@ include 'adminheadersidebar.php'; ?>
 
 			</table>
 			<div>
-				<button id="acceptAllBtn" formaction="#">Accept All</button>
-				<button id="rejectAllBtn" formaction="#">Reject All</button>
-			</div><br>
-
-		</div>
-	</div>
+							<button id="acceptAllBtn" formaction="#">Accept All</button>
+							<button id="rejectAllBtn" formaction="#">Reject All</button>
+						</div><br>
+			</div>
+    </section>
+</div>
 	<!------main-content-end----------->
 
 
@@ -174,8 +197,9 @@ include 'adminheadersidebar.php'; ?>
 
 
 
-
 	<script type="text/javascript">
+		
+
 		//select all and reject all
 		function selects() {
 			var ele = document.getElementsByName("checkbox");
@@ -186,7 +210,8 @@ include 'adminheadersidebar.php'; ?>
 					if (ele[i].type == 'checkbox')
 						ele[i].checked = true;
 				}
-			} else {
+			}
+			else{
 				document.getElementById("acceptAllBtn").style.visibility = "hidden";
 				document.getElementById("rejectAllBtn").style.visibility = "hidden";
 				for (var i = 0; i < ele.length; i++) {
