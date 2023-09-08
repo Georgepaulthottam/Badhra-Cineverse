@@ -51,58 +51,7 @@ include 'sp_header.php';
             </select>
         </div>
         </div>
-        <div id="select-user" class="salary-status" style="background-color:white;">
-            <div class="dropdown">
-                <button class="dropbtn">Select User</button>
-                <div class="dropdown-content">
-                    <div>User 1</div>
-                    <div>User 2</div>
-                    <div>User 3</div>
-                </div>
-            </div>
-        </div>
-        <div class="salary-status">
-            <div class="salary-status-child">
-                <table class="salary-status-table">
-                    <tr><th colspan="2">DETAILS PER SCHEDULE</th></tr>
-                    <tr>
-                        <td>Total Bata :</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>1st Bata :</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>2nd Bata :</td>
-                        <td>12</td>
-                    </tr>
-                    <tr>
-                        <td>Third Bata :</td>
-                        <td>12</td>
-                    </tr>
-                </table>
-            </div>
-            <div class="salary-status-child">
-                <table class="salary-status-table">
-                    <tr><th colspan="2">SALARY</th></tr>
-                    <tr>
-                        <td>Assigned Salary :</td>
-                        <td>1000</td>
-                    </tr>
-                    <tr>
-                        <td>TDS :</td>
-                        <td>2%</td>
-                    </tr>
-                    <tr>
-                        <td>TA :</td>
-                        <td>250</td>
-                    </tr>
-                    <tr>
-                        <td style="text-align:center;"><button colsapn="2">Edit</button></td>
-                    </tr>
-                </table>
-            </div>
+
         </div>
         <div class="salary-status">
         <div class="salary-status-child">
