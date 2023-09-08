@@ -50,7 +50,7 @@ section {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color:black;
-    font-weight:100;
+    
     width:60vw;
      
 }
@@ -71,13 +71,14 @@ section {
 
 text-align:center;
   border-radius: 5px;
-  background: #333333;
+  background: #fff;
   padding: 8px;
   letter-spacing:1px;
   cursor: text;
-  color:#dcdcdc;
+  color:black;
   width:16.3vw;
   margin-right:110px;
+  border:2px solid black;
 }
 
 .inputfield1{
@@ -89,11 +90,11 @@ justify-content:right;
 {
     align-items: center;
   border-radius: 5px;
-  background: #333333;
+  background: #fff;
   padding: 8px;
   text-align:center;
   cursor: text;
-  color:#dcdcdc;
+  color:black;
   letter-spacing:1px;
   margin-right:110px;
   width:16.3vw;
@@ -103,16 +104,17 @@ justify-content:right;
     align-items: center;
   border-radius: 5px;
   letter-spacing:1px;
-  background: #333333;
+  background: #fff;
   text-align:center;
   padding: 5px;
   cursor: text;
-  color:#dcdcdc;
+  color:black;
   width:16.4vw;
   margin-right:109px;
+  border:2px solid black;
 }
 ::placeholder{
-color:#dcdcdc;
+color:black;
 }
 #dateDisplay{
     font-weight:500;

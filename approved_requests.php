@@ -126,7 +126,7 @@ include 'adminheadersidebar.php'; ?>
 						<th>Remark</th>
 						<th>Bill No</th>
 						<th>Date</th>
-						<th>time</th>
+						<th>Time</th>
 					</tr>
 				</thead>');
 
@@ -169,7 +169,8 @@ include 'adminheadersidebar.php'; ?>
 						<th>Remark</th>
 						<th>Bill No</th>
 						<th>Date</th>
-						<th>time</th>
+						<th>Time</th>
+						<th>Action</th>
 					</tr>
 				</thead>');
 
