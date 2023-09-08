@@ -20,7 +20,8 @@ $result6 = mysqli_query($conn, $query6);
 $query7 = ("SELECT * FROM accom_details");
 $result7 = mysqli_query($conn, $query7);
 if(isset($_POST['add'])){
-      $accommedation=$_POST['accommedation'];
+
+     $accommedation=$_POST['accommedation'];
     $desc=$_POST['description'];
   $addsql = "INSERT INTO `temp_acc` (`username`, `accommedation`, `description`) VALUES (?, ?, ?)";
   $stmt = mysqli_prepare($conn, $addsql);
@@ -295,7 +296,7 @@ include 'adminheadersidebar.php'; ?>
                 <h6 class="mb-2">Accomodation</h6>
               </div>
               <div class="col-sm-8 text-secondary">
-                <input type="textbox" class="form-control" name="accommodatoin" placeholder="Enter the new accomodation">
+                <input type="textbox" class="form-control" name="accommedation" placeholder="Enter the new accomodation">
               </div>
             </div>
 
@@ -329,14 +330,17 @@ include 'adminheadersidebar.php'; ?>
           </tr>
         </thead>
         <tbody>
-
-          <tr>
+          <?php
+          $acsql=("SELECT * FROM temp_acc");
+          $accres=mysqli_query($conn,$acsql);
+          while($accrow=mysqli_fetch_assoc($accres)){
+          echo(' <tr>
             <th><span class="custom-checkbox">
                 <input type="checkbox" id="checkbox" name="checkbox" value="1">
                 <label for="checkbox1"></label></th>
             <th>Camera dept</th>
-            <th>CameraUser1, Cameruser2</th>
-            <th>Hotel2</th>
+            <th>'.$accrow['username'].'</th>
+            <th>'.$accrow['accommedation'].'</th>
             <th>sfgvfsg</th>
 
             <th>
@@ -344,35 +348,12 @@ include 'adminheadersidebar.php'; ?>
                 <input type="button" value="Remove" class="delete" data-toggle="modal">
               </form>
             </th>
-          </tr>
-          <tr>
-            <th><span class="custom-checkbox">
-                <input type="checkbox" id="checkbox" name="checkbox" value="2">
-                <label for="checkbox1"></label></th>
-            <th>Camera dept</th>
-            <th>CameraUser1, Cameruser2</th>
-            <th>Hotel2</th>
-            <th>sfgvfsg</th>
-            <th>
-              <form action="#" method="post">
-                <input type="button" value="Remove" class="delete" data-toggle="modal">
-              </form>
-            </th>
-          </tr>
-          <tr>
-            <th><span class="custom-checkbox">
-                <input type="checkbox" id="checkbox" name="checkbox" value="3">
-                <label for="checkbox1"></label></th>
-            <th>Camera dept</th>
-            <th>CameraUser1, Cameruser2</th>
-            <th>Hotel2</th>
-            <th>sfgvfsg</th>
-            <th>
-              <form action="#" method="post">
-                <input type="button" value="Remove" class="delete" data-toggle="modal">
-              </form>
-            </th>
-          </tr>
+          </tr>');
+          }
+          ?>
+
+
+
       </table>
       <div class="modal-footer">
         <input type="button" class="btn btn-primary" value="Submit">
