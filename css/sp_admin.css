@@ -504,6 +504,7 @@ width:89vw;
   padding: 20px;
   color: white;
   margin: 15px;
+  
 }
 .salary-status-table{
   color:white;
@@ -528,15 +529,9 @@ width:89vw;
   cursor: pointer;
   
 }
-/* Style The Dropdown Button */
-
-
-/* The container <div> - needed to position the dropdown content */
 .dropdown {
   padding: 10px;
 }
-
-/* Style The Dropdown Select */
 #departmentSelect {
   background-color: #aaa3f2;
   color: #150202;
@@ -546,7 +541,6 @@ width:89vw;
   cursor: pointer;
 }
 
-/* Change color of dropdown options on hover */
 #departmentSelect option:hover {
   background-color: #040504;
 }
@@ -571,8 +565,11 @@ width:89vw;
   #selectUser{
     margin-left:20%;
   }
-  .dropbtn{
-    
+  .salary-status-part1{
+    margin-right: 93px;
+  }
+  .salary-status-part2{
+    margin-right:25%;
   }
 }
 /*salary page css ends*/

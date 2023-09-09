@@ -5,8 +5,33 @@ include 'sp_header.php';
 <div class="middle-section">
     <div id="salary-status" class="salary-status" style="">
         <div class="salary-status-child">
+            <h4 style="border-bottom:1px solid white;font-family:'Times New Roman', Times, serif;">SAlARY STATUS</h4>
+            <div class="salary-status-part1" style="float:left; margin-left:10%;">
+                <table class="salary-status-table">
+                    <tr><td><h5>Select Department:</h5></td>
+                        <td><select name="" id="">
+                                <option value="">Department 1</option>
+                                <option value="">Depsrtment 2</option>
+                            </select>
+                    </td></tr>
+                    <tr><td><h5>Select User:</h5></td>
+                        <td><select name="" id="">
+                                <option value="">User 1</option>
+                                <option value="">User 2</option>
+                            </select>
+                    </td></tr>
+                    <tr><td><h5>Select Status:</h5></td>
+                        <td><select name="" id="">
+                                <option value="">Paid</option>
+                                <option value="">UnPaid</option>
+                            </select>
+                    </td></tr>
+                    <tr><td colspan="2" style="text-align:center;"><input type="submit" value="Ok" class="okbutton"></td></tr>
+                </table>
+            </div>
+            <div class="salary-status-part2" style="float:right; margin-right:27%;">
+            <form action="">
             <table class="salary-status-table">
-                <tr><th colspan="2"><h5>SCHEDULE</h5></th></tr>
                 <tr>
                     <td><h5>Scedule :</h5></td>
                     <td><h5>July</h5></td>
@@ -16,20 +41,8 @@ include 'sp_header.php';
                     <td><h5>Paid</h5></td>
                 </tr>
             </table>
-        </div>
-        <div class="salary-status-child">
-            <form action="">
-                <table class="salary-status-table">
-                    <tr><th colspan="2"><h5>SALARY STATUS</h5></th></tr>
-                    <tr><td><h5>Select Status:</h5></td>
-                        <td><select name="" id="">
-                                <option value="">Paid</option>
-                                <option value="">UnPaid</option>
-                            </select>
-                    </td></tr>
-                    <tr><td colspan="2" style="text-align:center;"><input type="submit" value="Ok" class="okbutton"></td></tr>
-                </table>
             </form>
+            </div>
         </div>
     </div>
     <div id="select-user" class="salary-status">
@@ -56,15 +69,6 @@ include 'sp_header.php';
         <div class="salary-status-child">
             <table class="salary-status-table">
                 <tr><th colspan="2"><h5>DETAILS PER SCHEDULE</h5></th></tr>
-                <tr>
-                    <td>Sim</td>
-                    <td>Date</td>
-                    <td>Salary</td>
-                    <td>TDS</td>
-                    <td>TA</td>
-                    <td>Total</td>
-                    <td>Status</td>
-                </tr>
                 <tr>
                     <td>1st Bata :</td>
                     <td>12</td>
@@ -96,7 +100,6 @@ include 'sp_header.php';
                 </tr>
                 <tr><td colspan="2" style="text-align:center;"><input type="submit" value="Edit" class="okbutton" onclick="salaryRate()"></td></tr>
             </table>
-            <a href="" style="color:#E2B842;">View more</a>
         </div>
     </div>
     <div class="salary-status">
@@ -168,7 +171,7 @@ include 'sp_header.php';
             '        <td>TA :</td>\n' +
             '        <td>250</td>\n' +
             '    </tr>\n' +
-            '    <tr><td colspan="2" style="text-align:center;"><input type="submit" value="Edit" class="salEdit" onclick="salaryRate()"></td></tr>\n' +
+            '    <tr><td colspan="2" style="text-align:center;"><input type="submit" value="Edit" class="okbutton" onclick="salaryRate()"></td></tr>' +
             '    </table>';
     }
 </script>
