@@ -51,16 +51,6 @@ include 'sp_header.php';
             </select>
         </div>
         </div>
-        <div id="select-user" class="salary-status" style="background-color:white;">
-            <div class="dropdown">
-                <button class="dropbtn">Select User</button>
-                <div class="dropdown-content">
-                    <div>User 1</div>
-                    <div>User 2</div>
-                    <div>User 3</div>
-                </div>
-            </div>
-        </div>
         <div class="salary-status">
             <div class="salary-status-child">
                 <table class="salary-status-table">
