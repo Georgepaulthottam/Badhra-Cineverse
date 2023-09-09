@@ -86,6 +86,7 @@ include 'sp_header.php';
 
   .info-container {
     height: 130px;
+    width:1200px;
     display: none;
     text-align: center;
     margin-left:30px;
