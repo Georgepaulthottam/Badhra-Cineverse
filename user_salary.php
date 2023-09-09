@@ -42,18 +42,15 @@
                <div class="profile-box" style="overflow-x:auto;">
                     <h4>Salary list</h4>
                     <table class="table table-striped table-hover">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Bata</th>
-                                <th>Salary</th>
-                                <th>EA</th>
-                                <th>Tax</th>
-                                <th>DA</th>
-                                <th>Final Amount</th>
+                        <tr>
+                                <td>Date</td>
+                                <td>Bata</td>
+                                <td>Salary</td>
+                                <td>EA</td>
+                                <td>Tax</td>
+                                <td>DA</td>
+                                <td>Final Amount</td>
                             </tr>
-                        </thead>
-                        <tbody>
                             <tr>
                                 <td>2023-08-02</td>
                                 <td>Second</td>
@@ -71,7 +68,6 @@
                                 <td>100</td>
                                 <td>800</td>
                             </tr>
-                        </tbody>
                     </table>
                 </div>
                </div>
