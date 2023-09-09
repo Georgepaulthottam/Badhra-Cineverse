@@ -127,6 +127,16 @@ include 'adminheadersidebar.php'; ?>
 
 
     <!------main-content-start----------->
+    
+    <!-- Notification message popup -->
+		  
+    <div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
+        
+        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
+        <span class="progress"></span>
+         </div>
+ <!-- Notification message popup ends-->
+
 
     <div id="main-container" class="middle-section">
         <div id="top-container" class="top-section">
@@ -150,6 +160,7 @@ include 'adminheadersidebar.php'; ?>
             font-size: 18px;
             border: none;
             border-radius: 5px;
+           
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
@@ -165,6 +176,8 @@ include 'adminheadersidebar.php'; ?>
             border: none;
             border-radius: 5px;
             cursor: pointer;
+           
+            margin-top:20px;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             align-items: center"  type ="submit" class="punch-in-btn" id="punch-in-btn"  name ="punchin">

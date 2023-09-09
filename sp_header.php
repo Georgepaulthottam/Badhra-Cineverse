@@ -30,7 +30,9 @@ else if($activePage == 'calender'){
 else if($activePage == 'crew'){
 	$PageTitle="Crew Manegement ";
 }
-
+else if($activePage == 'salary'){
+	$PageTitle="Salary Management ";
+}
 
 
 
@@ -74,8 +76,7 @@ else if($activePage == 'crew'){
 
 <div class="wrapper">
      
-	  <div class="body-overlay"></div>
-	 
+<div class="body-overlay"></div>
 	 <!-------sidebar--design------------>
 	 
 	 <div id="sidebar">
@@ -134,41 +135,31 @@ else if($activePage == 'crew'){
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu4">
 		     <li><a href="sp_crewmanagement.php">Admin Crew Manegement</a></li>
-			 <li><a href="#">User Crew Manegement</a></li>
+			 <li><a href="sp_usercrewmanagement.php">User Crew Manegement</a></li>
 		  </ul>
 		  </li>
 		  
-		   <li class="<?php echo ($activePage === 'salary') ? 'active' : ''; ?>">
+		   <li class="<?php echo ($activePage === 'Salary') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">border_color</i>Salary Manager
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu5">
-		     <li><a href="#">Pages 1</a></li>
+		     <li><a href="sp_salary.php">Salary Manager</a></li>
 			 
 		  </ul>
 		  </li>
 		  
 		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>Miscellaneous
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="sp_misc.php">Miscellaneous</a></li>
-			 
-		  </ul>
+		  <a href="sp_misc.php" class=""><i class="material-icons">grid_on</i>Miscellaneous</a>
 		  </li>
-		  
-		  
-		  <li class="<?php echo ($activePage === 'notifcation') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">notifications_active</i>Notifications
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-		     <li><a href="sp_notifications.php">Notification</a></li>
-		  </ul>
+
+
+		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
+		  <a href="sp_usercreation.php" class=""><i class="material-icons">grid_on</i>User Creation</a>
+		  </li>
+		   <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
+		  <a href="sp_notifications.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 		  </li>
 		  
 		   
@@ -192,7 +183,19 @@ else if($activePage == 'crew'){
       <!-------page-content start----------->
    
       <div id="content">
-	     
+	  <div id="overlay" class="overlay"></div>
+    <div id="custom-confirm" class="model" style="display:none">
+        <div class="model-content">
+            <div class="confirmationtext">
+            <p>Are you sure you want to log out?</p>
+            </div>
+            <div class="buttoncontainer">
+				
+            <button  id="yes-button">Yes</button>
+            <button id="no-button">No</button>
+            </div>
+        </div>
+    </div>
 		  <!------top-navbar-start-----------> 
 		     
 		  <div class="top-navbar">
@@ -243,7 +246,7 @@ else if($activePage == 'crew'){
 									 <span class="material-icons">settings</span>
 									 Settings
 									 </a></li>
-									 <li><a href="logout.php">
+									 <li><a href="#" id="LogoutBtn">
 									 <span class="material-icons">logout</span>
 									 Logout
 									 </a></li>
@@ -253,6 +256,7 @@ else if($activePage == 'crew'){
 							   
 							   
 							   </ul>
+							   
 							</nav>
 						 </div>
 					 </div>
@@ -267,7 +271,8 @@ else if($activePage == 'crew'){
 				 
 			 </div>
 		  </div>
-          
+		
+
      <!-- Optional JavaScript -->
     <!-- Optional JavaScript -->
 	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
@@ -289,6 +294,33 @@ else if($activePage == 'crew'){
 			});
 
 		});
+  </script>
+
+  <script>
+	//for logout popup
+	const LogoutBtn = document.getElementById("LogoutBtn");
+const overlay = document.getElementById('overlay');
+const customConfirm = document.getElementById('custom-confirm');
+const yesButton = document.getElementById('yes-button');
+const noButton = document.getElementById('no-button');
+
+LogoutBtn.addEventListener("click", () => {
+    overlay.style.display = 'block';
+    customConfirm.style.display = 'block';
+});
+
+    yesButton.addEventListener('click', function()
+	 {
+        // Perform logout action here
+		window.location.href = "login.php";
+    });
+
+    noButton.addEventListener('click', function() 
+	{
+		overlay.style.display = 'none';
+    customConfirm.style.display = 'none';
+    });
+
   </script>
 </body>
 

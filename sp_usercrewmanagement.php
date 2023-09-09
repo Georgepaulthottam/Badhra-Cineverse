@@ -257,11 +257,11 @@ thead{
     <div class="user-container">
     <label class="select-label">Select user:</label>
     <select id="userSelect">
-      <option value="default" disabled selected>Select a user</option>
-      <option value="user1">User 1</option>
-      <option value="user2">User 2</option>
-      <option value="user3">User 3</option>
-      <option value="user4">User 4</option>
+    <option value="default" disabled selected>Select a user</option>
+      <option value="user1">Art</option>
+      <option value="user2">Camera</option>
+      <option value="user3">Artist</option>
+      <option value="user4">Makeup</option>
     </select>
   </div>
 
@@ -308,142 +308,74 @@ thead{
 
   <div class="misctable" style="overflow-x:auto;">
   <div class="tables-container" id="tablesContainer">
-<table>
-
-
-
-  <thead>
-  <tr >
-  <td></td>
-  <td></td>
-  <td></td>
-    <td><b> Miscellaneous</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  </thead>
-                  
-    <tr>
-	
-      <th>SI NO</th>
-      <th>Date</th>
-      <th> Name</th>
-      <th>Purpose</th>
-    
-      <th>Time</th>
-      <th>Remark</th>
-      <th>Amount</th>
-    </tr>
-    
-  
-
-    <tr>
-        <td>1</td>
-        <td>12/06/2023</td>
-        <td>ggggg</td>
-        <td>bgvfc</td>
-        <td>09:00</td>
-        <td>gtgff</td>
-        <td>70</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>12/06/2023</td>
-        <td>ggggg</td>
-        <td>bgvfc</td>
-        <td>09:00</td>
-        <td>gtgff</td>
-        <td>70</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>12/06/2023</td>
-        <td>ggggg</td>
-        <td>bgvfc</td>
-        <td>09:00</td>
-        <td>gtgff</td>
-        <td>70</td>
-    </tr>
-     
-  <tbody>
-
-	
-
-
-
-
-  </tbody>
-</table>
-<div class="attendence" style="overflow-x:auto;">
-		
-				<table >
+  <table >
                     
-                <thead>
-                <tr >
-               <td></td>
-              <td></td>
-                <td></td>
-               <td><b> Expense Report</b></td>
-               <td></td>
-               <td></td>
+                    <thead>
+                    <tr >
+                   <td></td>
                   <td></td>
-               </tr>
-              </thead>
-										
-					<tr>
-                      <th>SI No.</th>
-                      <th>Name</th>
-                      <th>Purpose</th>
-                      <th>Amount</th>
-					            <th>Quantity</th>
-                       <th>Mode</th>
-
-                  
+                    <td></td>
+                   <td><b>  Report</b></td>
+                   <td></td>
+                   <td></td>
+                      <td></td>
+                   </tr>
+                  </thead>
+                        
+              <tr>
+                          <th>SI No.</th>
+                          <th>Name</th>
+                          <th>Purpose</th>
+                          <th>Amount</th>
+                          <th>Quantity</th>
+                           <th>Mode</th>
+    
+                      
+                    
+              <tr>
+                          <td>1</td>
+                          <td>Ram</td>
+                          <td>stuff</td>
+                          <td>scn</td>
+                          <td>2000</td>
+                          <td>upi</td>
                 
-					<tr>
-                      <td>hsjdfs</td>
-                      <td>snacjkADJN</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-					  
-                    </tr>
-					<tr>
-                      <td>zcdzD</td>
-                      <td>dzvd</td>
-                      <td>dvdV</td>
-                      <td>ddVv</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-					 
-                    </tr>
-					<tr>
-                      <td>dvZDV</td>
-                      <td>zvzdV</td>
-                      <td>zdvzdv</td>
-                      <td>zvdv</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-					  
-                    </tr>
-					
-					<tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-					 
-                    </tr>
-					
-                     
-                </table>
+                        </tr>
+              <tr>
+                        <td>2</td>
+                          <td>Ram</td>
+                          <td>stuff</td>
+                          <td>scn</td>
+                          <td>2000</td>
+                          <td>upi</td>
+               
+                        </tr>
+              <tr>
+                        <td>3</td>
+                          <td>Ram</td>
+                          <td>stuff</td>
+                          <td>scn</td>
+                          <td>2000</td>
+                          <td>upi</td>
+                
+                        </tr>
+              
+              <tr>
+                        <td>4</td>
+                          <td>Ram</td>
+                          <td>stuff</td>
+                          <td>scn</td>
+                          <td>2000</td>
+                          <td>upi</td>
+               
+                        </tr>
+              
+                         
+                    </table>
 </div>
 
 
-  <script>
+<script>
      const userSelect = document.getElementById("userSelect");
      const scheduleSelect = document.getElementById("scheduleSelect");
     const infoContainer = document.getElementById("infoContainer");

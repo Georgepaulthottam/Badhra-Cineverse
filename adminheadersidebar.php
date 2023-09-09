@@ -25,7 +25,7 @@ else if($activePage == 'attendance'){
 else if($activePage == 'expense'){
 	$PageTitle="Expense Report ";
 }
-else if($activePage == 'Accomodation'){
+else if($activePage == 'accomodation'){
 	$PageTitle="Accomodation";
 }
 
@@ -90,14 +90,7 @@ else if($activePage == 'Accomodation'){
 		  
 
 		  <li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">account_circle</i>Profile
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-		     <li><a href="profile.php">Profile</a></li>
-			 
-		  </ul>
+		  <a href="profile.php" class=""><i class="material-icons">account_circle</i> Profile</a>
 		  </li>
 		  
 		  
@@ -150,35 +143,22 @@ else if($activePage == 'Accomodation'){
 		  </li>
 		  
 		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu6" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">grid_on</i>Miscellaneous
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu6">
-		     <li><a href="misc.php">Miscellaneous</a></li>
-			 
-		  </ul>
+		  <a href="misc.php" class=""><i class="material-icons">grid_on</i>Miscellaneous</a>
+		  </li>
+
+		 
+		 
+		   <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
+		  <a href="Notifications.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 		  </li>
 		  
-		  
-		  <li class="<?php echo ($activePage === 'notifcation') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu7" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">notifications_active</i>Notifications
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu7">
-		     <li><a href="Notifications.php">Notification</a></li>
-		  </ul>
-		  </li>
-		  
-		   
 		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
 		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
 		  <a href="#" class=""><i class="material-icons">calendar_month</i>Calender </a>
 		  </li>
-		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
+		  <li class="<?php echo ($activePage === 'accomodation') ? 'active' : ''; ?>">
 		  <a href="accomodation.php" class=""><i class="material-icons">bed</i>Accomodation </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
@@ -190,12 +170,22 @@ else if($activePage == 'Accomodation'){
 	 
    <!-------sidebar--design- close----------->
    
-   
-   
       <!-------page-content start----------->
    
       <div id="content">
-	     
+	  <div id="overlay" class="overlay"></div>
+    <div id="custom-confirm" class="model" style="display:none">
+        <div class="model-content">
+            <div class="confirmationtext">
+            <p>Are you sure you want to log out?</p>
+            </div>
+            <div class="buttoncontainer">
+				
+            <button  id="yes-button">Yes</button>
+            <button id="no-button">No</button>
+            </div>
+        </div>
+    </div>
 		  <!------top-navbar-start-----------> 
 		     
 		  <div class="top-navbar">
@@ -246,7 +236,7 @@ else if($activePage == 'Accomodation'){
 									 <span class="material-icons">settings</span>
 									 Settings
 									 </a></li>
-									 <li><a href="logout.php">
+									 <li><a href="#" id="LogoutBtn">
 									 <span class="material-icons">logout</span>
 									 Logout
 									 </a></li>
@@ -292,6 +282,32 @@ else if($activePage == 'Accomodation'){
 			});
 
 		});
+  </script>
+   <script>
+	//for logout popup
+	const LogoutBtn = document.getElementById("LogoutBtn");
+const overlay = document.getElementById('overlay');
+const customConfirm = document.getElementById('custom-confirm');
+const yesButton = document.getElementById('yes-button');
+const noButton = document.getElementById('no-button');
+
+LogoutBtn.addEventListener("click", () => {
+    overlay.style.display = 'block';
+    customConfirm.style.display = 'block';
+});
+
+    yesButton.addEventListener('click', function()
+	 {
+        // Perform logout action here
+		window.location.href = "login.php";
+    });
+
+    noButton.addEventListener('click', function() 
+	{
+		overlay.style.display = 'none';
+    customConfirm.style.display = 'none';
+    });
+
   </script>
 </body>
 

@@ -46,6 +46,17 @@ include 'user_header.php'; ?>
 
 
 <!------main-content-start----------->
+
+<!-- Notification message popup -->
+		  
+<div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
+        
+        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
+        <span class="progress"></span>
+         </div>
+ <!-- Notification message popup ends-->
+
+ 
 <!------main container divided into 3 containers: top, middle,bottom----------->
 <!------top-container contains attendence, request status and schedule----------->
 <div id="main-container" class="middle-section">
@@ -73,6 +84,7 @@ include 'user_header.php'; ?>
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
+           
             align-items: center"">
             <i class="fas fa-fingerprint"></i>Requested</button>');
                 } elseif ($_SESSION['status'] == 'accepted') {
@@ -83,6 +95,7 @@ include 'user_header.php'; ?>
             border: none;
             border-radius: 5px;
             cursor: pointer;
+            
             transition: transform 0.3s, box-shadow 0.3s;
             display: flex;
             align-items: center">
@@ -95,6 +108,7 @@ include 'user_header.php'; ?>
             padding: 15px 20px;
             font-size: 18px;
             border: none;
+           
             border-radius: 5px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;

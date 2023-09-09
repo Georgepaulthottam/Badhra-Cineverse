@@ -1,11 +1,23 @@
 <?php
 session_start();
 // Check if the user is not logged in
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") {
 	header('Location: login.php');
 }
 require 'connection.php';
 $user = $_SESSION['user'];
+if (isset($_POST['approve'])) {
+						$id = $_POST['id'];
+						$query2 = ("update cart set status='approved' where id='$id'");
+						$quer = mysqli_query($conn, $query2);
+						header("location:approved_requests.php");
+					}
+					if (isset($_POST['reject'])) {
+						$id = $_POST['id'];
+						$query2 = ("update cart set status='rejected' where id='$id'");
+						$quer = mysqli_query($conn, $query2);
+	header("location:approved_requests.php");
+					}
 
 
 
@@ -54,7 +66,20 @@ include 'adminheadersidebar.php'; ?>
 			color: green;
 			visibility: hidden;
 		}
+		.detailed-box{
+			max-width:75vw;
+			margin:10px 20px;
+		}
 	</style>
+	<script>
+    function selectButton(button) {
+        const buttons = document.querySelectorAll('.custom-button');
+        buttons.forEach(btn => {
+            btn.classList.remove('selected');
+        });
+        button.classList.add('selected');
+    }
+</script>
 </head>
 
 <body>
@@ -67,19 +92,31 @@ include 'adminheadersidebar.php'; ?>
 
 	<!------main-content-start----------->
 	<div class="main-content">
-		<div class="attendence" style="overflow-x:auto;">
+    <section id="view-request">
+        <div class="detailed-box" id="request-table">
+            <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Request
+            </h3>
+            <div class="attendence" style="overflow-x:auto;">
 
-			<table class="table table-striped table-hover">
+                <body>
+                    <form action="" method="post">
+                        <button class="custom-button accepted" onclick="selectButton(this)" type="submit" name="accept" value="">Accepted</button>
+                        <button class="custom-button rejected" onclick="selectButton(this)" type="submit" name="rejected" value="">Rejected</button>
+                        <button class="custom-button pending" onclick="selectButton(this)" type="submit" name="requested" value="">Pending</button>
+                        <button class="custom-button all" onclick="selectButton(this)" type="submit" name="all" value="">All</button>
+                    </form>
+                    <br>
+                </body>
 
-				<body>
-					<form action="approved_requests.php" method="post">
-						<button class="custom-button accepted" type="submit" name="accept" value="">Accepted</button>
-						<button class="custom-button rejected" type="submit" name="rejected" value="">Rejected</button>
-						<button class="custom-button pending" type="submit" name="requested" value="">Pending</button>
-						<button class="custom-button all" type="submit" name="all" value="">All</button>
-					</form>
-					<br>
-				</body>
+               
+
+					<tbody>
+					<?php
+
+					if (isset($_POST['accept'])) {
+						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "approved") . "'");
+						$result = mysqli_query($conn, $query);
+						echo (' <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
 						<th>Name</th>
@@ -89,15 +126,9 @@ include 'adminheadersidebar.php'; ?>
 						<th>Remark</th>
 						<th>Bill No</th>
 						<th>Date</th>
-						<th>time</th>
+						<th>Time</th>
 					</tr>
-				</thead>
-
-				<tbody>
-					<?php
-					if (isset($_POST['accept'])) {
-						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "approved") . "'");
-						$result = mysqli_query($conn, $query);
+				</thead>');
 
 
 						while ($row = mysqli_fetch_assoc($result)) {
@@ -108,6 +139,7 @@ include 'adminheadersidebar.php'; ?>
 							$time = $time->format('H:i');
 
 							echo ('
+
                                         <tr>
 
                                         <th>' . $row['name'] . '</th>
@@ -116,8 +148,9 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th
+                                        <th></th>
                                         <th>' . $date . '</th>
-                                        <th>' . $time . '</th>
+										<th>' . $time . '</th>
 
 
 								</tr>');
@@ -126,6 +159,20 @@ include 'adminheadersidebar.php'; ?>
 					if (isset($_POST['requested'])) {
 						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "requested") . "'");
 						$result = mysqli_query($conn, $query);
+						echo (' <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Remark</th>
+						<th>Bill No</th>
+						<th>Date</th>
+						<th>Time</th>
+						<th>Action</th>
+					</tr>
+				</thead>');
 
 
 
@@ -140,17 +187,27 @@ include 'adminheadersidebar.php'; ?>
 							$time = $time->format('H:i');
 
 							echo ('
+							 
                                 <tr>
-
-
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['details'] . '</th>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th
+										<th></th>
                                         <th>' . $date . '</th>
-                                        <th>' . $time . '</th>
+                                        <th>' . $time .'</th>
+									  <th>
+									<form action="approved_requests.php" method="post">
+									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
+										<input type="submit" name="approve" value="Accept" class="edit" >
+											
+										
+										<input type="submit" name="reject" value="Decline" class="delete" >
+
+										</form>
+										</th>
 
                                    
 
@@ -161,6 +218,19 @@ include 'adminheadersidebar.php'; ?>
 					if (isset($_POST['rejected'])) {
 						$query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "rejected") . "'");
 						$result = mysqli_query($conn, $query);
+						echo (' <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Remark</th>
+						<th>Bill No</th>
+						<th>Date</th>
+						<th>time</th>
+					</tr>
+				</thead>');
 
 
 
@@ -175,7 +245,7 @@ include 'adminheadersidebar.php'; ?>
 							$date = $time->format('n.j.Y');
 							$time = $time->format('H:i A');
 
-							echo ('
+							echo (' 
                                         <tr>
 
                                         <th>' . $row['name'] . '</th>
@@ -184,6 +254,7 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th
+										<th></th>
                                         <th>' . $date . '</th>
                                         <th>' . $time . '</th>
 
@@ -194,6 +265,19 @@ include 'adminheadersidebar.php'; ?>
 					if (isset($_POST['all'])) {
 						$query = ("SELECT * FROM cart");
 						$result = mysqli_query($conn, $query);
+						echo(' <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Remark</th>
+						<th>Bill No</th>
+						<th>Date</th>
+						<th>time</th>
+					</tr>
+				</thead>');
 
 
 
@@ -217,6 +301,7 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th
+										<th></th>
                                         <th>' . $date . '</th>
                                         <th>' . $time . '</th>
 
@@ -232,15 +317,11 @@ include 'adminheadersidebar.php'; ?>
 
 				</tbody>
 
+                </table>
 
-			</table>
-			<div>
-				<button id="acceptAllBtn" formaction="#">Accept All</button>
-				<button id="rejectAllBtn" formaction="#">Reject All</button>
-			</div><br>
-			</form>
-		</div>
-	</div>
+            </div>
+    </section>
+</div>
 	<!------main-content-end----------->
 
 
@@ -265,39 +346,6 @@ include 'adminheadersidebar.php'; ?>
 
 
 	<!-------complete html----------->
-
-
-
-
-
-
-
-
-	<script type="text/javascript">
-		//select all and reject all
-		function selects() {
-			var ele = document.getElementsByName("checkbox");
-			if (document.getElementById("selectAll").checked == true) {
-				document.getElementById("acceptAllBtn").style.visibility = "visible";
-				document.getElementById("rejectAllBtn").style.visibility = "visible";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = true;
-				}
-			} else {
-				document.getElementById("acceptAllBtn").style.visibility = "hidden";
-				document.getElementById("rejectAllBtn").style.visibility = "hidden";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = false;
-				}
-			}
-		}
-	</script>
-
-
-
-
 
 </body>
 

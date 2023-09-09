@@ -39,7 +39,12 @@ include 'sp_header.php';
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    .main-container{
 
+        min-height: 82.9vh;
+    }
+</style>
 </head>
 
 <body>
@@ -47,8 +52,10 @@ include 'sp_header.php';
 
 
     <!------main-content-start----------->
+    <div class="main-container">
 
-    hii enter your contents here and remove this
+        hii enter your contents here and remove this
+    </div>
         <!------main-content-end----------->
 
 

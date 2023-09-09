@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Check if the user is not logged in
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") {
     header('Location: login.php');
 
 }
@@ -107,7 +107,7 @@ $result=mysqli_query($conn,$query);
 	                            }
 							}
 							else{
-								echo('<h2>NO PENDTING REQUESTS</h2>');
+								echo('<h2>NO PENDING REQUESTS</h2>');
 							}
 
 								?>

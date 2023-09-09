@@ -1,4 +1,13 @@
-<?php $activePage = 'vehicle'; include 'adminheadersidebar.php'; ?>
+<?php
+session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") {
+    header('Location: login.php');
+
+}
+?>
+<?php $activePage = 'vehicle'; 
+include 'adminheadersidebar.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -11,6 +20,7 @@
         <link rel="stylesheet" href="css/bootstrap.min.css">
 	    <!----css3---->
         <link rel="stylesheet" href="css/custom.css">
+        
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 		
 		<!--google fonts -->
@@ -32,83 +42,157 @@
 	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 	 <style>
         
-.container {
-    margin:20px 20px;
+section {
+    margin:40px 200px;
     text-align: center;
-    padding: 20px;
+    padding: 16px;
     border-radius: 10px;
-    background-color: #444;
+    background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color:#fff;
+    color:black;
+    
+    width:60vw;
+     
+}
+.startKm{
+    position:absolute;
+    margin-left:40px;    
+    
+}
+.endKm{
+    position:absolute;
+    margin-left:40px;    
+}
+.driverselect{
+    position:absolute;
+    margin-left:40px;  
+}
+.inputfield1 select{
+
+text-align:center;
+  border-radius: 5px;
+  background: #fff;
+  padding: 8px;
+  letter-spacing:1px;
+  cursor: text;
+  color:black;
+  width:16.3vw;
+  margin-right:110px;
+  border:2px solid black;
 }
 
-h1 {
-    margin-bottom: 20px;
+.inputfield1{
+ position:relative;
+    display:flex;
+justify-content:right;
 }
-
-.input-container {
-    margin: 10px 0;
+.inputfield1 input[type="number"]
+{
+    align-items: center;
+  border-radius: 5px;
+  background: #fff;
+  padding: 8px;
+  text-align:center;
+  cursor: text;
+  color:black;
+  letter-spacing:1px;
+  margin-right:110px;
+  width:16.3vw;
 }
-
-input[type="number"]{
-    padding: 10px;
-    border: none;
-    background-color: #555;
-    color: #fff;
-    border-radius: 5px;
-    border:1px solid black;
-    width: 100%;
-border-bottom:2px solid grey;
+.inputfield1 input[type="file"]
+{
+    align-items: center;
+  border-radius: 5px;
+  letter-spacing:1px;
+  background: #fff;
+  text-align:center;
+  padding: 5px;
+  cursor: text;
+  color:black;
+  width:16.4vw;
+  margin-right:109px;
+  border:2px solid black;
 }
-
-input[type="file"] {
-    padding: 10px;
-    border: none;
-    background-color: #555;
-    color: #fff;
-    border-radius: 5px;
-    width: 230px;
-    border:1px solid black;
-}
-
-button {
- padding: 5px 8px;
- border-radius: 50px;
- border: 0;
- background-color: white;
- box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
- letter-spacing: 1.5px;
- text-transform: uppercase;
- font-size: 18px;
- transition: all .5s ease;
-}
-
-button:hover {
- letter-spacing: 3px;
- background-color: hsl(261deg 80% 48%);
- color: hsl(0, 0%, 100%);
- box-shadow: rgb(93 24 220) 0px 7px 29px 0px;
-}
-
-button:active {
- letter-spacing: 3px;
- background-color: hsl(261deg 80% 48%);
- color: hsl(0, 0%, 100%);
- box-shadow: rgb(93 24 220) 0px 0px 0px 0px;
- transform: translateY(10px);
- transition: 100ms;
-}
-select {
-    display: block;
-    margin: 10px auto;
-    width: 30%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    font-size: 16px;
-  }
 ::placeholder{
-    color:#fff;
+color:black;
+}
+#dateDisplay{
+    font-weight:500;
+}
+hr {
+  border-top: 0.3px solid grey;
+  opacity:0.5;
+}
+@media only screen and (max-width: 767px){
+    section {
+    margin:50px 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color:black;
+    font-weight:100;
+    width:90vw;
+     
+}
+.startKm{
+    position:absolute;
+    margin-left:10px;    
+    
+}
+.endKm{
+    position:absolute;
+    margin-left:10px;    
+}
+.driverselect{
+    position:absolute;
+    margin-left:10px;  
+}
+#dateDisplay{
+    font-weight:600;
+}
+.inputfield1 input[type="number"]
+{
+    align-items: center;
+  border-radius: 5px;
+  background: #3D3D3D;
+  padding: 5px;
+  text-align:center;
+  cursor: text;
+  color:#dcdcdc;
+  letter-spacing:1px;
+  margin-right:20px;
+  width:38vw;
+}
+.inputfield1 input[type="file"]
+{
+    align-items: center;
+  border-radius: 5px;
+  letter-spacing:1px;
+  background: #333333;
+  text-align:center;
+  padding: 5px;
+  cursor: text;
+  color:#dcdcdc;
+  width:66.4vw;
+  margin-left:20px;
+  margin-top:40px;
+  margin-right:40px;
+}
+.inputfield1 select{
+
+text-align:center;
+  border-radius: 5px;
+  background: #333333;
+  padding: 8px;
+  letter-spacing:1px;
+  cursor: text;
+  color:#dcdcdc;
+  width:38.3vw;
+  margin-right:20px;
+}
+
 }
      </style>
   </head>
@@ -117,41 +201,62 @@ select {
 		  
 		  
 		   <!------main-content-start-----------> 
-		     
-		   
-            
-           <div class="container">
-        <h1>Vehicle Department Portal</h1>
-        <div id="dateDisplay"></div>
-        <select id="driverSelect">
-    <option value="driver1">Driver 1</option>
-    <option value="driver2">Driver 2</option>
-    <option value="driver3">Driver 3</option>
-    <!-- Add more options as needed -->
-  </select>
-
-  <!-- Starting KM-->
-  <div class="input-container">
-      <input type="file" id="startImg" placeholder="Select Starting Km Photo">
-  </div>
-  
-          <div class="input-container">
-              <input type="number" id="startKm" placeholder="Enter the Starting Km">
-          </div>
-<!-- Ending KM -->
-
-  <div class="input-container">
-      <input type="file" id="startImg" placeholder="Select Ending Km Photo">
-  </div>
-        <div class="input-container">
-            <input type="number" id="endKm" placeholder="Enter the Ending Km">
-        </div>
-        <button id="submitBtn">Submit</button>
-    </div>
-    
 		 
-		 <!----footer-design------------->
-		 
+    <section>
+
+        <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
+            Vehicle Department Portal</h3>
+
+                <div id="dateDisplay"></div>
+                    <br><br>
+                    <form action="" method="post">
+                        
+                                <h6 class="driverselect">Select Driver :</h6>
+                                <div class="inputfield1">
+                                    <select id="driverselect" name="drivername">
+                                        <option value="0" selected disabled>Not Selected</option>
+                                        <option value="1">Driver 1</option>
+                                        <option value="2">Driver 2</option>
+                                        <option value="3">Driver 3</option>
+                                    </select>
+                                  </div>
+                           
+                            
+                    
+<hr>
+                        <h6 class="startKm">Starting KM :</h6>
+                        <div class="inputfield1">
+                        <input type="number" id="startKm" placeholder="Enter Starting KM">    
+                        </div>
+
+<hr>
+
+                        <h6 class="startKm">Starting KM(Upload Image) :</h6>
+                        <div class="inputfield1">
+                        <input type="file" id="startImg" placeholder="Select Starting KM Photo">    
+                        </div>
+
+<hr>
+                        <h6 class="startKm">Ending KM :</h6>
+                        <div class="inputfield1">
+                        <input type="number" id="endKm" placeholder="Enter Ending KM ">    
+                        </div>
+
+<hr>
+
+                        <h6 class="startKm">Ending KM(Upload Image) :</h6>
+                        <div class="inputfield1">
+                        <input type="file" id="endImg" placeholder="Select Ending KM Photo">    
+                        </div>
+
+<hr>
+
+
+
+
+                    <!----footer-design------------->
+                </section>
+                    <br> <br>
 		 <footer class="footer">
 		    <div class="container-fluid">
 			   <div class="footer-in">
@@ -162,13 +267,6 @@ select {
 		 
 		 
 		 
-		 
-	  </div>
-   
-</div>
-
-
-
 <!-------complete html----------->
 
 

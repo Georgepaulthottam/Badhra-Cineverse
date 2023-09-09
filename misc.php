@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Check if the user is not logged in
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") {
     header('Location: login.php');
 
 }
@@ -25,6 +25,30 @@ if(isset($_POST['misc-submit'])){
 <!doctype html>
 <html lang="en">
   <head>
+  <script>
+        function toggleRows() {
+            var rows = document.getElementsByClassName("hidden-row");
+            for (var i = 0; i < rows.length; i++) {
+                rows[i].style.display = "table-row";
+            }
+        }
+
+       
+		function showDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "block";
+         }
+
+        function hideDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "none";
+         }
+
+        function deleteExpense() {
+      // Code to delete the expense
+           hideDeletePrompt();
+      
+         }
+		
+    </script>
     <style>
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
@@ -80,7 +104,7 @@ if(isset($_POST['misc-submit'])){
 
 .login-box .user-box input:focus ~ label,
 .login-box .user-box input:valid ~ label {
-  top: -20px;
+  top: -30px;
   left: 0;
   color: #03e9f4;
   font-size: 12px;
@@ -165,6 +189,64 @@ tbody tr:hover {
 	.btnsCheck{
 		margin-left:3%;
 	}
+  .delete-icon {
+    display: inline-block;
+    cursor: pointer;
+	font-size: 8px;
+  }
+  .delete-prompt {
+    display: none;
+	font-family: Arial, sans-serif;
+    position: fixed;
+    top: 57%;
+    left: 67%;
+	font: size 5px;
+	height:160px;
+	width: 270px;
+    transform: translate(-50%, -50%);
+    background-color: #e5e4e2 ;
+    border: 1px solid #ccc;
+    padding: 20px;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  .delete-prompt h2 {
+    margin-top: 0;
+  }
+  .btn-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+  .btn {
+    padding: 8px 16px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  .btn.delete {
+    background-color: #f44336;
+    color: white;
+  }
+  .btn.cancel {
+    background-color: #ccc;
+    color: black;
+  }
+  .transperant{
+    background-color:#dcdcdc;
+  }
+  .profile-box{
+    width: 1160px;
+    height: 50px
+  }
+  @media only screen and (max-width: 767px){
+
+
+    /* Styling for the fields inside the box */
+    .expensefield {
+      display: inline-block;
+      margin-right: 20px;
+    }
+
+  }
+		
 	
     </style>
     <!-- Required meta tags -->
@@ -224,7 +306,7 @@ tbody tr:hover {
       <label>Amount</label>
     </div>
 	<div class="user-box">
-      <input type="text" name="misc-remark" id = "misc-remark"  required="false">
+      <input type="text" name="misc-remark" id = "misc-remark"  >
       
       <label>Remark</label>
     </div>
@@ -247,9 +329,7 @@ tbody tr:hover {
 			if(mysqli_num_rows($rowresult)!=0){ 
         ?>
     <tr>
-	<th><span class="custom-checkbox">
-											<input type="checkbox" onchange='selects()' id="selectAll">
-											<label for="selectAll"></label></th>
+	
       <th>SI NO</th>
       <th>DATE</th>
       <th> Name</th>
@@ -258,6 +338,7 @@ tbody tr:hover {
       <th>TIME</th>
       <th>REMARK</th>
       <th>AMOUNT</th>
+      <th>ACTION</th>
      
   </thead>
   <tbody>
@@ -270,9 +351,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   $no=$no+1;
   echo('
 								<tr>
-								<td><span class="custom-checkbox">
-								<input type="checkbox" id="checkbox" name="checkbox" value="1">
-								<label for="checkbox1"></label></th>
+								
   <td>'.$no.'</td>
       <td>'.$date.'</td>
       <td>'.$row['name'].'</td>
@@ -280,12 +359,33 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td>'.$time.'</td>
       <td>'.$row['remark'].'</td>
       <td>'.$row['amount'].'</td>');
+        
       
       $sum = $sum + $row['amount'];
-      echo('</tr>');
+      echo('		  <td><div class="delete-icon" onclick="showDeletePrompt()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
+      </svg>
+    </div>
+    </td>
+    <div class="delete-prompt" id="deletePrompt">
+      <i>Are you sure you want to delete this expense?</i>
+      <div class="btn-container">
+     <form action="misc.php" method="post">
+     <input type="text" name="id" value="'.$row['id'].'" hidden>
+        <button class="btn delete" type="submit" name="delete" onclick="deleteExpense()">Delete</button>
+        <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
+      </form>
+      </div>
+    </div>
+  
+            </tr>');
+      
 
 }
  echo('      <tr>
+ 
        
       <td colspan="7" style="text-align:right;"> TOTAL:</td>
 	  
@@ -300,30 +400,13 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
         echo('<h2>NO PENDTING REQUESTS</h2>');
       }?>
 
-
+</td>
 
   </tbody>
 </table>
-<div class="btnsCheck">
-							<button id="acceptAllBtn" formaction="#">Accept All</button>
-							<button id="rejectAllBtn" formaction="#">Reject All</button>
-						</div>
-</div>
+
           
 <br>
-<div class="miscform-container" id="miscbuttons">
-					<form form class="form" action="approved_requests.php" method="post">
-					    <input name="Approved Expense" type="submit" 
-						                    class="bata-btn primary-button" value="Send to Expense" id="aprovexpbtn">
-					  
-                    </form>	 
-					<form form class="form" action="misc.php" method="post">
-
-					    <input name="Miscellanious" type="submit"
-                                            class="bata-btn primary-button" value="Delete" id="submitbtn">
-					</form> 
-											
-</div>
 
 
 		    <!------main-content-end-----------> 
@@ -353,36 +436,6 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 <!-------complete html----------->
 
  
-  
-  <script type="text/javascript">
-
-	   //Select all boxes of table
-
-	   function selects() {
-			var ele = document.getElementsByName("checkbox");
-			if (document.getElementById("selectAll").checked == true ) {
-				document.getElementById("acceptAllBtn").style.visibility = "visible";
-				document.getElementById("rejectAllBtn").style.visibility = "visible";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = true;
-				}
-			}
-			else{
-				document.getElementById("acceptAllBtn").style.visibility = "hidden";
-				document.getElementById("rejectAllBtn").style.visibility = "hidden";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = false;
-				}
-			}
-		}
-  </script>
-  
-  
-
-
-
   </body>
   
   </html>

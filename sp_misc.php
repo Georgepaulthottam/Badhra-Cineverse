@@ -12,6 +12,7 @@ require 'connection.php';
 <html lang="en">
 
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -43,89 +44,13 @@ require 'connection.php';
     <style>
   @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
-.login-box {
-  position: absolute;
-  top: 17%;
-  left: 50%;
-  width: 40%;
-  height: 540px;
-  padding: 40px;
-  
-  transform: translate(-50%, -50%);
-  background: #152935;
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border-radius: 10px;
-  margin-top: 200px;
-  
-}
-
-.login-box h2 {
-  margin: 0 0 30px;
-  padding: 0;
-  color: #fff;
-  text-align: center;
-}
-
-.login-box .user-box {
-  position: relative;
-}
-
-.login-box .user-box input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-}
-.login-box .user-box label {
-  position: absolute;
-  top:0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
-}
-
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #03e9f4;
-  font-size: 12px;
-}
-
-.login-box form a input{
-  position: relative;
-  display: block;
-  padding: 10px 20px;
-  color: white;
-  background:black;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  margin-left: 140px;
-  margin-top: 20px;
-  margin-bottom:100px;
-  letter-spacing: 3px
-}
-
-#misc-submit{
-
-}
 
 table {
   background: #152935;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
-  margin-top: 700px;
+  margin-top: 100px;
   width: 95%;
   margin-left:30px;
 }
@@ -180,8 +105,106 @@ tbody tr:hover {
 	.btnsCheck{
 		margin-left:3%;
 	}
+  .sec-button:hover {
+            background-color: #0056b3;
+            border-color: #0056b3;
+        }
+
+        .tick-icon {
+            font-size: 15px;
+            color: #3cb371;
+            width: 28px;
+            height: 28px;
+            background: #002147;
+        }
+
+        .delete-icon {
+            display: inline-block;
+            cursor: pointer;
+            font-size: 8px;
+        }
+
+        .delete-prompt {
+            display: none;
+            font-family: Arial, sans-serif;
+            position: fixed;
+            top: 57%;
+            left: 67%;
+            font: size 5px;
+            height: 160px;
+            width: 270px;
+            transform: translate(-50%, -50%);
+            background-color: #e5e4e2;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .delete-prompt h2 {
+            margin-top: 0;
+        }
+
+        .btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 8px 16px;
+            margin: 0 10px;
+            cursor: pointer;
+        }
+
+        .btn.delete {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .btn.cancel {
+            background-color: #ccc;
+            color: black;
+        }
+
+
+
+        @media only screen and (max-width: 767px) {
+
+
+            /* Styling for the fields inside the box */
+            .expensefield {
+                display: inline-block;
+                margin-right: 20px;
+            }
+
+        }
 	
+  
+  
     </style>
+     <script>
+        function toggleRows() {
+            var rows = document.getElementsByClassName("hidden-row");
+            for (var i = 0; i < rows.length; i++) {
+                rows[i].style.display = "table-row";
+            }
+        }
+
+       
+		function showDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "block";
+         }
+
+        function hideDeletePrompt() {
+            document.getElementById("deletePrompt").style.display = "none";
+         }
+
+        function deleteExpense() {
+      // Code to delete the expense
+           hideDeletePrompt();
+      
+         }
+		
+    </script>
 </head>
 
 <body>
@@ -190,31 +213,7 @@ tbody tr:hover {
 
     <!------main-content-start----------->
 
-    <div class="login-box">
-  <h2>Enter the miscellaneous</h2>
-  <form action="" method="post">
-    <div class="user-box">
-      <input type="text" name="misc-name"  id = "misc-name" required>
-      <label>Name</label>  
-    </div>
-	<div class="user-box">
-      <input type="text" name="misc-purpose" id = "misc-purpose" required>
-      <label>Purpose</label>
-    </div>
-	<div class="user-box">
-      <input type="text" name="misc-amount" id = "misc-amount" required>
-      <label>Amount</label>
-    </div>
-	<div class="user-box">
-      <input type="text" name="misc-remark" id = "misc-remark"  required="false">
-      
-      <label>Remark</label>
-    </div>
-	<a href="#">
-	  <input type ="submit" name  = "misc-submit" id = "misc-submit" value = " Submit ">
-	</a>
-  </form>
-</div>
+    
 
 <div class="misctable" style="overflow-x:auto;">
 <table>
@@ -229,9 +228,7 @@ tbody tr:hover {
 			if(mysqli_num_rows($rowresult)!=0){ 
         ?>
     <tr>
-	<th><span class="custom-checkbox">
-											<input type="checkbox" onchange='selects()' id="selectAll">
-											<label for="selectAll"></label></th>
+	
       <th>SI NO</th>
       <th>DATE</th>
       <th> Name</th>
@@ -240,7 +237,7 @@ tbody tr:hover {
       <th>TIME</th>
       <th>REMARK</th>
       <th>AMOUNT</th>
-     
+      <th>ACTION</th>
   </thead>
   <tbody>
 
@@ -252,9 +249,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   $no=$no+1;
   echo('
 								<tr>
-								<td><span class="custom-checkbox">
-								<input type="checkbox" id="checkbox" name="checkbox" value="1">
-								<label for="checkbox1"></label></th>
+								
   <td>'.$no.'</td>
       <td>'.$date.'</td>
       <td>'.$row['name'].'</td>
@@ -262,8 +257,27 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td>'.$time.'</td>
       <td>'.$row['remark'].'</td>
       <td>'.$row['amount'].'</td>');
-      
+     
       $sum = $sum + $row['amount'];
+      echo('		  <td><div class="delete-icon" onclick="showDeletePrompt()">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="#ffffff" width="24" height="24" viewBox="0 0 24 24">
+        <path d="M0 0h24v24H0z" fill="none"/>
+        <path d="M8 9v10c0 1.1.9 2 2 2h10c1.1 0 2-.9 2-2V9H8zm14-4h-3.5l-1-1h-5l-1 1H2v2h20V5zm-4 11H6v-2h12v2z"/>
+      </svg>
+    </div>
+    </td>
+    <div class="delete-prompt" id="deletePrompt">
+      <i>Are you sure you want to delete this expense?</i>
+      <div class="btn-container">
+     <form action="misc.php" method="post">
+     <input type="text" name="id" value="'.$row['id'].'" hidden>
+        <button class="btn delete" type="submit" name="delete" onclick="deleteExpense()">Delete</button>
+        <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
+      </form>
+      </div>
+    </div>
+  
+            </tr>');
       echo('</tr>');
 
 }
@@ -272,7 +286,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
       <td colspan="7" style="text-align:right;"> TOTAL:</td>
 	  
       <td>'.$sum.'</td>
-</tr>');
+</tr>' );
       }
       
    
@@ -286,26 +300,10 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
   </tbody>
 </table>
-<div class="btnsCheck">
-							<button id="acceptAllBtn" formaction="#">Accept All</button>
-							<button id="rejectAllBtn" formaction="#">Reject All</button>
-						</div>
-</div>
+
           
 <br>
-<div class="miscform-container" id="miscbuttons">
-					<form form class="form" action="approved_requests.php" method="post">
-					    <input name="Approved Expense" type="submit" 
-						                    class="bata-btn primary-button" value="Send to Expense" id="aprovexpbtn">
-					  
-                    </form>	 
-					<form form class="form" action="misc.php" method="post">
 
-					    <input name="Miscellanious" type="submit"
-                                            class="bata-btn primary-button" value="Delete" id="submitbtn">
-					</form> 
-											
-</div>
         <!------main-content-end----------->
 
 
