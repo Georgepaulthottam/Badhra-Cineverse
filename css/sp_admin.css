@@ -571,5 +571,8 @@ width:89vw;
   .salary-status-part2{
     margin-right:25%;
   }
+  #edittable{
+    margin-left: 0px;
+  }
 }
 /*salary page css ends*/

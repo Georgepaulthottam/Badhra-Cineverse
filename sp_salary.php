@@ -133,7 +133,7 @@ include 'sp_header.php';
     var salary = document.getElementById("salaryRate");
     function salaryRate(){
         salary.innerHTML = '<form action="">\n' +
-            '    <table class="salary-status-table">\n' +
+            '    <table id="edittable" class="salary-status-table">\n' +
             '        <tr><th colspan="2">SALARY</th></tr>\n' +
             '   <tr>\n' +
             '        <td>Assigned Salary :</td>\n' +
