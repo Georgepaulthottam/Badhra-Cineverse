@@ -57,6 +57,11 @@ include 'sp_header.php';
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
+    background:#fff;
+     height:15vh;
+     border-radius:20px;
+     width:80vw;
+     box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.2);
   }
 
   .select-label {
