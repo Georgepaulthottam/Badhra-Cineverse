@@ -33,9 +33,6 @@ else if($activePage == 'crew'){
 else if($activePage == 'salary'){
 	$PageTitle="Salary Management ";
 }
-
-
-
 ?>
 <!doctype html>
 <html lang="en">
@@ -116,7 +113,7 @@ else if($activePage == 'salary'){
 		  </ul>
 		  </li>
 		  
-		   <li class="<?php echo ($activePage === 'request') ? 'active' : ''; ?>">
+		   <li class="<?php echo ($activePage === 'request') ? 'active' : '';?>">
 		  <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">equalizer</i>Request Panel
@@ -128,7 +125,7 @@ else if($activePage == 'salary'){
 		  </li>
 		  
 		  
-		   <li class="<?php echo ($activePage === 'crew') ? 'active' : ''; ?>">
+		   <li class="<?php echo ($activePage === 'crew') ? 'active' : '';?>">
 		  <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">extension</i>Crew Management
@@ -139,7 +136,7 @@ else if($activePage == 'salary'){
 		  </ul>
 		  </li>
 		  
-		   <li class="<?php echo ($activePage === 'Salary') ? 'active' : ''; ?>">
+		   <li class="<?php echo ($activePage === 'Salary') ? 'active' : '';?>">
 		  <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
 		  <i class="material-icons">border_color</i>Salary Manager
@@ -150,26 +147,26 @@ else if($activePage == 'salary'){
 		  </ul>
 		  </li>
 		  
-		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
+		  <li class="<?php echo ($activePage === 'misc') ? 'active' : '';?>">
 		  <a href="sp_misc.php" class=""><i class="material-icons">grid_on</i>Miscellaneous</a>
 		  </li>
 
 
-		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
+		  <li class="<?php echo ($activePage === 'misc') ? 'active' : '';?>">
 		  <a href="sp_usercreation.php" class=""><i class="material-icons">grid_on</i>User Creation</a>
 		  </li>
-		   <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
+		   <li class="<?php echo ($activePage === 'notification') ? 'active' : '';?>">
 		  <a href="sp_notifications.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 		  </li>
 		  
 		   
-		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
+		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : '';?>">
 		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
-		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
+		  <li class="<?php echo ($activePage === 'calender') ? 'active' : '';?>">
 		  <a href="sp_calender.php" class=""><i class="material-icons">calendar_month</i>Calender </a>
 		  </li>
-		  <li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
+		  <li class="<?php echo ($activePage === 'expense') ? 'active' : '';?>">
 					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
 		

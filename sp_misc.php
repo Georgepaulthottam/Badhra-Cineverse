@@ -1,12 +1,20 @@
 <?php
-session_start(); 
-$activePage = 'misc'; 
+ob_start();
+session_start();
+require 'connection.php';
+$activePage = 'misc';
+include 'sp_header.php';
 // Check if the user is not logged in
 if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
     header('Location: login.php');
 }
-include 'sp_header.php';
-require 'connection.php';
+if (isset($_POST['delete'])) {
+  $id = $_POST['id'];
+  $quer2 = "DELETE FROM miscellaneous where id=" . mysqli_real_escape_string($conn, $id) . "";
+  $result2 = mysqli_query($conn, $quer2);
+  header("location:sp_misc.php");
+}
+ob_end_flush();
 ?>
 <!doctype html>
 <html lang="en">
@@ -269,7 +277,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
     <div class="delete-prompt" id="deletePrompt">
       <i>Are you sure you want to delete this expense?</i>
       <div class="btn-container">
-     <form action="misc.php" method="post">
+     <form action="sp_misc.php" method="post">
      <input type="text" name="id" value="'.$row['id'].'" hidden>
         <button class="btn delete" type="submit" name="delete" onclick="deleteExpense()">Delete</button>
         <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>

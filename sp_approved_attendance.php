@@ -1,11 +1,15 @@
 <?php
-session_start(); 
-$activePage = 'attendance'; 
+session_start();
+$activePage = 'attendance';
 // Check if the user is not logged in
 if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
     header('Location: login.php');
 }
 include 'sp_header.php';
+require 'connection.php';
+$query = ("SELECT * FROM approved_attendance ");
+$result = mysqli_query($conn, $query);
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -39,6 +43,19 @@ include 'sp_header.php';
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* css for acceptAll and rejectAll Button*/
+        #acceptAllBtn {
+            color: rgb(229, 117, 56);
+            visibility: hidden;
+            margin-left: 0%;
+        }
+
+        #rejectAllBtn {
+            color: green;
+            visibility: hidden;
+        }
+    </style>
 
 </head>
 
@@ -48,27 +65,82 @@ include 'sp_header.php';
 
     <!------main-content-start----------->
 
-    hii enter your contents here and remove this
-        <!------main-content-end----------->
+    <div class="main-content">
+        <div class="attendence" style="overflow-x:auto;">
+            <form action="#">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <?php
+                            if (mysqli_num_rows($result) != 0) {
+
+
+                            ?>
+                                <th><span class="custom-checkbox">
+                                        <input type="checkbox" onchange='selects()' id="selectAll">
+                                        <label for="selectAll"></label></th>
+                                <th>Name</th>
+                                <th>Department</th>
+                                <th>Time</th>
+                                <th>date</th>
+                                <th>Phone</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    <?php
+
+                                while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+                                    $time = new DateTime($row['datetime']);
+                                    $date = $time->format('j.n.Y');
+                                    $time = $time->format('H:i A');
+                                    echo ('
+								<tr>
+									<th><span class="custom-checkbox">
+											<input type="checkbox" id="checkbox" name="checkbox" value="1">
+											<label for="checkbox1"></label></th>
+									<th>' . $row['username'] . '</th>
+									<th>' . $row['dept'] . '</th>
+									<th>' . $time . '</th>
+									<th>' . $date . '</th>
+									<th>702341231</th>
+
+									
+								</tr>');
+                                }
+                            } else {
+                                echo ('<h2>NO PENDING REQUESTS</h2>');
+                            }
+
+                    ?>
+                </table>
+                <div>
+                    <button id="acceptAllBtn" formaction="#">Accept All</button>
+                    <button id="rejectAllBtn" formaction="#">Reject All</button>
+                </div><br>
+            </form>
+        </div>
+    </div>
+    <!------main-content-end----------->
 
 
 
-        <!----footer-design------------->
+    <!----footer-design------------->
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="footer-in">
-                    <p class="mb-0">&copy 2023 Team Helios. All Rights Reserved.</p>
-                </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="footer-in">
+                <p class="mb-0">&copy 2023 Team Helios. All Rights Reserved.</p>
             </div>
-        </footer>
+        </div>
+    </footer>
 
 
 
     <!-------complete html----------->
 
 
-   
+
 
 </body>
 

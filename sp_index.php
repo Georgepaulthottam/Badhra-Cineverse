@@ -1,4 +1,3 @@
-<!-- Active page is for splitting the header into seperate files.. and to recognise each pages -->
 <?php
 session_start();
 $activePage = 'home';
@@ -15,6 +14,12 @@ $query8 = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn
 $result8 = mysqli_query($conn, $query8);
 $msquery = ("SELECT * FROM miscellaneous limit 0,4");
 $msresult = mysqli_query($conn, $msquery);
+if (isset($_POST['delete'])) {
+    $id = $_POST['id'];
+    $quer2 = "DELETE FROM daily_expense where id=" . mysqli_real_escape_string($conn, $id) . "";
+    $result2 = mysqli_query($conn, $quer2);
+    header("location:sp_index.php");
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -324,7 +329,7 @@ $msresult = mysqli_query($conn, $msquery);
   <div class="delete-prompt" id="deletePrompt">
     <i>Are you sure you want to delete this expense?</i>
     <div class="btn-container">
-	 <form action="expensereport.php" method="post">
+	 <form action="sp_index.php" method="post">
 	 <input type="text" name="id" value="' . $row['id'] . '" hidden>
       <button class="btn delete" type="submit" name="delete" onclick="deleteExpense()">Delete</button>
       <button class="btn cancel" onclick="hideDeletePrompt()">Cancel</button>
@@ -336,7 +341,7 @@ $msresult = mysqli_query($conn, $msquery);
                                     $sum = $sum + $row['price'];
                                 }
                             } else {
-                                echo ('<h2>NO PENDTING REQUESTS</h2>');
+                                echo ('<h2>NO DAILY EXPENSE MADE TODAY</h2>');
                             }
                     ?>
                     </tbody>
