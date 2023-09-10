@@ -494,4 +494,10 @@ transform:translateY(0px);
     display: none;
     width:320px;
   }
+   /*responsive logout  popup buttons*/
+   .model .model-content button
+   {
+    
+     width:10vw;
+   }
 }

@@ -744,5 +744,11 @@ transform:translateY(0px);
     z-index: 1001;
     display: none;
     width:320px;
+    
   }
+  .model .model-content button
+{
+ 
+  width:10vw;
+}
 }
