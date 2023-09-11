@@ -186,7 +186,73 @@ tbody tr:hover {
 
         }
 	
+        .download-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 21.3vh;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+#download-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.dropbtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.separator {
   
+    height: 40px;
+    background-color: #ccc;
+    
+} 
   
     </style>
      <script>
@@ -309,7 +375,20 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   </tbody>
 </table>
 
-          
+<div class="download-container">
+        <div class="button-container">
+            <button id="download-button">Download as PDF</button>
+            <div class="dropdown">
+                <button class="dropbtn">></button>
+                <div class="dropdown-content">
+                    <a href="#" id="pdf">PDF</a>
+                    <a href="#" id="png">PNG</a>
+                    <a href="#" id="xlsx">XLSX</a>
+                </div>
+            </div>
+        </div>
+        <div class="separator"></div>
+    </div>   
 <br>
 
         <!------main-content-end----------->

@@ -1,4 +1,4 @@
-<?php $activePage = 'misc'; include 'adminheadersidebar.php'; ?>
+<?php $activePage = 'usercreation'; include 'adminheadersidebar.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
