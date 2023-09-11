@@ -1,13 +1,22 @@
+<?php
+session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") 
+{
+    header('Location: login.php'); 
+}
+require 'connection.php';
+?>
 <?php 
 $activePage='salary';
-include 'sp_header.php';
- ?>
+include 'adminheadersidebar.php';
+?>
 <div class="middle-section" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
 <div id="salary-status" class="salary-status" style="">
         <div class="salary-status-child">
             <table style="width:100%">
                     <tr>
-                        <td><h5>Scedule : July</h5></td>
+                        <td><h5>Schedule : July</h5></td>
                         <td><h5>Date : 30/05/2023</h5></td>
                         <td><h5>Payment : Paid</h5></td>
                     </tr>
