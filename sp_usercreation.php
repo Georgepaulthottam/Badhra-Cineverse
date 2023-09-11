@@ -66,10 +66,13 @@
         .right-block {
             width: 30%;
             text-align: center;
+            margin-bottom:150px;    
+            
         }
        .right-block img{
         width:100px;
         height:100px;
+      
        }
        #profilepic{
         width:14vw;
@@ -230,22 +233,22 @@ tbody tr:hover {
         <div class="left-block">
             <h2>ADD USER</h2>
             <form>
-                <label for="firstName">First Name:</label>
+                <label for="firstName">First Name:</label><br>
                 <input type="text" id="firstName" name="firstName"><br><br>
         
-                <label for="lastName">Last Name:</label>
+                <label for="lastName">Last Name:</label><br>
                 <input type="text" id="lastName" name="lastName"><br><br>
                 
-                <label for="userName">User Name:</label>
+                <label for="userName">User Name:</label><br>
                 <input type="text" id="userName" name="userName"><br><br>
                
-                <label for="mobile">Mobile:</label>
+                <label for="mobile">Mobile:</label><br>
                 <input type="number" id="mobile" name="mobile"><br><br>
              
-                <label for="password">Password</label>
+                <label for="password">Password</label><br>
                 <input type="text" id="password" name="password"><br><br>
                 
-                <label for="conpassword">Confirm Password</label>
+                <label for="conpassword">Confirm Password</label><br>
                 <input type="text" id="conpassword" name="conpassword"><br><br>
 
 
@@ -253,18 +256,18 @@ tbody tr:hover {
                  
                 <div class="arrow-icon" onclick="toggleBankPanFields()">&#9660; Bank & Pan (Optional)</div>
                 <div class="bank-pan-fields">
-                    <label for="accountHolder">Account Holder:</label>
+                    <label for="accountHolder">Account Holder:</label><br>
                     <input type="text" id="accountHolder" name="accountHolder"><br><br>
 
-                    <label for="accountNumber">Account Number:</label>
+                    <label for="accountNumber">Account Number:</label><br>
                     <input type="text" id="accountNumber" name="accountNumber"><br><br>
 
-                    <label for="branchName">Branch Name:</label>
+                    <label for="branchName">Branch Name:</label><br>
                     <input type="text" id="branchName" name="branchName"><br><br>
 
-                    <label for="branchIFSC">Branch IFSC:</label>
+                    <label for="branchIFSC">Branch IFSC:</label><br>
                     <input type="text" id="branchIFSC" name="branchIFSC"><br><br>
-                    <label for="panNumber">Pan Number:</label>
+                    <label for="panNumber">Pan Number:</label><br>f
                     <input type="text" id="panNumber" name="panNumber"><br><br>
                     <!-- Add other bank & pan input fields here -->
                 </div>
@@ -278,7 +281,9 @@ tbody tr:hover {
     <div class="button-container">
         <button class="create-button">Create</button>
         <button class="cancel-button" onclick="closePopup()">Cancel</button>
+            
     </div>
+  
 </div>
 
 		  <!------top-navbar-end-----------> 
