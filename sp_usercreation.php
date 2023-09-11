@@ -64,8 +64,13 @@
         }
 
         .right-block {
-            width: 30%;
+            width: 40%;
             text-align: center;
+            border:2px solid black;
+            padding:50px;
+           position:absolute;
+            left:400px;
+            top:100px;
         }
        .right-block img{
         width:100px;
@@ -248,8 +253,11 @@ tbody tr:hover {
                 <label for="conpassword">Confirm Password</label>
                 <input type="text" id="conpassword" name="conpassword"><br><br>
 
-
-                <!-- Add other input fields here -->
+                <div class="right-block">
+                <img src="user.png">
+                <input type="file" name="profilepic" id="profilepic">
+                </div>
+                 <!-- Add other input fields here -->
                  
                 <div class="arrow-icon" onclick="toggleBankPanFields()">&#9660; Bank & Pan (Optional)</div>
                 <div class="bank-pan-fields">
@@ -270,10 +278,7 @@ tbody tr:hover {
                 </div>
             </form>
         </div>
-        <div class="right-block">
-            <img src="user.png">
-            <input type="file" name="profilepic" id="profilepic">
-        </div>
+        
     </div>
     <div class="button-container">
         <button class="create-button">Create</button>
