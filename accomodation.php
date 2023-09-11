@@ -19,22 +19,32 @@ $query6 = ("SELECT * FROM users where dept='" . mysqli_real_escape_string($conn,
 $result6 = mysqli_query($conn, $query6);
 $query7 = ("SELECT * FROM accom_details");
 $result7 = mysqli_query($conn, $query7);
+
 if(isset($_POST['add'])){
 
-     $accommedation=$_POST['accommedation'];
-    $desc=$_POST['description'];
-  $addsql = "INSERT INTO `temp_acc` (`username`, `accommedation`, `description`) VALUES (?, ?, ?)";
-  $stmt = mysqli_prepare($conn, $addsql);
-  mysqli_stmt_bind_param($stmt, "sss", $tempusername, $accommedation, $desc);
-
-  foreach ($_POST['username'] as $tempusername) {
-    mysqli_stmt_execute($stmt);
+  $accommedation=$_POST['accommedation'];
+   $desc=$_POST['description'];
+   $usr=$_POST["username"];
+  if (!empty($usr)) {
+    foreach ($usr as $tempusername) {
+      $addsql = "INSERT INTO `temp_acc` (`username`, `accommedation`, `description`) VALUES (?,?,?)";
+      $stmt = mysqli_prepare($conn, $addsql);
+      mysqli_stmt_bind_param($stmt, "sss", $tempusername,$accommedation,$desc);
+      mysqli_stmt_execute($stmt);
+      mysqli_stmt_close($stmt);
+      
+    }
+    
   }
-
-  mysqli_stmt_close($stmt);
   header("location:accomodation.php");
   die();
+ 
 }
+
+
+
+ 
+
 
 
 ?>
@@ -221,14 +231,12 @@ include 'adminheadersidebar.php'; ?>
               </div>
               <div class="col-sm-8 text-secondary">
                 <select id="multi_option" multiple name="username[]" placeholder="Select Users" data-silent-initial-value-set="false">
-                  <?php
-                  while ($row = mysqli_fetch_assoc($result)) {
-                    echo (' <option value="' . $row['username'] . '">' . $row['username'] . '</option>');
-                  }
-
-
-                  ?>
-                </select>
+    <?php
+    while ($row = mysqli_fetch_assoc($result)) {
+        echo (' <option value="' . $row['username'] . '">' . $row['username'] . '</option>');
+    }
+    ?>
+</select>
               </div>
             </div>
             <div class="row mb-3 user-none" id="appear4">
@@ -341,7 +349,7 @@ include 'adminheadersidebar.php'; ?>
             <th>Camera dept</th>
             <th>'.$accrow['username'].'</th>
             <th>'.$accrow['accommedation'].'</th>
-            <th>sfgvfsg</th>
+            <th>' . $accrow['description'] . '</th>
 
             <th>
               <form action="#" method="post">
@@ -393,7 +401,7 @@ include 'adminheadersidebar.php'; ?>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
-  <script type="text/javascript" src="js/virtual-select.min.js"></script>
+ 
 
 
   <script type="text/javascript">

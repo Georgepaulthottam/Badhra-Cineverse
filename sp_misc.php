@@ -110,6 +110,31 @@ tbody tr:hover {
   border-color: #0056b3;
 }
 	/* css for acceptAll and rejectAll Button*/
+  #acceptAllBtn {
+			
+			visibility: hidden;
+			margin-left: 0%;
+			color: #fff;
+    border: 1px solid rgb(2, 8, 3);
+    border-radius: 10%;
+    padding: 5px;
+    background-color: #2bcd72;
+    letter-spacing: 2px;
+    cursor: pointer;
+		}
+
+		#rejectAllBtn {
+			
+			visibility: hidden;
+			color: #fff;
+    background-color: #F44336;
+    border: 1px solid black;
+    border-radius: 10%;
+    padding: 4px;
+    
+    letter-spacing: 1px;
+    cursor: pointer;
+		}
 	.btnsCheck{
 		margin-left:3%;
 	}
@@ -221,6 +246,7 @@ tbody tr:hover {
     border: none;
     cursor: pointer;
     border-radius: 5px;
+    margin-left:-35px;
 }
 
 .dropdown-content {
@@ -302,7 +328,9 @@ tbody tr:hover {
 			if(mysqli_num_rows($rowresult)!=0){ 
         ?>
     <tr>
-	
+    <th><span class="custom-checkbox">
+											<input type="checkbox" onchange='selects()' id="selectAll">
+											<label for="selectAll"></label></th>
       <th>SI NO</th>
       <th>DATE</th>
       <th> Name</th>
@@ -323,7 +351,9 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   $no=$no+1;
   echo('
 								<tr>
-								
+								</th><th> <span class="custom-checkbox">
+									 <input type="checkbox" id="checkbox" name="checkbox" value="1">
+									 <label for="checkbox1"></label></th>
   <td>'.$no.'</td>
       <td>'.$date.'</td>
       <td>'.$row['name'].'</td>
@@ -357,7 +387,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 }
  echo('      <tr>
        
-      <td colspan="7" style="text-align:right;"> TOTAL:</td>
+      <td colspan="8" style="text-align:right;"> TOTAL:</td>
 	  
       <td>'.$sum.'</td>
 </tr>' );
@@ -374,12 +404,17 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
   </tbody>
 </table>
+<div>
+							<button id="acceptAllBtn" formaction="#">Accept All</button>
+							<button id="rejectAllBtn" formaction="#">Reject All</button>
+						</div><br>
+ 
 
 <div class="download-container">
         <div class="button-container">
             <button id="download-button">Download as PDF</button>
             <div class="dropdown">
-                <button class="dropbtn">></button>
+                <button class="dropbtn">&#9660;</button>
                 <div class="dropdown-content">
                     <a href="#" id="pdf">PDF</a>
                     <a href="#" id="png">PNG</a>
@@ -387,8 +422,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
                 </div>
             </div>
         </div>
-        <div class="separator"></div>
-    </div>   
+        
 <br>
 
         <!------main-content-end----------->
@@ -408,33 +442,54 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
 
     <!-------complete html----------->
-
-
     <script type="text/javascript">
+		
 
-//Select all boxes of table
+		//select all and reject all
+		function selects() {
+			var ele = document.getElementsByName("checkbox");
+			if (document.getElementById("selectAll").checked == true) {
+				document.getElementById("acceptAllBtn").style.visibility = "visible";
+				document.getElementById("rejectAllBtn").style.visibility = "visible";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = true;
+				}
+			}
+			else{
+				document.getElementById("acceptAllBtn").style.visibility = "hidden";
+				document.getElementById("rejectAllBtn").style.visibility = "hidden";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = false;
+				}
+			}
+		}
+	</script>
 
-function selects() {
-     var ele = document.getElementsByName("checkbox");
-     if (document.getElementById("selectAll").checked == true ) {
-         document.getElementById("acceptAllBtn").style.visibility = "visible";
-         document.getElementById("rejectAllBtn").style.visibility = "visible";
-         for (var i = 0; i < ele.length; i++) {
-             if (ele[i].type == 'checkbox')
-                 ele[i].checked = true;
-         }
-     }
-     else{
-         document.getElementById("acceptAllBtn").style.visibility = "hidden";
-         document.getElementById("rejectAllBtn").style.visibility = "hidden";
-         for (var i = 0; i < ele.length; i++) {
-             if (ele[i].type == 'checkbox')
-                 ele[i].checked = false;
-         }
-     }
- }
+<script>
+
+// script.js
+document.getElementById("download-button").addEventListener("click", function() {
+    const format = document.getElementById("pdf").innerText.toLowerCase();
+    const fileName = `page.${format}`;
+    const pdfOptions = {
+        filename: fileName,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(document.body).set(pdfOptions).outputPdf(function(pdf) {
+        const blob = new Blob([pdf], { type: 'application/pdf' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = fileName;
+        link.click();
+    });
+});
+
 </script>
-
 </body>
 
 </html>

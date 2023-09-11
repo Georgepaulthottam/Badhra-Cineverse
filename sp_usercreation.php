@@ -1,4 +1,4 @@
-<?php $activePage = 'usercreation'; include 'adminheadersidebar.php'; ?>
+<?php $activePage = 'usercreation'; include 'sp_header.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -188,7 +188,11 @@ tbody tr:hover {
 	.btnsCheck{
 		margin-left:3%;
 	}
- 
+ .salary{
+    position: absolute;
+    margin-left:  400px;
+    top:360px;
+ }
 
     </style>
   
@@ -255,8 +259,14 @@ tbody tr:hover {
                 <div class="right-block">
                 <img src="user.png">
                 <input type="file" name="profilepic" id="profilepic">
-              
                 </div>
+                <div class="salary">
+                <label for="accountHolder">sdkfhckueqdcbh:</label><br>
+                    <input type="text" id="accountHolder" name="accountHolder"><br><br>
+
+                    <label for="accountNumber">kwjfnhli4grjn:</label><br>
+                    <input type="text" id="accountNumber" name="accountNumber"><br><br>
+                    </div>
                  <!-- Add other input fields here -->
                  
                 <div class="arrow-icon" onclick="toggleBankPanFields()">&#9660; Bank & Pan (Optional)</div>
