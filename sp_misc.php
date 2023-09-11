@@ -186,7 +186,8 @@ tbody tr:hover {
 
         }
 	
-        
+  
+  
     </style>
      <script>
         function toggleRows() {
@@ -303,10 +304,13 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
         echo('<h2>NO PENDTING REQUESTS</h2>');
       }?>
 
- </tbody>
- 
-    <br>
- 
+
+
+  </tbody>
+</table>
+
+          
+<br>
 
         <!------main-content-end----------->
 
