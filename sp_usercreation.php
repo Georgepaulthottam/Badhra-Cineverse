@@ -1,4 +1,3 @@
-
 <?php $activePage = 'misc'; include 'adminheadersidebar.php'; ?>
 <!doctype html>
 <html lang="en">
