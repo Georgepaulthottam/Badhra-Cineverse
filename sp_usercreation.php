@@ -226,7 +226,7 @@ tbody tr:hover {
   <body>
   
 
-  <button class="add-user-button" id="addUserButton">Add User &#1759;</button>
+  <button class="add-user-button" id="addUserButton">Add User <i class="fa fa-plus"></i></button>
 
 <div class="popup-overlay" id="popupOverlay" ></div>
 <div class="popup" id="popup" style="overflow-x:auto;">
@@ -256,6 +256,7 @@ tbody tr:hover {
                 <div class="right-block">
                 <img src="user.png">
                 <input type="file" name="profilepic" id="profilepic">
+              
                 </div>
                  <!-- Add other input fields here -->
                  
