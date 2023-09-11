@@ -2,46 +2,39 @@
 $activePage='salary';
 include 'sp_header.php';
  ?>
-<div class="middle-section">
+<div class="middle-section" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
     <div id="salary-status" class="salary-status" style="">
         <div class="salary-status-child">
-            <h4 style="border-bottom:1px solid white;font-family:'Times New Roman', Times, serif;">SAlARY STATUS</h4>
-            <div class="salary-status-part1" style="float:left; margin-left:10%;">
-                <table class="salary-status-table">
-                    <tr><td><h5>Select Department:</h5></td>
-                        <td><select name="" id="">
+            <h4 style="border-bottom:1px solid white;">SALARY STATUS</h4>
+            <table style="width:100%">
+                    <tr>
+                        <td><h5>Scedule : July</h5></td>
+                        <td><h5>Date : 30/05/2023</h5></td>
+                        <td><h5>Payment : Paid</h5></td>
+                    </tr>
+            </table>
+            <div class="salary-status-part1" style="float:left; width:100%;">
+                <table class="salary-status-main-table">
+                    <tr><td><h5 style="margin-left:21%">Select Department:</h5></td>
+                        <td><select name="" class="salary-status-main-select">
                                 <option value="">Department 1</option>
                                 <option value="">Depsrtment 2</option>
                             </select>
                     </td></tr>
-                    <tr><td><h5>Select User:</h5></td>
-                        <td><select name="" id="">
+                    <tr><td><h5 style="margin-left:21%">Select User:</h5></td>
+                        <td><select name="" class="salary-status-main-select">
                                 <option value="">User 1</option>
                                 <option value="">User 2</option>
                             </select>
                     </td></tr>
-                    <tr><td><h5>Select Status:</h5></td>
-                        <td><select name="" id="">
+                    <tr><td><h5 style="margin-left:21%">Select Status:</h5></td>
+                        <td><select name="" class="salary-status-main-select">
                                 <option value="">Paid</option>
                                 <option value="">UnPaid</option>
                             </select>
                     </td></tr>
                     <tr><td colspan="2" style="text-align:center;"><input type="submit" value="Ok" class="okbutton"></td></tr>
                 </table>
-            </div>
-            <div class="salary-status-part2" style="float:right; margin-right:27%;">
-            <form action="">
-            <table class="salary-status-table">
-                <tr>
-                    <td><h5>Scedule :</h5></td>
-                    <td><h5>July</h5></td>
-                </tr>
-                <tr>
-                    <td><h5>Payment Status :</h5></td>
-                    <td><h5>Paid</h5></td>
-                </tr>
-            </table>
-            </form>
             </div>
         </div>
     </div>
@@ -85,7 +78,7 @@ include 'sp_header.php';
         </div>
         <div class="salary-status-child" id="salaryRate">
             <table class="salary-status-table">
-                <tr><th colspan="2" ><h5 style="margin-left:25%;">SALARY</h5></th></tr>
+                <tr><th colspan="2" ><h5>SALARY</h5></th></tr>
                 <tr>
                     <td>Assigned Salary :</td>
                     <td>1000</td>
@@ -103,12 +96,13 @@ include 'sp_header.php';
         </div>
     </div>
     <div class="salary-status">
-        <div class="salary-status-child" style="overflow-x:auto;font-family:'Times New Roman', Times, serif;">
+        <div class="salary-status-child" style="overflow-x:auto;">
         <h4>SALARY REPORT</h4>
         <table class="table table-striped table-hover" style="color:white;">
             <tr>
                 <td>Sim</td>
                 <td>Date</td>
+                <td>Bata</td>
                 <td>Salary</td>
                 <td>TDS</td>
                 <td>TA</td>
@@ -116,6 +110,7 @@ include 'sp_header.php';
                 <td>Status</td>
             </tr>
             <tr>
+                <td>AAA</td>
                 <td>AAA</td>
                 <td>AAA</td>
                 <td>AAA</td>
