@@ -247,7 +247,8 @@ include 'adminheadersidebar.php'; ?>
                 <select id="multi_option" multiple name="usernamew[]" placeholder="Select Users" data-silent-initial-value-set="false">
                   <?php
                   while ($row3 = mysqli_fetch_assoc($result3)) {
-                    echo (' <option value="' . $row3['username'] . '">' . $row3['username'] . '</option>');
+                    echo ('
+                     <option value="' . $row3['username'] . '">' . $row3['username'] . '</option>');
                   }
 
 
@@ -401,6 +402,7 @@ include 'adminheadersidebar.php'; ?>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
+  
  
 
 
