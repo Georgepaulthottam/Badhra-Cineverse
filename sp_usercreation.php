@@ -282,6 +282,7 @@ tbody tr:hover {
 
                     <label for="branchIFSC">Branch IFSC:</label><br>
                     <input type="text" id="branchIFSC" name="branchIFSC"><br><br>
+
                     <label for="panNumber">Pan Number:</label><br>
                     <input type="text" id="panNumber" name="panNumber"><br><br>
                     <!-- Add other bank & pan input fields here -->
@@ -302,7 +303,6 @@ tbody tr:hover {
 		   <!------main-content-start-----------> 
            
            <table>
-
 <thead>
                 
   <tr>
