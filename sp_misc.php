@@ -161,9 +161,9 @@ tbody tr:hover {
             display: none;
             font-family: Arial, sans-serif;
             position: fixed;
-            top: 57%;
-            left: 67%;
-            font: size 5px;
+            top: 46%;
+            left: 57%;
+            font-size:19px;
             height: 160px;
             width: 270px;
             transform: translate(-50%, -50%);
