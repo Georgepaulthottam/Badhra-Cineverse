@@ -28,6 +28,9 @@ else if($activePage == 'expense'){
 else if($activePage == 'accomodation'){
 	$PageTitle="Accomodation";
 }
+else if($activePage == 'salary'){
+	$PageTitle="Salary Manager";
+}
 
 
 
@@ -136,9 +139,8 @@ else if($activePage == 'accomodation'){
 		  <i class="material-icons">border_color</i>Salary Manager
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu5">
-		     <li><a href="#">Pages 1</a></li>
-			 <li><a href="#">Pages 2</a></li>
-			 <li><a href="#">Pages 3</a></li>
+		     <li><a href="ad_salary.php">Salary Manager</a></li>
+			 
 		  </ul>
 		  </li>
 		  

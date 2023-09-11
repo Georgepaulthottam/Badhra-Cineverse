@@ -78,7 +78,7 @@ text-align:center;
   color:black;
   width:16.3vw;
   margin-right:110px;
-  border:2px solid black;
+ 
 }
 
 .inputfield1{
@@ -111,7 +111,8 @@ justify-content:right;
   color:black;
   width:16.4vw;
   margin-right:109px;
-  border:2px solid black;
+ 
+ 
 }
 ::placeholder{
 color:black;
@@ -122,6 +123,14 @@ color:black;
 hr {
   border-top: 0.3px solid grey;
   opacity:0.5;
+
+}
+#vehiclesubmit{
+ padding:8px;
+ width:8vw;
+ border-radius:10px;
+ border:2px solid black;
+
 }
 @media only screen and (max-width: 767px){
     section {
@@ -132,7 +141,7 @@ hr {
     background-color: #fff;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     color:black;
-    font-weight:100;
+    
     width:90vw;
      
 }
@@ -253,7 +262,7 @@ text-align:center;
 
 
 
-
+ <input type="submit" value="Submit" id="vehiclesubmit">
                     <!----footer-design------------->
                 </section>
                     <br> <br>

@@ -1,4 +1,3 @@
-
 <?php $activePage = 'misc'; include 'adminheadersidebar.php'; ?>
 <!doctype html>
 <html lang="en">
@@ -64,15 +63,17 @@
         }
 
         .right-block {
-            width: 30%;
+            width: 40%;
             text-align: center;
-            margin-bottom:150px;    
-            
+            border:2px solid black;
+            padding:50px;
+           position:absolute;
+            left:400px;
+            top:100px;
         }
        .right-block img{
         width:100px;
         height:100px;
-      
        }
        #profilepic{
         width:14vw;
@@ -233,57 +234,55 @@ tbody tr:hover {
         <div class="left-block">
             <h2>ADD USER</h2>
             <form>
-                <label for="firstName">First Name:</label><br>
+                <label for="firstName">First Name:</label>
                 <input type="text" id="firstName" name="firstName"><br><br>
         
-                <label for="lastName">Last Name:</label><br>
+                <label for="lastName">Last Name:</label>
                 <input type="text" id="lastName" name="lastName"><br><br>
                 
-                <label for="userName">User Name:</label><br>
+                <label for="userName">User Name:</label>
                 <input type="text" id="userName" name="userName"><br><br>
                
-                <label for="mobile">Mobile:</label><br>
+                <label for="mobile">Mobile:</label>
                 <input type="number" id="mobile" name="mobile"><br><br>
              
-                <label for="password">Password</label><br>
+                <label for="password">Password</label>
                 <input type="text" id="password" name="password"><br><br>
                 
-                <label for="conpassword">Confirm Password</label><br>
+                <label for="conpassword">Confirm Password</label>
                 <input type="text" id="conpassword" name="conpassword"><br><br>
 
-
-                <!-- Add other input fields here -->
+                <div class="right-block">
+                <img src="user.png">
+                <input type="file" name="profilepic" id="profilepic">
+                </div>
+                 <!-- Add other input fields here -->
                  
                 <div class="arrow-icon" onclick="toggleBankPanFields()">&#9660; Bank & Pan (Optional)</div>
                 <div class="bank-pan-fields">
-                    <label for="accountHolder">Account Holder:</label><br>
+                    <label for="accountHolder">Account Holder:</label>
                     <input type="text" id="accountHolder" name="accountHolder"><br><br>
 
-                    <label for="accountNumber">Account Number:</label><br>
+                    <label for="accountNumber">Account Number:</label>
                     <input type="text" id="accountNumber" name="accountNumber"><br><br>
 
-                    <label for="branchName">Branch Name:</label><br>
+                    <label for="branchName">Branch Name:</label>
                     <input type="text" id="branchName" name="branchName"><br><br>
 
-                    <label for="branchIFSC">Branch IFSC:</label><br>
+                    <label for="branchIFSC">Branch IFSC:</label>
                     <input type="text" id="branchIFSC" name="branchIFSC"><br><br>
-                    <label for="panNumber">Pan Number:</label><br>f
+                    <label for="panNumber">Pan Number:</label>
                     <input type="text" id="panNumber" name="panNumber"><br><br>
                     <!-- Add other bank & pan input fields here -->
                 </div>
             </form>
         </div>
-        <div class="right-block">
-            <img src="user.png">
-            <input type="file" name="profilepic" id="profilepic">
-        </div>
+        
     </div>
     <div class="button-container">
         <button class="create-button">Create</button>
         <button class="cancel-button" onclick="closePopup()">Cancel</button>
-            
     </div>
-  
 </div>
 
 		  <!------top-navbar-end-----------> 

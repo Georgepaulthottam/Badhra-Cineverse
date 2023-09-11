@@ -53,10 +53,16 @@ include 'sp_header.php';
 
   .user-container {
     margin-top: 50px;
+ margin-left:20px;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 30px;
+    background:#fff;
+     height:15vh;
+     border-radius:20px;
+     width:80vw;
+     box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.2);
   }
 
   .select-label {
@@ -98,7 +104,7 @@ include 'sp_header.php';
     padding: 5px;
     margin-bottom:40px;
     margin-right: 20px;
-    box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+    box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.2);
     border-radius: 10px;
     border: 1px solid grey;
   }
