@@ -131,14 +131,24 @@ tbody tr:hover {
             cursor: pointer;
             font-size: 8px;
         }
-
+        .overlay 
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
         .delete-prompt {
             display: none;
             font-family: Arial, sans-serif;
             position: fixed;
-            top: 57%;
-            left: 67%;
-            font: size 5px;
+            top: 46%;
+            left: 57%;
+            font-size:19px;
             height: 160px;
             width: 270px;
             transform: translate(-50%, -50%);
@@ -258,6 +268,7 @@ tbody tr:hover {
      <script>
         function toggleRows() {
             var rows = document.getElementsByClassName("hidden-row");
+            var overlay=document.getElementByClassName("overlay");
             for (var i = 0; i < rows.length; i++) {
                 rows[i].style.display = "table-row";
             }
@@ -266,6 +277,7 @@ tbody tr:hover {
        
 		function showDeletePrompt() {
             document.getElementById("deletePrompt").style.display = "block";
+            document.getElementByClassName("overlay").style.display = "block";
          }
 
         function hideDeletePrompt() {
@@ -374,7 +386,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
   </tbody>
 </table>
-
+<div class="overlay"></div>
 <div class="download-container">
         <div class="button-container">
             <button id="download-button">Download as PDF</button>
