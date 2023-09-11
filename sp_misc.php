@@ -110,6 +110,31 @@ tbody tr:hover {
   border-color: #0056b3;
 }
 	/* css for acceptAll and rejectAll Button*/
+  #acceptAllBtn {
+			
+			visibility: hidden;
+			margin-left: 0%;
+			color: #fff;
+    border: 1px solid rgb(2, 8, 3);
+    border-radius: 10%;
+    padding: 5px;
+    background-color: #2bcd72;
+    letter-spacing: 2px;
+    cursor: pointer;
+		}
+
+		#rejectAllBtn {
+			
+			visibility: hidden;
+			color: #fff;
+    background-color: #F44336;
+    border: 1px solid black;
+    border-radius: 10%;
+    padding: 4px;
+    
+    letter-spacing: 1px;
+    cursor: pointer;
+		}
 	.btnsCheck{
 		margin-left:3%;
 	}
@@ -136,9 +161,9 @@ tbody tr:hover {
             display: none;
             font-family: Arial, sans-serif;
             position: fixed;
-            top: 57%;
-            left: 67%;
-            font: size 5px;
+            top: 46%;
+            left: 57%;
+            font-size:19px;
             height: 160px;
             width: 270px;
             transform: translate(-50%, -50%);
@@ -186,7 +211,74 @@ tbody tr:hover {
 
         }
 	
+        .download-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 21.3vh;
+    flex-direction: column;
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+}
+
+#download-button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.dropbtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-left:-35px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.separator {
   
+    height: 40px;
+    background-color: #ccc;
+    
+} 
   
     </style>
      <script>
@@ -236,7 +328,9 @@ tbody tr:hover {
 			if(mysqli_num_rows($rowresult)!=0){ 
         ?>
     <tr>
-	
+    <th><span class="custom-checkbox">
+											<input type="checkbox" onchange='selects()' id="selectAll">
+											<label for="selectAll"></label></th>
       <th>SI NO</th>
       <th>DATE</th>
       <th> Name</th>
@@ -257,7 +351,9 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
   $no=$no+1;
   echo('
 								<tr>
-								
+								</th><th> <span class="custom-checkbox">
+									 <input type="checkbox" id="checkbox" name="checkbox" value="1">
+									 <label for="checkbox1"></label></th>
   <td>'.$no.'</td>
       <td>'.$date.'</td>
       <td>'.$row['name'].'</td>
@@ -291,7 +387,7 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 }
  echo('      <tr>
        
-      <td colspan="7" style="text-align:right;"> TOTAL:</td>
+      <td colspan="8" style="text-align:right;"> TOTAL:</td>
 	  
       <td>'.$sum.'</td>
 </tr>' );
@@ -308,8 +404,25 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
   </tbody>
 </table>
+<div>
+							<button id="acceptAllBtn" formaction="#">Accept All</button>
+							<button id="rejectAllBtn" formaction="#">Reject All</button>
+						</div><br>
+ 
 
-          
+<div class="download-container">
+        <div class="button-container">
+            <button id="download-button">Download as PDF</button>
+            <div class="dropdown">
+                <button class="dropbtn">&#9660;</button>
+                <div class="dropdown-content">
+                    <a href="#" id="pdf">PDF</a>
+                    <a href="#" id="png">PNG</a>
+                    <a href="#" id="xlsx">XLSX</a>
+                </div>
+            </div>
+        </div>
+        
 <br>
 
         <!------main-content-end----------->
@@ -329,33 +442,54 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
 
 
     <!-------complete html----------->
-
-
     <script type="text/javascript">
+		
 
-//Select all boxes of table
+		//select all and reject all
+		function selects() {
+			var ele = document.getElementsByName("checkbox");
+			if (document.getElementById("selectAll").checked == true) {
+				document.getElementById("acceptAllBtn").style.visibility = "visible";
+				document.getElementById("rejectAllBtn").style.visibility = "visible";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = true;
+				}
+			}
+			else{
+				document.getElementById("acceptAllBtn").style.visibility = "hidden";
+				document.getElementById("rejectAllBtn").style.visibility = "hidden";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = false;
+				}
+			}
+		}
+	</script>
 
-function selects() {
-     var ele = document.getElementsByName("checkbox");
-     if (document.getElementById("selectAll").checked == true ) {
-         document.getElementById("acceptAllBtn").style.visibility = "visible";
-         document.getElementById("rejectAllBtn").style.visibility = "visible";
-         for (var i = 0; i < ele.length; i++) {
-             if (ele[i].type == 'checkbox')
-                 ele[i].checked = true;
-         }
-     }
-     else{
-         document.getElementById("acceptAllBtn").style.visibility = "hidden";
-         document.getElementById("rejectAllBtn").style.visibility = "hidden";
-         for (var i = 0; i < ele.length; i++) {
-             if (ele[i].type == 'checkbox')
-                 ele[i].checked = false;
-         }
-     }
- }
+<script>
+
+// script.js
+document.getElementById("download-button").addEventListener("click", function() {
+    const format = document.getElementById("pdf").innerText.toLowerCase();
+    const fileName = `page.${format}`;
+    const pdfOptions = {
+        filename: fileName,
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+    };
+
+    html2pdf().from(document.body).set(pdfOptions).outputPdf(function(pdf) {
+        const blob = new Blob([pdf], { type: 'application/pdf' });
+        const link = document.createElement('a');
+        link.href = window.URL.createObjectURL(blob);
+        link.download = fileName;
+        link.click();
+    });
+});
+
 </script>
-
 </body>
 
 </html>

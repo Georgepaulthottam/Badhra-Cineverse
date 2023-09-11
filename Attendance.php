@@ -111,9 +111,9 @@ header('location:Attendance.php');
 								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
 									echo('
 								<tr>
-									<th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
-											<label for="checkbox1"></label></th>
+									 </th><th><span class="custom-checkbox">
+									 <input type="checkbox" id="checkbox" name="checkbox" value="1">
+									 <label for="checkbox1"></label></th>
 									<th>'.$row['username'].'</th>
 									<th>'.$row['dept'].'</th>
 									<th>Time</th>

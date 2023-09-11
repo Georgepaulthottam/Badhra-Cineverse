@@ -1,5 +1,4 @@
-
-<?php $activePage = 'misc'; include 'adminheadersidebar.php'; ?>
+<?php $activePage = 'usercreation'; include 'sp_header.php'; ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -64,8 +63,13 @@
         }
 
         .right-block {
-            width: 30%;
+            width: 40%;
             text-align: center;
+            border:2px solid black;
+            padding:50px;
+           position:absolute;
+            left:400px;
+            top:100px;
         }
        .right-block img{
         width:100px;
@@ -184,7 +188,11 @@ tbody tr:hover {
 	.btnsCheck{
 		margin-left:3%;
 	}
- 
+ .salary{
+    position: absolute;
+    margin-left:  400px;
+    top:360px;
+ }
 
     </style>
   
@@ -221,7 +229,7 @@ tbody tr:hover {
   <body>
   
 
-  <button class="add-user-button" id="addUserButton">Add User &#1759;</button>
+  <button class="add-user-button" id="addUserButton">Add User <i class="fa fa-plus"></i></button>
 
 <div class="popup-overlay" id="popupOverlay" ></div>
 <div class="popup" id="popup" style="overflow-x:auto;">
@@ -230,50 +238,57 @@ tbody tr:hover {
         <div class="left-block">
             <h2>ADD USER</h2>
             <form>
-                <label for="firstName">First Name:</label>
+                <label for="firstName">First Name:</label><br>
                 <input type="text" id="firstName" name="firstName"><br><br>
         
-                <label for="lastName">Last Name:</label>
+                <label for="lastName">Last Name:</label><br>
                 <input type="text" id="lastName" name="lastName"><br><br>
                 
-                <label for="userName">User Name:</label>
+                <label for="userName">User Name:</label><br>
                 <input type="text" id="userName" name="userName"><br><br>
                
-                <label for="mobile">Mobile:</label>
+                <label for="mobile">Mobile:</label><br>
                 <input type="number" id="mobile" name="mobile"><br><br>
              
-                <label for="password">Password</label>
+                <label for="password">Password</label><br>
                 <input type="text" id="password" name="password"><br><br>
                 
-                <label for="conpassword">Confirm Password</label>
+                <label for="conpassword">Confirm Password</label><br>
                 <input type="text" id="conpassword" name="conpassword"><br><br>
 
+                <div class="right-block">
+                <img src="user.png">
+                <input type="file" name="profilepic" id="profilepic">
+                </div>
+                <div class="salary">
+                <label for="accountHolder">sdkfhckueqdcbh:</label><br>
+                    <input type="text" id="accountHolder" name="accountHolder"><br><br>
 
-                <!-- Add other input fields here -->
+                    <label for="accountNumber">kwjfnhli4grjn:</label><br>
+                    <input type="text" id="accountNumber" name="accountNumber"><br><br>
+                    </div>
+                 <!-- Add other input fields here -->
                  
                 <div class="arrow-icon" onclick="toggleBankPanFields()">&#9660; Bank & Pan (Optional)</div>
                 <div class="bank-pan-fields">
-                    <label for="accountHolder">Account Holder:</label>
+                    <label for="accountHolder">Account Holder:</label><br>
                     <input type="text" id="accountHolder" name="accountHolder"><br><br>
 
-                    <label for="accountNumber">Account Number:</label>
+                    <label for="accountNumber">Account Number:</label><br>
                     <input type="text" id="accountNumber" name="accountNumber"><br><br>
 
-                    <label for="branchName">Branch Name:</label>
+                    <label for="branchName">Branch Name:</label><br>
                     <input type="text" id="branchName" name="branchName"><br><br>
 
-                    <label for="branchIFSC">Branch IFSC:</label>
+                    <label for="branchIFSC">Branch IFSC:</label><br>
                     <input type="text" id="branchIFSC" name="branchIFSC"><br><br>
-                    <label for="panNumber">Pan Number:</label>
+                    <label for="panNumber">Pan Number:</label><br>
                     <input type="text" id="panNumber" name="panNumber"><br><br>
                     <!-- Add other bank & pan input fields here -->
                 </div>
             </form>
         </div>
-        <div class="right-block">
-            <img src="user.png">
-            <input type="file" name="profilepic" id="profilepic">
-        </div>
+        
     </div>
     <div class="button-container">
         <button class="create-button">Create</button>

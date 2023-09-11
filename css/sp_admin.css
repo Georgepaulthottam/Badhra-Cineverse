@@ -506,19 +506,35 @@ width:89vw;
   margin: 15px;
   
 }
-.salary-status-table{
+.salary-status-main-table{
+  width: 100%;
   color:white;
-  margin-left: 25%;
-  font-family:'Times New Roman', Times, serif;
+}
+.salary-status-main-table tr td{
+  padding: 10px 5px 10px 5px;
+  text-align: left;
+}
+.salary-status-main-table tr th{
+  padding: 5px;
+  text-align: center;
+}
+.salary-status-main-select{
+  width: 100%;
+  padding: 10px 50px 10px 50px;
+  font-size: 16px;
+}
+.salary-status-table{
+  width: 80%;
+  color:white;
+  margin-left: 15%;
 }
 .salary-status-table tr td{
   padding: 10px;
   text-align: left;
-  font-weight:900;
 }
 .salary-status-table tr th{
   padding: 5px;
-  text-align: left;
+  text-align: center;
 }
 .salary-status-child button,.okbutton{
   background-color: #656765;
@@ -533,11 +549,10 @@ width:89vw;
   padding: 10px;
 }
 #departmentSelect {
-  background-color: #aaa3f2;
   color: #150202;
   padding: 16px 50px 16px 50px;
   font-size: 16px;
-  border: none;
+  border: 5px solid black;
   cursor: pointer;
 }
 
@@ -567,9 +582,6 @@ width:89vw;
   }
   .salary-status-part1{
     margin-right: 93px;
-  }
-  .salary-status-part2{
-    margin-right:25%;
   }
   #edittable{
     margin-left: 0px;

@@ -33,6 +33,9 @@ else if($activePage == 'crew'){
 else if($activePage == 'salary'){
 	$PageTitle="Salary Management ";
 }
+else if($activePage == 'usercreation'){
+	$PageTitle="User Creation ";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -152,7 +155,7 @@ else if($activePage == 'salary'){
 		  </li>
 
 
-		  <li class="<?php echo ($activePage === 'misc') ? 'active' : '';?>">
+		  <li class="<?php echo ($activePage === 'usercreation') ? 'active' : '';?>">
 		  <a href="sp_usercreation.php" class=""><i class="material-icons">grid_on</i>User Creation</a>
 		  </li>
 		   <li class="<?php echo ($activePage === 'notification') ? 'active' : '';?>">

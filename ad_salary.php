@@ -1,41 +1,26 @@
+<?php
+session_start();
+// Check if the user is not logged in
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") 
+{
+    header('Location: login.php'); 
+}
+require 'connection.php';
+?>
 <?php 
 $activePage='salary';
-include 'sp_header.php';
- ?>
+include 'adminheadersidebar.php';
+?>
 <div class="middle-section" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-    <div id="salary-status" class="salary-status" style="">
+<div id="salary-status" class="salary-status" style="">
         <div class="salary-status-child">
-            <h4 style="border-bottom:1px solid white;">SALARY STATUS</h4>
             <table style="width:100%">
                     <tr>
-                        <td><h5>Scedule : July</h5></td>
+                        <td><h5>Schedule : July</h5></td>
                         <td><h5>Date : 30/05/2023</h5></td>
                         <td><h5>Payment : Paid</h5></td>
                     </tr>
             </table>
-            <div class="salary-status-part1" style="float:left; width:100%;">
-                <table class="salary-status-main-table">
-                    <tr><td><h5 style="margin-left:21%">Select Department:</h5></td>
-                        <td><select name="" class="salary-status-main-select">
-                                <option value="">Department 1</option>
-                                <option value="">Depsrtment 2</option>
-                            </select>
-                    </td></tr>
-                    <tr><td><h5 style="margin-left:21%">Select User:</h5></td>
-                        <td><select name="" class="salary-status-main-select">
-                                <option value="">User 1</option>
-                                <option value="">User 2</option>
-                            </select>
-                    </td></tr>
-                    <tr><td><h5 style="margin-left:21%">Select Status:</h5></td>
-                        <td><select name="" class="salary-status-main-select">
-                                <option value="">Paid</option>
-                                <option value="">UnPaid</option>
-                            </select>
-                    </td></tr>
-                    <tr><td colspan="2" style="text-align:center;"><input type="submit" value="Ok" class="okbutton"></td></tr>
-                </table>
-            </div>
         </div>
     </div>
     <div id="select-user" class="salary-status">
@@ -129,14 +114,14 @@ include 'sp_header.php';
     function salaryRate(){
         salary.innerHTML = '<form action="">\n' +
             '    <table id="edittable" class="salary-status-table">\n' +
-            '        <tr><th colspan="2">SALARY</th></tr>\n' +
-            '   <tr>\n' +
-            '        <td>Assigned Salary :</td>\n' +
-            '        <td><input type="text"></td>\n' +
-            '    </tr>\n' +
-            '   <tr>\n' +
+            '                 <tr><th colspan="2">SALARY</th></tr>\n' +
+            '    <tr>\n' +
+            '       <td>Assigned Salary :</td>\n' +
+            '        <td>1000</td>\n' +
+            '   </tr>\n' +
+            '  <tr>\n' +
             '        <td>TDS :</td>\n' +
-            '        <td><input type="text"></td>\n' +
+            '        <td>2%</td>\n' +
             '    </tr>\n' +
             '    <tr>\n' +
             '        <td>TA :</td>\n' +
