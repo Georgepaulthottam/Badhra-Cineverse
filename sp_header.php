@@ -172,7 +172,6 @@ else if($activePage == 'usercreation'){
 		  <li class="<?php echo ($activePage === 'expense') ? 'active' : '';?>">
 					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
-		
 		</ul>
 	 </div>
 	 

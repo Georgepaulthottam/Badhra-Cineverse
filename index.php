@@ -119,7 +119,71 @@ include 'adminheadersidebar.php'; ?>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    /* Note that you only need to edit the config to customize the button! */
 
+.tickButton {
+  /* Config start */
+  --tick_sideLength:2rem;
+  --tick_topRightTriangleSideLength: 0.2rem;
+  /* Config end */
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: var(--tick_sideLength);
+  height: var(--tick_sideLength);
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.tickButton::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-width: 0 var(--tick_topRightTriangleSideLength) var(--tick_topRightTriangleSideLength) 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.tickButton:hover {
+  cursor: pointer;
+}
+
+.tickButton:hover::before {
+  --tick_topRightTriangleSideLength: calc(var(--tick_sideLength) * 2);
+}
+
+.tickButton:focus-visible::before {
+  --tick_topRightTriangleSideLength: calc(var(--tick_sideLength) * 2);
+}
+
+.tickButton>.tickIcon {
+  fill: white;
+  width: calc(var(--tick_sideLength) * 0.7);
+  height: calc(var(--tick_sideLength) * 0.7);
+  z-index: 1;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.tickButton:hover>.tickIcon {
+  fill: black;
+  transform: rotate(360deg);
+}
+
+.tickButton:focus-visible>.tickIcon {
+  fill: black;
+  transform: rotate(360deg);
+}
+
+</style>
 </head>
 
 <body>
@@ -197,9 +261,16 @@ include 'adminheadersidebar.php'; ?>
                 <div class="request-status" id="request1">
 
                     <form action="" method="post">
-                        <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
-                        <input name="settime" type="submit" value="Set Time" name="settime " id="settimebtn">
+                        <input type="text" class="time-input" name="time" placeholder=" Enter Pooja Starting Time" onfocus="(this.type='time')">
+                     
+                        <button type="submit" name="settime" id="settimebtn">
 
+                            <div tabindex="0" class="tickButton">
+      <svg class="tickIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
+      </svg>
+    </div>
+                        </button>
 
 
                         <!------Select Optionss with popup----------->
@@ -458,8 +529,16 @@ include 'adminheadersidebar.php'; ?>
 
         <!------Packup Button----------->
         <form action="index.php" method="post">
-            <input type="submit" value="Packup" name="Packup" class="packupbtn">
+            
+        
+            <button name="Packup" class="packupbtn" id="packupBtn">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none" class="svg-icon"><g stroke-width="2" stroke-linecap="round" stroke="#fff">
+    <rect y="5" x="4" width="16" rx="2" height="16"></rect><path d="m8 3v4"></path><path d="m16 3v4"></path><path d="m4 11h16"></path></g></svg>
+  <span class="lable">Packup</span>
+</button>
         </form>
+        
+<!------Packup Button Ends----------->
         <!------main-content-end----------->
 
 
