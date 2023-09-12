@@ -19,8 +19,8 @@ include 'user_header.php'; ?>
 <div id="user_chat">
 <h2>Popup Chat Window</h2>
 <form action="#">
-  <button type="submit" name="super-admin" value="super-admin">Super Admin</button>
-  <button type="submit" name="admin" value="admin">Admin</button>
+  <button type="submit" name="super-admin" value="super-admin" id="noti_btns">Super Admin</button>
+  <button type="submit" name="admin" value="admin" id="noti_btns" >Admin</button>
 </form>
 <div class="container">
   <i class="material-icons">chat_bubble_outline</i>
