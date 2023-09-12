@@ -677,9 +677,11 @@ transform:translateY(0px);
 /*confirmation for logout css ends*/ 
 
 @media only screen and (max-width: 767px) {
+
   .middle-section {
     flex: 1 1 100%;
     margin-bottom: 20px;
+    margin-left:20px;
   }
 
   .top-section {
