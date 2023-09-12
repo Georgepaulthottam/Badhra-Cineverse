@@ -43,15 +43,15 @@ include 'adminheadersidebar.php'; ?>
 	 <style>
         
 section {
-    margin:40px 200px;
+    margin:40px 50px;
     text-align: center;
     padding: 16px;
     border-radius: 10px;
-    background-color: #fff;
+    background-color: #262f35;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color:black;
+    color:whitesmoke;
     
-    width:60vw;
+    width:75vw;
      
 }
 .startKm{
@@ -132,15 +132,20 @@ hr {
  border:2px solid black;
 
 }
+#vehiclesubmit:hover{
+    color:white;
+    background:black;
+    cursor:pointer;
+}
 @media only screen and (max-width: 767px){
     section {
     margin:50px 20px;
     text-align: center;
     padding: 10px;
     border-radius: 10px;
-    background-color: #fff;
+   
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    color:black;
+   
     
     width:90vw;
      
@@ -165,11 +170,11 @@ hr {
 {
     align-items: center;
   border-radius: 5px;
-  background: #3D3D3D;
+ 
   padding: 5px;
   text-align:center;
   cursor: text;
-  color:#dcdcdc;
+
   letter-spacing:1px;
   margin-right:20px;
   width:38vw;
@@ -179,11 +184,11 @@ hr {
     align-items: center;
   border-radius: 5px;
   letter-spacing:1px;
-  background: #333333;
+ 
   text-align:center;
   padding: 5px;
   cursor: text;
-  color:#dcdcdc;
+ 
   width:66.4vw;
   margin-left:20px;
   margin-top:40px;
@@ -193,11 +198,11 @@ hr {
 
 text-align:center;
   border-radius: 5px;
-  background: #333333;
+  
   padding: 8px;
   letter-spacing:1px;
   cursor: text;
-  color:#dcdcdc;
+  
   width:38.3vw;
   margin-right:20px;
 }
@@ -220,7 +225,15 @@ text-align:center;
                     <br><br>
                     <form action="" method="post">
                         
-                                <h6 class="driverselect">Select Driver :</h6>
+                                <h6 class="driverselect">Select Driver &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+
+                                </h6>
                                 <div class="inputfield1">
                                     <select id="driverselect" name="drivername">
                                         <option value="0" selected disabled>Not Selected</option>
@@ -233,27 +246,56 @@ text-align:center;
                             
                     
 <hr>
-                        <h6 class="startKm">Starting KM :</h6>
+                        <h6 class="startKm">Starting KM  
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;    
+                        :</h6>
                         <div class="inputfield1">
                         <input type="number" id="startKm" placeholder="Enter Starting KM">    
                         </div>
 
 <hr>
 
-                        <h6 class="startKm">Starting KM(Upload Image) :</h6>
+                        <h6 class="startKm">Starting KM(Upload Image)  
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;  
+                                    
+                                    :</h6>
                         <div class="inputfield1">
                         <input type="file" id="startImg" placeholder="Select Starting KM Photo">    
                         </div>
 
 <hr>
-                        <h6 class="startKm">Ending KM :</h6>
+                        <h6 class="startKm">Ending KM  
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+                        :</h6>
                         <div class="inputfield1">
                         <input type="number" id="endKm" placeholder="Enter Ending KM ">    
                         </div>
 
 <hr>
 
-                        <h6 class="startKm">Ending KM(Upload Image) :</h6>
+                        <h6 class="startKm">Ending KM(Upload Image)  
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;   
+                        :</h6>
                         <div class="inputfield1">
                         <input type="file" id="endImg" placeholder="Select Ending KM Photo">    
                         </div>

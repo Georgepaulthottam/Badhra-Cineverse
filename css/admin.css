@@ -1,5 +1,6 @@
 body,html{
   background:#dcdcdc;
+  
 }
 
 
@@ -212,14 +213,13 @@ input[name="Packup"] {
 /* Styles for Pie Chart */
 .pie-chart-container {
   position: relative;
-  margin-left: 10%;
-  width: 19vw;
-  height: 30vh;
+  margin-left: 8%;
+  height:30vh;
 }
 
 .percentage-label {
   position: absolute;
-  top: 63%;
+  top: 58%;
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 20px;
@@ -361,11 +361,12 @@ transform:translateY(0px);
   justify-content: space-between;
   margin-bottom: 20px;
   color: white;
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif"
 }
 .salary-status-child{
   text-align: center;
   flex: 1;
-  background-color: #152935;
+  background-color: #262f35;
   padding: 20px;
   color: white;
   margin: 15px;
@@ -392,14 +393,16 @@ transform:translateY(0px);
   width: 80%;
   color:white;
   margin-left: 15%;
+
 }
 .salary-status-table tr td{
   padding: 10px;
   text-align: left;
-}
+  border-top:1px solid white;}
 .salary-status-table tr th{
   padding: 5px;
   text-align: center;
+
 }
 .salary-status-child button,.okbutton{
   background-color: #656765;
@@ -417,7 +420,7 @@ transform:translateY(0px);
   color: #150202;
   padding: 16px 50px 16px 50px;
   font-size: 16px;
-  border: 5px solid black;
+  border: 3px solid black;
   cursor: pointer;
 }
 

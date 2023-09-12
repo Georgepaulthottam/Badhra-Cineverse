@@ -152,7 +152,7 @@ if(isset($_POST['delete'])){
         }
 		
 		table {
-  background: #152935;
+  background: #262f35;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
