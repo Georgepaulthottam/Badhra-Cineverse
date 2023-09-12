@@ -70,7 +70,7 @@ if (isset($_POST['punchin'])) {
     header('location:index.php');
     // echo "alert('ATTENDANCE REQUEST SUBMITTED')";
 }
-if (isset($_POST['Packup'])) {
+if (isset($_POST['packup'])) {
     echo ("<script>confirm('are sure you want to pack-up?')</script>");
     $dateview = "SELECT * FROM schedule_day WHERE  DATE(date)=" . mysqli_real_escape_string($conn, 'DATE(NOW())') . " ";
     $dateres = mysqli_query($conn, $dateview);
@@ -183,6 +183,77 @@ include 'adminheadersidebar.php'; ?>
   transform: rotate(360deg);
 }
 
+/*confirmation for Packup popup css*/
+.pkp-overlay 
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+.pkp-model {
+  position: fixed;
+  top: 52%;
+  left: 57%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  z-index: 1001;
+  display: none;
+  
+}
+.pkp-model .pkp-model-content
+{
+  position: relative;
+  background: #2d2d2d;
+  color:#fff;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  
+  box-shadow: 0 7px 25px rgba(0,0,0,0.08);   
+}
+.pkp-model .pkp-confirmationtext
+{
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.25em;
+}
+.pkp-model .pkp-buttoncontainer
+{
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+.pkp-model .pkp-model-content button
+{
+  position: relative;
+  font-size: 1.25em;
+  background: black;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  margin-top: 10px;
+  border-radius:5px;
+  border:1px solid white;
+  width:7vw;
+  
+}
+.pkp-model .pkp-model-content button:hover
+{
+  color: #999;
+}
+
+/*confirmation for Packup css ends*/ 
 </style>
 </head>
 
@@ -528,7 +599,7 @@ include 'adminheadersidebar.php'; ?>
         </div>
 
         <!------Packup Button----------->
-        <form action="index.php" method="post">
+        
             
         
             <button name="Packup" class="packupbtn" id="packupBtn">
@@ -536,8 +607,25 @@ include 'adminheadersidebar.php'; ?>
     <rect y="5" x="4" width="16" rx="2" height="16"></rect><path d="m8 3v4"></path><path d="m16 3v4"></path><path d="m4 11h16"></path></g></svg>
   <span class="lable">Packup</span>
 </button>
-        </form>
-        
+       
+<div id="pkp-overlay" class="pkp-overlay"></div>
+    <div id="pkp-custom-confirm" class="pkp-model" style="display:none">
+        <div class="pkp-model-content">
+            <div class="pkp-confirmationtext">
+            <p>Do you really want to end today's schedule?</p>
+            </div>
+			<form method="post" action="#">
+            <div class="pkp-buttoncontainer">
+
+
+                <button  id="pkp-yes-button">Packup</button>
+                <button id="pkp-no-button">Cancel</button>
+            </div>
+        </div>
+    </div>      
+</form>	
+
+
 <!------Packup Button Ends----------->
         <!------main-content-end----------->
 
@@ -679,7 +767,32 @@ include 'adminheadersidebar.php'; ?>
             $(this).fadeOut(300);
         });
     </script>
+  <script>
+	//for logout popup
+const pkpBtn = document.getElementById("packupBtn");
+const pkp_overlay = document.getElementById('pkp-overlay');
+const pkp_customConfirm = document.getElementById('pkp-custom-confirm');
+const pkp_yesButton = document.getElementById('pkp-yes-button');
+const pkp_noButton = document.getElementById('pkp-no-button');
 
+pkpBtn.addEventListener("click", () => {
+    pkp_overlay.style.display = 'block';
+    pkp_customConfirm.style.display = 'block';
+});
+
+pkp_yesButton.addEventListener('click', function()
+	 {
+        // Perform logout action here
+		window.location.href = "";
+    });
+
+    pkp_noButton.addEventListener('click', function() 
+	{
+		pkp_overlay.style.display = 'none';
+        pkp_customConfirm.style.display = 'none';
+    });
+
+  </script>
 
 </body>
 

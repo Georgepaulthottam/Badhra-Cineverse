@@ -335,7 +335,7 @@ transform:translateY(0px);
   box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
   z-index: 1001;
   display: none;
-  cursor:none;  
+  
 }
 .model .model-content
 {
