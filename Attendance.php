@@ -99,7 +99,7 @@ header('location:Attendance.php');
 											<label for="selectAll"></label></th>
 									<th>Name</th>
 									<th>Department</th>
-									<th>Time</th>
+									<th>Date</th>
 									<th>Phone</th>
 									<th>Actions</th>
 								</tr>
@@ -109,18 +109,22 @@ header('location:Attendance.php');
 								<?php
 								
 								while($row=mysqli_fetch_array($result,MYSQLI_ASSOC)){
+														$time = new DateTime($row['date']);
+					 							$date = $time->format('j-n-Y');
+                         $time = $time->format('H:i');
 									echo('
-								<tr>
+									
+								<tr><form action="Attendance.php" method="post">
 									 </th><th><span class="custom-checkbox">
-									 <input type="checkbox" id="checkbox" name="checkbox" value="1">
+									 <input type="checkbox" id="checkbox" name="checkbox[]" value="' . $row['username'] . '">
 									 <label for="checkbox1"></label></th>
 									<th>'.$row['username'].'</th>
 									<th>'.$row['dept'].'</th>
-									<th>Time</th>
+									<th>'.$date.'</th>
 									<th>702341231</th>
 
 									<th>
-									<form action="Attendance.php" method="post">
+									
 									    <input type="text" name="id" value="'.$row['id'].'" hidden>
 										<input type="submit" name="acc" value="Accept" class="edit" >
 											
