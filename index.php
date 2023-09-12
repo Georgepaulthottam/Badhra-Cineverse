@@ -199,7 +199,7 @@ include 'adminheadersidebar.php'; ?>
 .pkp-model {
   position: fixed;
   top: 52%;
-  left: 57%;
+  left: 50%;
   transform: translate(-50%, -50%);
   background: #fff;
   border-radius: 20px;
@@ -614,11 +614,11 @@ include 'adminheadersidebar.php'; ?>
             <div class="pkp-confirmationtext">
             <p>Do you really want to end today's schedule?</p>
             </div>
-			<form method="post" action="#">
+			<form method="post" action="index.php">
             <div class="pkp-buttoncontainer">
 
 
-                <button  id="pkp-yes-button">Packup</button>
+                <button  type="submit" id="pkp-yes-button" name="packup">Packup</button>
                 <button id="pkp-no-button">Cancel</button>
             </div>
         </div>
