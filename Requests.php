@@ -95,7 +95,7 @@ include 'adminheadersidebar.php'; ?>
 				<thead>
 					<tr>
 						<th><span class="custom-checkbox">
-								<input type="checkbox" onchange='selects()' id="selectAll">
+								<input type="checkbox" onchange='selects()' id="selectAll"  >
 								<label for="selectAll"></label></th>
 						<th>Name</th>
 						<th>Department</th>
@@ -121,7 +121,7 @@ include 'adminheadersidebar.php'; ?>
 						echo ('
                                      <tr>
 									 <th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
+											<input type="checkbox" id="checkbox" name="checkbox" value="1" onchange="checkedBox()">
 											<label for="checkbox1"></label></th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
@@ -201,6 +201,7 @@ include 'adminheadersidebar.php'; ?>
 		
 
 		//select all and reject all
+		
 		function selects() {
 			var ele = document.getElementsByName("checkbox");
 			if (document.getElementById("selectAll").checked == true) {
@@ -219,6 +220,24 @@ include 'adminheadersidebar.php'; ?>
 						ele[i].checked = false;
 				}
 			}
+		}
+		function checkedBox(){
+			var ele = document.getElementsByName("checkbox");
+			var count=0;
+			for (var i = 0; i < ele.length; i++) {
+				if(ele[i].checked == true)
+			    {
+			        count++;
+			    }
+			}
+			if (count>0) {
+				document.getElementById("acceptAllBtn").style.visibility = "visible";
+				document.getElementById("rejectAllBtn").style.visibility = "visible";
+			}
+			else{
+				document.getElementById("acceptAllBtn").style.visibility = "hidden";
+				document.getElementById("rejectAllBtn").style.visibility = "hidden";
+				}
 		}
 	</script>
 
