@@ -3,21 +3,16 @@ $activePage='salary';
 include 'sp_header.php';
  ?>
 <div id="user_chat">
-<form action="#">
-  <table class="salary-status-main-table" style="width:50%">
-    <tr>
-      <td><select id="chat-select" name="department">
-      <option value="department1">Admin</option>
-      <option value="department2">Department 2</option>
-      <option value="department3">Department 3</option>
-      <option value="department4">Department 4</option>
-      <option value="department5">Department 5</option>
-      <option value="department6">Department 6</option>
-      <option value="department7">Department 7</option>
-    </select></td>
-    </tr>
-  </table>
-</form>
+<div class="dropdown1">
+  <form action="">
+    <button class="dropbtn">Chat With</button>
+    <div class="dropdown1-content">
+    <div><input type="submit" value="Super Admin"></div>
+    <div><input type="submit" value="Admin"></div>
+    <div><input type="submit" value="Department 1"></div>
+  </div>
+  </form>
+</div>
 <div class="container">
   <i class="material-icons">chat_bubble_outline</i>
   <p>Hello. How are you today?</p>
