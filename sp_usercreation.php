@@ -28,7 +28,7 @@
             top: 51%;
             left: 60%;
             transform: translate(-50%, -50%);
-            background: linear-gradient(#152935, #0e1f2f);
+            background: linear-gradient(#152935, #152935);
             border-radius: 5px;
             width: 50vw;
             padding: 20px;
@@ -55,6 +55,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            background:#152935;
         }
 
         .left-block {
@@ -67,7 +68,7 @@
             text-align: center;
             border:2px solid black;
             padding:50px;
-           position:absolute;
+            position:absolute;
             left:400px;
             top:100px;
         }
@@ -129,7 +130,7 @@
         }
     
 table {
-  background: #152935;
+  background: #262f35;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
@@ -158,8 +159,8 @@ tbody tr:hover {
   background: #014055;
 } 	
 .miscform-container {
-            display: flex;
-        }
+     display: flex;
+           }
 .bata-btn{
 		display: inline-block;
   padding: 8px 8px;
@@ -184,13 +185,25 @@ tbody tr:hover {
   background-color: #0056b3;
   border-color: #0056b3;
 }
-	/* css for acceptAll and rejectAll Button*/
+	
 	.btnsCheck{
 		margin-left:3%;
 	}
+    #view_btn{
+        background:#e2b842;
+        color:white;
+        padding:6px ;
+        border-radius:10px;
+        letter-spacing:2px;
+        cursor:pointer;
+    }
+    #view_btn:hover{
+        background:green;
+        color:white;
+    }
  .salary{
     position: absolute;
-    margin-left:  400px;
+    margin-left:400px;
     top:360px;
  }
 
@@ -324,7 +337,7 @@ tbody tr:hover {
     <td>camera</td>
     <td>3500</td>
     <td>pending</td>
-    <td> <input type=button value=view></td>
+    <td> <input type="button" value="View" id="view_btn"></td>
 </tr>
 <tr>
     <td>2</td>
@@ -332,7 +345,7 @@ tbody tr:hover {
     <td>makeup</td>
     <td>2500</td>
     <td>paid</td>
-    <td> <input type=button value=view></td>
+    <td> <input type="button" value="View" id="view_btn"></td>
 </tr>
 <tr>
     <td>3</td>
@@ -340,7 +353,7 @@ tbody tr:hover {
     <td>camera</td>
     <td>4500</td>
     <td>pending</td>
-    <td> <input type=button value=view></td>
+    <td> <input type="button" value="View" id="view_btn"></td>
 </tr>
 <tr>
     <td>1</td>
@@ -348,7 +361,7 @@ tbody tr:hover {
     <td>camera</td>
     <td>3500</td>
     <td>pending</td>
-    <td> <input type=button value=view></td>
+    <td> <input type="button" value="View" id="view_btn"></td>
 </tr>
 <tr>
     <td>1</td>
@@ -356,7 +369,7 @@ tbody tr:hover {
     <td>camera</td>
     <td>3500</td>
     <td>pending</td>
-    <td> <input type=button value=view></td>
+    <td> <input type="button" value="View" id="view_btn"></td>
 </tr>
 <tr>
     <td>1</td>
@@ -364,7 +377,7 @@ tbody tr:hover {
     <td>camera</td>
     <td>3500</td>
     <td>pending</td>
-    <td> <input type=button value=view></td>
+    <td> <input type="button" value="View" id="view_btn"></td>
 </tr>
 <tr>
     <td>1</td>
@@ -372,7 +385,7 @@ tbody tr:hover {
     <td>camera</td>
     <td>3500</td>
     <td>pending</td>
-    <td> <input type=button value=view></td>
+    <td> <input type="button" value="View" id="view_btn"></td>
 </tr>
 
 </tbody>

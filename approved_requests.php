@@ -57,15 +57,31 @@ include 'adminheadersidebar.php'; ?>
 	<style>
 		/* css for acceptAll and rejectAll Button*/
 		#acceptAllBtn {
-			color: rgb(229, 117, 56);
+			
 			visibility: hidden;
 			margin-left: 0%;
+			color: #fff;
+    border: 1px solid rgb(2, 8, 3);
+    border-radius: 10%;
+    padding: 5px;
+    background-color: #2bcd72;
+    letter-spacing: 2px;
+    cursor: pointer;
 		}
 
 		#rejectAllBtn {
-			color: green;
+			
 			visibility: hidden;
+			color: #fff;
+    background-color: #F44336;
+    border: 1px solid black;
+    border-radius: 10%;
+    padding: 4px;
+    
+    letter-spacing: 1px;
+    cursor: pointer;
 		}
+
 		.detailed-box{
 			max-width:75vw;
 			margin:10px 20px;
@@ -119,6 +135,7 @@ include 'adminheadersidebar.php'; ?>
 						echo (' <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
+					
 						<th>Name</th>
 						<th>Department</th>
 						<th>Description</th>
@@ -141,7 +158,7 @@ include 'adminheadersidebar.php'; ?>
 							echo ('
 
                                         <tr>
-
+										
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['details'] . '</th>
@@ -162,6 +179,9 @@ include 'adminheadersidebar.php'; ?>
 						echo (' <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
+					<th><span class="custom-checkbox">
+								<input type="checkbox" onchange="selects()" id="selectAll">
+								<label for="selectAll"></label></th>
 						<th>Name</th>
 						<th>Department</th>
 						<th>Description</th>
@@ -189,6 +209,9 @@ include 'adminheadersidebar.php'; ?>
 							echo ('
 							 
                                 <tr>
+								<th><span class="custom-checkbox">
+										<input type="checkbox" id="checkbox" name="checkbox" value="1" onchange="checkedBox()">
+										<label for="checkbox1"></label></th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['details'] . '</th>
@@ -247,7 +270,7 @@ include 'adminheadersidebar.php'; ?>
 
 							echo (' 
                                         <tr>
-
+										
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['details'] . '</th>
@@ -268,6 +291,9 @@ include 'adminheadersidebar.php'; ?>
 						echo(' <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
+					<th><span class="custom-checkbox">
+								<input type="checkbox" onchange="selects()" id="selectAll">
+								<label for="selectAll"></label></th>
 						<th>Name</th>
 						<th>Department</th>
 						<th>Description</th>
@@ -294,7 +320,9 @@ include 'adminheadersidebar.php'; ?>
 
 							echo ('
                                         <tr>
-
+										<th><span class="custom-checkbox">
+										<input type="checkbox" id="checkbox" name="checkbox" value="1" onchange="checkedBox()">
+										<label for="checkbox1"></label></th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['details'] . '</th>
@@ -318,7 +346,10 @@ include 'adminheadersidebar.php'; ?>
 				</tbody>
 
                 </table>
-
+				<div>
+							<button id="acceptAllBtn" formaction="#">Accept All</button>
+							<button id="rejectAllBtn" formaction="#">Reject All</button>
+						</div><br>
             </div>
     </section>
 </div>
@@ -346,7 +377,49 @@ include 'adminheadersidebar.php'; ?>
 
 
 	<!-------complete html----------->
+	<script type="text/javascript">
+		
 
+		//select all and reject all
+		
+		function selects() {
+			var ele = document.getElementsByName("checkbox");
+			if (document.getElementById("selectAll").checked == true) {
+				document.getElementById("acceptAllBtn").style.visibility = "visible";
+				document.getElementById("rejectAllBtn").style.visibility = "visible";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = true;
+				}
+			}
+			else{
+				document.getElementById("acceptAllBtn").style.visibility = "hidden";
+				document.getElementById("rejectAllBtn").style.visibility = "hidden";
+				for (var i = 0; i < ele.length; i++) {
+					if (ele[i].type == 'checkbox')
+						ele[i].checked = false;
+				}
+			}
+		}
+		function checkedBox(){
+			var ele = document.getElementsByName("checkbox");
+			var count=0;
+			for (var i = 0; i < ele.length; i++) {
+				if(ele[i].checked == true)
+			    {
+			        count++;
+			    }
+			}
+			if (count>0) {
+				document.getElementById("acceptAllBtn").style.visibility = "visible";
+				document.getElementById("rejectAllBtn").style.visibility = "visible";
+			}
+			else{
+				document.getElementById("acceptAllBtn").style.visibility = "hidden";
+				document.getElementById("rejectAllBtn").style.visibility = "hidden";
+				}
+		}
+	</script>
 </body>
 
 </html>

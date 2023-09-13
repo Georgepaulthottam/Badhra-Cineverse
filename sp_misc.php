@@ -54,7 +54,7 @@ ob_end_flush();
 
 
 table {
-  background: #152935;
+  background:#262f35;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
@@ -113,7 +113,7 @@ tbody tr:hover {
   #acceptAllBtn {
 			
 			visibility: hidden;
-			margin-left: 0%;
+			margin-left: 40%;
 			color: #fff;
     border: 1px solid rgb(2, 8, 3);
     border-radius: 10%;
@@ -131,7 +131,7 @@ tbody tr:hover {
     border: 1px solid black;
     border-radius: 10%;
     padding: 4px;
-    
+    margin-left: 1%;
     letter-spacing: 1px;
     cursor: pointer;
 		}
@@ -428,8 +428,8 @@ while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
         <!------main-content-end----------->
 
 
-
         <!----footer-design------------->
+        
 
         <footer class="footer">
             <div class="container-fluid">

@@ -175,7 +175,7 @@ include 'sp_header.php';
   }
 
   table {
-  background: #152935;
+  background: #262f35;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
@@ -330,12 +330,10 @@ thead{
   </thead>
                   
     <tr>
-	
       <th>SI NO</th>
       <th>Date</th>
-      <th> Name</th>
+      <th>Name</th>
       <th>Purpose</th>
-    
       <th>Time</th>
       <th>Remark</th>
       <th>Amount</th>
@@ -382,8 +380,8 @@ thead{
 </table>
 <div class="attendence" style="overflow-x:auto;">
 		
-				<table >
-                    
+				<table>
+ 
                 <thead>
                 <tr >
                <td></td>
@@ -435,9 +433,9 @@ thead{
                     </tr>
 					
 					<tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>dsd</td>
+                      <td>sdsd</td>
+                      <td>sdsd</td>
                       <td>ssnc</td>
                       <td>scn</td>
 					 

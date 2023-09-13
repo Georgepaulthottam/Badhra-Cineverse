@@ -65,14 +65,29 @@ header('location:Attendance.php');
 	<style>
 		/* css for acceptAll and rejectAll Button*/
 		#acceptAllBtn {
-			color: rgb(229, 117, 56);
+			
 			visibility: hidden;
 			margin-left: 0%;
+			color: #fff;
+    border: 1px solid rgb(2, 8, 3);
+    border-radius: 10%;
+    padding: 5px;
+    background-color: #2bcd72;
+    letter-spacing: 2px;
+    cursor: pointer;
 		}
 
 		#rejectAllBtn {
-			color: green;
+			
 			visibility: hidden;
+			color: #fff;
+    background-color: #F44336;
+    border: 1px solid black;
+    border-radius: 10%;
+    padding: 4px;
+    
+    letter-spacing: 1px;
+    cursor: pointer;
 		}
 	</style>
 </head>
@@ -116,7 +131,7 @@ header('location:Attendance.php');
 									
 								<tr><form action="Attendance.php" method="post">
 									 </th><th><span class="custom-checkbox">
-									 <input type="checkbox" id="checkbox" name="checkbox[]" value="' . $row['username'] . '">
+									 <input type="checkbox" id="checkbox" onchange="checkedBox()" name="checkbox[]" value="' . $row['username'] . '">
 									 <label for="checkbox1"></label></th>
 									<th>'.$row['username'].'</th>
 									<th>'.$row['dept'].'</th>
@@ -205,7 +220,24 @@ header('location:Attendance.php');
 				}
 			}
 		}
-		
+		function checkedBox(){
+			var ele = document.getElementsByName("checkbox");
+			var count=0;
+			for (var i = 0; i < ele.length; i++) {
+				if(ele[i].checked == true)
+			    {
+			        count++;
+			    }
+			}
+			if (count>0) {
+				document.getElementById("acceptAllBtn").style.visibility = "visible";
+				document.getElementById("rejectAllBtn").style.visibility = "visible";
+			}
+			else{
+				document.getElementById("acceptAllBtn").style.visibility = "hidden";
+				document.getElementById("rejectAllBtn").style.visibility = "hidden";
+				}
+		}
 	</script>
 
 

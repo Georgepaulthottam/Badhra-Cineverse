@@ -57,7 +57,7 @@ width:100px;
 }
 .detailed-box {
   text-align: center;
-  background-color: #1c303d;
+  background-color: #262f35;
   padding: 20px;
   margin-right: 10px;
   margin-bottom: 20px;
@@ -355,14 +355,7 @@ transform:translateY(0px);
     margin-bottom: 20px;
   }
 
-  input[name="Packup"] {
-    margin-top: 20px;
-    margin-left: 80px;
-    margin-bottom: 10px;
-    padding: 20px;
-    width: 210px;
-  }
-
+  
   .popup {
     display: none;
     position: absolute;
@@ -496,15 +489,16 @@ width:89vw;
   justify-content: space-between;
   margin-bottom: 20px;
   color: white;
+  border-radius:8px;
 }
 .salary-status-child{
   text-align: center;
   flex: 1;
-  background-color: #152935;
+  background-color: #262f35;
   padding: 20px;
   color: white;
   margin: 15px;
-  
+  border-radius:8px;
 }
 .salary-status-main-table{
   width: 100%;
@@ -547,12 +541,43 @@ width:89vw;
 }
 .dropdown {
   padding: 10px;
+  
+}
+#dept_select{
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+  border-radius:8px;
+}
+#scheduleDetails {
+  background:#fff;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+  border-radius:8px;
+}
+#scheduleDetails:hover{
+  transform: scale(1.02);
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
+}
+#scheduleDetails table{
+
+  color:black;
+}
+#salaryRate {
+  background:#fff;
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.2);
+  border-radius:8px;
+}
+#salaryRate:hover {
+  transform: scale(1.02);
+  box-shadow: 2px 2px 2px 2px rgba(0,0,0,0.4);
+}
+#salaryRate table{
+
+  color:black;
 }
 #departmentSelect {
-  color: #150202;
+  
   padding: 16px 50px 16px 50px;
   font-size: 16px;
-  border: 5px solid black;
+  border: 2px solid black;
   cursor: pointer;
 }
 
@@ -677,7 +702,7 @@ width:89vw;
 .form-container {
   max-width: 300px;
   padding: 10px;
-  background-color: white;
+  background-color: #152935;
 }
 
 /* Full-width textarea */
@@ -731,8 +756,8 @@ width:89vw;
     z-index: 999;
 }
 .dropbtn {
-  background-color: #2576d3;;
-  color: white;
+  background-color: #fff;
+  color: black;
   padding: 16px;
   font-size: 16px;
   border: none;

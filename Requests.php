@@ -207,7 +207,7 @@ include 'adminheadersidebar.php'; ?>
 			if (document.getElementById("selectAll").checked == true) {
 				document.getElementById("acceptAllBtn").style.visibility = "visible";
 				document.getElementById("rejectAllBtn").style.visibility = "visible";
-				for (var i = 0; i < ele.length(); i++) {
+				for (var i = 0; i < ele.length; i++) {
 					if (ele[i].type == 'checkbox')
 						ele[i].checked = true;
 				}
@@ -215,7 +215,7 @@ include 'adminheadersidebar.php'; ?>
 			else{
 				document.getElementById("acceptAllBtn").style.visibility = "hidden";
 				document.getElementById("rejectAllBtn").style.visibility = "hidden";
-				for (var i = 0; i < ele.length(); i++) {
+				for (var i = 0; i < ele.length; i++) {
 					if (ele[i].type == 'checkbox')
 						ele[i].checked = false;
 				}
