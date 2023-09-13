@@ -205,6 +205,7 @@ header('location:Attendance.php');
 				}
 			}
 		}
+		
 	</script>
 
 
