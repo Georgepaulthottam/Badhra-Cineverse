@@ -53,6 +53,7 @@ include 'sp_header.php';
 
   .user-container {
     margin-top: 50px;
+    margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,7 +62,7 @@ include 'sp_header.php';
      height:15vh;
      border-radius:20px;
      width:80vw;
-     box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.2);
+     box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
   }
 
   .select-label {

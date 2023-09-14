@@ -357,7 +357,7 @@ tbody tr {
                       <th>Amount</th>
 					            <th>Quantity</th>
                        <th>Mode</th>
-
+                       <th>Action</th>
                     </tr>
 					<?php
 while($row=mysqli_fetch_array($rowresult,MYSQLI_ASSOC)){
