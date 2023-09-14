@@ -121,12 +121,12 @@ include 'adminheadersidebar.php'; ?>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
     /* Note that you only need to edit the config to customize the button! */
-
+/*
 .tickButton {
-  /* Config start */
+
   --tick_sideLength:2rem;
   --tick_topRightTriangleSideLength: 0.2rem;
-  /* Config end */
+ 
   position: relative;
   display: flex;
   justify-content: center;
@@ -182,7 +182,7 @@ include 'adminheadersidebar.php'; ?>
   fill: black;
   transform: rotate(360deg);
 }
-
+**/
 /*confirmation for Packup popup css*/
 .pkp-overlay 
 {
@@ -332,17 +332,9 @@ include 'adminheadersidebar.php'; ?>
                 <div class="request-status" id="request1">
 
                     <form action="" method="post">
-                        <input type="text" class="time-input" name="time" placeholder=" Enter Pooja Starting Time" onfocus="(this.type='time')">
+                        <input type="text" class="time-input" name="time" placeholder=" Enter Pooja Starting Time..." onfocus="(this.type='time')">
                      
-                        <button type="submit" name="settime" id="settimebtn">
-
-                            <div tabindex="0" class="tickButton">
-      <svg class="tickIcon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"></path>
-      </svg>
-    </div>
-                        </button>
-
+                        <input type="submit" name="settime" id="setlocbtn" value="Set Time">
 
                         <!------Select Optionss with popup----------->
                         <select id="mySelect">
@@ -364,12 +356,12 @@ include 'adminheadersidebar.php'; ?>
                             <button onclick="saveChoice()" id="popupbtn">Save</button>
                         </div>
 
-                        <input type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
+                        <input type="submit"  name="setloctn" value="Set Location" id="setlocbtn">
 
                         <!---Location rent --->
-                        <input type="text" class="time-input" placeholder="Extra Location Rent"></th>
+                        <input type="text" class="time-input" placeholder="Extra Location Rent..."></th>
 
-                        <input name="submit" type="button" class="punch-in-btn" value="Set Location" id="submitbtn">
+                        <input name="submit" type="button"  value="Set Rent" id="setlocbtn">
                     </form>
 
 
