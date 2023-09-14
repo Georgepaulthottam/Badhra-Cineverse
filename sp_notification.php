@@ -1,5 +1,5 @@
 <?php 
-$activePage='salary';
+$activePage='notification';
 include 'sp_header.php';
  ?>
 <div id="user_chat">

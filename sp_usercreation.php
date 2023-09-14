@@ -191,7 +191,7 @@ tbody tr:hover {
 	}
     
     #view_btn {
-  padding: 1em 1.2em;
+  padding: 5px 8px;
   font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 2.5px;
@@ -199,7 +199,7 @@ tbody tr:hover {
   color: #000;
   background-color: #fff;
   border: none;
-  border-radius: 45px;
+ border-radius:5px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease 0s;
   cursor: pointer;
