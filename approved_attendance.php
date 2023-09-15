@@ -78,7 +78,10 @@ $result=mysqli_query($conn,$query);
 			<!------main-content-start----------->
 
 			<div class="main-content">
-				<div class="attendence" style="overflow-x:auto;">
+			<section id="view-request" class="approved_attendance_req">
+			<div class="detailed-box_admin" id="request-table_admin">
+				<h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Approved  Attendance Requests
+				</h3>
 					<form action="#">
 						<table class="table table-striped table-hover">
 							<thead>
@@ -133,8 +136,10 @@ $result=mysqli_query($conn,$query);
 						</div><br>
 					</form>
 				</div>
-			</div>
-			<!------main-content-end----------->
+			
+						</section>
+						</div>
+						<!------main-content-end----------->
 
 
 
