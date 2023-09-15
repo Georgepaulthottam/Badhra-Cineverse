@@ -131,7 +131,7 @@ header('location:Attendance.php');
 									
 								<tr><form action="Attendance.php" method="post">
 									 </th><th><span class="custom-checkbox">
-									 <input type="checkbox" id="checkbox" onchange="checkedBox()" name="checkbox" value="">
+									 <input type="checkbox" id="checkbox" onchange="checkedBox()" name="checkbox[]" value="' . $row['username'] . '">
 									 <label for="checkbox1"></label></th>
 									<th>'.$row['username'].'</th>
 									<th>'.$row['dept'].'</th>
@@ -221,7 +221,7 @@ header('location:Attendance.php');
 			}
 		}
 		function checkedBox(){
-			var ele = document.getElementsByName("checkbox");
+			var ele = document.getElementsByName("checkbox[]");
 			var count=0;
 			for (var i = 0; i < ele.length; i++) {
 				if(ele[i].checked == true)
