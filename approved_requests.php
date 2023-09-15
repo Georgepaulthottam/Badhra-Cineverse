@@ -81,11 +81,18 @@ include 'adminheadersidebar.php'; ?>
     letter-spacing: 1px;
     cursor: pointer;
 		}
+		#request-table{
+	  max-width:100%;
+	  margin:5px -5px;
+	}
 
-		.detailed-box{
-			max-width:75vw;
-			margin:10px 20px;
-		}
+		@media only screen and (max-width: 767px) {
+  
+  #request-table{
+	  max-width:90vw;
+	  margin:5px -5px;
+  }
+}
 	</style>
 	<script>
     function selectButton(button) {
