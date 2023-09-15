@@ -502,6 +502,8 @@ transform:translateY(0px);
 
 
 @media only screen and (max-width: 767px) {
+  
+	
   .middle-section {
     flex: 1 1 100%;
     margin-bottom: 20px;
@@ -583,16 +585,8 @@ transform:translateY(0px);
     border-radius: 10px;
   }
 
-  .detailed-box {
-    
-     width:1%;
-     width:104%;
+ 
   
-    margin-left:-9px;
-   
-    
-  }
-
    /*responsive wellcome popup*/
 
    .notification-popup

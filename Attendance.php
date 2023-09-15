@@ -130,7 +130,10 @@ include 'adminheadersidebar.php'; ?>
 	<!------main-content-start----------->
 
 	<div class="main-content">
-		<div class="attendence" style="overflow-x:auto;">
+	<section id="view-request" class="approved_attendance_req">
+			<div class="detailed-box_admin" id="request-table_admin" style="overflow-x:auto;">
+				<h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Pending  Attendance Requests
+				</h3>
 
 			<table class="table table-striped table-hover">
 				<thead>
@@ -191,8 +194,10 @@ include 'adminheadersidebar.php'; ?>
 				</form>
 			</div><br>
 
-		</div>
+	
 	</div>
+	</section>
+					</div>
 	<!------main-content-end----------->
 
 

@@ -111,7 +111,7 @@ include 'adminheadersidebar.php'; ?>
 	<!------main-content-start----------->
 	<div class="main-content">
 		<section id="view-request">
-			<div class="detailed-box_admin" id="request-table_admin">
+			<div class="detailed-box_admin" id="request-table_admin" style="overflow-x:auto;">
 				<h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Pending Requests
 				</h3>
 
