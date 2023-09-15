@@ -13,8 +13,8 @@ if (isset($_POST['submit'])) {
     $details = $_POST['details'];
     $price = $_POST['cost'];
 
-    $quer = ("INSERT INTO `cart`(`name`,`username`,`remark`,`billno`, `details`, `price`, `status`) 
-    VALUES ('$name','$user','$remark','$billno','$details',$price,'requested')");
+    $quer = ("INSERT INTO `cart`(`name`,`username`,`dept`,`remark`,`billno`, `details`, `price`, `status`) 
+    VALUES ('$name','$user','".$_SESSION['userdept']."','$remark','$billno','$details',$price,'requested')");
     $conquer = mysqli_query($conn, $quer);
     echo "<script>alert('order submitted successfuly')</script>";
 }
