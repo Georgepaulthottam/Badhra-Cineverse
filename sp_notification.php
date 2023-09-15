@@ -1,10 +1,20 @@
 <?php
+ob_start();
 session_start();
 $activePage = 'notification';
 include 'sp_header.php';
 require 'connection.php';
   $user = $_SESSION['user'];
   $dept = $_SESSION['userdept'];
+if (isset($_POST['send'])) {
+  $rec = $_POST['recipient'];
+  $msg = $_POST['msg'];
+  $send_quer = ("INSERT INTO `notifications`( `username`, `dept`, `rec_user`, `content`) 
+  VALUES ('$user','$dept','$rec',' $msg')");
+  $send_res = mysqli_query($conn, $send_quer);
+  header("location:sp_notification.php");
+}
+ob_end_flush();
 
 ?>
 <div id="user_chat">
@@ -19,7 +29,7 @@ require 'connection.php';
     </form>
   </div>
   <?php
-  if (isset($_POST['super-admin'])) {
+  if (isset($_POST['admin'])) {
     $query = ("SELECT * FROM notifications WHERE rec_user='" . mysqli_real_escape_string($conn, $dept) . "'and dept='" . mysqli_real_escape_string($conn, 'admin') . "'");
     $result = mysqli_query($conn, $query);
     while ($row = mysqli_fetch_assoc($result)) {
@@ -35,7 +45,7 @@ require 'connection.php';
   <span class="time-right">' . $time . '</span>
 </div>');
     }
-    $query2 = ("SELECT * FROM notifications WHERE username='" . mysqli_real_escape_string($conn, $user) . "' AND rec_user='" . mysqli_real_escape_string($conn, 'super') . "'");
+    $query2 = ("SELECT * FROM notifications WHERE username='" . mysqli_real_escape_string($conn, $user) . "' AND rec_user='" . mysqli_real_escape_string($conn, 'admin') . "'");
     $result2 = mysqli_query($conn, $query2);
     while ($row2 = mysqli_fetch_assoc($result2)) {
 
@@ -62,7 +72,7 @@ require 'connection.php';
     <h1>Chat</h1>
     <label for="msg"><b>Message</b></label>
     <textarea placeholder="Type message.." name="msg" required></textarea>
-    <input type="text" name="recipient" value="super" hidden>
+    <input type="text" name="recipient" value="admin" hidden>
 
     <button type="submit" class="btn" name="send"  id="send-button" onclick="notify()">Send</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
