@@ -109,10 +109,10 @@ include 'adminheadersidebar.php'; ?>
 	<!------main-content-start----------->
 	<div class="main-content">
     <section id="view-request">
-        <div class="detailed-box" id="request-table">
+        <div class="detailed-box" id="request-table" style="overflow-x:auto;">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Request
             </h3>
-            <div class="attendence" style="overflow-x:auto;">
+            
 
                 <body>
                     <form action="" method="post">
