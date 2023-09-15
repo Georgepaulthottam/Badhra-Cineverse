@@ -131,7 +131,7 @@ header('location:Attendance.php');
 									
 								<tr><form action="Attendance.php" method="post">
 									 </th><th><span class="custom-checkbox">
-									 <input type="checkbox" id="checkbox" onchange="checkedBox()" name="checkbox[]" value="' . $row['username'] . '">
+									 <input type="checkbox" id="checkbox" onchange="checkedBox()" name="checkbox" value="">
 									 <label for="checkbox1"></label></th>
 									<th>'.$row['username'].'</th>
 									<th>'.$row['dept'].'</th>
