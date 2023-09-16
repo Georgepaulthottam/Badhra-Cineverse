@@ -63,34 +63,40 @@ include 'hr_cateringheader.php'; ?>
                     </table>
                 </div>
                 <div class="profile-box">
-                <h4>Status</h4>
-                <div class="row mb-3">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Time</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <input type="time" class="form-control" placeholder="Enter the time">
-                    </div>
-                    </div>
-                    <div class="row mb-3">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Quantity</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <input type="number" class="form-control" placeholder="Enter the quantity">
-                    </div>
-                    </div>
-                    <div class="row mb-3">
-                    <div class="col-sm-3">
-                    <h6 class="mb-0">Amount</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                    <input type="number" class="form-control" placeholder="Enter the amount">
-                    </div>
-                    </div>
-                    <input type="submit" name="req_accept" value="Submit" class="edit" >					
-					<input type="submit" value="Cancel" class="delete" data-toggle="modal">
-                </div>
+        <h4>Status</h4>
+        <table class="table table-striped table-hover" id="HideTable">
+            <tr>
+                <td>Time</td>
+                <td><input type="time" class="form-control" placeholder="Enter the time" id="timeInput"></td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td><input type="number" class="form-control" placeholder="Enter the quantity" id="quantityInput"></td>
+            </tr>
+            <tr>
+                <td>Amount</td>
+                <td><input type="number" class="form-control" placeholder="Enter the amount" id="amountInput"></td>
+            </tr>
+        </table>
+
+        <table class="table table-striped table-hover" id="displayTable" style="display: none;">
+                <td>Time</td>
+                <td><span id="displayTime"></span></td>
+            </tr>
+            <tr>
+                <td>Quantity</td>
+                <td><span id="displayQuantity"></span></td>
+            </tr>
+            <tr>
+                <td>Amount</td>
+                <td><span id="displayAmount"></span></td>
+            </tr>
+        </table>
+
+        <input type="submit" name="req_accept" value="Submit" class="edit" id="submitButton">
+        <input type="submit" value="Cancel" class="delete" id="cancelButton" data-toggle="modal">
+    </div>
+            
             </div>
             
         </div>
@@ -173,68 +179,47 @@ include 'hr_cateringheader.php'; ?>
 <!-------complete html----------->
 
 <script>
-    //script for attendance piechart
-    function updatePieChart(percentage) {
-        const chartData = {
-            labels: ['Attended', 'Missed'],
-            datasets: [{
-                data: [percentage, 100 - percentage],
-                backgroundColor: ['#152935', '#f0f0f0'],
-                borderWidth: 0,
-            }],
-        };
+        // Select the Cancel button
+        const cancelButton = document.getElementById('cancelButton');
 
-        const chartConfig = {
-            type: 'doughnut',
-            data: chartData,
-            options: {
-                cutout: '60%',
-                responsive: true,
-                maintainAspectRatio: false,
-                legend: {
-                    display: false,
-                },
-                tooltips: {
-                    enabled: false,
-                },
-            },
-        };
+        // Add a click event listener to the Cancel button
+        cancelButton.addEventListener('click', function () {
+            // Clear the input fields
+            document.getElementById('timeInput').value = '';
+            document.getElementById('quantityInput').value = '';
+            document.getElementById('amountInput').value = '';
+        });
 
-        const attendanceChart = document.getElementById('attendance-chart').getContext('2d');
-        new Chart(attendanceChart, chartConfig);
+        // Select the Submit button
+        const submitButton = document.getElementById('submitButton');
 
-        // Update the percentage label
-        const percentageLabel = document.getElementById('percentageLabel');
-        percentageLabel.textContent = `${percentage}`;
-    }
+        // Add a click event listener to the Submit button
+        submitButton.addEventListener('click', function () {
+            // Hide the input fields
+            document.getElementById('HideTable').style.display = 'none';
+            document.getElementById('timeInput').style.display = 'none';
+            document.getElementById('quantityInput').style.display = 'none';
+            document.getElementById('amountInput').style.display = 'none';
 
-    // Call this function with the desired percentage value to update the pie chart.
-    // Example: updatePieChart(85); // This will update the pie chart to 85%.
-    // updatePieChart(50); // This will update the pie chart to 50%.
-    // updatePieChart(0);  // This will update the pie chart to 0%.
-    <?php echo ("
-        // Example: To update the pie chart with the percentage value from the progress bar:
-        const progressBarPercentage = " . $_SESSION['attendance'] . "; // Replace this with your desired percentage value.
-        updatePieChart(progressBarPercentage);
+            // Show the display elements
+            const displayTime = document.getElementById('displayTime');
+            const displayQuantity = document.getElementById('displayQuantity');
+            const displayAmount = document.getElementById('displayAmount');
 
-        //script for Accomodation Textbox (other)
-        function accomodation() {
-            if(document.getElementById('accomLocation').style.visibility == 'visible'){
-                document.getElementById('accomLocation').style.visibility = 'hidden';
-            }
-            else{
-                document.getElementById('accomLocation').style.visibility = 'visible';
-            }
-        }
+            displayTime.textContent = document.getElementById('timeInput').value;
+            displayQuantity.textContent = document.getElementById('quantityInput').value;
+            displayAmount.textContent = document.getElementById('amountInput').value;
+
+            // Hide the Submit and Cancel buttons
+            submitButton.style.display = 'none';
+            cancelButton.style.display = 'none';
+            
+            // Show the display table
+            document.getElementById('displayTable').style.display = 'table';
+        });
+    </script>
 
 
-        //Script for puchin buttton
-        
-
-    
-   ");
-    ?>
-</script>
 
 
 </body>
