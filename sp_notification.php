@@ -19,29 +19,9 @@ ob_end_flush();
 ?>
 <div id="user_chat">
   <div class="dropdown1">
-  <button class="dropbtn">Chat With</button>
     <form action="" method="post">
-      <div class="dropdown1-content" id="dropdown1-content">
-        <div><input type="submit" name="admin" value="Admin"></div>
-        <div><input type="submit" name="artist" value="Artist"></div>
-        <div><input type="submit" value="Department 1"></div>
-      </div>
-    </form>
-  </div>
-  <div class="dropdown1">
-  <button class="dropbtn">Chat With</button>
-    <form action="" method="post">
-      <div class="dropdown1-content" id="dropdown1-content">
-        <div><input type="submit" name="admin" value="Admin"></div>
-        <div><input type="submit" name="artist" value="Artist"></div>
-        <div><input type="submit" value="Department 1"></div>
-      </div>
-    </form>
-  </div>
-  <div class="dropdown1">
-  <button class="dropbtn">Chat With</button>
-    <form action="" method="post">
-      <div class="dropdown1-content" id="dropdown1-content">
+      <button class="dropbtn">Chat With</button>
+      <div class="dropdown1-content">
         <div><input type="submit" name="admin" value="Admin"></div>
         <div><input type="submit" name="artist" value="Artist"></div>
         <div><input type="submit" value="Department 1"></div>
@@ -101,8 +81,9 @@ ob_end_flush();
 </div>');
   }
   if (isset($_POST['artist'])) {
-    $query = ("SELECT * FROM notifications WHERE rec_user='" . mysqli_real_escape_string($conn, $dept) . "'and dept='" . mysqli_real_escape_string($conn, 'artist') . "'");
+    $query = ("SELECT * FROM notifications WHERE rec_user='" . mysqli_real_escape_string($conn, $dept) . "'and dept='" . mysqli_real_escape_string($conn, 'artist') . "' ORDER BY time DESC");
     $result = mysqli_query($conn, $query);
+    
     while ($row = mysqli_fetch_assoc($result)) {
 
 
@@ -112,11 +93,11 @@ ob_end_flush();
       echo ('
 <div class="container">
   <i class="material-icons">chat_bubble_outline</i>
-  <p>' . $row['content'] . '</p>
+  <p>' . $row['username'] . ':' . $row['content'] . '</p>
   <span class="time-right">' . $time . '</span>
 </div>');
     }
-    $query2 = ("SELECT * FROM notifications WHERE username='" . mysqli_real_escape_string($conn, $user) . "' AND rec_user='" . mysqli_real_escape_string($conn, 'super') . "'");
+    $query2 = ("SELECT * FROM notifications WHERE username='" . mysqli_real_escape_string($conn, $user) . "' AND rec_user='" . mysqli_real_escape_string($conn, 'artist') . "' ORDER BY time DESC");
     $result2 = mysqli_query($conn, $query2);
     while ($row2 = mysqli_fetch_assoc($result2)) {
 
@@ -143,7 +124,7 @@ ob_end_flush();
     <h1>Chat</h1>
     <label for="msg"><b>Message</b></label>
     <textarea placeholder="Type message.." name="msg" required></textarea>
-    <input type="text" name="recipient" value="super" hidden>
+    <input type="text" name="recipient" value="artist" hidden>
 
     <button type="submit" class="btn" name="send"  id="send-button" onclick="notify()">Send</button>
     <button type="button" class="btn cancel" onclick="closeForm()">Close</button>

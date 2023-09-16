@@ -1,4 +1,7 @@
-<?php $activePage = 'usercreation'; include 'sp_header.php'; ?>
+<?php $activePage = 'usercreation'; include 'sp_header.php';
+include 'connection.php' ;
+$query = ("SELECT * FROM users");
+$result = mysqli_query($conn, $query); ?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -265,7 +268,7 @@ tbody tr:hover {
     <div class="form-container">
         <div class="left-block">
             <h2>ADD USER</h2>
-            <form>
+            <form action="sp_usercreation.php" method="POST" enctype="multipart/form-data">
                 <label for="firstName">First Name:</label><br>
                 <input type="text" id="firstName" name="firstName"><br><br>
         
@@ -346,62 +349,21 @@ tbody tr:hover {
    
 </thead>
 <tbody>
-<tr>
-    <td>1</td>
-    <td>alwin</td>
-    <td>camera</td>
+    <?php
+    $no=0;
+    while ($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) {
+        $no = $no + 1;
+        echo('<tr>
+    <td>' . $no . '</td>
+    <td>'.$row['username'].'</td>
+    <td>' . $row['dept'] . '</td>
     <td>3500</td>
     <td>pending</td>
     <td> <input type="button" value="View" id="view_btn"></td>
-</tr>
-<tr>
-    <td>2</td>
-    <td>Anantika</td>
-    <td>makeup</td>
-    <td>2500</td>
-    <td>paid</td>
-    <td> <input type="button" value="View" id="view_btn"></td>
-</tr>
-<tr>
-    <td>3</td>
-    <td>sneha</td>
-    <td>camera</td>
-    <td>4500</td>
-    <td>pending</td>
-    <td> <input type="button" value="View" id="view_btn"></td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>alwin</td>
-    <td>camera</td>
-    <td>3500</td>
-    <td>pending</td>
-    <td> <input type="button" value="View" id="view_btn"></td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>alwin</td>
-    <td>camera</td>
-    <td>3500</td>
-    <td>pending</td>
-    <td> <input type="button" value="View" id="view_btn"></td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>alwin</td>
-    <td>camera</td>
-    <td>3500</td>
-    <td>pending</td>
-    <td> <input type="button" value="View" id="view_btn"></td>
-</tr>
-<tr>
-    <td>1</td>
-    <td>alwin</td>
-    <td>camera</td>
-    <td>3500</td>
-    <td>pending</td>
-    <td> <input type="button" value="View" id="view_btn"></td>
-</tr>
+</tr>');
+    }
+    ?>
+
 
 </tbody>
 </table>
