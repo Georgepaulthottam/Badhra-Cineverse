@@ -63,15 +63,15 @@ include 'hr_cateringheader.php'; ?>
         <table class="table table-striped table-hover" id="HideTable">
             <tr>
                 <td>Time</td>
-                <td><input type="time" class="form-control" placeholder="Enter the time" id="timeInput"></td>
+                <td><input type="time" class="form-control" placeholder="Enter the time" id="timeInput" required></td>
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td><input type="number" class="form-control" placeholder="Enter the quantity" id="quantityInput"></td>
+                <td><input type="number" class="form-control" placeholder="Enter the quantity" id="quantityInput" required></td>
             </tr>
             <tr>
                 <td>Amount</td>
-                <td><input type="number" class="form-control" placeholder="Enter the amount" id="amountInput"></td>
+                <td><input type="number" class="form-control" placeholder="Enter the amount" id="amountInput" required></td>
             </tr>
         </table>
 
@@ -88,7 +88,6 @@ include 'hr_cateringheader.php'; ?>
                 <td><span id="displayAmount"></span></td>
             </tr>
         </table>
-
         <input type="submit" name="req_accept" value="Submit" class="edit" id="submitButton">
         <input type="submit" value="Cancel" class="delete" id="cancelButton" data-toggle="modal">
     </div>
@@ -118,25 +117,13 @@ include 'hr_cateringheader.php'; ?>
                     </thead>
 
                     <tbody>
-                        <?php
-                        while ($row = mysqli_fetch_assoc($result)) {
-
-
-                            $time = new DateTime($row['date']);
-                            $date = $time->format('n-j-Y');
-                            $time = $time->format('H:i');
-
-                            echo ('
-                                        <tr>
-                                        <th>' . $date . '</th>
-                                        <th>' . $time . '</th>
-                                        <th>' . $row['name'] . '</th>
-                                        <th>' . $row['details'] . '</th>
-                                        <th>' . $row['price'] . '</th>>
-                                    </tr>');
-                        }
-
-                        ?>
+                        <tr>
+                            <th>1</th>
+                            <th>19/03/2023</th>
+                            <th>12:00PM</th>
+                            <th>50</th>
+                            <th>2000</th>  
+                        </tr>
                     </tbody>
 
                 </table>
@@ -189,9 +176,6 @@ include 'hr_cateringheader.php'; ?>
         submitButton.addEventListener('click', function () {
             // Hide the input fields
             document.getElementById('HideTable').style.display = 'none';
-            document.getElementById('timeInput').style.display = 'none';
-            document.getElementById('quantityInput').style.display = 'none';
-            document.getElementById('amountInput').style.display = 'none';
 
             // Show the display elements
             const displayTime = document.getElementById('displayTime');

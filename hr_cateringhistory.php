@@ -49,7 +49,20 @@ include 'hr_cateringheader.php'; ?>
                             <th>Amount</th>  
                         </tr>
                     </thead>
-
+                        <tr>
+                            <th>1</th>
+                            <th>19/03/2023</th>
+                            <th>12:00PM</th>
+                            <th>50</th>
+                            <th>2000</th>  
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                            <th>19/03/2023</th>
+                            <th>12:00PM</th>
+                            <th>50</th>
+                            <th>2000</th>  
+                        </tr>
                     <tbody>
 
 
@@ -57,6 +70,8 @@ include 'hr_cateringheader.php'; ?>
 
                 </table>
     </div>
+</div>
+</div>
 
 <!------main-content-end----------->
 
