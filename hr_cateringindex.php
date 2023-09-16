@@ -64,7 +64,32 @@ include 'hr_cateringheader.php'; ?>
                 </div>
                 <div class="profile-box">
                 <h4>Status</h4>
-                    
+                <div class="row mb-3">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">Time</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <input type="time" class="form-control" placeholder="Enter the time">
+                    </div>
+                    </div>
+                    <div class="row mb-3">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">Quantity</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <input type="number" class="form-control" placeholder="Enter the quantity">
+                    </div>
+                    </div>
+                    <div class="row mb-3">
+                    <div class="col-sm-3">
+                    <h6 class="mb-0">Amount</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                    <input type="number" class="form-control" placeholder="Enter the amount">
+                    </div>
+                    </div>
+                    <input type="submit" name="req_accept" value="Submit" class="edit" >					
+					<input type="submit" value="Cancel" class="delete" data-toggle="modal">
                 </div>
             </div>
             
