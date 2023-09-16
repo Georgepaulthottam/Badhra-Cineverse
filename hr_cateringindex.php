@@ -56,10 +56,6 @@ include 'hr_cateringheader.php'; ?>
                             <td>Title</td>
                             <td>Geetha Govindham</td>
                         </tr>
-                        <tr>
-                            <td>Schedule</td>
-                            <td>October</td>
-                        </tr>
                     </table>
                 </div>
                 <div class="profile-box">
@@ -139,10 +135,6 @@ include 'hr_cateringheader.php'; ?>
                                         <th>' . $row['price'] . '</th>>
                                     </tr>');
                         }
-
-
-
-
 
                         ?>
                     </tbody>
