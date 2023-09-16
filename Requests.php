@@ -12,11 +12,35 @@ if (isset($_POST['accept'])) {
 	$id = $_POST['id'];
 	$query2 = ("update cart set status='approved' where id='$id'");
 	$quer = mysqli_query($conn, $query2);
+	header("Location: Requests.php");
 }
 if (isset($_POST['reject'])) {
 	$id = $_POST['id'];
 	$query2 = ("update cart set status='rejected' where id='$id'");
 	$quer = mysqli_query($conn, $query2);
+	header("Location: Requests.php");
+}
+if (isset($_POST['acceptl'])) {
+	$id = $_POST['checkbox'];
+	if (!empty($id)) {
+		foreach ($id as $tempid) {
+			$query2 = ("update cart set status='accepted' where id='$tempid'");
+			$quer = mysqli_query($conn, $query2);
+			header("Location: Requests.php");
+
+		}
+	}
+
+}
+if (isset($_POST['rejectl'])) {
+	$id = $_POST['checkbox'];
+	if (!empty($id)) {
+		foreach ($id as $tempid) {
+			$query2 = ("update cart set status='rejected' where id='$tempid'");
+			$quer = mysqli_query($conn, $query2);
+			header("Location: Requests.php");
+		}
+	}
 }
 
 
@@ -53,29 +77,29 @@ include 'adminheadersidebar.php'; ?>
 	<style>
 		/* css for acceptAll and rejectAll Button*/
 		#acceptAllBtn {
-			
+
 			visibility: hidden;
 			margin-left: 0%;
 			color: #fff;
-    border: 1px solid rgb(2, 8, 3);
-    border-radius: 10%;
-    padding: 5px;
-    background-color: #2bcd72;
-    letter-spacing: 2px;
-    cursor: pointer;
+			border: 1px solid rgb(2, 8, 3);
+			border-radius: 10%;
+			padding: 5px;
+			background-color: #2bcd72;
+			letter-spacing: 2px;
+			cursor: pointer;
 		}
 
 		#rejectAllBtn {
-			
+
 			visibility: hidden;
 			color: #fff;
-    background-color: #F44336;
-    border: 1px solid black;
-    border-radius: 10%;
-    padding: 4px;
-    
-    letter-spacing: 1px;
-    cursor: pointer;
+			background-color: #F44336;
+			border: 1px solid black;
+			border-radius: 10%;
+			padding: 4px;
+
+			letter-spacing: 1px;
+			cursor: pointer;
 		}
 	</style>
 </head>
@@ -86,42 +110,43 @@ include 'adminheadersidebar.php'; ?>
 
 	<!------main-content-start----------->
 	<div class="main-content">
-    <section id="view-request">
-        <div class="detailed-box_admin" id="request-table_admin">
-            <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Pending Requests
-            </h3>
-            
-			<table class="table table-striped table-hover">
-				<thead>
-					<tr>
-						<th><span class="custom-checkbox">
-								<input type="checkbox" onchange='selects()' id="selectAll">
-								<label for="selectAll"></label></th>
-						<th>Name</th>
-						<th>Department</th>
-						<th>Description</th>
-						<th>Amount</th>
-						<th>Remark</th>
-						<th>Bill No</th>
-						<th>Date</th>
-						<th>Time</th>
-						<th>Action</th>
-					</tr>
-				</thead>
+		<section id="view-request">
+			<div class="detailed-box_admin" id="request-table_admin" style="overflow-x:auto;">
+				<h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Pending Requests
+				</h3>
 
-				<tbody>
-					<?php
-					while ($row = mysqli_fetch_assoc($result)) {
+				<table class="table table-striped table-hover">
+					<thead>
+						<tr>
+							<th><span class="custom-checkbox">
+									<input type="checkbox" onchange='selects()' id="selectAll">
+									<label for="selectAll"></label></th>
+							<th>Name</th>
+							<th>Department</th>
+							<th>Description</th>
+							<th>Amount</th>
+							<th>Remark</th>
+							<th>Bill No</th>
+							<th>Date</th>
+							<th>Time</th>
+							<th>Action</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<?php
+						while ($row = mysqli_fetch_assoc($result)) {
 
 
-						$time = new DateTime($row['date']);
-						$date = $time->format('n.j.Y');
-						$time = $time->format('H:i');
+							$time = new DateTime($row['date']);
+							$date = $time->format('n.j.Y');
+							$time = $time->format('H:i');
 
-						echo ('
+							echo ('
                                      <tr>
 									 <th><span class="custom-checkbox">
-											<input type="checkbox" id="checkbox" name="checkbox" value="1">
+									 <form action="Requests.php" method="post">
+											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
 											<label for="checkbox1"></label></th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
@@ -133,39 +158,41 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $date . '</th>
                                         <th>' . $time . '</th>
 									  <th>
-									<form action="approved_requests.php" method="post">
+									
 									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
 										<input type="submit" name="accept" value="Accept" class="edit" >
+										<input type="submit" name="reject" value="Decline" class="delete">
 											
 										
-										<input type="submit" name="reject" value="Decline" class="delete" >
-
-										</form>
+										
 										</th>
 
                                    
 
 
 								</tr>');
-					}
-					?>
+						}
+						?>
 
 
 
 
 
 
-				</tbody>
+					</tbody>
 
 
-			</table>
-			<div>
-							<button id="acceptAllBtn" formaction="#">Accept All</button>
-							<button id="rejectAllBtn" formaction="#">Reject All</button>
-						</div><br>
+				</table>
+				<div>
+					
+					<button type="submit" id="acceptAllBtn" name="acceptl">Accept All</button>
+					<button type="submit" id="rejectAllBtn" name="rejectl">Reject All</button>
+
+					</form>
+				</div><br>
 			</div>
-    </section>
-</div>
+		</section>
+	</div>
 	<!------main-content-end----------->
 
 
@@ -198,11 +225,10 @@ include 'adminheadersidebar.php'; ?>
 
 
 	<script type="text/javascript">
-		
-
 		//select all and reject all
+
 		function selects() {
-			var ele = document.getElementsByName("checkbox");
+			var ele = document.getElementsByName("checkbox[]");
 			if (document.getElementById("selectAll").checked == true) {
 				document.getElementById("acceptAllBtn").style.visibility = "visible";
 				document.getElementById("rejectAllBtn").style.visibility = "visible";
@@ -210,14 +236,30 @@ include 'adminheadersidebar.php'; ?>
 					if (ele[i].type == 'checkbox')
 						ele[i].checked = true;
 				}
-			}
-			else{
+			} else {
 				document.getElementById("acceptAllBtn").style.visibility = "hidden";
 				document.getElementById("rejectAllBtn").style.visibility = "hidden";
 				for (var i = 0; i < ele.length; i++) {
 					if (ele[i].type == 'checkbox')
 						ele[i].checked = false;
 				}
+			}
+		}
+
+		function checkedBox() {
+			var ele = document.getElementsByName("checkbox[]");
+			var count = 0;
+			for (var i = 0; i < ele.length; i++) {
+				if (ele[i].checked == true) {
+					count++;
+				}
+			}
+			if (count > 0) {
+				document.getElementById("acceptAllBtn").style.visibility = "visible";
+				document.getElementById("rejectAllBtn").style.visibility = "visible";
+			} else {
+				document.getElementById("acceptAllBtn").style.visibility = "hidden";
+				document.getElementById("rejectAllBtn").style.visibility = "hidden";
 			}
 		}
 	</script>

@@ -8,7 +8,7 @@ include 'sp_header.php';
             <h4 style="border-bottom:1px solid white;">SALARY STATUS</h4>
             <table style="width:100%">
                     <tr>
-                        <td><h5>Scedule : July</h5></td>
+                        <td><h5>Schedule : July</h5></td>
                         <td><h5>Date : 30/05/2023</h5></td>
                         <td><h5>Payment : Paid</h5></td>
                     </tr>
@@ -18,7 +18,7 @@ include 'sp_header.php';
                     <tr><td><h5 style="margin-left:21%">Select Department:</h5></td>
                         <td><select name="" class="salary-status-main-select">
                                 <option value="">Department 1</option>
-                                <option value="">Depsrtment 2</option>
+                                <option value="">Department 2</option>
                             </select>
                     </td></tr>
                     <tr><td><h5 style="margin-left:21%">Select User:</h5></td>
@@ -30,7 +30,7 @@ include 'sp_header.php';
                     <tr><td><h5 style="margin-left:21%">Select Status:</h5></td>
                         <td><select name="" class="salary-status-main-select">
                                 <option value="">Paid</option>
-                                <option value="">UnPaid</option>
+                                <option value="">Unpaid</option>
                             </select>
                     </td></tr>
                     <tr><td colspan="2" style="text-align:center;"><input type="submit" value="Ok" class="okbutton"></td></tr>
@@ -39,7 +39,7 @@ include 'sp_header.php';
         </div>
     </div>
     <div id="select-user" class="salary-status">
-        <div class="salary-status-child" style="background-color:white;">
+        <div class="salary-status-child" style="background-color:white;" id="dept_select">
         <div class="dropdown">
         <h5 style="color:black;">Select Department : </h5>
             <select id="departmentSelect" class="dropbtn">
@@ -59,8 +59,8 @@ include 'sp_header.php';
         </div>
         </div>
         <div class="salary-status">
-        <div class="salary-status-child">
-            <table class="salary-status-table">
+        <div class="salary-status-child" id="scheduleDetails">
+            <table class="salary-status-table" >
                 <tr><th colspan="2"><h5>DETAILS PER SCHEDULE</h5></th></tr>
                 <tr>
                     <td>1st Bata :</td>

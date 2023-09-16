@@ -70,7 +70,7 @@ if (isset($_POST['punchin'])) {
     header('location:index.php');
     // echo "alert('ATTENDANCE REQUEST SUBMITTED')";
 }
-if (isset($_POST['Packup'])) {
+if (isset($_POST['packup'])) {
     echo ("<script>confirm('are sure you want to pack-up?')</script>");
     $dateview = "SELECT * FROM schedule_day WHERE  DATE(date)=" . mysqli_real_escape_string($conn, 'DATE(NOW())') . " ";
     $dateres = mysqli_query($conn, $dateview);
@@ -119,7 +119,142 @@ include 'adminheadersidebar.php'; ?>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    /* Note that you only need to edit the config to customize the button! */
+/*
+.tickButton {
 
+  --tick_sideLength:2rem;
+  --tick_topRightTriangleSideLength: 0.2rem;
+ 
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid white;
+  width: var(--tick_sideLength);
+  height: var(--tick_sideLength);
+  background-color: #000000;
+  overflow: hidden;
+}
+
+.tickButton::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-width: 0 var(--tick_topRightTriangleSideLength) var(--tick_topRightTriangleSideLength) 0;
+  border-style: solid;
+  border-color: transparent white transparent transparent;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.tickButton:hover {
+  cursor: pointer;
+}
+
+.tickButton:hover::before {
+  --tick_topRightTriangleSideLength: calc(var(--tick_sideLength) * 2);
+}
+
+.tickButton:focus-visible::before {
+  --tick_topRightTriangleSideLength: calc(var(--tick_sideLength) * 2);
+}
+
+.tickButton>.tickIcon {
+  fill: white;
+  width: calc(var(--tick_sideLength) * 0.7);
+  height: calc(var(--tick_sideLength) * 0.7);
+  z-index: 1;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.2s;
+}
+
+.tickButton:hover>.tickIcon {
+  fill: black;
+  transform: rotate(360deg);
+}
+
+.tickButton:focus-visible>.tickIcon {
+  fill: black;
+  transform: rotate(360deg);
+}
+**/
+/*confirmation for Packup popup css*/
+.pkp-overlay 
+{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+}
+
+.pkp-model {
+  position: fixed;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+  z-index: 1001;
+  display: none;
+  
+}
+.pkp-model .pkp-model-content
+{
+  position: relative;
+  background: #2d2d2d;
+  color:#fff;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  
+  box-shadow: 0 7px 25px rgba(0,0,0,0.08);   
+}
+.pkp-model .pkp-confirmationtext
+{
+  position: relative;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.25em;
+}
+.pkp-model .pkp-buttoncontainer
+{
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+}
+.pkp-model .pkp-model-content button
+{
+  position: relative;
+  font-size: 1.25em;
+  background: black;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  margin-top: 10px;
+  border-radius:5px;
+  border:1px solid white;
+  width:7vw;
+  
+}
+.pkp-model .pkp-model-content button:hover
+{
+  color: #999;
+}
+
+/*confirmation for Packup css ends*/ 
+</style>
 </head>
 
 <body>
@@ -197,10 +332,9 @@ include 'adminheadersidebar.php'; ?>
                 <div class="request-status" id="request1">
 
                     <form action="" method="post">
-                        <input type="text" class="time-input" name="time" placeholder="Pooja Starting Time" onfocus="(this.type='time')"></th>
-                        <input name="settime" type="submit" value="Set Time" name="settime " id="settimebtn">
-
-
+                        <input type="text" class="time-input" name="time" placeholder=" Enter Pooja Starting Time..." onfocus="(this.type='time')">
+                     
+                        <input type="submit" name="settime" id="setlocbtn" value="Set Time">
 
                         <!------Select Optionss with popup----------->
                         <select id="mySelect">
@@ -222,12 +356,12 @@ include 'adminheadersidebar.php'; ?>
                             <button onclick="saveChoice()" id="popupbtn">Save</button>
                         </div>
 
-                        <input type="submit" class="punch-in-btn" name="setloctn" value="Set Location" id="setlocbtn">
+                        <input type="submit"  name="setloctn" value="Set Location" id="setlocbtn">
 
                         <!---Location rent --->
-                        <input type="text" class="time-input" placeholder="Extra Location Rent"></th>
+                        <input type="text" class="time-input" placeholder="Extra Location Rent..."></th>
 
-                        <input name="submit" type="button" class="punch-in-btn" value="Set Location" id="submitbtn">
+                        <input name="submit" type="button"  value="Set Rent" id="setlocbtn">
                     </form>
 
 
@@ -457,9 +591,34 @@ include 'adminheadersidebar.php'; ?>
         </div>
 
         <!------Packup Button----------->
-        <form action="index.php" method="post">
-            <input type="submit" value="Packup" name="Packup" class="packupbtn">
-        </form>
+        
+            
+        
+            <button name="Packup" class="packupbtn" id="packupBtn">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none" class="svg-icon"><g stroke-width="2" stroke-linecap="round" stroke="#fff">
+    <rect y="5" x="4" width="16" rx="2" height="16"></rect><path d="m8 3v4"></path><path d="m16 3v4"></path><path d="m4 11h16"></path></g></svg>
+  <span class="lable">Packup</span>
+</button>
+       
+<div id="pkp-overlay" class="pkp-overlay"></div>
+    <div id="pkp-custom-confirm" class="pkp-model" style="display:none">
+        <div class="pkp-model-content">
+            <div class="pkp-confirmationtext">
+            <p>Do you really want to end today's schedule?</p>
+            </div>
+			<form method="post" action="index.php">
+            <div class="pkp-buttoncontainer">
+
+
+                <button  type="submit" id="pkp-yes-button" name="packup">Packup</button>
+                <button id="pkp-no-button">Cancel</button>
+            </div>
+        </div>
+    </div>      
+</form>	
+
+
+<!------Packup Button Ends----------->
         <!------main-content-end----------->
 
 
@@ -600,7 +759,32 @@ include 'adminheadersidebar.php'; ?>
             $(this).fadeOut(300);
         });
     </script>
+  <script>
+	//for logout popup
+const pkpBtn = document.getElementById("packupBtn");
+const pkp_overlay = document.getElementById('pkp-overlay');
+const pkp_customConfirm = document.getElementById('pkp-custom-confirm');
+const pkp_yesButton = document.getElementById('pkp-yes-button');
+const pkp_noButton = document.getElementById('pkp-no-button');
 
+pkpBtn.addEventListener("click", () => {
+    pkp_overlay.style.display = 'block';
+    pkp_customConfirm.style.display = 'block';
+});
+
+pkp_yesButton.addEventListener('click', function()
+	 {
+        // Perform logout action here
+		window.location.href = "";
+    });
+
+    pkp_noButton.addEventListener('click', function() 
+	{
+		pkp_overlay.style.display = 'none';
+        pkp_customConfirm.style.display = 'none';
+    });
+
+  </script>
 
 </body>
 

@@ -32,6 +32,9 @@ else if($activePage == 'salary'){
 	$PageTitle="Salary Manager";
 }
 
+else if($activePage == 'calender'){
+	$PageTitle="Calender View";
+}
 
 
 ?>
@@ -151,14 +154,14 @@ else if($activePage == 'salary'){
 		 
 		 
 		   <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
-		  <a href="Notifications.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
+		  <a href="ad_notification.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 		  </li>
 		  
 		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
 		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
-		  <a href="#" class=""><i class="material-icons">calendar_month</i>Calender </a>
+		  <a href="ad_calender.php" class=""><i class="material-icons">calendar_month</i>Calender </a>
 		  </li>
 		  <li class="<?php echo ($activePage === 'accomodation') ? 'active' : ''; ?>">
 		  <a href="accomodation.php" class=""><i class="material-icons">bed</i>Accomodation </a>

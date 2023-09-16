@@ -53,6 +53,7 @@ include 'sp_header.php';
 
   .user-container {
     margin-top: 50px;
+    margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -61,7 +62,7 @@ include 'sp_header.php';
      height:15vh;
      border-radius:20px;
      width:80vw;
-     box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.2);
+     box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
   }
 
   .select-label {
@@ -175,7 +176,7 @@ include 'sp_header.php';
   }
 
   table {
-  background: #152935;
+  background: #262f35;
   border-radius: 0.25em;
   border-collapse: collapse;
   margin: 1em;
@@ -330,12 +331,10 @@ thead{
   </thead>
                   
     <tr>
-	
       <th>SI NO</th>
       <th>Date</th>
-      <th> Name</th>
+      <th>Name</th>
       <th>Purpose</th>
-    
       <th>Time</th>
       <th>Remark</th>
       <th>Amount</th>
@@ -382,8 +381,8 @@ thead{
 </table>
 <div class="attendence" style="overflow-x:auto;">
 		
-				<table >
-                    
+				<table>
+ 
                 <thead>
                 <tr >
                <td></td>
@@ -435,9 +434,9 @@ thead{
                     </tr>
 					
 					<tr>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <td>dsd</td>
+                      <td>sdsd</td>
+                      <td>sdsd</td>
                       <td>ssnc</td>
                       <td>scn</td>
 					 

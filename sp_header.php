@@ -159,7 +159,7 @@ else if($activePage == 'usercreation'){
 		  <a href="sp_usercreation.php" class=""><i class="material-icons">grid_on</i>User Creation</a>
 		  </li>
 		   <li class="<?php echo ($activePage === 'notification') ? 'active' : '';?>">
-		  <a href="sp_notifications.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
+		  <a href="sp_notification.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 		  </li>
 		  
 		   
@@ -172,7 +172,6 @@ else if($activePage == 'usercreation'){
 		  <li class="<?php echo ($activePage === 'expense') ? 'active' : '';?>">
 					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
-		
 		</ul>
 	 </div>
 	 
@@ -223,7 +222,7 @@ else if($activePage == 'usercreation'){
 								  <span class="notification">4</span>
 								 </a>
 								  <ul class="dropdown-menu">
-								     <li><a href="sp_notifications.php">You Have 3 New Messages</a></li>
+								     <li><a href="sp_notification.php">You Have 3 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
 									 <li><a href="#">You Have 4 New Messages</a></li>
