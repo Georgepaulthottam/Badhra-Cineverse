@@ -19,29 +19,9 @@ ob_end_flush();
 ?>
 <div id="user_chat">
   <div class="dropdown1">
-  <button class="dropbtn">Chat With</button>
     <form action="" method="post">
-      <div class="dropdown1-content" id="dropdown1-content">
-        <div><input type="submit" name="admin" value="Admin"></div>
-        <div><input type="submit" name="artist" value="Artist"></div>
-        <div><input type="submit" value="Department 1"></div>
-      </div>
-    </form>
-  </div>
-  <div class="dropdown1">
-  <button class="dropbtn">Chat With</button>
-    <form action="" method="post">
-      <div class="dropdown1-content" id="dropdown1-content">
-        <div><input type="submit" name="admin" value="Admin"></div>
-        <div><input type="submit" name="artist" value="Artist"></div>
-        <div><input type="submit" value="Department 1"></div>
-      </div>
-    </form>
-  </div>
-  <div class="dropdown1">
-  <button class="dropbtn">Chat With</button>
-    <form action="" method="post">
-      <div class="dropdown1-content" id="dropdown1-content">
+      <button class="dropbtn">Chat With</button>
+      <div class="dropdown1-content">
         <div><input type="submit" name="admin" value="Admin"></div>
         <div><input type="submit" name="artist" value="Artist"></div>
         <div><input type="submit" value="Department 1"></div>
@@ -103,6 +83,7 @@ ob_end_flush();
   if (isset($_POST['artist'])) {
     $query = ("SELECT * FROM notifications WHERE rec_user='" . mysqli_real_escape_string($conn, $dept) . "'and dept='" . mysqli_real_escape_string($conn, 'artist') . "' ORDER BY time DESC");
     $result = mysqli_query($conn, $query);
+    
     while ($row = mysqli_fetch_assoc($result)) {
 
 
