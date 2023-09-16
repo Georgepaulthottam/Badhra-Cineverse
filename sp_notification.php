@@ -19,9 +19,29 @@ ob_end_flush();
 ?>
 <div id="user_chat">
   <div class="dropdown1">
+  <button class="dropbtn">Chat With</button>
     <form action="" method="post">
-      <button class="dropbtn">Chat With</button>
-      <div class="dropdown1-content">
+      <div class="dropdown1-content" id="dropdown1-content">
+        <div><input type="submit" name="admin" value="Admin"></div>
+        <div><input type="submit" name="artist" value="Artist"></div>
+        <div><input type="submit" value="Department 1"></div>
+      </div>
+    </form>
+  </div>
+  <div class="dropdown1">
+  <button class="dropbtn">Chat With</button>
+    <form action="" method="post">
+      <div class="dropdown1-content" id="dropdown1-content">
+        <div><input type="submit" name="admin" value="Admin"></div>
+        <div><input type="submit" name="artist" value="Artist"></div>
+        <div><input type="submit" value="Department 1"></div>
+      </div>
+    </form>
+  </div>
+  <div class="dropdown1">
+  <button class="dropbtn">Chat With</button>
+    <form action="" method="post">
+      <div class="dropdown1-content" id="dropdown1-content">
         <div><input type="submit" name="admin" value="Admin"></div>
         <div><input type="submit" name="artist" value="Artist"></div>
         <div><input type="submit" value="Department 1"></div>
