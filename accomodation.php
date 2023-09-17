@@ -200,6 +200,40 @@ include 'adminheadersidebar.php'; ?>
     .dropdown1:hover .dropbtn {
       background-color: #2576d3;
     }
+
+
+.custom-select {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      /* Adjust the max-width as needed */
+      z-index: 1;
+    }
+
+    .custom-options {
+      display: none;
+      position: absolute;
+      width: 100%;
+      max-width: 1000px;
+      /* Adjust the max-width as needed */
+      background-color: #fff;
+      /* Add your desired background color here */
+      border: 1px solid #ccc;
+      /* Add a border for styling */
+      border-radius: 5px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    .custom-option {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+    }
+
+    .custom-option input[type="checkbox"] {
+      margin-right: 10px;
+    }
   </style>
 </head>
 
@@ -260,7 +294,7 @@ include 'adminheadersidebar.php'; ?>
                 <h6 class="mb-2">Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
-                <select id="multi_option" multiple name="usernamew[]" placeholder="Select Users" data-silent-initial-value-set="false">
+                <select id="multi_option" multiple name="usernamew[]" placeholder="Select Users" class="custom-select" data-silent-initial-value-set="false">
                   <?php
                   while ($row6 = mysqli_fetch_assoc($result6)) {
                     echo (' <option value="' . $row6['username'] . '">' . $row6['username'] . '</option>');
@@ -276,25 +310,25 @@ include 'adminheadersidebar.php'; ?>
                 <h6 class="mb-2">Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
-                <div class="dropdown1">
-                  <button class="dropbtn">Chat With</button>
-                  <div class="dropdown1-content" id="dropdown1-content">
-                    <table>
-                      <?php
-                      while ($row = mysqli_fetch_assoc($result)) {
-                        echo (' 
-        <tr><input type="checkbox" name="username[]" value="' . $row['username'] . '">
-        <p>' . $row['username'] . '</p>
-        </tr>
-        
-        ');
-                      }
-                      ?>
-                    </table>
+                <div class="custom-select" id="user-dropdown">
+                  <label for="user-options">Select Users</label>
+                  <div id="user-options" class="custom-options">
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      echo (' 
+                        <div class="custom-option">
+                            <input type="checkbox" name="username[]" value="' . $row['username'] . '">
+                            <label>' . $row['username'] . '</label>
+                        </div>
+                    ');
+                    }
+                    ?>
                   </div>
                 </div>
               </div>
             </div>
+
+
             <div class="row mb-3 user-none" id="appear4">
               <div class="col-sm-3">
                 <h6 class="mb-2">Users</h6>
@@ -519,10 +553,36 @@ include 'adminheadersidebar.php'; ?>
     }
 
 
+    var userOptions = document.getElementById("user-options");
+
+    document.getElementById("user-dropdown").addEventListener("click", function(event) {
+      if (userOptions.style.display === "block") {
+        userOptions.style.display = "none";
+      } else {
+        userOptions.style.display = "block";
+      }
+      event.stopPropagation(); // Prevent the click event from reaching the document
+    });
+
+    // Close the dropdown when clicking outside
+    document.addEventListener("click", function() {
+      userOptions.style.display = "none";
+    });
+
+    // Prevent clicks inside the dropdown from closing it
+    userOptions.addEventListener("click", function(event) {
+      event.stopPropagation();
+    });
+
+
+
+
     VirtualSelect.init({
       ele: '#multi_option'
     });
   </script>
+
+
 
 
 </body>
