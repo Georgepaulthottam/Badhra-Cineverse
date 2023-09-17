@@ -20,30 +20,27 @@ $result6 = mysqli_query($conn, $query6);
 $query7 = ("SELECT * FROM accom_details");
 $result7 = mysqli_query($conn, $query7);
 
-if(isset($_POST['add'])){
+if (isset($_POST['add'])) {
 
-  $accommedation=$_POST['accommedation'];
-   $desc=$_POST['description'];
-   $usr=$_POST["username"];
+  $accommedation = $_POST['accommedation'];
+  $desc = $_POST['description'];
+  $usr = $_POST["username"];
   if (!empty($usr)) {
     foreach ($usr as $tempusername) {
       $addsql = "INSERT INTO `temp_acc` (`username`, `accommedation`, `description`) VALUES (?,?,?)";
       $stmt = mysqli_prepare($conn, $addsql);
-      mysqli_stmt_bind_param($stmt, "sss", $tempusername,$accommedation,$desc);
+      mysqli_stmt_bind_param($stmt, "sss", $tempusername, $accommedation, $desc);
       mysqli_stmt_execute($stmt);
       mysqli_stmt_close($stmt);
-      
     }
-    
   }
   header("location:accomodation.php");
   die();
- 
 }
 
 
 
- 
+
 
 
 
@@ -129,7 +126,7 @@ include 'adminheadersidebar.php'; ?>
       padding: 10px 20px;
       border: none;
       border-radius: 5px;
-      cursor: pointer;  
+      cursor: pointer;
     }
 
     .radio-group {
@@ -153,6 +150,89 @@ include 'adminheadersidebar.php'; ?>
 
     .user-none {
       display: none;
+    }
+
+    .dropbtn {
+      background-color: #fff;
+      color: black;
+      padding: 16px;
+      font-size: 16px;
+      width: 50%;
+      border: none;
+      cursor: pointer;
+    }
+
+    .dropdown1 {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      width: 50px;
+    }
+
+    .dropdown1-content {
+      display: none;
+      position: absolute;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown1-content div {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    .dropdown1-content div input {
+      border: none;
+    }
+
+    .dropdown1-content div:hover {
+      background-color: #f1f1f1
+    }
+
+    .dropdown1:hover .dropdown1-content {
+      display: block;
+    }
+
+    .dropdown1:hover .dropbtn {
+      background-color: #2576d3;
+    }
+
+
+.custom-select {
+      position: relative;
+      width: 100%;
+      max-width: 1000px;
+      /* Adjust the max-width as needed */
+      z-index: 1;
+    }
+
+    .custom-options {
+      display: none;
+      position: absolute;
+      width: 100%;
+      max-width: 1000px;
+      /* Adjust the max-width as needed */
+      background-color: #fff;
+      /* Add your desired background color here */
+      border: 1px solid #ccc;
+      /* Add a border for styling */
+      border-radius: 5px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+    }
+
+    .custom-option {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+    }
+
+    .custom-option input[type="checkbox"] {
+      margin-right: 10px;
     }
   </style>
 </head>
@@ -214,7 +294,7 @@ include 'adminheadersidebar.php'; ?>
                 <h6 class="mb-2">Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
-                <select id="multi_option" multiple name="usernamew[]" placeholder="Select Users" data-silent-initial-value-set="false">
+                <select id="multi_option" multiple name="usernamew[]" placeholder="Select Users" class="custom-select" data-silent-initial-value-set="false">
                   <?php
                   while ($row6 = mysqli_fetch_assoc($result6)) {
                     echo (' <option value="' . $row6['username'] . '">' . $row6['username'] . '</option>');
@@ -230,15 +310,25 @@ include 'adminheadersidebar.php'; ?>
                 <h6 class="mb-2">Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
-                <select id="multi_option" multiple name="username[]" placeholder="Select Users" data-silent-initial-value-set="false">
-    <?php
-    while ($row = mysqli_fetch_assoc($result)) {
-        echo (' <option value="' . $row['username'] . '">' . $row['username'] . '</option>');
-    }
-    ?>
-</select>
+                <div class="custom-select" id="user-dropdown">
+                  <label for="user-options">Select Users</label>
+                  <div id="user-options" class="custom-options">
+                    <?php
+                    while ($row = mysqli_fetch_assoc($result)) {
+                      echo (' 
+                        <div class="custom-option">
+                            <input type="checkbox" name="username[]" value="' . $row['username'] . '">
+                            <label>' . $row['username'] . '</label>
+                        </div>
+                    ');
+                    }
+                    ?>
+                  </div>
+                </div>
               </div>
             </div>
+
+
             <div class="row mb-3 user-none" id="appear4">
               <div class="col-sm-3">
                 <h6 class="mb-2">Users</h6>
@@ -291,7 +381,8 @@ include 'adminheadersidebar.php'; ?>
                   <option value="">Select Accomodation</option>
                   <?php
                   while ($row7 = mysqli_fetch_assoc($result7)) {
-                    echo (' <option value="' . $row7['location'] . '">' . $row7['location'] . '</option>');
+                    echo (' 
+                    <option value="' . $row7['location'] . '">' . $row7['location'] . '</option>');
                   }
 
 
@@ -340,16 +431,16 @@ include 'adminheadersidebar.php'; ?>
         </thead>
         <tbody>
           <?php
-          $acsql=("SELECT * FROM temp_acc");
-          $accres=mysqli_query($conn,$acsql);
-          while($accrow=mysqli_fetch_assoc($accres)){
-          echo(' <tr>
+          $acsql = ("SELECT * FROM temp_acc");
+          $accres = mysqli_query($conn, $acsql);
+          while ($accrow = mysqli_fetch_assoc($accres)) {
+            echo (' <tr>
             <th><span class="custom-checkbox">
                 <input type="checkbox" id="checkbox" name="checkbox" value="1">
                 <label for="checkbox1"></label></th>
             <th>Camera dept</th>
-            <th>'.$accrow['username'].'</th>
-            <th>'.$accrow['accommedation'].'</th>
+            <th>' . $accrow['username'] . '</th>
+            <th>' . $accrow['accommedation'] . '</th>
             <th>' . $accrow['description'] . '</th>
 
             <th>
@@ -402,8 +493,8 @@ include 'adminheadersidebar.php'; ?>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
-  
- 
+
+
 
 
   <script type="text/javascript">
@@ -462,10 +553,36 @@ include 'adminheadersidebar.php'; ?>
     }
 
 
+    var userOptions = document.getElementById("user-options");
+
+    document.getElementById("user-dropdown").addEventListener("click", function(event) {
+      if (userOptions.style.display === "block") {
+        userOptions.style.display = "none";
+      } else {
+        userOptions.style.display = "block";
+      }
+      event.stopPropagation(); // Prevent the click event from reaching the document
+    });
+
+    // Close the dropdown when clicking outside
+    document.addEventListener("click", function() {
+      userOptions.style.display = "none";
+    });
+
+    // Prevent clicks inside the dropdown from closing it
+    userOptions.addEventListener("click", function(event) {
+      event.stopPropagation();
+    });
+
+
+
+
     VirtualSelect.init({
       ele: '#multi_option'
     });
   </script>
+
+
 
 
 </body>
