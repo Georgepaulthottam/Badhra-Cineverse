@@ -361,7 +361,7 @@ include 'adminheadersidebar.php'; ?>
                         <!---Location rent --->
                         <input type="text" class="time-input" placeholder="Extra Location Rent..."></th>
 
-                        <input name="submit" type="button"  value="Set Rent" id="setlocbtn">
+                        <input type="submit"  name="setloctn" value="Set Rent" id="setlocbtn">
                     </form>
 
 

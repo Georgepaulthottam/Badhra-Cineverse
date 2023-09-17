@@ -426,6 +426,7 @@ include 'adminheadersidebar.php'; ?>
 				document.getElementById("rejectAllBtn").style.visibility = "hidden";
 				}
 		}
+		
 	</script>
 </body>
 
