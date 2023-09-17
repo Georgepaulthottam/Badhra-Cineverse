@@ -41,7 +41,13 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         header("location:sp_index.php");
 
      
-    } else {  
+    }
+    elseif($dbusername=="HR"){
+        header("location:hr_cateringindex.php");
+
+     
+    } 
+    else {  
     echo "<script>alert('invalid username or password!')</script>";  
     } 
 }
