@@ -191,14 +191,18 @@
     text-align: center;
   }
   
-  table tr:nth-child(odd){
+  td {
     padding: 10px;
     text-align: center;
-    background-color: rgb(237, 235, 235);
+    background-color: rgb(255, 255, 255);
     align-items: center;
     justify-content: center;
   }
- 
+  .profile-box table tr:nth-child(even){
+    
+    background-color: rgb(35, 10, 10);
+    
+  }
   th {
     padding: 10px;
     text-align: center;
