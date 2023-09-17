@@ -27,7 +27,7 @@ $result4 = mysqli_query($conn, $query4);
 
 ?>
 
-<?php $activePage = 'home';
+<?php $activePage = 'history';
 include 'hr_cateringheader.php'; ?>
 
 
