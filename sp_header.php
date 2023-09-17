@@ -228,7 +228,7 @@ $image=$row['image'];
 
 										<li class="dropdown nav-item">
 											<a class="nav-link" href="#" data-toggle="dropdown">
-												<img src="data:image/jpeg;base64,<?php echo base64_encode($image); ?>" style="width:36px; height:35px; border-radius:45%;" />
+												<img src="data:image/jpeg;base64,<?php echo base64_encode($image); ?>" style="width:20px; height:20px; border-radius:45%;" />
 												<span class="xp-user-live"></span>
 											</a>
 											<ul class="dropdown-menu small-menu">
