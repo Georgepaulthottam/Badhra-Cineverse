@@ -154,7 +154,7 @@ else if($activePage == 'hrcatering'){
 		  </li>
 		  
 		  <li class="<?php echo ($activePage === 'misc') ? 'active' : '';?>">
-		  <a href="sp_misc.php" class=""><i class="material-icons">grid_on</i>Miscellaneous</a>
+		  <a href="sp_misc.php" class=""><i class="material-icons">miscellaneous_services</i>Miscellaneous</a>
 		  </li>
 
 
