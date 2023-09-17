@@ -83,15 +83,15 @@ include 'user_header.php'; ?>
 
                                 echo ('
                                         <tr>
-                                        <td>' . $date . '</td>
-                                        <td>' . $time . '</td>
-                                        <td>' . $row['name'] . '</td>
-                                        <td>' . $row['details'] . '</td>
-                                        <td>' . $row['price'] .'</td>
+                                        <th>' . $date . '</th>
+                                        <th>' . $time . '</th>
+                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['details'] . '</th>
+                                        <th>' . $row['price'] .'</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th>
-                                        <td>' . $row['price'] . '</td>
-                                        <td>' . $row['status'] . '</td>
+                                        <th>' . $row['price'] . '</th>
+                                        <th>' . $row['status'] . '</th>
                                     </tr>');
                             }
                         }
@@ -107,15 +107,15 @@ include 'user_header.php'; ?>
 
                                 echo ('
                                         <tr>
-                                        <td>' . $date . '</td>
-                                        <td>' . $time . '</td>
-                                        <td>' . $row['name'] . '</td>
-                                        <td>' . $row['details'] . '</td>
-                                        <td>' . $row['price'] .'</td>
+                                        <th>' . $date . '</th>
+                                        <th>' . $time . '</th>
+                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['details'] . '</th>
+                                        <th>' . $row['price'] .'</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th>
-                                        <td>' . $row['price']  . '</td>
-                                        <td>' . $row['status'] . '</td>
+                                        <th>' . $row['price']  . '</th>
+                                        <th>' . $row['status'] . '</th>
                                     </tr>');
                             }
                         }
@@ -131,15 +131,15 @@ include 'user_header.php'; ?>
 
                                 echo ('
                                         <tr>
-                                        <td>' . $date . '</td>
-                                        <td>' . $time . '</td>
-                                        <td>' . $row['name'] . '</td>
-                                        <td>' . $row['details'] . '</td>
-                                        <td>' . $row['price'] .'</td>
+                                        <th>' . $date . '</th>
+                                        <th>' . $time . '</th>
+                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['details'] . '</th>
+                                        <th>' . $row['price'] .'</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th>
-                                        <td>' . $row['price'] . '</td>
-                                        <td>' . $row['status'] . '</td>
+                                        <th>' . $row['price'] . '</th>
+                                        <th>' . $row['status'] . '</th>
                                     </tr>');
                             }
                         }
@@ -155,15 +155,15 @@ include 'user_header.php'; ?>
 
                                 echo ('
                                         <tr>
-                                        <td>' . $date . '</td>
-                                        <td>' . $time . '</td>
-                                        <td>' . $row['name'] . '</td>
-                                        <td>' . $row['details'] . '</td>
-                                        <td>' . $row['price'] .'</td>
+                                        <th>' . $date . '</th>
+                                        <th>' . $time . '</th>
+                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['details'] . '</th>
+                                        <th>' . $row['price'] .'</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th>
-                                        <td>' . $row['price']  . '</td>
-                                        <td>' . $row['status'] . '</td>
+                                        <th>' . $row['price']  . '</th>
+                                        <th>' . $row['status'] . '</th>
                                     </tr>');
                             }
                         }
@@ -179,15 +179,15 @@ include 'user_header.php'; ?>
 
                                 echo ('
                                         <tr>
-                                        <td>' . $date . '</td>
-                                        <td>' . $time . '</td>
-                                        <td>' . $row['name'] . '</td>
-                                        <td>' . $row['details'] . '</td>
-                                        <td>' . $row['price'] . '</td>
+                                        <th>' . $date . '</th>
+                                        <th>' . $time . '</th>
+                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['details'] . '</th>
+                                        <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th>
-                                        <td>' . $row['price'] . '</td>
-                                        <td>' . $row['status'] . '</td>
+                                        <th>' . $row['price'] . '</th>
+                                        <th>' . $row['status'] . '</th>
                                     </tr>');
                             }
                         }
