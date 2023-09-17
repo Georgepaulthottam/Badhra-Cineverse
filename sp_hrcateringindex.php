@@ -28,19 +28,11 @@ $result4 = mysqli_query($conn, $query4);
 ?>
 
 <?php $activePage = 'home';
-include 'hr_cateringheader.php'; ?>
+include 'sp_header.php'; ?>
 
 
 <!------main-content-start----------->
 
-<!-- Notification message popup -->
-		  
-<div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
-        
-        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
-        <span class="progress"></span>
-         </div>
- <!-- Notification message popup ends-->
 
   <!------main-content-start----------->
   <div id="main-container" class="middle-section">
@@ -55,6 +47,10 @@ include 'hr_cateringheader.php'; ?>
                         <tr>
                             <td>Title</td>
                             <td>Geetha Govindham</td>
+                        </tr>
+                        <tr>
+                            <td>Schedule</td>
+                            <td>May</td>
                         </tr>
                     </table>
                 </div>

@@ -35,10 +35,11 @@ else if($activePage == 'history'){
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!--google material icon-->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" />
-
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="css/style.css" />
+	
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <!--user css-->
     <link rel="stylesheet" href="css/user.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">

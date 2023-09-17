@@ -36,6 +36,9 @@ else if($activePage == 'salary'){
 else if($activePage == 'usercreation'){
 	$PageTitle="User Creation ";
 }
+else if($activePage == 'hrcatering'){
+	$PageTitle="HR Catering";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -169,9 +172,12 @@ else if($activePage == 'usercreation'){
 		  <li class="<?php echo ($activePage === 'calender') ? 'active' : '';?>">
 		  <a href="sp_calender.php" class=""><i class="material-icons">calendar_month</i>Calender </a>
 		  </li>
-		  <li class="<?php echo ($activePage === 'expense') ? 'active' : '';?>">
-					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
-				</li>
+		    <li class="<?php echo ($activePage === 'expense') ? 'active' : '';?>">
+				<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
+		    </li>
+			<li class="<?php echo ($activePage === 'hrcatering') ? 'active' : '';?>">
+		  <a href="sp_hrcateringindex.php" class=""><i class="material-icons">food_bank</i>HR catering</a>
+		  </li>
 		</ul>
 	 </div>
 	 
