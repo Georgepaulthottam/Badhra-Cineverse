@@ -352,7 +352,7 @@ if (isset($_POST['delete'])) {
         </div>
     </div>
     <!------bottom-container contains Other requests panel----------->
-    < <!--- Misc Section Box--->
+     <!--- Misc Section Box--->
         <div id="middle-container" class="bottom-section">
             <div class="detailed-box"  id="sp_admin_table2">
                 <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Miscellaneous

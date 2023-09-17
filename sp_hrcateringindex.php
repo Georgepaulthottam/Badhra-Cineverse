@@ -28,19 +28,11 @@ $result4 = mysqli_query($conn, $query4);
 ?>
 
 <?php $activePage = 'home';
-include 'hr_cateringheader.php'; ?>
+include 'sp_header.php'; ?>
 
 
 <!------main-content-start----------->
 
-<!-- Notification message popup -->
-		  
-<div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
-        
-        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
-        <span class="progress"></span>
-         </div>
- <!-- Notification message popup ends-->
 
   <!------main-content-start----------->
   <div id="main-container" class="middle-section">
@@ -56,40 +48,29 @@ include 'hr_cateringheader.php'; ?>
                             <td>Title</td>
                             <td>Geetha Govindham</td>
                         </tr>
+                        <tr>
+                            <td>Schedule</td>
+                            <td>May</td>
+                        </tr>
                     </table>
                 </div>
                 <div class="profile-box">
         <h4>Status</h4>
-        <table class="table table-striped table-hover" id="HideTable">
-            <tr>
-                <td>Time</td>
-                <td><input type="time" class="form-control" placeholder="Enter the time" id="timeInput" required></td>
-            </tr>
-            <tr>
-                <td>Quantity</td>
-                <td><input type="number" class="form-control" placeholder="Enter the quantity" id="quantityInput" required></td>
-            </tr>
-            <tr>
-                <td>Amount</td>
-                <td><input type="number" class="form-control" placeholder="Enter the amount" id="amountInput" required></td>
-            </tr>
-        </table>
+        
 
-        <table class="table table-striped table-hover" id="displayTable" style="display: none;">
+        <table class="table table-striped table-hover" id="displayTable">
                 <td>Time</td>
-                <td><span id="displayTime"></span></td>
+                <td>9:30AM</span></td>
             </tr>
             <tr>
                 <td>Quantity</td>
-                <td><span id="displayQuantity"></span></td>
+                <td>2</span></td>
             </tr>
             <tr>
                 <td>Amount</td>
-                <td><span id="displayAmount"></span></td>
+                <td>500</span></td>
             </tr>
         </table>
-        <input type="button" name="req_accept" value="Submit" class="edit" id="submitButton">
-        <input type="button" value="Cancel" class="delete" id="cancelButton" data-toggle="modal">
     </div>
             
             </div>
@@ -156,47 +137,6 @@ include 'hr_cateringheader.php'; ?>
 
 
 <!-------complete html----------->
-
-<script>
-        // Select the Cancel button
-        const cancelButton = document.getElementById('cancelButton');
-
-        // Add a click event listener to the Cancel button
-        cancelButton.addEventListener('click', function () {
-            // Clear the input fields
-            document.getElementById('timeInput').value = '';
-            document.getElementById('quantityInput').value = '';
-            document.getElementById('amountInput').value = '';
-        });
-
-        // Select the Submit button
-        const submitButton = document.getElementById('submitButton');
-
-        // Add a click event listener to the Submit button
-        submitButton.addEventListener('click', function () {
-            // Hide the input fields
-            document.getElementById('HideTable').style.display = 'none';
-
-            // Show the display elements
-            const displayTime = document.getElementById('displayTime');
-            const displayQuantity = document.getElementById('displayQuantity');
-            const displayAmount = document.getElementById('displayAmount');
-
-            displayTime.textContent = document.getElementById('timeInput').value;
-            displayQuantity.textContent = document.getElementById('quantityInput').value;
-            displayAmount.textContent = document.getElementById('amountInput').value;
-
-            // Hide the Submit and Cancel buttons
-            submitButton.style.display = 'none';
-            cancelButton.style.display = 'none';
-            
-            // Show the display table
-            document.getElementById('displayTable').style.display = 'table';
-        });
-    </script>
-
-
-
 
 </body>
 

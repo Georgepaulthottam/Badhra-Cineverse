@@ -33,7 +33,7 @@ $result = mysqli_query($conn, $query); ?>
             transform: translate(-50%, -50%);
             background: linear-gradient(#152935, #152935);
             border-radius: 5px;
-            width: 50vw;
+            width: 70vw;
             padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             z-index: 9999;
@@ -67,12 +67,12 @@ $result = mysqli_query($conn, $query); ?>
         }
 
         .right-block {
-            width: 40%;
+            width: 30%;
             text-align: center;
             border:2px solid black;
             padding:50px;
             position:absolute;
-            left:400px;
+            left:600px;
             top:100px;
         }
        .right-block img{
@@ -291,14 +291,8 @@ tbody tr:hover {
                 <img src="user.png">
                 <input type="file" name="profilepic" id="profilepic">
                 </div>
-                <div class="salary">
-                <label for="accountHolder">sdkfhckueqdcbh:</label><br>
-                    <input type="text" id="accountHolder" name="accountHolder"><br><br>
-
-                    <label for="accountNumber">kwjfnhli4grjn:</label><br>
-                    <input type="text" id="accountNumber" name="accountNumber"><br><br>
-                    </div>
-                 <!-- Add other input fields here -->
+               
+                
                  
                 <div class="arrow-icon" onclick="toggleBankPanFields()">&#9660; Bank & Pan (Optional)</div>
                 <div class="bank-pan-fields">

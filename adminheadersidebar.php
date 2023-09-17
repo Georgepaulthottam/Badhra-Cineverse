@@ -148,7 +148,7 @@ else if($activePage == 'calender'){
 		  </li>
 		  
 		  <li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
-		  <a href="misc.php" class=""><i class="material-icons">grid_on</i>Miscellaneous</a>
+		  <a href="misc.php" class=""><i class="material-icons">miscellaneous_services</i>Miscellaneous</a>
 		  </li>
 
 		 
