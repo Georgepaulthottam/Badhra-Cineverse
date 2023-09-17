@@ -7,10 +7,10 @@ else if($activePage == 'notification'){
 }
 
 else if($activePage == 'profile'){
-	$PageTitle="Profile ";
+	$PageTitle="Profile";
 }
 else if($activePage == 'history'){
-	$PageTitle="history ";
+	$PageTitle="history";
 }
 
 ?>
@@ -82,7 +82,7 @@ else if($activePage == 'history'){
                     <a href="hr_cateringnotification.php" class=""><i class="material-icons">notifications</i>Notifications</a>
                 </li>
                 <li class="<?php echo ($activePage === 'history') ? 'active' : ''; ?>">
-                    <a href="hr_cateringhistory.php" class=""><i class="material-icons">history</i>History</a>
+                    <a href="hr_cateringhistory.php" class=""><i class="material-icons">history</i>History </a>
                 </li>
             </ul>
         </div>
