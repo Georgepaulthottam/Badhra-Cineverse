@@ -122,7 +122,7 @@ $image=$row['image'];
 
 				<li class="<?php echo ($activePage === 'request') ? 'active' : ''; ?>">
 					<a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">equalizer</i>Request Panel
+						<i class="material-icons">request_page</i>Request Panel
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
 						<li><a href="sp_requests.php">Pending Requests</a></li>
@@ -133,7 +133,7 @@ $image=$row['image'];
 
 				<li class="<?php echo ($activePage === 'crew') ? 'active' : ''; ?>">
 					<a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">extension</i>Crew Management
+						<i class="material-icons">groups</i>Crew Management
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu4">
 						<li><a href="sp_crewmanagement.php">Admin Crew Manegement</a></li>
@@ -143,7 +143,7 @@ $image=$row['image'];
 
 				<li class="<?php echo ($activePage === 'Salary') ? 'active' : ''; ?>">
 					<a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">border_color</i>Salary Manager
+						<i class="material-icons">account_balance_wallet</i>Salary Manager
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu5">
 						<li><a href="sp_salary.php">Salary Manager</a></li>
@@ -157,18 +157,18 @@ $image=$row['image'];
 
 
 				<li class="<?php echo ($activePage === 'usercreation') ? 'active' : ''; ?>">
-					<a href="sp_usercreation.php" class=""><i class="material-icons">grid_on</i>User Creation</a>
+					<a href="sp_usercreation.php" class=""><i class="material-icons">person_add_alt_1</i>User Creation</a>
 				</li>
 				<li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
 					<a href="sp_notification.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 				</li>
 
 				<li class="<?php echo ($activePage === 'bata') ? 'active' : ''; ?>">
-					<a href="sp_bata.php" class=""><i class="material-icons">grid_on</i>Bata Manager</a>
+					<a href="sp_bata.php" class=""><i class="material-icons">manage_accounts</i>Bata Manager</a>
 				</li>
 
 				<li class="<?php echo ($activePage === 'schedule') ? 'active' : ''; ?>">
-					<a href="sp_schedule.php" class=""><i class="material-icons">food_bank</i>Schedule View</a>
+					<a href="sp_schedule.php" class=""><i class="material-icons">remove_red_eye</i>Schedule View</a>
 				</li>
 
 				<li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
@@ -181,7 +181,7 @@ $image=$row['image'];
 					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
 				<li class="<?php echo ($activePage === 'hrcatering') ? 'active' : ''; ?>">
-					<a href="sp_hrcateringindex.php" class=""><i class="material-icons"></i>HR catering</a>
+					<a href="sp_hrcateringindex.php" class=""><i class="material-icons">food_bank</i>HR catering</a>
 				</li>
 			</ul>
 		</div>
