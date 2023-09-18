@@ -36,6 +36,9 @@ else if($activePage == 'salary'){
 else if($activePage == 'usercreation'){
 	$PageTitle="User Creation ";
 }
+else if($activePage == 'studio'){
+	$PageTitle="Studio";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -172,6 +175,9 @@ else if($activePage == 'usercreation'){
 		  <li class="<?php echo ($activePage === 'expense') ? 'active' : '';?>">
 					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
+		  <li class="<?php echo ($activePage === 'studio') ? 'active' : '';?>">
+		  <a href="sp_studio.php" class=""><i class="material-icons">calendar_month</i>Studio </a>
+		  </li>
 		</ul>
 	 </div>
 	 
