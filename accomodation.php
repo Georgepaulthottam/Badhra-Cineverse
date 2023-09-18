@@ -202,7 +202,7 @@ include 'adminheadersidebar.php'; ?>
     }
 
 
-.custom-select {
+    .custom-select {
       position: relative;
       width: 100%;
       max-width: 1000px;
@@ -312,12 +312,13 @@ include 'adminheadersidebar.php'; ?>
               <div class="col-sm-8 text-secondary">
                 <div class="custom-select" id="user-dropdown">
                   <label for="user-options">Select Users</label>
+
                   <div id="user-options" class="custom-options">
                     <?php
                     while ($row = mysqli_fetch_assoc($result)) {
                       echo (' 
                         <div class="custom-option">
-                            <input type="checkbox" name="username[]" value="' . $row['username'] . '">
+                            <input type="checkbox" name="username[]" value="' . $row['username'] . '" onclick="updateSelectedUsers()">
                             <label>' . $row['username'] . '</label>
                         </div>
                     ');
@@ -553,7 +554,24 @@ include 'adminheadersidebar.php'; ?>
     }
 
 
+
     var userOptions = document.getElementById("user-options");
+    var selectUsersLabel = document.querySelector(".custom-select label"); // Assuming your label is within a container with the class "custom-select"
+    var selectedUsers = [];
+
+    function updateSelectedUsers() {
+      selectedUsers = Array.from(userOptions.querySelectorAll("input[type=checkbox]:checked"))
+        .map(function(checkbox) {
+          return checkbox.nextElementSibling.textContent;
+        });
+
+      if (selectedUsers.length > 0) {
+        selectUsersLabel.textContent = "Select Users: " + selectedUsers.join(", ");
+      } else {
+        selectUsersLabel.textContent = "Select Users";
+      }
+    }
+
 
     document.getElementById("user-dropdown").addEventListener("click", function(event) {
       if (userOptions.style.display === "block") {
