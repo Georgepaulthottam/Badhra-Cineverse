@@ -80,7 +80,7 @@ else if($activePage == 'history'){
                     </ul>
                 </li>
                 <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
-                    <a href="hr_cateringnotification.php" class=""><i class="material-icons">notifications</i>Notifications</a>
+                    <a href="hr_cateringnotification.php" class=""><i class="material-icons">notifications_active</i>Notifications</a>
                 </li>
                 <li class="<?php echo ($activePage === 'history') ? 'active' : ''; ?>">
                     <a href="hr_cateringhistory.php" class=""><i class="material-icons">history</i>History </a>
