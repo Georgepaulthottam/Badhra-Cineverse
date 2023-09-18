@@ -152,7 +152,7 @@ include 'user_header.php'; ?>
                     <tr>
                         <th style="text-align: left;"><a href="user_view_request.php" class="punch-in-btn">View Requests</a>
                         </th>
-                        <th style="text-align: right;"><a href="user_make_request.php" class="punch-in-btn">Make Requests</a>
+                        <th style="text-align: right;"><a href="user_make_request.php" class="punch-in-btn" style="background-color: #f93f2eef;">Make Requests</a>
                         </th>
                     </tr>
                 </table>
@@ -185,7 +185,7 @@ include 'user_header.php'; ?>
                     </tr>
                 </table>
             </div>
-            <a href="#" class="punch-in-btn">View Details</a>
+            <a href="#" class="view-btn">View Details</a>
         </div>
     </div>
     <!------middle-container contains request details----------->
@@ -195,7 +195,7 @@ include 'user_header.php'; ?>
             </h3>
             <div class="request-table" style="overflow-x:auto;">
 
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover" style="text-align:left">
                     <thead>
                         <tr>
                             <th>Date</th>
