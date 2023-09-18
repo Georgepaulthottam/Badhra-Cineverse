@@ -26,9 +26,18 @@ if ($activePage == 'vehicle') {
 } else if ($activePage == 'hrcatering') {
 	$PageTitle = "HR Catering";
 }
+else if ($activePage == 'bata') {
+	$PageTitle = "Bata Manager";
+}
+else if ($activePage == 'schedule') {
+	$PageTitle = "Schedule Monitor";
+}
+
+
+
 require 'connection.php';
-												$query = ("SELECT * FROM users where username='super'");
-												$result = mysqli_query($conn, $query);
+$query = ("SELECT * FROM users where username='super'");
+$result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 $image=$row['image'];
 ?>
@@ -154,6 +163,13 @@ $image=$row['image'];
 					<a href="sp_notification.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 				</li>
 
+				<li class="<?php echo ($activePage === 'bata') ? 'active' : ''; ?>">
+					<a href="sp_bata.php" class=""><i class="material-icons">grid_on</i>Bata Manager</a>
+				</li>
+
+				<li class="<?php echo ($activePage === 'schedule') ? 'active' : ''; ?>">
+					<a href="sp_schedule.php" class=""><i class="material-icons">food_bank</i>Schedule View</a>
+				</li>
 
 				<li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
 					<a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
@@ -165,7 +181,7 @@ $image=$row['image'];
 					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
 				<li class="<?php echo ($activePage === 'hrcatering') ? 'active' : ''; ?>">
-					<a href="sp_hrcateringindex.php" class=""><i class="material-icons">food_bank</i>HR catering</a>
+					<a href="sp_hrcateringindex.php" class=""><i class="material-icons"></i>HR catering</a>
 				</li>
 			</ul>
 		</div>
