@@ -36,148 +36,146 @@ else if($activePage == 'salary'){
 else if($activePage == 'usercreation'){
 	$PageTitle="User Creation ";
 }
-else if($activePage == 'studio'){
-	$PageTitle="Studio";
-}
 ?>
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-        <title>Super Admin Dashboard</title>
-	    <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-	    <!----css3---->
-        <link rel="stylesheet" href="css/custom.css">
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		
-		<!--google fonts -->
-	    <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-	
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=REM&display=swap" rel="stylesheet">
-	   <!--google material icon-->
-      <link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
-	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-	  <link rel="stylesheet" href="css/style.css" />
-	  <link rel="stylesheet" href="css/sp_admin.css" />
-<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-	  
-	  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-	 
-  </head>
-  <body>
-  
+
+<head>
+	<!-- Required meta tags -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<title>Super Admin Dashboard</title>
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!----css3---->
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<!--google fonts -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+	<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=REM&display=swap" rel="stylesheet">
+	<!--google material icon-->
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="css/sp_admin.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
 
 
-<div class="wrapper">
-     
-<div class="body-overlay"></div>
-	 <!-------sidebar--design------------>
-	 
-	 <div id="sidebar">
-	    <div class="sidebar-header">
-		<img src="Bc_logo.png" width="50px" height="50px">
-		   <h3><span  > &nbsp;Badhra Cineverse</span></h3>
-		</div>
-		
-		<ul class="list-unstyled component m-0">
 
-		  <li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
-		  <a href="sp_index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
-		  </li>
-		  
+	<div class="wrapper">
 
-		  <li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">account_circle</i>Profile
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-		     <li><a href="sp_profile.php">Profile</a></li>
-			 
-		  </ul>
-		  </li>
-		  
-		  
-		   <li class="<?php echo ($activePage === 'attendance') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">stacked_line_chart</i>Attendance
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu2">
-		     <li><a href="sp_attendance.php">Attendance Requests</a></li>
-			 <li><a href="sp_approved_attendance.php">Approved attendance</a></li>
-			 
-		  </ul>
-		  </li>
-		  
-		   <li class="<?php echo ($activePage === 'request') ? 'active' : '';?>">
-		  <a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">equalizer</i>Request Panel
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu3">
-		     <li><a href="sp_requests.php">Pending Requests</a></li>
-			 <li><a href="sp_approved_requests.php">Approved requests</a></li>
-		  </ul>
-		  </li>
-		  
-		  
-		   <li class="<?php echo ($activePage === 'crew') ? 'active' : '';?>">
-		  <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">extension</i>Crew Management
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu4">
-		     <li><a href="sp_crewmanagement.php">Admin Crew Manegement</a></li>
-			 <li><a href="sp_usercrewmanagement.php">User Crew Manegement</a></li>
-		  </ul>
-		  </li>
-		  
-		   <li class="<?php echo ($activePage === 'Salary') ? 'active' : '';?>">
-		  <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">border_color</i>Salary Manager
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu5">
-		     <li><a href="sp_salary.php">Salary Manager</a></li>
-			 
-		  </ul>
-		  </li>
-		  
-		  <li class="<?php echo ($activePage === 'misc') ? 'active' : '';?>">
-		  <a href="sp_misc.php" class=""><i class="material-icons">grid_on</i>Miscellaneous</a>
-		  </li>
+		<div class="body-overlay"></div>
+		<!-------sidebar--design------------>
+
+		<div id="sidebar">
+			<div class="sidebar-header">
+				<img src="Bc_logo.png" width="50px" height="50px">
+				<h3><span> &nbsp;Badhra Cineverse</span></h3>
+			</div>
+
+			<ul class="list-unstyled component m-0">
+
+				<li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
+					<a href="sp_index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+				</li>
 
 
-		  <li class="<?php echo ($activePage === 'usercreation') ? 'active' : '';?>">
-		  <a href="sp_usercreation.php" class=""><i class="material-icons">grid_on</i>User Creation</a>
-		  </li>
-		   <li class="<?php echo ($activePage === 'notification') ? 'active' : '';?>">
-		  <a href="sp_notification.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
-		  </li>
-		  
-		   
-		  <li class="<?php echo ($activePage === 'vehicle') ? 'active' : '';?>">
-		  <a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
-		  </li>
-		  <li class="<?php echo ($activePage === 'calender') ? 'active' : '';?>">
-		  <a href="sp_calender.php" class=""><i class="material-icons">calendar_month</i>Calender </a>
-		  </li>
-		  <li class="<?php echo ($activePage === 'expense') ? 'active' : '';?>">
+				<li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
+					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="material-icons">account_circle</i>Profile
+					</a>
+					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
+						<li><a href="sp_profile.php">Profile</a></li>
+
+					</ul>
+				</li>
+
+
+				<li class="<?php echo ($activePage === 'attendance') ? 'active' : ''; ?>">
+					<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="material-icons">stacked_line_chart</i>Attendance
+					</a>
+					<ul class="collapse list-unstyled menu" id="homeSubmenu2">
+						<li><a href="sp_attendance.php">Attendance Requests</a></li>
+						<li><a href="sp_approved_attendance.php">Approved attendance</a></li>
+
+					</ul>
+				</li>
+
+				<li class="<?php echo ($activePage === 'request') ? 'active' : ''; ?>">
+					<a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="material-icons">request_page</i>Request Panel
+					</a>
+					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
+						<li><a href="sp_requests.php">Pending Requests</a></li>
+						<li><a href="sp_approved_requests.php">Approved requests</a></li>
+					</ul>
+				</li>
+
+
+				<li class="<?php echo ($activePage === 'crew') ? 'active' : ''; ?>">
+					<a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="material-icons">groups</i>Crew Management
+					</a>
+					<ul class="collapse list-unstyled menu" id="homeSubmenu4">
+						<li><a href="sp_crewmanagement.php">Admin Crew Manegement</a></li>
+						<li><a href="sp_usercrewmanagement.php">User Crew Manegement</a></li>
+					</ul>
+				</li>
+
+				<li class="<?php echo ($activePage === 'Salary') ? 'active' : ''; ?>">
+					<a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="material-icons">account_balance_wallet</i>Salary Manager
+					</a>
+					<ul class="collapse list-unstyled menu" id="homeSubmenu5">
+						<li><a href="sp_salary.php">Salary Manager</a></li>
+
+					</ul>
+				</li>
+
+				<li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
+					<a href="sp_misc.php" class=""><i class="material-icons">miscellaneous_services</i>Miscellaneous</a>
+				</li>
+
+
+				<li class="<?php echo ($activePage === 'usercreation') ? 'active' : ''; ?>">
+					<a href="sp_usercreation.php" class=""><i class="material-icons">person_add_alt_1</i>User Creation</a>
+				</li>
+				<li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
+					<a href="sp_notification.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
+				</li>
+
+				<li class="<?php echo ($activePage === 'bata') ? 'active' : ''; ?>">
+					<a href="sp_bata.php" class=""><i class="material-icons">manage_accounts</i>Bata Manager</a>
+				</li>
+
+				<li class="<?php echo ($activePage === 'schedule') ? 'active' : ''; ?>">
+					<a href="sp_schedule.php" class=""><i class="material-icons">remove_red_eye</i>Schedule View</a>
+				</li>
+
+				<li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
+					<a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
+				</li>
+				<li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
+					<a href="sp_calender.php" class=""><i class="material-icons">calendar_month</i>Calender </a>
+				</li>
+				<li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
 					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
-		  <li class="<?php echo ($activePage === 'studio') ? 'active' : '';?>">
-		  <a href="sp_studio.php" class=""><i class="material-icons">calendar_month</i>Studio </a>
-		  </li>
 		</ul>
 	 </div>
 	 
@@ -278,55 +276,52 @@ else if($activePage == 'studio'){
 		  </div>
 		
 
-     <!-- Optional JavaScript -->
-    <!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="js/jquery-3.3.1.slim.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-3.3.1.min.js"></script>
+			<!-- Optional JavaScript -->
+			<!-- Optional JavaScript -->
+			<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+			<script src="js/jquery-3.3.1.slim.min.js"></script>
+			<script src="js/popper.min.js"></script>
+			<script src="js/bootstrap.min.js"></script>
+			<script src="js/jquery-3.3.1.min.js"></script>
 
 
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".xp-menubar").on('click', function () {
-				$("#sidebar").toggleClass('active');
-				$("#content").toggleClass('active');
-			});
+			<script type="text/javascript">
+				$(document).ready(function() {
+					$(".xp-menubar").on('click', function() {
+						$("#sidebar").toggleClass('active');
+						$("#content").toggleClass('active');
+					});
 
-			$('.xp-menubar,.body-overlay').on('click', function () {
-				$("#sidebar,.body-overlay").toggleClass('show-nav');
-			});
+					$('.xp-menubar,.body-overlay').on('click', function() {
+						$("#sidebar,.body-overlay").toggleClass('show-nav');
+					});
 
-		});
-  </script>
+				});
+			</script>
 
-  <script>
-	//for logout popup
-	const LogoutBtn = document.getElementById("LogoutBtn");
-const overlay = document.getElementById('overlay');
-const customConfirm = document.getElementById('custom-confirm');
-const yesButton = document.getElementById('yes-button');
-const noButton = document.getElementById('no-button');
+			<script>
+				//for logout popup
+				const LogoutBtn = document.getElementById("LogoutBtn");
+				const overlay = document.getElementById('overlay');
+				const customConfirm = document.getElementById('custom-confirm');
+				const yesButton = document.getElementById('yes-button');
+				const noButton = document.getElementById('no-button');
 
-LogoutBtn.addEventListener("click", () => {
-    overlay.style.display = 'block';
-    customConfirm.style.display = 'block';
-});
+				LogoutBtn.addEventListener("click", () => {
+					overlay.style.display = 'block';
+					customConfirm.style.display = 'block';
+				});
 
-    yesButton.addEventListener('click', function()
-	 {
-        // Perform logout action here
-		window.location.href = "login.php";
-    });
+				yesButton.addEventListener('click', function() {
+					// Perform logout action here
+					window.location.href = "login.php";
+				});
 
-    noButton.addEventListener('click', function() 
-	{
-		overlay.style.display = 'none';
-    customConfirm.style.display = 'none';
-    });
-
-  </script>
+				noButton.addEventListener('click', function() {
+					overlay.style.display = 'none';
+					customConfirm.style.display = 'none';
+				});
+			</script>
 </body>
 
 </html>

@@ -7,10 +7,10 @@ else if($activePage == 'notification'){
 }
 
 else if($activePage == 'profile'){
-	$PageTitle="Profile ";
+	$PageTitle="Profile";
 }
 else if($activePage == 'history'){
-	$PageTitle="history ";
+	$PageTitle="history";
 }
 
 ?>
@@ -35,12 +35,13 @@ else if($activePage == 'history'){
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!--google material icon-->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" />
-
+	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
+	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+	  <link rel="stylesheet" href="css/style.css" />
+	
+<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <!--user css-->
-    <link rel="stylesheet" href="css/user.css" />
+    <link rel="stylesheet" href="css/catering_css.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script type="text/javascript" src="main.js"></script>
@@ -55,7 +56,7 @@ else if($activePage == 'history'){
 
     <div class="wrapper">
 
-        <div class="body-overlay"></div>
+        
 
         <!-------sidebar--design------------>
 
@@ -79,10 +80,10 @@ else if($activePage == 'history'){
                     </ul>
                 </li>
                 <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
-                    <a href="hr_cateringnotification.php" class=""><i class="material-icons">notifications</i>Notifications</a>
+                    <a href="hr_cateringnotification.php" class=""><i class="material-icons">notifications_active</i>Notifications</a>
                 </li>
                 <li class="<?php echo ($activePage === 'history') ? 'active' : ''; ?>">
-                    <a href="hr_cateringhistory.php" class=""><i class="material-icons">history</i>History</a>
+                    <a href="hr_cateringhistory.php" class=""><i class="material-icons">history</i>History </a>
                 </li>
             </ul>
         </div>

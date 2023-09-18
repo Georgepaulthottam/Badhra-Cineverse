@@ -39,11 +39,13 @@
   color:#555e58;  
   font-weight:500;
   cursor:pointer;
+  text-align: left;
+  padding: 10px 40px 10px 70px;
 }
 
 .detailed-box {
   text-align: center;
-  background-color: #152935;
+  background-color: #262f35;
   padding: 20px;
   margin-right: 10px;
   color: #f1f1f1;
@@ -58,13 +60,41 @@
 }
 
 .punch-in-btn {
-  padding: 3px;
-  color: red;
-  border: 1px solid rgb(252, 60, 69);
-  border-radius: 5px;
-
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  border-radius: 7px;
+  background-color: #0070f3;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+  transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
 }
-
+.view-btn{
+  
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0 56px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  background-color: #0070f3;
+  color: white;
+  font-weight: 400;
+  font-size: 16px;
+  box-shadow: 0 4px 14px 0 rgb(0 118 255 / 39%);
+  transition: background 0.2s ease,color 0.2s ease,box-shadow 0.2s ease;
+  
+}
+.view-btn:hover{
+  background: rgba(46, 110, 183, 0.9);
+  box-shadow: 0 6px 20px rgb(0 118 255 / 23%);
+}
 .button-container {
   text-align: center;
   margin-left: 27%;

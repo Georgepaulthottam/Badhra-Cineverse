@@ -946,6 +946,9 @@ footer {
     border-radius: 5px;
 
 }
+.user-none {
+    display: none;
+}
 
 /*========main-content- navbardesign -end-----*/
 
@@ -1017,5 +1020,6 @@ footer {
         margin-top: -45px;
         position: absolute;
     }
+          
 
 }

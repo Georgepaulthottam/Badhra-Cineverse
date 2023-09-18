@@ -33,13 +33,13 @@ $result = mysqli_query($conn, $query); ?>
             transform: translate(-50%, -50%);
             background: linear-gradient(#152935, #152935);
             border-radius: 5px;
-            width: 50vw;
+            width: 75vw;
             padding: 20px;
             box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
             z-index: 9999;
             color:white;
             height:82vh;
-            
+ 
         }
 
         .popup-overlay {
@@ -62,22 +62,24 @@ $result = mysqli_query($conn, $query); ?>
         }
 
         .left-block {
-            width: 70%;
-            padding-right: 20px;
+            width: 80%;
+            
         }
 
         .right-block {
-            width: 40%;
+            width: 30%;
             text-align: center;
             border:2px solid black;
             padding:50px;
             position:absolute;
-            left:400px;
-            top:100px;
+            left:700px;
+            top:80px;
+           margin-bottom:20px;
         }
        .right-block img{
         width:100px;
         height:100px;
+
        }
        #profilepic{
         width:14vw;
@@ -131,7 +133,25 @@ $result = mysqli_query($conn, $query); ?>
             right: 10px;
             cursor: pointer;
         }
-    
+        form{
+            width:60vw;
+        }
+    .user_crform input[type="text"],input[type="number"]{
+        width:12vw;
+        height:5vh;
+        
+    }
+    .arrow-icon_salary{
+        position:fixed;
+        margin-left:600px;
+        margin-top:-30px;
+
+    }
+    .salary-fields{
+        position:relative;
+        margin-left:600px;
+        
+    }
 table {
   background: #262f35;
   border-radius: 0.25em;
@@ -268,37 +288,59 @@ tbody tr:hover {
     <div class="form-container">
         <div class="left-block">
             <h2>ADD USER</h2>
-            <form action="sp_usercreation.php" method="POST" enctype="multipart/form-data">
-                <label for="firstName">First Name:</label><br>
-                <input type="text" id="firstName" name="firstName"><br><br>
-        
-                <label for="lastName">Last Name:</label><br>
-                <input type="text" id="lastName" name="lastName"><br><br>
-                
-                <label for="userName">User Name:</label><br>
-                <input type="text" id="userName" name="userName"><br><br>
-               
-                <label for="mobile">Mobile:</label><br>
+            <form action="sp_usercreation.php" method="POST" enctype="multipart/form-data" class="user_crform">
+<div style="display:flex;">
+                <label for="firstName">First Name &nbsp;: &nbsp; </label><br>
+                <input type="text" id="firstName" name="firstName"  ><br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="lastName">Last Name &nbsp;: &nbsp; </label><br>
+                <input type="text" id="lastName" name="lastName" ><br><br>
+</div>
+<div style="display:flex;"
+                <label for="userName">User Name &nbsp;: &nbsp; </label><br>
+                <input type="text" id="userName" name="userName" ><br><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="mobile">Mobile &nbsp;: &nbsp;</label><br>
                 <input type="number" id="mobile" name="mobile"><br><br>
-             
-                <label for="password">Password</label><br>
+</div>            
+<div style="display:flex;"
+                <label for="password">Password &nbsp;: &nbsp; </label><br>
                 <input type="text" id="password" name="password"><br><br>
-                
-                <label for="conpassword">Confirm Password</label><br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label for="conpassword">Confirm Password &nbsp;: &nbsp;</label><br>
                 <input type="text" id="conpassword" name="conpassword"><br><br>
-
+ </div>
                 <div class="right-block">
                 <img src="user.png">
                 <input type="file" name="profilepic" id="profilepic">
                 </div>
-                <div class="salary">
-                <label for="accountHolder">sdkfhckueqdcbh:</label><br>
-                    <input type="text" id="accountHolder" name="accountHolder"><br><br>
+                <label for="select">Select User/Admin </label>
+                <select name="type_user" id="user_type">
+                    <option>User</option>
+                    <option>Admin</option>
+                </select>
+                             
+                <div class="arrow-icon_salary" onclick="toggleSalaryFields()">&#9660; Salary Details</div>
+                <div class="salary-fields">
+                    <label for="salaryAssigned">Assigned Salary :</label><br>
+                    <input type="text" id="assigned_salary" name="assigned_salary"><br><br>
 
-                    <label for="accountNumber">kwjfnhli4grjn:</label><br>
-                    <input type="text" id="accountNumber" name="accountNumber"><br><br>
-                    </div>
-                 <!-- Add other input fields here -->
+                    <label for="TDs">TDS:</label><br>
+                    <input type="text" id="tds" name="tds"><br><br>
+
+                    <label for="ta">TA/EA:</label><br>
+                    <input type="text" id="ta" name="ea"><br><br>
+
+                    <label for="first_bata_salary">1st Bata Salary:</label><br>
+                    <input type="text" id="first_bata_salary" name="first_bata_salary"><br><br>
+
+                    <label for="second_bata_salary">2nd Bata Salary:</label><br>
+                    <input type="text" id="second_bata_salary" name="second_bata_salary"><br><br>
+
+                    <label for="third_bata_salary">3rd Bata Salary:</label><br>
+                    <input type="text" id="third_bata_salary" name="third_bata_salary"><br><br>
+                   
+                </div>
                  
                 <div class="arrow-icon" onclick="toggleBankPanFields()">&#9660; Bank & Pan (Optional)</div>
                 <div class="bank-pan-fields">
@@ -318,6 +360,8 @@ tbody tr:hover {
                     <input type="text" id="panNumber" name="panNumber"><br><br>
                     <!-- Add other bank & pan input fields here -->
                 </div>
+
+                
             </form>
         </div>
         
@@ -421,6 +465,20 @@ tbody tr:hover {
         } else {
             bankPanFields.style.display = 'none';
             arrowIcon.innerHTML = '&#9660; Bank & Pan (Optional)';
+        }
+    }
+
+    function toggleSalaryFields() {
+        const salaryFields = document.querySelector('.salary-fields');
+        const arrowIcon_salary = document.querySelector('.arrow-icon_salary');
+
+        if (salaryFields.style.display === 'none' || salaryFields.style.display === '') 
+        {
+           salaryFields.style.display = 'block';
+            arrowIcon_salary.innerHTML = '&#9650; Salary Details';
+        } else {
+            salaryFields.style.display = 'none';
+            arrowIcon_salary.innerHTML = '&#9660; Salary Details';
         }
     }
 </script>
