@@ -41,7 +41,7 @@ else if($activePage == 'history'){
 	
 <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
     <!--user css-->
-    <link rel="stylesheet" href="css/user.css" />
+    <link rel="stylesheet" href="css/catering_css.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script type="text/javascript" src="main.js"></script>
@@ -56,7 +56,7 @@ else if($activePage == 'history'){
 
     <div class="wrapper">
 
-        <div class="body-overlay"></div>
+        
 
         <!-------sidebar--design------------>
 

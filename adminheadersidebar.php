@@ -124,17 +124,7 @@ else if($activePage == 'calender'){
 		  </li>
 		  
 		  
-		   <li class="<?php echo ($activePage === 'crew') ? 'active' : ''; ?>">
-		  <a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" 
-		  class="dropdown-toggle">
-		  <i class="material-icons">extension</i>Crew Management
-		  </a>
-		  <ul class="collapse list-unstyled menu" id="homeSubmenu4">
-		     <li><a href="#">Pages 1</a></li>
-			 <li><a href="#">Pages 2</a></li>
-			 <li><a href="#">Pages 3</a></li>
-		  </ul>
-		  </li>
+		   
 		  
 		   <li class="<?php echo ($activePage === 'salary') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" 
