@@ -128,7 +128,7 @@ include 'user_header.php'; ?>
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                 Request Status</h3>
             <div class="request-status" id="request_box">
-                <table class="table table-striped table-hover">
+                <table class="table table-striped table-hover" style="text-align:left">
                     <tr>
                         <a href="">
                             <th>Accepted</th>
@@ -150,9 +150,9 @@ include 'user_header.php'; ?>
                 </table>
                 <table>
                     <tr>
-                        <th style="text-align: left;"><a href="user_view_request.php" class="punch-in-btn">View Requests</a>
+                        <th style="text-align: left; padding:0px"><a href="user_view_request.php" class="punch-in-btn">View Requests</a>
                         </th>
-                        <th style="text-align: right;"><a href="user_make_request.php" class="punch-in-btn" style="background-color: #f93f2eef;">Make Requests</a>
+                        <th style="text-align: right; padding:0px"><a href="user_make_request.php" class="punch-in-btn" style="background-color: #f93f2eef;">Make Requests</a>
                         </th>
                     </tr>
                 </table>

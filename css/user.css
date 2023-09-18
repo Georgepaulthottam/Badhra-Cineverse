@@ -39,6 +39,8 @@
   color:#555e58;  
   font-weight:500;
   cursor:pointer;
+  text-align: left;
+  padding: 10px 40px 10px 70px;
 }
 
 .detailed-box {
