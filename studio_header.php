@@ -1,18 +1,17 @@
 <?php 
 if($activePage == 'home'){
-	$PageTitle="HR Catering";
+	$PageTitle="Dashboard";
+}
+else if($activePage == 'profile'){
+	$PageTitle="Profile ";
 }
 else if($activePage == 'notification'){
 	$PageTitle="Notification Panel";
 }
 
-else if($activePage == 'profile'){
-	$PageTitle="Profile";
-}
 else if($activePage == 'history'){
-	$PageTitle="history";
+	$PageTitle="History ";
 }
-
 ?>
 
 <!doctype html>
@@ -23,7 +22,7 @@ else if($activePage == 'history'){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>HR Catering</title>
+    <title>Studio</title>
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!-- css3 -->
@@ -35,13 +34,12 @@ else if($activePage == 'history'){
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 
     <!--google material icon-->
-	<link href="https://fonts.googleapis.com/css2?family=Material+Icons"rel="stylesheet">
-	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-	  <link rel="stylesheet" href="css/style.css" />
-	
-<link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" />
+
     <!--user css-->
-    <link rel="stylesheet" href="css/catering_css.css" />
+    <link rel="stylesheet" href="css/user.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <script type="text/javascript" src="main.js"></script>
@@ -56,7 +54,7 @@ else if($activePage == 'history'){
 
     <div class="wrapper">
 
-        
+        <div class="body-overlay"></div>
 
         <!-------sidebar--design------------>
 
@@ -67,7 +65,7 @@ else if($activePage == 'history'){
             </div>
             <ul class="list-unstyled component m-0">
                 <li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
-                    <a href="hr_cateringindex.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+                    <a href="user_studio.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
                 </li>
 
                 <li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
@@ -75,16 +73,24 @@ else if($activePage == 'history'){
                         <i class="material-icons">account_circle</i>Profile
                     </a>
                     <ul class="collapse list-unstyled menu" id="homeSubmenu1">
-                        <li><a href="hr_cateringprofile.php">View Profile</a></li>
-                        <li><a href="hr_cateringeditprofile.php">Edit Profile</a></li>
+                        <li><a href="user_profile.php">View Profile</a></li>
+                        <li><a href="user_edit_profile.php">Edit Profile</a></li>
                     </ul>
                 </li>
+
                 <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
-                    <a href="hr_cateringnotification.php" class=""><i class="material-icons">notifications_active</i>Notifications</a>
+                    <a href="user_notification.php" class=""><i class="material-icons">notifications</i>Notifications</a>
                 </li>
+
                 <li class="<?php echo ($activePage === 'history') ? 'active' : ''; ?>">
-                    <a href="hr_cateringhistory.php" class=""><i class="material-icons">history</i>History </a>
+                    <a href="user_studiohistory.php" class=""><i class="material-icons">history</i>History</a>
+                
                 </li>
+
+                <
+
+
+                
             </ul>
         </div>
 

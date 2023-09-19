@@ -60,11 +60,11 @@ include 'user_header.php'; ?>
                             <th>Time</th>
                             <th>Item</th>
                             <th>Description</th>
-                            <th>price</th>
                             <th>Remark</th>
                             <th>Bill No</th>
                             <th>Amount</th>
                             <th>Status</th>
+                            <th>Payment-Status</th>
                         </tr>
                     </thead>
 
@@ -87,15 +87,22 @@ include 'user_header.php'; ?>
                                         <th>' . $time . '</th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['details'] . '</th>
-                                        <th>' . $row['price'] .'</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['status'] . '</th>
+                                        ');
+                                        if($row['payment_status']=="paid"){
+                                            echo ('<th style="color:green">Paid</th>');
+
+                                        }
+                                        else{
+                                            echo ('<th style="color:red">Not Paid</th>');
+                                        }
+                                        echo ('
                                     </tr>');
                             }
-                        }
-                        elseif (isset($_POST['rejected'])) {
+                        } elseif (isset($_POST['rejected'])) {
                             $query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "rejected") . "' and username='" . mysqli_real_escape_string($conn, $user) . "'");
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -111,15 +118,14 @@ include 'user_header.php'; ?>
                                         <th>' . $time . '</th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['details'] . '</th>
-                                        <th>' . $row['price'] .'</th>
+                                        <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th>
                                         <th>' . $row['price']  . '</th>
                                         <th>' . $row['status'] . '</th>
                                     </tr>');
                             }
-                        }
-                        elseif (isset($_POST['requested'])) {
+                        } elseif (isset($_POST['requested'])) {
                             $query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "requested") . "'and username='" . mysqli_real_escape_string($conn, $user) . "'");
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -135,15 +141,23 @@ include 'user_header.php'; ?>
                                         <th>' . $time . '</th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['details'] . '</th>
-                                        <th>' . $row['price'] .'</th>
+                                    
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th>
                                         <th>' . $row['price'] . '</th>
-                                        <th>' . $row['status'] . '</th>
+                                        <th>' . $row['status'] . '</th>');
+                                        if($row['payment_status']=="paid"){
+                                            echo ('<th style="color:green">Paid</th>');
+
+                                        }
+                                        else{
+                                            echo ('<th style="color:red">Not Paid</th>');
+                                        }
+                                        echo ('
                                     </tr>');
+                                   
                             }
-                        }
-                        elseif (isset($_POST['all'])) {
+                        } elseif (isset($_POST['all'])) {
                             $query = ("SELECT * FROM cart WHERE username='" . mysqli_real_escape_string($conn, $user) . "'");
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_assoc($result)) {
@@ -159,15 +173,20 @@ include 'user_header.php'; ?>
                                         <th>' . $time . '</th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['details'] . '</th>
-                                        <th>' . $row['price'] .'</th>
                                         <th>' . $row['remark'] . '</th>
                                         <th>' . $row['billno'] . '</th>
                                         <th>' . $row['price']  . '</th>
-                                        <th>' . $row['status'] . '</th>
+                                        <th>' . $row['status'] . '</th>');
+                                if ($row['payment_status'] == "paid") {
+                                    echo ('<th style="color:green">Paid</th>');
+                                } else {
+                                    echo ('<th style="color:red">Not Paid</th>');
+                                }
+                                echo ('
                                     </tr>');
+                                   
                             }
-                        }
-                        else{
+                        } else {
                             $query = ("SELECT * FROM cart WHERE   username='" . mysqli_real_escape_string($conn, $user) . "'");
                             $result = mysqli_query($conn, $query);
                             while ($row = mysqli_fetch_assoc($result)) {

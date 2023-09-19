@@ -275,7 +275,7 @@ include 'adminheadersidebar.php'; ?>
 
             <div class="row mb-3 user-none" id="appear1">
               <div class="col-sm-3">
-                <h6 class="mb-2">Users</h6>
+                <h6 class="mb-2">Registered Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 <select id="multi_option" multiple name="usernamew[]" placeholder="Select Users" data-silent-initial-value-set="false">
@@ -291,7 +291,7 @@ include 'adminheadersidebar.php'; ?>
             </div>
             <div class="row mb-3 user-none" id="appear2">
               <div class="col-sm-3">
-                <h6 class="mb-2">Users</h6>
+                <h6 class="mb-2">Registered Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 <select id="multi_option" multiple name="usernamew[]" placeholder="Select Users" class="custom-select" data-silent-initial-value-set="false">
@@ -307,7 +307,7 @@ include 'adminheadersidebar.php'; ?>
             </div>
             <div class="row mb-3 user-none" id="appear3">
               <div class="col-sm-3">
-                <h6 class="mb-2">Users</h6>
+                <h6 class="mb-2">Registered Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 <div class="custom-select" id="user-dropdown">
@@ -332,7 +332,7 @@ include 'adminheadersidebar.php'; ?>
 
             <div class="row mb-3 user-none" id="appear4">
               <div class="col-sm-3">
-                <h6 class="mb-2">Users</h6>
+                <h6 class="mb-2">Registered Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 <select id="multi_option" multiple name="usernamew[]" placeholder="Select Users" data-silent-initial-value-set="false">
@@ -349,7 +349,7 @@ include 'adminheadersidebar.php'; ?>
             </div>
             <div class="row mb-3 user-none" id="appear5">
               <div class="col-sm-3">
-                <h6 class="mb-2">Users</h6>
+                <h6 class="mb-2">Registered Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 <select id="multi_option" multiple name="usernamew[]" placeholder="Select Users" data-silent-initial-value-set="false">
@@ -365,14 +365,13 @@ include 'adminheadersidebar.php'; ?>
             </div>
             <div class="row mb-3 user-none" id="appear6">
               <div class="col-sm-3">
-                <h6 class="mb-2">Users</h6>
+                <h6 class="mb-2">Registered Users</h6>
               </div>
               <div class="col-sm-8 text-secondary">
                 <input type="textbox" class="form-control" name='usernamew[]' placeholder="Enter the new users">
               </div>
             </div>
-
-
+            
             <div class="row mb-3">
               <div class="col-sm-3">
                 <h6 class="mb-2">Accomodation</h6>
@@ -403,6 +402,16 @@ include 'adminheadersidebar.php'; ?>
 
             <div class="row mb-3">
               <div class="col-sm-3">
+                <h6 class="mb-2">Unregistered Users</h6>
+              </div>
+              <div class="col-sm-8 text-secondary">
+                <input type="number" class="form-control" name="accommedation" placeholder="Enter the no of Unregistered Users">
+              </div>
+            </div>
+
+
+            <div class="row mb-3">
+              <div class="col-sm-3">
                 <h6 class="mb-2">Description</h6>
               </div>
               <div class="col-sm-8 text-secondary">
@@ -424,8 +433,9 @@ include 'adminheadersidebar.php'; ?>
                 <input type="checkbox" onchange='selects()' id="selectAll">
                 <label for="selectAll"></label></th>
             <th>Department</th>
-            <th>Users</th>
+            <th>Registered Users</th>
             <th>Accomodation</th>
+            <th>Unregistered Users</th>
             <th>Description</th>
             <th>Actions</th>
           </tr>

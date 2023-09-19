@@ -129,7 +129,7 @@ else if($activePage == 'calender'){
 		   <li class="<?php echo ($activePage === 'salary') ? 'active' : ''; ?>">
 		  <a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" 
 		  class="dropdown-toggle">
-		  <i class="material-icons">border_color</i>Salary Manager
+		  <i class="material-icons">account_balance_wallet</i>Salary Manager
 		  </a>
 		  <ul class="collapse list-unstyled menu" id="homeSubmenu5">
 		     <li><a href="ad_salary.php">Salary Manager</a></li>
