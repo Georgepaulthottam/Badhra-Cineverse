@@ -1,10 +1,10 @@
 <?php
 session_start(); 
-$activePage = 'home'; 
 // Check if the user is not logged in
-if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
+if (!isset($_SESSION['user']) ){
     header('Location: login.php');
 }
+$activePage = 'home'; 
 include 'studio_header.php';
 ?>
 <!doctype html>
