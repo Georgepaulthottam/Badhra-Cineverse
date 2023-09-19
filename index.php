@@ -271,14 +271,26 @@ include 'adminheadersidebar.php'; ?>
 
                     <form action="" method="post">
                     <div class="input-container">
-  <input placeholder="Enter Pooja Starting Time..." class="input-field" type="text">
+  <input placeholder="Enter Pooja Starting Time..." class="input-field" type="text" onfocus="(this.type='time')">
   <label for="input-field" class="input-label">Enter Pooja Starting Time...</label>
   <span class="input-highlight"></span>
 </div>
                         
-                        <input type="submit" name="settime" id="setlocbtn" value="Set Time">
+<button type="submit" id="setlocbtn" name="settimebtn">
+  <div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z"></path>
+        <path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm-1-10.414V7a1 1 0 0 1 2 0v5.293l2.293 2.293a1 1 0 1 1-1.414 1.414l-3-3a1 1 0 0 1-.293-.707z"></path>
+      </svg>
+    </div>
+  </div>
+  <span>Set Time</span>
+</button>
 
                         <!------Select Optionss with popup----------->
+                   
+                       
                         <select id="mySelect">
                             <option value="option0" selected>Set Location</option>
                             <option value="option1">Location 1</option>
@@ -290,15 +302,34 @@ include 'adminheadersidebar.php'; ?>
                             <a class="close" href="#">X</a>
                             <h5>Enter Manually:</h5>
 
-                            <input type="text" id="location" placeholder="Enter Location">
+                            <div class="input-container">
+  <input placeholder="Enter Location..." class="input-field" type="text" id="location">
+  <label for="input-field" class="input-label">Enter Location</label>
+  <span class="input-highlight"></span>
+</div>
                             <br>
 
-                            <input type="text" id="rent" placeholder="Enter Rent">
+                            <div class="input-container">
+  <input placeholder="Enter Rent..." class="input-field" type="text" id="rent">
+  <label for="input-field" class="input-label">Enter Rent</label>
+  <span class="input-highlight"></span>
+</div>
                             <br>
                             <button onclick="saveChoice()" id="popupbtn">Save</button>
+                        
                         </div>
-
-                        <input type="submit"  name="setloctn" value="Set Location" id="setlocbtn">
+                        
+                        <button type="submit" id="setlocbtn" name="setlocbtn">
+  <div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z"></path>
+        <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+      </svg>
+    </div>
+  </div>
+  <span>Set Location</span>
+</button>
 
                         <!---Location rent --->
                         <div class="input-container">
@@ -307,7 +338,18 @@ include 'adminheadersidebar.php'; ?>
   <span class="input-highlight"></span>
 </div>
 
-                        <input type="submit"  name="setloctn" value="Set Rent" id="setlocbtn">
+<button type="submit" id="setlocbtn" name="setrentbtn">
+<div class="svg-wrapper-1">
+    <div class="svg-wrapper">
+      <!-- Dollar Icon SVG -->
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+        <path fill="none" d="M0 0h24v24H0z"></path>
+        <path fill="currentColor" d="M10.5 2H9v2h1.3l-.76 8H7v2h1.53l-.76 8H5v2h5.03l.76-8H12v-2H9.03l.76-8zM13 6v2h1.5l.76 8H17v2h-4.53l-.76-8H11V6h2z"></path>
+      </svg>
+    </div>
+  </div>
+  <span>Sent Rent</span>
+</button>
                     </form>
 
 

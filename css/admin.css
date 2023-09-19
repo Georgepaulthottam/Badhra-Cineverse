@@ -70,43 +70,13 @@ body,html{
 
 
 
-
-#setlocbtn {
-  background:#007bff;
-  color:white;
-  padding:5px;
-  letter-spacing:2px;
-}
 ::placeholder{
 
   font-family: 'Rajdhani', sans-serif;
 }
-#setlocbtn:hover{
-  color: #000;
-  background-color: #fff;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
-  border:1px solid black;
-}
 
-#setlocbtn:active {
-  transform: translateY(-1px);
-}
-
-.request-status #mySelect{
-  background-color: #eee;
-  border: none;
-  font-size: 1rem;
-font-weight:500px;
-  width: 17em;
-  border-radius: 1rem;
-  margin-bottom:10px;
-  box-shadow: 0 0.4rem #dfd9d9;
-  cursor: pointer;
-  text-align: left;
-  padding:10px;
+#myselect{
   font-family: 'Rajdhani', sans-serif;
-  
 }
 
 /* Input container */
@@ -116,7 +86,7 @@ font-weight:500px;
 }
 
 /* Input field */
-.input-field {
+.input-field ,.request-status #mySelect{
   display: block;
   width: 100%;
   padding: 10px;
@@ -161,56 +131,86 @@ font-weight:500px;
 }
 
 
-
-
-
-
-
-
-#location{
-
-}
-#rent{
-
-}
-#mySelect:focus {
-  outline-color: lightcoral;
-}
-.request-status input[type="text"]:focus {
-  outline-color: lightcoral;
-}
-.time-input{
-  width:17em;
-  height:5vh;
- 
-  background-color: #eee;
+#setlocbtn {
+  font-family: inherit;
+  font-size: 15px;
+  background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+  color: white;
+  padding: 0.6em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   border: none;
-  font-size: 1rem;
-font-weight:500px;
-  
-  border-radius: 1rem;
-  margin-bottom:10px;
-  box-shadow: 0 0.4rem #dfd9d9;
-  cursor: pointer;
-  text-align: left;
-  padding:10px;
-  font-family: 'Rajdhani', sans-serif;
+  border-radius: 20px;
+  width:12vw;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.4s;
+  margin-top:15px;
+  margin-left:70px;
+}
+
+#setlocbtn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+#setlocbtn:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+#setlocbtn span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+}
+
+#setlocbtn svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
+}
+
+#setlocbtn .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 0.5em;
+  transition: all 0.3s;
+}
+
+#setlocbtn:hover .svg-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+#setlocbtn:hover svg {
+  transform: rotate(45deg);
 }
 
 
-.profile-box input[type="submit"],
-#popupbtn {
 
+#popupbtn {
   margin-top: 3px;
   padding: 5px 10px;
- 
-
   border-radius: 6px;
-width:auto;
- 
+letter-spacing:2px;
+color:white;
+background-color: #262f35;
   margin-bottom: 20px;
   cursor:pointer;
-
+}
+#popupbtn:hover {
+  
+color:white;
+border:2px solid white;
+background-color: #262f35;
+ 
+  cursor:pointer;
 }
 
 
@@ -227,7 +227,7 @@ width:auto;
   box-shadow: 1px 2px 3px 4px rgba(42, 42, 42, 0.4);
   font-size: 15px;
   width: 23vw;
-
+z-index:1000;
 }
 
 /*Packup btn css*/
