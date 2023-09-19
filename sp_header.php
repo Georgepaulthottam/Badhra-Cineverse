@@ -181,7 +181,7 @@ $image=$row['image'];
 					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
 				<li class="<?php echo ($activePage === 'hrcatering') ? 'active' : ''; ?>">
-					<a href="sp_hrcateringindex.php" class=""><i class="material-icons"></i>HR catering</a>
+					<a href="sp_hrcateringindex.php" class=""><i class="material-icons">food_bank</i>HR catering</a>
 				</li>
 			</ul>
 		</div>
