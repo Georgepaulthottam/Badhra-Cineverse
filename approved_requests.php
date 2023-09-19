@@ -151,6 +151,8 @@ include 'adminheadersidebar.php'; ?>
 						<th>Bill No</th>
 						<th>Date</th>
 						<th>Time</th>
+						<th>Payment-status</th>
+
 					</tr>
 				</thead>');
 
@@ -174,10 +176,19 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['billno'] . '</th
                                         <th></th>
                                         <th>' . $date . '</th>
-										<th>' . $time . '</th>
+										<th>' . $time .
+							'</th>
+										');
+							if ($row['payment_status'] == "paid") {
+								echo ('<th style="color:green">Paid</th>');
+							} else {
+								echo ('<th style="color:red">Not Paid</th>');
+							}
+							echo ('
+                                    </tr>');
 
 
-								</tr>');
+								
 						}
 					}
 					if (isset($_POST['requested'])) {
@@ -309,6 +320,7 @@ include 'adminheadersidebar.php'; ?>
 						<th>Bill No</th>
 						<th>Date</th>
 						<th>time</th>
+						<th>Payment-status</th>
 					</tr>
 				</thead>');
 
@@ -338,9 +350,14 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['billno'] . '</th
 										<th></th>
                                         <th>' . $date . '</th>
-                                        <th>' . $time . '</th>
-
-								</tr>');
+                                        <th>' . $time . '</th>	');
+							if ($row['payment_status'] == "paid") {
+								echo ('<th style="color:green">Paid</th>');
+							} else {
+								echo ('<th style="color:red">Not Paid</th>');
+							}
+							echo ('
+                                    </tr>');
 						}
 					}
 					?>

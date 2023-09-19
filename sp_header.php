@@ -25,12 +25,14 @@ if ($activePage == 'vehicle') {
 	$PageTitle = "User Creation ";
 } else if ($activePage == 'hrcatering') {
 	$PageTitle = "HR Catering";
+} else if ($activePage == 'Payments') {
+	$PageTitle = "Payments";
 }
 require 'connection.php';
-												$query = ("SELECT * FROM users where username='super'");
-												$result = mysqli_query($conn, $query);
+$query = ("SELECT * FROM users where username='super'");
+$result = mysqli_query($conn, $query);
 $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-$image=$row['image'];
+$image = $row['image'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -45,6 +47,7 @@ $image=$row['image'];
 	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<!----css3---->
 	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="css/buttons.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 	<!--google fonts -->
@@ -86,6 +89,16 @@ $image=$row['image'];
 
 				<li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
 					<a href="sp_index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
+				</li>
+				<li class="<?php echo ($activePage === 'Payments') ? 'active' : ''; ?>">
+					<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+						<i class="material-icons">stacked_line_chart</i>Payments
+					</a>
+					<ul class="collapse list-unstyled menu" id="homeSubmenu2">
+						<li><a href="sp_pending_payments.php">Pending payments</a></li>
+						<li><a href="sp_recent_payments.php">Recent payments</a></li>
+
+					</ul>
 				</li>
 
 
