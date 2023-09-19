@@ -120,69 +120,7 @@ include 'adminheadersidebar.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
-    /* Note that you only need to edit the config to customize the button! */
-/*
-.tickButton {
-
-  --tick_sideLength:2rem;
-  --tick_topRightTriangleSideLength: 0.2rem;
- 
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border: 1px solid white;
-  width: var(--tick_sideLength);
-  height: var(--tick_sideLength);
-  background-color: #000000;
-  overflow: hidden;
-}
-
-.tickButton::before {
-  position: absolute;
-  content: "";
-  top: 0;
-  right: 0;
-  width: 0;
-  height: 0;
-  border-width: 0 var(--tick_topRightTriangleSideLength) var(--tick_topRightTriangleSideLength) 0;
-  border-style: solid;
-  border-color: transparent white transparent transparent;
-  transition-timing-function: ease-in-out;
-  transition-duration: 0.2s;
-}
-
-.tickButton:hover {
-  cursor: pointer;
-}
-
-.tickButton:hover::before {
-  --tick_topRightTriangleSideLength: calc(var(--tick_sideLength) * 2);
-}
-
-.tickButton:focus-visible::before {
-  --tick_topRightTriangleSideLength: calc(var(--tick_sideLength) * 2);
-}
-
-.tickButton>.tickIcon {
-  fill: white;
-  width: calc(var(--tick_sideLength) * 0.7);
-  height: calc(var(--tick_sideLength) * 0.7);
-  z-index: 1;
-  transition-timing-function: ease-in-out;
-  transition-duration: 0.2s;
-}
-
-.tickButton:hover>.tickIcon {
-  fill: black;
-  transform: rotate(360deg);
-}
-
-.tickButton:focus-visible>.tickIcon {
-  fill: black;
-  transform: rotate(360deg);
-}
-**/
+    
 /*confirmation for Packup popup css*/
 .pkp-overlay 
 {
@@ -328,12 +266,16 @@ include 'adminheadersidebar.php'; ?>
             </div>
             <div class="profile-box">
                 <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-                    Pooja Location</h3>
+                     Location Details</h3>
                 <div class="request-status" id="request1">
 
                     <form action="" method="post">
-                        <input type="text" class="time-input" name="time" placeholder=" Enter Pooja Starting Time..." onfocus="(this.type='time')">
-                     
+                    <div class="input-container">
+  <input placeholder="Enter Pooja Starting Time..." class="input-field" type="text">
+  <label for="input-field" class="input-label">Enter Pooja Starting Time...</label>
+  <span class="input-highlight"></span>
+</div>
+                        
                         <input type="submit" name="settime" id="setlocbtn" value="Set Time">
 
                         <!------Select Optionss with popup----------->
@@ -359,7 +301,11 @@ include 'adminheadersidebar.php'; ?>
                         <input type="submit"  name="setloctn" value="Set Location" id="setlocbtn">
 
                         <!---Location rent --->
-                        <input type="text" class="time-input" placeholder="Extra Location Rent..."></th>
+                        <div class="input-container">
+  <input placeholder="Extra Rent..." class="input-field" type="text">
+  <label for="input-field" class="input-label">Extra Rent</label>
+  <span class="input-highlight"></span>
+</div>
 
                         <input type="submit"  name="setloctn" value="Set Rent" id="setlocbtn">
                     </form>

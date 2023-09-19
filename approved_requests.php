@@ -173,8 +173,7 @@ include 'adminheadersidebar.php'; ?>
                                         <th>' . $row['details'] . '</th>
                                         <th>' . $row['price'] . '</th>
                                         <th>' . $row['remark'] . '</th>
-                                        <th>' . $row['billno'] . '</th
-                                        <th></th>
+                                        <th>' . $row['billno'] . '</th>
                                         <th>' . $date . '</th>
 										<th>' . $time .
 							'</th>
