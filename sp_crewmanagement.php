@@ -447,7 +447,7 @@ thead{
 </div>
 
 
-  <script>
+<script>
      const userSelect = document.getElementById("userSelect");
      const scheduleSelect = document.getElementById("scheduleSelect");
     const infoContainer = document.getElementById("infoContainer");

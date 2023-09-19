@@ -1,30 +1,40 @@
-<?php
-if ($activePage == 'vehicle') {
-	$PageTitle = "Vehicle Department";
-} else if ($activePage == 'home') {
-	$PageTitle = "Dashboard";
-} else if ($activePage == 'notification') {
-	$PageTitle = "Notification Panel";
-} else if ($activePage == 'misc') {
-	$PageTitle = "Miscellaneous";
-} else if ($activePage == 'profile') {
-	$PageTitle = "Profile ";
-} else if ($activePage == 'request') {
-	$PageTitle = "Request Panel ";
-} else if ($activePage == 'attendance') {
-	$PageTitle = "Attendance Panel ";
-} else if ($activePage == 'expense') {
-	$PageTitle = "Expense Report ";
-} else if ($activePage == 'calender') {
-	$PageTitle = "Calender View ";
-} else if ($activePage == 'crew') {
-	$PageTitle = "Crew Manegement ";
-} else if ($activePage == 'salary') {
-	$PageTitle = "Salary Management ";
-} else if ($activePage == 'usercreation') {
-	$PageTitle = "User Creation ";
-} else if ($activePage == 'hrcatering') {
-	$PageTitle = "HR Catering";
+<?php 
+if($activePage == 'vehicle')
+{
+	$PageTitle="Vehicle Department";
+}
+else if($activePage == 'home'){
+	$PageTitle="Dashboard";
+}
+else if($activePage == 'notification'){
+	$PageTitle="Notification Panel";
+}
+else if($activePage == 'misc'){
+	$PageTitle="Miscellaneous";
+}
+else if($activePage == 'profile'){
+	$PageTitle="Profile ";
+}
+else if($activePage == 'request'){
+	$PageTitle="Request Panel ";
+}
+else if($activePage == 'attendance'){ 
+	$PageTitle="Attendance Panel ";
+}
+else if($activePage == 'expense'){
+	$PageTitle="Expense Report ";
+}
+else if($activePage == 'calender'){
+	$PageTitle="Calender View ";
+}
+else if($activePage == 'crew'){
+	$PageTitle="Crew Manegement ";
+}
+else if($activePage == 'salary'){
+	$PageTitle="Salary Management ";
+}
+else if($activePage == 'usercreation'){
+	$PageTitle="User Creation ";
 } else if ($activePage == 'Payments') {
 	$PageTitle = "Payments";
 }
@@ -126,7 +136,7 @@ $image = $row['image'];
 
 				<li class="<?php echo ($activePage === 'request') ? 'active' : ''; ?>">
 					<a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">equalizer</i>Request Panel
+						<i class="material-icons">request_page</i>Request Panel
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
 						<li><a href="sp_requests.php">Pending Requests</a></li>
@@ -137,7 +147,7 @@ $image = $row['image'];
 
 				<li class="<?php echo ($activePage === 'crew') ? 'active' : ''; ?>">
 					<a href="#homeSubmenu4" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">extension</i>Crew Management
+						<i class="material-icons">groups</i>Crew Management
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu4">
 						<li><a href="sp_crewmanagement.php">Admin Crew Manegement</a></li>
@@ -147,7 +157,7 @@ $image = $row['image'];
 
 				<li class="<?php echo ($activePage === 'Salary') ? 'active' : ''; ?>">
 					<a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">border_color</i>Salary Manager
+						<i class="material-icons">account_balance_wallet</i>Salary Manager
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu5">
 						<li><a href="sp_salary.php">Salary Manager</a></li>
@@ -161,12 +171,19 @@ $image = $row['image'];
 
 
 				<li class="<?php echo ($activePage === 'usercreation') ? 'active' : ''; ?>">
-					<a href="sp_usercreation.php" class=""><i class="material-icons">grid_on</i>User Creation</a>
+					<a href="sp_usercreation.php" class=""><i class="material-icons">person_add_alt_1</i>User Creation</a>
 				</li>
 				<li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
 					<a href="sp_notification.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 				</li>
 
+				<li class="<?php echo ($activePage === 'bata') ? 'active' : ''; ?>">
+					<a href="sp_bata.php" class=""><i class="material-icons">manage_accounts</i>Bata Manager</a>
+				</li>
+
+				<li class="<?php echo ($activePage === 'schedule') ? 'active' : ''; ?>">
+					<a href="sp_schedule.php" class=""><i class="material-icons">remove_red_eye</i>Schedule View</a>
+				</li>
 
 				<li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
 					<a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
@@ -177,108 +194,105 @@ $image = $row['image'];
 				<li class="<?php echo ($activePage === 'expense') ? 'active' : ''; ?>">
 					<a href="sp_expensereport.php" class=""><i class="material-icons">currency_rupee</i>Expense Report</a>
 				</li>
-				<li class="<?php echo ($activePage === 'hrcatering') ? 'active' : ''; ?>">
-					<a href="sp_hrcateringindex.php" class=""><i class="material-icons">food_bank</i>HR catering</a>
-				</li>
-			</ul>
-		</div>
-
-		<!-------sidebar--design- close----------->
-
-
-
-		<!-------page-content start----------->
-
-		<div id="content">
-			<div id="overlay" class="overlay"></div>
-			<div id="custom-confirm" class="model" style="display:none">
-				<div class="model-content">
-					<div class="confirmationtext">
-						<p>Are you sure you want to log out?</p>
-					</div>
-					<div class="buttoncontainer">
-
-						<button id="yes-button">Yes</button>
-						<button id="no-button">No</button>
-					</div>
-				</div>
-			</div>
-			<!------top-navbar-start----------->
-
-			<div class="top-navbar">
-				<div class="xd-topbar">
-					<div class="row">
-						<div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
-							<div class="xp-menubar">
-								<span class="material-icons text-white">signal_cellular_alt</span>
-							</div>
+		</ul>
+	 </div>
+	 
+   <!-------sidebar--design- close----------->
+   
+   
+   
+      <!-------page-content start----------->
+   
+      <div id="content">
+	  <div id="overlay" class="overlay"></div>
+    <div id="custom-confirm" class="model" style="display:none">
+        <div class="model-content">
+            <div class="confirmationtext">
+            <p>Are you sure you want to log out?</p>
+            </div>
+            <div class="buttoncontainer">
+				
+            <button  id="yes-button">Yes</button>
+            <button id="no-button">No</button>
+            </div>
+        </div>
+    </div>
+		  <!------top-navbar-start-----------> 
+		     
+		  <div class="top-navbar">
+		     <div class="xd-topbar">
+			     <div class="row">
+				     <div class="col-2 col-md-1 col-lg-1 order-2 order-md-1 align-self-center">
+					    <div class="xp-menubar">
+						    <span class="material-icons text-white">signal_cellular_alt</span>
 						</div>
-
-						<div class="col-md-5 col-lg-3 order-3 order-md-2">
-
-
-						</div>
-
-
-						<div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
-							<div class="xp-profilebar text-right">
-								<nav class="navbar p-0">
-									<ul class="nav navbar-nav flex-row ml-auto">
-										<li class="dropdown nav-item active">
-											<a class="nav-link" href="#" data-toggle="dropdown">
-												<span class="material-icons">notifications</span>
-												<span class="notification">4</span>
-											</a>
-											<ul class="dropdown-menu">
-												<li><a href="sp_notification.php">You Have 3 New Messages</a></li>
-												<li><a href="#">You Have 4 New Messages</a></li>
-												<li><a href="#">You Have 4 New Messages</a></li>
-												<li><a href="#">You Have 4 New Messages</a></li>
-											</ul>
-										</li>
-
-
-
-										<li class="dropdown nav-item">
-											<a class="nav-link" href="#" data-toggle="dropdown">
-												<img src="data:image/jpeg;base64,<?php echo base64_encode($image); ?>" style="width:20px; height:20px; border-radius:45%;" />
-												<span class="xp-user-live"></span>
-											</a>
-											<ul class="dropdown-menu small-menu">
-												<li><a href="profile.php">
-														<span class="material-icons">person_outline</span>
-														Profile
-													</a></li>
-												<li><a href="#">
-														<span class="material-icons">settings</span>
-														Settings
-													</a></li>
-												<li><a href="#" id="LogoutBtn">
-														<span class="material-icons">logout</span>
-														Logout
-													</a></li>
-
-											</ul>
-										</li>
-
-
-									</ul>
-
-								</nav>
-							</div>
-						</div>
-
-					</div>
-
-					<div class="xp-breadcrumbbar text-center">
-						<h4 class="page-title"><?php echo $PageTitle; ?></h4>
-						<ol class="breadcrumb">
-						</ol>
-					</div>
-
-				</div>
-			</div>
-
+					 </div>
+					 
+					 <div class="col-md-5 col-lg-3 order-3 order-md-2">
+					     
+						 
+					 </div>
+					 
+					 
+					 <div class="col-10 col-md-6 col-lg-8 order-1 order-md-3">
+					     <div class="xp-profilebar text-right">
+						    <nav class="navbar p-0">
+							   <ul class="nav navbar-nav flex-row ml-auto">
+							   <li class="dropdown nav-item active">
+							     <a class="nav-link" href="#" data-toggle="dropdown">
+								  <span class="material-icons">notifications</span>
+								  <span class="notification">4</span>
+								 </a>
+								  <ul class="dropdown-menu">
+								     <li><a href="sp_notification.php">You Have 3 New Messages</a></li>
+									 <li><a href="#">You Have 4 New Messages</a></li>
+									 <li><a href="#">You Have 4 New Messages</a></li>
+									 <li><a href="#">You Have 4 New Messages</a></li>
+								  </ul>
+							   </li>
+							   
+							   
+							   
+							   <li class="dropdown nav-item">
+							     <a class="nav-link" href="#" data-toggle="dropdown">
+								 <img src="profile2.avif" style="width:36px; height:35px; border-radius:45%;"/>
+								  <span class="xp-user-live"></span>
+								 </a>
+								  <ul class="dropdown-menu small-menu">
+								     <li><a href="profile.php">
+									 <span class="material-icons">person_outline</span>
+									 Profile
+									 </a></li>
+									 <li><a href="#">
+									 <span class="material-icons">settings</span>
+									 Settings
+									 </a></li>
+									 <li><a href="#" id="LogoutBtn">
+									 <span class="material-icons">logout</span>
+									 Logout
+									 </a></li>
+									 
+								  </ul>
+							   </li>
+							   
+							   
+							   </ul>
+							   
+							</nav>
+						 </div>
+					 </div>
+					 
+				 </div>
+				 
+				 <div class="xp-breadcrumbbar text-center">
+				    <h4 class="page-title"><?php echo $PageTitle; ?></h4>
+					<ol class="breadcrumb">
+					</ol>
+				 </div>
+				 
+			 </div>
+		  </div>
+		
 
 			<!-- Optional JavaScript -->
 			<!-- Optional JavaScript -->

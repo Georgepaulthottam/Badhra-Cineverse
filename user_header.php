@@ -110,7 +110,7 @@ else if($activePage =='calender'){
                 </li>
 
                 <li class="<?php echo ($activePage === 'notification') ? 'active' : ''; ?>">
-                    <a href="user_notification.php" class=""><i class="material-icons">notifications</i>Notifications</a>
+                    <a href="user_notification.php" class=""><i class="material-icons">notifications_active</i>Notifications</a>
                 </li>
             </ul>
         </div>
