@@ -102,7 +102,7 @@ $result = mysqli_query($conn, $query); ?>
             display: none;
         }
 
-        .button-container {
+        .btn-container {
             display: flex;
             justify-content: space-between;
             margin-top: 20px;
@@ -366,7 +366,7 @@ tbody tr:hover {
         </div>
         
     </div>
-    <div class="button-container">
+    <div class="btn-container">
         <button class="create-button">Create</button>
         <button class="cancel-button" onclick="closePopup()">Cancel</button>
     </div>
