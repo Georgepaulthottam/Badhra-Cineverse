@@ -554,9 +554,12 @@ transform:translateY(0px);
   .profile-box {
     flex: 0 0 100%;
     margin-bottom: 20px;
+    width:93vw;
   }
 
-
+  .detailed-box {
+    margin-left:-9px;
+  }
 
 
   .popup {
@@ -669,6 +672,32 @@ transform:translateY(0px);
     display: none;
     width:320px;
   }
+
+  .pkp-model {
+    position: fixed;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+    z-index: 1001;
+    display: none;
+   width:85vw;
+}
+.pkp-model .pkp-model-content button {
+  
+  position: relative;
+  font-size: 1.25em;
+  background: black;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 23vw;
+}
    /*responsive logout  popup buttons*/
    .model .model-content button
    {
@@ -695,6 +724,22 @@ transform:translateY(0px);
   }
   #edittable{
     margin-left: 0px;
+  }
+  #setlocbtn {
+    font-family: inherit;
+    font-size: 14px;
+    background: linear-gradient(to bottom, #4dc7d9 0%,#66a6ff 100%);
+    color: white;
+    padding: 0.6em 1em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    border-radius: 20px;
+    width:50vw;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s;
+    margin-left:50px; 
   }
 }
 /*notification css starts*/

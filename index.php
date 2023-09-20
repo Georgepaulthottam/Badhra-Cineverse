@@ -259,7 +259,20 @@ include 'adminheadersidebar.php'; ?>
         .pkp-model .pkp-model-content button:hover {
             color: #999;
         }
-
+        @media only screen and (max-width: 767px) {
+        .pkp-model .pkp-model-content button {
+  
+  position: relative;
+  font-size: 1.25em;
+  background: black;
+  border: none;
+  cursor: pointer;
+  color: var(--white);
+  margin-top: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+  width: 23vw;
+}}
         /*confirmation for Packup css ends*/
     </style>
 </head>
