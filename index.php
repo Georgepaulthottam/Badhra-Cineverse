@@ -435,7 +435,6 @@ include 'adminheadersidebar.php'; ?>
                                 <th>Bata<?php echo $schedule_bata; ?></th>
                             </a>
                         </tr>
-
                         <tr>
                             <th>Location</th>
                             <th>Ernakulam</th>
