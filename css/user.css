@@ -41,7 +41,7 @@
   font-weight:500;
   cursor:pointer;
   text-align: left;
-  padding: 10px 40px 10px 70px;
+  padding-left: 60px;
 }
 
 .detailed-box {
@@ -57,7 +57,7 @@
 }
 
 .profile-box:last-child {
-  margin-right: 0;
+  margin-right: 20px;
 }
 
 .punch-in-btn {

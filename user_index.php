@@ -161,7 +161,7 @@ include 'user_header.php'; ?>
         <div class="profile-box">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                 Schedule</h3>
-            <div style="width:80%" id="schedule_box">
+            <div id="schedule_box">
                 <table class="table table-striped table-hover">
                     <tr>
                         <a href="">
