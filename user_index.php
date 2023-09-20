@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Check if the user is not logged in
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
     header('Location: login.php');
 }
 function settime()
@@ -127,7 +127,7 @@ include 'user_header.php'; ?>
         <div class="profile-box">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                 Request Status</h3>
-            <div class="request-status" id="request_box">
+            <div id="request_box">
                 <table class="table table-striped table-hover" style="text-align:left">
                     <tr>
                         <a href="">
@@ -161,13 +161,13 @@ include 'user_header.php'; ?>
         <div class="profile-box">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                 Schedule</h3>
-            <div class="request-status" id="schedule_box">
+            <div style="width:80%" id="schedule_box">
                 <table class="table table-striped table-hover">
                     <tr>
                         <a href="">
                             <th>Date</th>
                             <th><?php $time = new DateTime();
-                                $date = $time->format('j-n-Y');
+                                $date = $time->format('j/n/Y');
                                 echo ($date); ?></th>
                         </a>
                     </tr>
@@ -185,11 +185,11 @@ include 'user_header.php'; ?>
                     </tr>
                 </table>
             </div>
-            <a href="#" class="view-btn">View Details</a>
+            <a href="#" class="view-btn">View Salary</a>
         </div>
     </div>
     <!------middle-container contains request details----------->
-    <div id="middle-container" class="bottom-section">
+    <div id="middle-container" class="Top-section">
         <div class="detailed-box" id="request-table">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Request
             </h3>
