@@ -42,7 +42,7 @@ else if($activePage == 'history'){
     <link rel="stylesheet" href="css/studio.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <script type="text/javascript" src="main.js"></script>
+ 
 
     <!-- Include Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
