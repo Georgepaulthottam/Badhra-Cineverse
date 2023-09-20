@@ -234,15 +234,7 @@ a:hover {
 
 /*# sourceMappingURL=style.css.map */
 /* css for acceptAll and rejectAll Button*/
-#acceptAllBtn {
-  color:white;
-  background-color:crimson;
-  visibility: hidden;
-  padding:5px;
-  letter-spacing:2px;
-  border-radius:20px;
-  
-}
+
 
 #rejectAllBtn {
   color:#fff;

@@ -1,13 +1,18 @@
 <?php
 session_start();
+require 'connection.php';
 // Check if the user is not logged in
-if (!isset($_SESSION['user'])) {
+if (!isset($_SESSION['user']) or $_SESSION['userdept'] !== "Artist") {
     header('Location: login.php');
 }
-function settime()
-{
-}
-require 'connection.php';
+
+$datesql = "SELECT * FROM schedule_day WHERE  DATE(date)=" . mysqli_real_escape_string($conn, 'DATE(NOW())') . " ";
+$dateres1 = mysqli_query($conn, $datesql);
+$drow = mysqli_fetch_assoc($dateres1);
+$schedule_day = $drow['day_no'];
+$schedule_loc = $drow['location'];
+$schedule_bata = $drow['bata'];
+
 $user = $_SESSION['user'];
 $status = $_SESSION['status'];
 $query = ("SELECT * FROM cart WHERE username='" . mysqli_real_escape_string($conn, $user) . "' limit 0,5");
@@ -48,15 +53,15 @@ include 'user_header.php'; ?>
 <!------main-content-start----------->
 
 <!-- Notification message popup -->
-		  
-<div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
-        
-        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
-        <span class="progress"></span>
-         </div>
- <!-- Notification message popup ends-->
 
- 
+<div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
+
+    <p>Wellcome Back ,<?php echo $_SESSION['user']; ?></p>
+    <span class="progress"></span>
+</div>
+<!-- Notification message popup ends-->
+
+
 <!------main container divided into 3 containers: top, middle,bottom----------->
 <!------top-container contains attendence, request status and schedule----------->
 <div id="main-container" class="middle-section">
@@ -74,8 +79,8 @@ include 'user_header.php'; ?>
             <!------punch in button starts----------->
 
             <form style="margin-left:25%" action="" method="post"><?php
-           if ($_SESSION['status'] == 'requested') {
-             echo (' <button class="punch-button" id="punchButton" style=" background: #f4d03f; /* Yellow background for Requested state */
+                                                                    if ($_SESSION['status'] == 'requested') {
+                                                                        echo (' <button class="punch-button" id="punchButton" style=" background: #f4d03f; /* Yellow background for Requested state */
             color: white;
             padding: 15px 20px;
             font-size: 18px;
@@ -87,8 +92,8 @@ include 'user_header.php'; ?>
            
             align-items: center"">
             <i class="fas fa-fingerprint"></i>Requested</button>');
-                } elseif ($_SESSION['status'] == 'accepted') {
-            echo ('<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */ 
+                                                                    } elseif ($_SESSION['status'] == 'accepted') {
+                                                                        echo ('<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */ 
             color: white;
             padding: 15px 20px;
             font-size: 18px;
@@ -127,7 +132,7 @@ include 'user_header.php'; ?>
         <div class="profile-box">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                 Request Status</h3>
-            <div class="request-status" id="request_box">
+            <div id="request_box">
                 <table class="table table-striped table-hover" style="text-align:left">
                     <tr>
                         <a href="">
@@ -161,19 +166,19 @@ include 'user_header.php'; ?>
         <div class="profile-box">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
                 Schedule</h3>
-            <div class="request-status" id="schedule_box">
+            <div id="schedule_box">
                 <table class="table table-striped table-hover">
                     <tr>
                         <a href="">
                             <th>Date</th>
                             <th><?php $time = new DateTime();
-                                $date = $time->format('j-n-Y');
+                                $date = $time->format('j/n/Y');
                                 echo ($date); ?></th>
                         </a>
                     </tr>
                     <tr>
                         <th>Day</th>
-                        <th>03</th>
+                        <th><?php echo $schedule_day ?></th>
                     </tr>
                     <tr>
                         <th>Location</th>
@@ -181,15 +186,24 @@ include 'user_header.php'; ?>
                     </tr>
                     <tr>
                         <th>Bata</th>
-                        <th>First</th>
+                        <th><?php
+                        if($schedule_bata==2){
+                        echo "second";
+                        } 
+                        if($schedule_bata==1){
+                            echo "first";}
+                        if($schedule_bata==3){
+                            echo "third";
+                        }
+                        ?></th>
                     </tr>
                 </table>
             </div>
-            <a href="#" class="view-btn">View Details</a>
+            <a href="#" class="view-btn">View Salary</a>
         </div>
     </div>
     <!------middle-container contains request details----------->
-    <div id="middle-container" class="bottom-section">
+    <div id="middle-container" class="Top-section">
         <div class="detailed-box" id="request-table">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Request
             </h3>
