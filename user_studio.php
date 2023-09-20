@@ -5,7 +5,9 @@ if (!isset($_SESSION['user']) or $_SESSION['user'] !== "studio") {
     header('Location: login.php');
 }
 $activePage = 'home';
-include 'studio_header.php';?>
+include 'studio_header.php';
+
+?>
 <div id="main-container">
     <div class="top-section">
         <div class="profile-box">
@@ -87,5 +89,5 @@ include 'studio_header.php';?>
             '    </table>';
     }
 </script>
-<?php include 'studio_footer.php';?>?>
+<?php include 'studio_footer.php';?>
 
