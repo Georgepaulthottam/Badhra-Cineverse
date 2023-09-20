@@ -39,7 +39,7 @@ else if($activePage == 'history'){
     <link rel="stylesheet" href="css/style.css" />
 
     <!--user css-->
-    <link rel="stylesheet" href="css/user.css" />
+    <link rel="stylesheet" href="css/studio.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
  
@@ -86,11 +86,6 @@ else if($activePage == 'history'){
                     <a href="user_studiohistory.php" class=""><i class="material-icons">history</i>History</a>
                 
                 </li>
-
-                <
-
-
-                
             </ul>
         </div>
 
@@ -188,55 +183,3 @@ else if($activePage == 'history'){
 				 
 			 </div>
 		  </div>
-          
-     <!-- Optional JavaScript -->
-    <!-- Optional JavaScript -->
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<script src="js/jquery-3.3.1.slim.min.js"></script>
-	<script src="js/popper.min.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/jquery-3.3.1.min.js"></script>
-
-
-	<script type="text/javascript">
-		$(document).ready(function () {
-			$(".xp-menubar").on('click', function () {
-				$("#sidebar").toggleClass('active');
-				$("#content").toggleClass('active');
-			});
-
-			$('.xp-menubar,.body-overlay').on('click', function () {
-				$("#sidebar,.body-overlay").toggleClass('show-nav');
-			});
-
-		});
-  </script>
-  <script>
-	//for logout popup
-	const LogoutBtn = document.getElementById("LogoutBtn");
-const overlay = document.getElementById('overlay');
-const customConfirm = document.getElementById('custom-confirm');
-const yesButton = document.getElementById('yes-button');
-const noButton = document.getElementById('no-button');
-
-LogoutBtn.addEventListener("click", () => {
-    overlay.style.display = 'block';
-    customConfirm.style.display = 'block';
-});
-
-    yesButton.addEventListener('click', function()
-	 {
-        // Perform logout action here
-        window.location.href = "login.php";
-    });
-
-    noButton.addEventListener('click', function() 
-	{
-		overlay.style.display = 'none';
-    customConfirm.style.display = 'none';
-    });
-
-  </script>
-</body>
-
-</html>

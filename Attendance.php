@@ -16,6 +16,12 @@ if (isset($_POST['acc'])) {
 	$row2 = mysqli_fetch_assoc($result2);
 	$delusername = $row2['username'];
 	$deldept = $row2['dept'];
+	$sal_quer= ("SELECT *FROM user_salary WHERE username='" . mysqli_real_escape_string($conn, $delusername) . " '");
+	$sal_result= mysqli_query($conn, $sal_quer);
+	$salrow= mysqli_fetch_assoc($sal_result);
+	$usersal=$salrow['assigned_salary'];
+	$sal_rec_quer= ("INSERT INTO salary_report(username,assigned_salary) values('" . $delusername . "','" . $usersal . "')");
+	$sal_rec_result= mysqli_query($conn, $sal_rec_quer);
 	$query3 = ("INSERT INTO approved_attendance(username,dept) values('" . $delusername . "','" . $deldept . "')");
 	$result3 = mysqli_query($conn, $query3);
 	$query4 = ("DELETE FROM attendance_request where id=" . mysqli_real_escape_string($conn, $delid) . " ");

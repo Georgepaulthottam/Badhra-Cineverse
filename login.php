@@ -51,7 +51,7 @@ if(isset($_POST['username']) && isset($_POST['password'])) {
         header("location:user_studio.php");
 
      
-    } 
+    }
     else {  
     echo "<script>alert('invalid username or password!')</script>";  
     } 
