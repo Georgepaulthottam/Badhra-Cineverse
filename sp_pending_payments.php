@@ -1,6 +1,58 @@
 <?php
+ob_start();
+session_start();
+include 'connection.php';
 $activePage = 'Payments';
 include 'sp_header.php';
+
+if (isset($_POST['pay_request'])) {
+    $id = $_POST['id'];
+    $query2 = ("update cart set payment_status='paid' where id='$id'");
+    $quer = mysqli_query($conn, $query2);
+    header("Location: sp_pending_payments.php");
+}
+if(isset($_POST['pay_salary'])){
+    $id = $_POST['id'];
+    $query2 = ("update salary_report set status='paid' where id='$id'");
+    $quer = mysqli_query($conn, $query2);
+    header("Location: sp_pending_payments.php");
+}
+if(isset($_POST['pay_misc'])){
+    $id = $_POST['id'];
+    $query2 = ("update miscellaneous set payment_status='paid' where id='$id'");
+    header("Location: sp_pending_payments.php");
+}
+if(isset($_POST['pay_req1'])) {
+    $id = $_POST['checkbox'];
+    if (!empty($id)) {
+        foreach ($id as $tempid) {
+            $query2 = ("update cart set payment_status='paid' where id='$tempid'");
+            $quer = mysqli_query($conn, $query2);
+            header("Location: sp_pending_payments.php");
+        }
+    }
+}
+if (isset($_POST['pay_sal1'])) {
+    $id = $_POST['checkbox'];
+    if (!empty($id)) {
+        foreach ($id as $tempid) {
+            $query2 = ("update salary_report set status='paid' where id='$tempid'");
+            $quer = mysqli_query($conn, $query2);
+            header("Location: sp_pending_payments.php");
+        }
+    }
+}
+if (isset($_POST['pay_misc1'])) {
+    $id = $_POST['checkbox'];
+    if (!empty($id)) {
+        foreach ($id as $tempid) {
+            $query2 = ("update miscellaneous  set payment_status='paid' where id='$tempid'");
+            $quer = mysqli_query($conn, $query2);
+            header("Location: sp_pending_payments.php");
+        }
+    }
+}
+ob_end_flush();
 ?>
 <div class="main-content">
     <section id="view-request">
@@ -34,7 +86,9 @@ include 'sp_header.php';
                      <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
-					
+					<th><span class="custom-checkbox">
+									<input type="checkbox" onchange="selects()" id="selectAll">
+									<label for="selectAll"></label></th>
 						<th>Name</th>
 						<th>Department</th>
 						<th>Description</th>
@@ -59,7 +113,10 @@ include 'sp_header.php';
                         echo ('
 
                                         <tr>
-										
+																			 <th><span class="custom-checkbox">
+									 <form action="" method="post">
+											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
+											<label for="checkbox1"></label></th>
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['details'] . '</th>
@@ -77,20 +134,34 @@ include 'sp_header.php';
                         }
                         echo ('
                         									  <th>
-									<form action="" method="post">
+									
 									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
 										<input type="submit" name="pay_request" value="Pay" class="edit" >
 											
 										
 										
 
-										</form>
+										
 										</th>
-                                    </tr>');
-                    }
+                                    </tr>');}
+                                    echo ('</tbody>
+
+
+				</table>
+				<div>
+					
+					<button type="submit" id="acceptAllBtn" name="pay_req1">Pay All</button>
+					
+
+					</form>
+				</div><br>
+			</div>
+		</section>
+	</div>');
+                    
                 }
                 if (isset($_POST['Salaries'])) {
-                    $query = ("SELECT * FROM salary_report ");
+                    $query = ("SELECT * FROM salary_report where status='" . mysqli_real_escape_string($conn, "pending") . "' ");
                     $result = mysqli_query($conn, $query);
                     ?>
                     <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Salaries
@@ -130,8 +201,9 @@ include 'sp_header.php';
 							 
                                 <tr>
 								<th><span class="custom-checkbox">
-										<input type="checkbox" id="checkbox" name="checkbox" value="1" onchange="checkedBox()">
-										<label for="checkbox1"></label></th>
+                                 <form action="" method="post">
+											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
+											<label for="checkbox1"></label></th>
                                         <th>' . $row['username'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['assigned_salary'] . '</th>
@@ -149,18 +221,36 @@ include 'sp_header.php';
                         }
                         echo ('
                         									  <th>
-									<form action="" method="post">
-									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
+									
+									    <input type="text" name="id" value="' . $row['id'] .
+                            '" hidden>
 										<input type="submit" name="pay_salary" value="Pay" class="edit" >
 											
 										
 										
 
-										</form>
+										
 										</th>
                                     </tr>');
+                        }
+                        echo ('</tbody>
+
+
+				</table>
+				<div>
+					
+					<button type="submit" id="acceptAllBtn" name="pay_sal1">Pay All</button>
+					
+
+					</form>
+				</div><br>
+			</div>
+		</section>
+	</div>');
                     }
-                }
+                                
+                    
+                
                 if (isset($_POST['Miscellaneous'])) {
                     $query = ("SELECT * FROM miscellaneous WHERE payment_status='" . mysqli_real_escape_string($conn, "pending") . "'");
                     $result = mysqli_query($conn, $query);
@@ -171,9 +261,14 @@ include 'sp_header.php';
                     echo (' <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
+                    <th><span class="custom-checkbox">
+								<input type="checkbox" onchange="selects()" id="selectAll">
+								<label for="selectAll"></label></th>
+                    
 						<th>Name</th>
 						<th>Purpose</th>
-						<th>Remark</th>						<th>Amount</th>
+						<th>Remark</th>
+                    	<th>Amount</th>
                         <th>Date</th>
                         <th>Time</th>
 						<th>Payment-Status</th>
@@ -197,6 +292,10 @@ include 'sp_header.php';
 
                         echo (' 
                                         <tr>
+                                        <th><span class="custom-checkbox">
+                                 <form action="" method="post">
+											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
+											<label for="checkbox1"></label></th>
 										
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['purpose'] . '</th>
@@ -213,18 +312,34 @@ include 'sp_header.php';
                         }
                         echo ('  <th>
 									<form action="" method="post">
-									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
+									    <input type="text" name="id" value="' . $row['id'] .
+                        '" hidden>
 										<input type="submit" name="pay_misc" value="Pay" class="edit" >
 											
 										
 										
 
-										</form>
+										
 										</th>
 
 
 								</tr>');
                     }
+                    echo ('</tbody>
+
+
+				</table>
+				<div>
+					
+					<button type="submit" id="acceptAllBtn" name="pay_misc1">Pay All</button>
+					
+
+					</form>
+				</div><br>
+			</div>
+		</section>
+	</div>');
+                    
                 }
                 if (isset($_POST['all'])) {
                     $query = ("SELECT * FROM cart");
@@ -290,16 +405,7 @@ include 'sp_header.php';
 
 
 
-            </tbody>
-
-            </table>
-            <div>
-                <button id="acceptAllBtn" formaction="#">Accept All</button>
-                <button id="rejectAllBtn" formaction="#">Reject All</button>
-            </div><br>
-        </div>
-    </section>
-</div>
+          
 <!------main-content-end----------->
 
 
@@ -328,7 +434,7 @@ include 'sp_header.php';
     //select all and reject all
 
     function selects() {
-        var ele = document.getElementsByName("checkbox");
+        var ele = document.getElementsByName("checkbox[]");
         if (document.getElementById("selectAll").checked == true) {
             document.getElementById("acceptAllBtn").style.visibility = "visible";
             document.getElementById("rejectAllBtn").style.visibility = "visible";
@@ -347,7 +453,7 @@ include 'sp_header.php';
     }
 
     function checkedBox() {
-        var ele = document.getElementsByName("checkbox");
+        var ele = document.getElementsByName("checkbox[]");
         var count = 0;
         for (var i = 0; i < ele.length; i++) {
             if (ele[i].checked == true) {
