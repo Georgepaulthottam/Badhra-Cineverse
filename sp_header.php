@@ -35,9 +35,18 @@ else if($activePage == 'salary'){
 }
 else if($activePage == 'usercreation'){
 	$PageTitle="User Creation ";
-} else if ($activePage == 'Payments') {
+} 
+else if($activePage == 'catering'){
+	$PageTitle="HR Catering Panel ";
+} 
+else if($activePage == 'accomodation'){
+	$PageTitle="Accomodation ";
+} 
+else if ($activePage == 'Payments') {
 	$PageTitle = "Payments";
 }
+
+
 require 'connection.php';
 $query = ("SELECT * FROM users where username='super'");
 $result = mysqli_query($conn, $query);
@@ -155,15 +164,7 @@ $image = $row['image'];
 					</ul>
 				</li>
 
-				<li class="<?php echo ($activePage === 'Salary') ? 'active' : ''; ?>">
-					<a href="#homeSubmenu5" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">account_balance_wallet</i>Salary Manager
-					</a>
-					<ul class="collapse list-unstyled menu" id="homeSubmenu5">
-						<li><a href="sp_salary.php">Salary Manager</a></li>
-
-					</ul>
-				</li>
+				
 
 				<li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
 					<a href="sp_misc.php" class=""><i class="material-icons">miscellaneous_services</i>Miscellaneous</a>
@@ -177,17 +178,24 @@ $image = $row['image'];
 					<a href="sp_notification.php" class=""><i class="material-icons">notifications_active</i>Notifications </a>
 				</li>
 
-				<li class="<?php echo ($activePage === 'bata') ? 'active' : ''; ?>">
-					<a href="sp_bata.php" class=""><i class="material-icons">manage_accounts</i>Bata Manager</a>
-				</li>
-
+				
 				<li class="<?php echo ($activePage === 'schedule') ? 'active' : ''; ?>">
 					<a href="sp_schedule.php" class=""><i class="material-icons">remove_red_eye</i>Schedule View</a>
 				</li>
 
+				<li class="<?php echo ($activePage === 'catering') ? 'active' : ''; ?>">
+					<a href="sp_hrcateringindex.php" class=""><i class="material-icons">food_bank</i>HR Catering  </a>
+				</li>
+
+				<li class="<?php echo ($activePage === 'accomodation') ? 'active' : ''; ?>">
+		  <a href="sp_accomodation.php" class=""><i class="material-icons">bed</i>Accomodation </a>
+		  </li>
+
 				<li class="<?php echo ($activePage === 'vehicle') ? 'active' : ''; ?>">
 					<a href="vehicleAdmin.php" class=""><i class="material-icons">commute</i>Vehicle Department </a>
 				</li>
+
+
 				<li class="<?php echo ($activePage === 'calender') ? 'active' : ''; ?>">
 					<a href="sp_calender.php" class=""><i class="material-icons">calendar_month</i>Calender </a>
 				</li>

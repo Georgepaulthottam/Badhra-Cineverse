@@ -1,6 +1,6 @@
 <?php
 session_start(); 
-$activePage = 'bata'; 
+$activePage = 'accomodation'; 
 // Check if the user is not logged in
 if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
     header('Location: login.php');

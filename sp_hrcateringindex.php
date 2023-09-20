@@ -27,7 +27,7 @@ $result4 = mysqli_query($conn, $query4);
 
 ?>
 
-<?php $activePage = 'hrcatering';
+<?php $activePage = 'catering';
 include 'sp_header.php'; ?>
 
 
