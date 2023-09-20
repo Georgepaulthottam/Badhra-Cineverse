@@ -36,6 +36,9 @@ else if($activePage == 'salary'){
 else if($activePage == 'usercreation'){
 	$PageTitle="User Creation ";
 } 
+else if($activePage == 'schedule'){
+	$PageTitle="Schedule View ";
+} 
 else if($activePage == 'catering'){
 	$PageTitle="HR Catering Panel ";
 } 
