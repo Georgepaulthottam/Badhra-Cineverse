@@ -177,7 +177,7 @@ tbody tr {
             padding: 10px 20px;
             font-size: 16px;
             border-radius: 5px;
-            width:250px;
+            width:330px;
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
         }
@@ -209,6 +209,7 @@ tbody tr {
         }
 
         .save-button {
+            margin-left:170px;
             background: linear-gradient(to bottom, #666, #444);
             color: #fff;
             width: 90px;
@@ -234,7 +235,7 @@ tbody tr {
             border: none;
             color: #fff;
             padding: 10px 20px;
-            width: 250px;
+            width: 330px;
             font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
@@ -367,30 +368,30 @@ tbody tr {
                         <div class="expensebox">
                             <div class="expensefield">
                             <b>
-                            <p class="card-heading">SCHEDULE</p> <!-- "SCHEDULE" heading -->
+                            <p class="card-heading">SCHEDULE</p> 
                            
                             <button class="start-schedule-button" onclick="toggleInputField()">Start Schedule</button><br><br>
                             <div id="schedule-input" style="display: none;">
-        <label for="schedule-name">Schedule Name: </label>
-        <input type="text" id="schedule-name">
-        <div class="action-buttons">
-            <button class="action-button save-button" onclick="toggleInputField()">Save</button>
-            <button class="action-button cancel-button" onclick="cancelSchedule()">Cancel</button>
+                               <label for="schedule-name">Schedule Name: &emsp; </label>
+                                  <input type="text" id="schedule-name">
+                                     <div class="action-buttons">
+                                         <button class="action-button save-button" onclick="toggleInputField()">Save</button>
+                                          <button class="action-button cancel-button" onclick="cancelSchedule()">Cancel</button>
 
-        </div>
-    </div>
-    <div id="schedule-display" style="display: none;"></div> <!-- Displayed schedule -->
-    <button id="end-schedule-button" class="end-schedule-button" style="display: none;" onclick="confirmEndSchedule()">End Schedule</button> <!-- "End Schedule" button -->
+                                     </div>
+                            </div>
+                           <div id="schedule-display" style="display: none;"></div> 
+                                 <button id="end-schedule-button" class="end-schedule-button" style="display: none;" onclick="confirmEndSchedule()">End Schedule</button> <!-- "End Schedule" button -->
 
 
-<!-- Confirmation prompt for ending schedule -->
-<div id="delete-prompt" class="delete-prompt">
-    <h6>Are you sure you want to end the schedule?</h6>
-    <div class="btn-container">
-        <button class="btn delete" onclick="endSchedule()">End</button>
-        <button class="btn cancel" onclick="cancelEndSchedule()">Cancel</button>
-    </div>
-</div>
+                          <!-- Confirmation prompt for ending schedule -->
+                             <div id="delete-prompt" class="delete-prompt">
+                             <h6>Are you sure you want to end the schedule?</h6>
+                                 <div class="btn-container">
+                                        <button class="btn delete" onclick="endSchedule()">End</button>
+                                        <button class="btn cancel" onclick="cancelEndSchedule()">Cancel</button>
+                                  </div>
+                             </div>
                         </b>
                     </div>
                 </div>
