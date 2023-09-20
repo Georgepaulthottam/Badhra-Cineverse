@@ -76,16 +76,16 @@ include 'hr_cateringheader.php'; ?>
         </table>
 
         <table class="table table-striped table-hover" id="displayTable" style="display: none;">
-                <td>Time</td>
-                <td><span id="displayTime"></span></td>
+                <th>Time</th>
+                <th><span id="displayTime"></span></th>
             </tr>
             <tr>
-                <td>Quantity</td>
-                <td><span id="displayQuantity"></span></td>
+                <th>Quantity</td>
+                <th><span id="displayQuantity"></span></th>
             </tr>
             <tr>
-                <td>Amount</td>
-                <td><span id="displayAmount"></span></td>
+                <th>Amount</th>
+                <th><span id="displayAmount"></span></th>
             </tr>
         </table>
         <input type="button" name="req_accept" value="Submit" class="edit" id="submitButton">
@@ -99,11 +99,11 @@ include 'hr_cateringheader.php'; ?>
             <!------main-content-end----------->
 
     <!------middle-container contains request details----------->
-    <div id="middle-container" class="bottom-section">
-        <div class="detailed-box" id="request-table">
+    <div id="middle-container" class="bottom-section" >
+        <div class="detailed-box" id="request-table" style="overflow-x:auto;">
             <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">History
             </h3>
-            <div class="request-table" style="overflow-x:auto;">
+            <div class="request-table" >
 
                 <table class="table table-striped table-hover">
                     <thead>

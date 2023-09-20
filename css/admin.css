@@ -476,6 +476,7 @@ transform:translateY(0px);
   padding: 20px;
   color: white;
   margin: 15px;
+  border-radius:10px;
   
 }
 .salary-status-main-table{

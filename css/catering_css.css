@@ -711,8 +711,11 @@
     .profile-box {
       flex: 0 0 100%;
       margin-bottom: 20px;
+      width:90vw;
     }
-  
+  .detailed-box{
+    width:95vw;
+  }
     .captioncell {
       margin-left: 65px
     }
