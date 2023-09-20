@@ -377,7 +377,7 @@ tbody tr {
     margin-left:50px;
     background-color:#262F35;
     height:350px;
-    padding-top:15px;
+    padding-top:3px;
     border-radius:7px;
   }
 
