@@ -62,10 +62,13 @@ include 'sp_header.php';
     label {
       display: inline-block;
       color:#000;
+      font-size: 23px;
+      margin-left: 10px;
       
     }
     span.expensevalue{
-    color:#000;
+        color: #6bea2e; 
+        font-size: 21px;
   }
 
     /* Style for the value element */
@@ -305,6 +308,7 @@ tbody tr {
             color: #333; /* Change the color to your preference */
         }
 
+      
     
 </style>
 <script>
@@ -400,9 +404,12 @@ tbody tr {
                 <div class="expensebox">
                     <div class="expensefield">
                         <b>
-                            <p class="card-heading">DETAILS</p> <!-- "DETAILS" heading -->
+                            <p class="card-heading">DETAILS</p> <br><br>
                             
-                            <!-- Add your details content here -->
+                            <label for="schedule-name">Schedule&emsp;&emsp;&emsp; &nbsp;: &emsp;&emsp; </label>
+                            <span class="expensevalue">May</span><br>
+	                          <label for="opening-balance">Schedule Day    &emsp;  &nbsp;&emsp;:    &nbsp;  &emsp;&emsp; </label>
+                              <span class="expensevalue">02</span> &nbsp; &nbsp; &nbsp;&emsp;<br>
                         </b>
                     </div>
                 </div>
