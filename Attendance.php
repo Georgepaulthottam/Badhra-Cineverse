@@ -20,7 +20,7 @@ if (isset($_POST['acc'])) {
 	$sal_result= mysqli_query($conn, $sal_quer);
 	$salrow= mysqli_fetch_assoc($sal_result);
 	$usersal=$salrow['assigned_salary'];
-	$sal_rec_quer= ("INSERT INTO salary_report(username,assigned_salary) values('" . $delusername . "','" . $usersal . "')");
+	$sal_rec_quer= ("INSERT INTO salary_report(username,assigned_salary,status) values('" . $delusername . "','" . $usersal . "','pending')");
 	$sal_rec_result= mysqli_query($conn, $sal_rec_quer);
 	$query3 = ("INSERT INTO approved_attendance(username,dept) values('" . $delusername . "','" . $deldept . "')");
 	$result3 = mysqli_query($conn, $query3);
