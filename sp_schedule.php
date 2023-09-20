@@ -30,7 +30,7 @@ include 'sp_header.php';
 		 /* Styling for the box container */
      .expensebox {
       
-      height:405px;
+      height:370px;
     width: 530px;
     background: #f8f8ff;
     color: #0000;
@@ -67,7 +67,7 @@ include 'sp_header.php';
       
     }
     span.expensevalue{
-        color: #6bea2e; 
+        color: #00827f; 
         font-size: 21px;
   }
 
@@ -110,17 +110,10 @@ include 'sp_header.php';
             display: none;
         }
 		
-		table {
-  
-  border-radius: 0.25em;
-  border-collapse: collapse;
-  margin: 1em;
-  width: 1118px;
-  margin-left:30px;
-}
+	
 th {
   border-bottom: 1px solid #364043;
-  color:#152935;
+  color:#ffbf00 ;
   font-size: 0.85em;
   font-weight: 600;
   padding: 0.5em 1em;
@@ -174,7 +167,7 @@ tbody tr {
   }
 
   .start-schedule-button {
-            background: linear-gradient(to bottom, #0074e4, #0053a0);
+            background: linear-gradient(to bottom,#5f9ea0, #00827f);
             border: none;
             color: #fff;
             padding: 10px 20px;
@@ -186,7 +179,7 @@ tbody tr {
         }
 
         .start-schedule-button:hover {
-            background: linear-gradient(to bottom, #0053a0, #0074e4);
+            background: linear-gradient(to bottom,#00827f #5f9ea0);
             transform: scale(1.05);
         }
 
@@ -342,7 +335,7 @@ tbody tr {
     height: 100px;
    
     text-align: center;
-    margin-left:49px;
+    margin-left:50px;
     margin-top:10px;
     width:1080px;
     background-color: #f8f8ff;
@@ -377,13 +370,46 @@ tbody tr {
     transition: background-color 0.3s;
   }
 
+  .tables-container {
+    display: none;
+    margin-top: 20px;
+    width: 1100px;
+    margin-left:50px;
+    background-color:#262F35;
+    height:350px;
+    padding-top:15px;
+    border-radius:7px;
+  }
+
+  table {
+  
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+  width:1020px;
+  margin-left:37px;
+}
+
+
   
 
       
     
 </style>
 <script>
-            function toggleInputField() {
+     function toggleTableVisibility() {
+    var scheduleSelect = document.getElementById("scheduleSelect");
+    var tablesContainer = document.getElementById("tablesContainer");
+
+    // Check if the selected value is "default" (i.e., no month selected)
+    if (scheduleSelect.value === "default") {
+      tablesContainer.style.display = "none"; // Hide the table
+    } else {
+      tablesContainer.style.display = "block"; // Show the table
+    }
+  }
+   
+        function toggleInputField() {
         var scheduleInput = document.getElementById("schedule-input");
         var enteredValue = document.getElementById("schedule-name").value;
         var scheduleDisplay = document.getElementById("schedule-display");
@@ -475,7 +501,7 @@ tbody tr {
                 <div class="expensebox">
                     <div class="expensefield">
                         <b>
-                            <p class="card-heading">DETAILS</p> <br><br>
+                            <p class="card-heading">DETAILS</p> <br>
                             
                             <label for="schedule-name">Schedule&emsp;&emsp;&emsp; &nbsp;: &emsp;&emsp; </label>
                             <span class="expensevalue">May</span><br>
@@ -489,12 +515,11 @@ tbody tr {
     </table>
 
 
-     <div class="info-container" id="infoContainer">
-    
-    <p class="scedule"><b>Schedule:</b></p>
-    <div class="schedule-select">
-      <select id="scheduleSelect">
-        <option value="default" disabled selected>Select a month</option>
+    <div class="info-container" id="infoContainer">
+  <p class="scedule"><b>Schedule:</b></p>
+  <div class="schedule-select">
+    <select id="scheduleSelect" onchange="toggleTableVisibility()">
+      <option value="default" disabled selected>Select a month</option>
         <option value="January">January</option>
         <option value="February">February</option>
         <option value="March">March</option>
@@ -508,10 +533,91 @@ tbody tr {
         <option value="November">November</option>
         <option value="December">December</option>
        
-      </select>
-    </div>
+        </select>
   </div>
+</div>
 
+  <div class="misctable" style="overflow-x:auto;">
+  <div class="tables-container" id="tablesContainer">
+    <table>
+
+
+
+  <thead>
+  <tr >
+  <td></td>
+  <td></td>
+  <td></td>
+    <td></td>
+    <td><b><h3> Schedule </h3></b></td>
+    <td><b> <h3>Report</h3> </b></td>
+    <td></td>
+  </tr>
+  </thead>
+                  
+    <tr>
+      <th>SI NO</th>
+      <th>Schedule</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Total Bata</th>
+      <th>Total Attendance</th>
+      <th>Total Request</th>
+      <th>Total Miscellanious</th>
+      <th>Total Expense</th>
+      <th>Details</th>
+    </tr>
+    
+  
+
+    <tr>
+        <td>1</td>
+        <td>12/06/2023</td>
+        <td>ggggg</td>
+        <td>bgvfc</td>
+        <td>bgvfc</td>
+        <td>09:00</td>
+        <td>gtgff</td>
+        <td>70</td>
+        <td>gtgff</td>
+        <td></button>view</button></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>12/06/2023</td>
+        <td>ggggg</td>
+        <td>bgvfc</td>
+        <td>bgvfc</td>
+        <td>09:00</td>
+        <td>gtgff</td>
+        <td>70</td>
+        <td>gtgff</td>
+        <td></button>view</button></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>12/06/2023</td>
+        <td>ggggg</td>
+        <td>bgvfc</td>
+        <td>09:00</td>
+        <td>gtgff</td>
+        <td>bgvfc</td>
+        <td>70</td>
+        <td>gtgff</td>
+        <td></button>view</button></td>
+    </tr>
+     
+  <tbody>
+
+	
+
+
+
+
+  </tbody>
+  </table>
+  </div>
+</div>
 
 
 
