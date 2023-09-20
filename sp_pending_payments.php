@@ -89,8 +89,8 @@ include 'sp_header.php';
                                     </tr>');
                     }
                 }
-                if (isset($_POST['salaries'])) {
-                    $query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "requested") . "'");
+                if (isset($_POST['Salaries'])) {
+                    $query = ("SELECT * FROM salary_report ");
                     $result = mysqli_query($conn, $query);
                     ?>
                     <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Salaries
@@ -102,14 +102,14 @@ include 'sp_header.php';
 					<th><span class="custom-checkbox">
 								<input type="checkbox" onchange="selects()" id="selectAll">
 								<label for="selectAll"></label></th>
-						<th>Name</th>
+						<th>Username</th>
 						<th>Department</th>
-						<th>Description</th>
-						<th>Amount</th>
-						<th>Remark</th>
-						<th>Bill No</th>
+						<th>Salary</th>
+						<th>Tds</th>
+						<th>TA_Status</th>
+						<th>TA</th>
 						<th>Date</th>
-						<th>Time</th>
+						<th>Payment-status</th>
 						<th>Action</th>
 					</tr>
 				</thead>');
@@ -132,30 +132,33 @@ include 'sp_header.php';
 								<th><span class="custom-checkbox">
 										<input type="checkbox" id="checkbox" name="checkbox" value="1" onchange="checkedBox()">
 										<label for="checkbox1"></label></th>
-                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['username'] . '</th>
                                         <th>' . $row['dept'] . '</th>
-                                        <th>' . $row['details'] . '</th>
-                                        <th>' . $row['price'] . '</th>
-                                        <th>' . $row['remark'] . '</th>
-                                        <th>' . $row['billno'] . '</th
-										<th></th>
+                                        <th>' . $row['assigned_salary'] . '</th>
+                                        <th>' . $row['tds'] . '</th>
+                                        <th>' . $row['ta_status'] . '</th>
+                                        <th>' . $row['ta_ea'] .'</th>
+                                        
                                         <th>' . $date . '</th>
-                                        <th>' . $time . '</th>
-									  <th>
-									<form action="approved_requests.php" method="post">
+                                        
+								');
+                        if ($row['status'] == "paid") {
+                            echo ('<th style="color:green">Paid</th>');
+                        } else {
+                            echo ('<th style="color:red">Not Paid</th>');
+                        }
+                        echo ('
+                        									  <th>
+									<form action="" method="post">
 									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
-										<input type="submit" name="approve" value="Accept" class="edit" >
+										<input type="submit" name="pay_salary" value="Pay" class="edit" >
 											
 										
-										<input type="submit" name="reject" value="Decline" class="delete" >
+										
 
 										</form>
 										</th>
-
-                                   
-
-
-								</tr>');
+                                    </tr>');
                     }
                 }
                 if (isset($_POST['Miscellaneous'])) {
@@ -170,8 +173,7 @@ include 'sp_header.php';
 					<tr>
 						<th>Name</th>
 						<th>Purpose</th>
-						<th>Remark</th>
-						<th>Amount</th>
+						<th>Remark</th>						<th>Amount</th>
                         <th>Date</th>
                         <th>Time</th>
 						<th>Payment-Status</th>
