@@ -2,7 +2,7 @@
 session_start(); 
 $activePage = 'home'; 
 // Check if the user is not logged in
-if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
+if (!isset($_SESSION['user']) or $_SESSION['user'] !== "studio") {
     header('Location: login.php');
 }
 include 'studio_header.php';?>
@@ -18,7 +18,7 @@ include 'studio_header.php';?>
                 </tr>
             </table>
         </div>
-        <div class="profile-box">
+        <div class="profile-box" id="timing">
             <h3>Timing</h3>
             <form action="">
             <table>
@@ -36,7 +36,7 @@ include 'studio_header.php';?>
                 </tr>
                 <tr>
                     <td style="text-align:center" colspan="2" class="buttons">
-                        <a href="user_studioafter.php"><input type="submit" value="Submit" class="studiosubmitbtn"></a>
+                        <input type="submit" value="Submit" class="studiosubmitbtn" onclick="changeTimingContent()">
                         <button class="studiosubmitbtn">cancel</button>
                     </td>
                 </tr>
@@ -67,5 +67,25 @@ include 'studio_header.php';?>
         </div>
     </div>
 </div>
+<script>
+    var timing = document.getElementById("timing");
+    function changeTimingContent(){
+        timing.innerHTML ='<h3>Timing</h3>\n' +
+            '<table>\n' +
+            '    <tr>\n' +
+            '       <td>Date : </td>\n' +
+            '        <td>23/06/2023</td>\n' +
+            '   </tr>\n' +
+            '  <tr>\n' +
+            '        <td>Aired Time :</td>\n' +
+            '        <td>12:00</td>\n' +
+            '    </tr>\n' +
+            '    <tr>\n' +
+            '        <td>Fine :</td>\n' +
+            '        <td>250</td>\n' +
+            '    </tr>\n' +
+            '    </table>';
+    }
+</script>
 <?php include 'studio_footer.php';?>?>
 
