@@ -67,7 +67,7 @@ include 'sp_header.php';
       
     }
     span.expensevalue{
-        color: #6bea2e; 
+        color: #00827f; 
         font-size: 21px;
   }
 
@@ -167,7 +167,7 @@ tbody tr {
   }
 
   .start-schedule-button {
-            background: linear-gradient(to bottom, #0074e4, #0053a0);
+            background: linear-gradient(to bottom,#5f9ea0, #00827f);
             border: none;
             color: #fff;
             padding: 10px 20px;
@@ -179,7 +179,7 @@ tbody tr {
         }
 
         .start-schedule-button:hover {
-            background: linear-gradient(to bottom, #0053a0, #0074e4);
+            background: linear-gradient(to bottom,#00827f #5f9ea0);
             transform: scale(1.05);
         }
 
