@@ -7,6 +7,12 @@ if (!isset($_SESSION['user']) or $_SESSION['user'] !== "Admin") {
 }
 include "connection.php";
 $user = $_SESSION['user'];
+$datesql = "SELECT * FROM schedule_day WHERE  DATE(date)=" . mysqli_real_escape_string($conn, 'DATE(NOW())') . " "; 
+$dateres1 = mysqli_query($conn, $datesql);
+$drow=mysqli_fetch_assoc($dateres1);
+$schedule_day=$drow['day_no'];
+$schedule_loc=$drow['location'];
+$schedule_bata=$drow['bata'];
 $att_query = ("SELECT * FROM users WHERE username='" . mysqli_real_escape_string($conn, $user) . "' limit 0,4");
 $att_result = mysqli_query($conn, $att_query);
 $att_row = mysqli_fetch_assoc($att_result);
@@ -59,6 +65,55 @@ if (isset($_POST['accept'])) {
 
     header('location:index.php');
 }
+        //Bata entries
+        if (isset($_POST['bata2'])) {
+            
+
+            // Create a prepared statement
+            $sql = "UPDATE schedule_day SET bata = 2 WHERE DATE(date) = CURDATE()";
+            $stmt = mysqli_prepare($conn, $sql);
+
+            if ($stmt) {
+                // Execute the prepared statement
+                if (mysqli_stmt_execute($stmt)) {
+                    header('location:index.php');
+                } else {
+                    // Handle the case where execution fails
+                    echo "Error executing query: " . mysqli_error($conn);
+                }
+
+                // Close the prepared statement
+                mysqli_stmt_close($stmt);
+            } else {
+                // Handle the case where the prepared statement creation fails
+                echo "Error creating prepared statement: " . mysqli_error($conn);
+            }
+        }
+
+        if (isset($_POST['bata3'])) {
+           
+
+            // Create a prepared statement
+            $sql = "UPDATE schedule_day SET bata = 3 WHERE DATE(date) = CURDATE()";
+            $stmt = mysqli_prepare($conn, $sql);
+
+            if ($stmt) {
+                // Execute the prepared statement
+                if (mysqli_stmt_execute($stmt)) {
+                    header('location:index.php');
+                } else {
+                    // Handle the case where execution fails
+                    echo "Error executing query: " . mysqli_error($conn);
+                }
+
+                // Close the prepared statement
+                mysqli_stmt_close($stmt);
+            } else {
+                // Handle the case where the prepared statement creation fails
+                echo "Error creating prepared statement: " . mysqli_error($conn);
+            }
+        }
+
 if (isset($_POST['punchin'])) {
     $user = $_SESSION['user'];
     $dbuserdept = $_SESSION['userdept'];
@@ -76,8 +131,24 @@ if (isset($_POST['packup'])) {
     $dateres = mysqli_query($conn, $dateview);
     $daterow = mysqli_fetch_assoc($dateres);
     $day = $daterow['day_no'];
-    $datesql = "INSERT INTO schedule_day (schedule_id,day_no) VALUES (1," . $day . "+1)";
+    $sch_date=$daterow['date'];
+    $newdate=date('Y-m-d', strtotime($sch_date. ' + 1 days'));
+    $datesql = "INSERT INTO schedule_day (schedule_id,day_no,date) VALUES (1," . $day . "+1,'$newdate')";
     $dateres2 = mysqli_query($conn, $datesql);
+    //select absent users
+    $quer = ("select * from users");
+    $presentres=mysqli_query($conn,$quer);
+    while ($row = $conquer->fetch_assoc()) {
+        $absent_user = $row["username"];
+        $absent_dept=$row["dept"];
+        $quer2 = ("select * from approved_attendance where  DATE(`datetime`) = DATE(NOW()) and username='$absent_user'");
+        $conquer2 = mysqli_query($conn, $quer2);
+        if (mysqli_num_rows($conquer2) == 0) {
+            $quer2 = ("insert into absent_dates(username,dept) values( '".$absent_user."','".$absent_dept."')");
+            $conquer2 = mysqli_query($conn, $quer2);
+        }
+    }
+
     $usersql = "update users set status='punched-out' ";
     $userres = mysqli_query($conn, $usersql);
     header('location:index.php');
@@ -119,80 +190,78 @@ include 'adminheadersidebar.php'; ?>
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<style>
-    
-/*confirmation for Packup popup css*/
-.pkp-overlay 
-{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 1000;
-  display: none;
-}
+    <style>
+        /*confirmation for Packup popup css*/
+        .pkp-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none;
+        }
 
-.pkp-model {
-  position: fixed;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
-  z-index: 1001;
-  display: none;
-  
-}
-.pkp-model .pkp-model-content
-{
-  position: relative;
-  background: #2d2d2d;
-  color:#fff;
-  padding: 30px;
-  border-radius: 20px;
-  display: flex; 
-  flex-direction: column;
-  align-items: center;
-  
-  box-shadow: 0 7px 25px rgba(0,0,0,0.08);   
-}
-.pkp-model .pkp-confirmationtext
-{
-  position: relative;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 1.25em;
-}
-.pkp-model .pkp-buttoncontainer
-{
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-}
-.pkp-model .pkp-model-content button
-{
-  position: relative;
-  font-size: 1.25em;
-  background: black;
-  border: none;
-  cursor: pointer;
-  color: var(--white);
-  margin-top: 10px;
-  border-radius:5px;
-  border:1px solid white;
-  width:7vw;
-  
-}
-.pkp-model .pkp-model-content button:hover
-{
-  color: #999;
-}
+        .pkp-model {
+            position: fixed;
+            top: 52%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+            z-index: 1001;
+            display: none;
 
-/*confirmation for Packup css ends*/ 
-</style>
+        }
+
+        .pkp-model .pkp-model-content {
+            position: relative;
+            background: #2d2d2d;
+            color: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            box-shadow: 0 7px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .pkp-model .pkp-confirmationtext {
+            position: relative;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.25em;
+        }
+
+        .pkp-model .pkp-buttoncontainer {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+        }
+
+        .pkp-model .pkp-model-content button {
+            position: relative;
+            font-size: 1.25em;
+            background: black;
+            border: none;
+            cursor: pointer;
+            color: var(--white);
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid white;
+            width: 7vw;
+
+        }
+
+        .pkp-model .pkp-model-content button:hover {
+            color: #999;
+        }
+
+        /*confirmation for Packup css ends*/
+    </style>
 </head>
 
 <body>
@@ -200,15 +269,15 @@ include 'adminheadersidebar.php'; ?>
 
 
     <!------main-content-start----------->
-    
+
     <!-- Notification message popup -->
-		  
+
     <div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
-        
-        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
+
+        <p>Wellcome Back ,<?php echo $_SESSION['user']; ?></p>
         <span class="progress"></span>
-         </div>
- <!-- Notification message popup ends-->
+    </div>
+    <!-- Notification message popup ends-->
 
 
     <div id="main-container" class="middle-section">
@@ -226,8 +295,8 @@ include 'adminheadersidebar.php'; ?>
                 <!------punch in button starts----------->
 
                 <form style="margin-left:29%" action="" method="post"><?php
-                    if ($_SESSION['status'] == 'accepted') {
-               echo ('<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */
+                                                                        if ($_SESSION['status'] == 'accepted') {
+                                                                            echo ('<button class="punch-button" id="punchButton" style="background: #27ae60; /* Green background for Accepted state */
                color: white;
             padding: 15px 20px;
             font-size: 18px;
@@ -241,8 +310,8 @@ include 'adminheadersidebar.php'; ?>
             <i class="fas fa-check"></i>
             Punched In
         </button>');
-                 } else {
-              echo (' <button style=" background: linear-gradient(135deg, #ff5656, #ff8e8e); /* Reddish gradient */
+                                                                        } else {
+                                                                            echo (' <button style=" background: linear-gradient(135deg, #ff5656, #ff8e8e); /* Reddish gradient */
             color: white;
             padding: 15px 20px;
             font-size: 18px;
@@ -266,31 +335,31 @@ include 'adminheadersidebar.php'; ?>
             </div>
             <div class="profile-box">
                 <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-                     Location Details</h3>
+                    Location Details</h3>
                 <div class="request-status" id="request1">
 
                     <form action="" method="post">
-                    <div class="input-container">
-  <input placeholder="Enter Pooja Starting Time..." class="input-field" type="text" onfocus="(this.type='time')">
-  <label for="input-field" class="input-label">Enter Pooja Starting Time...</label>
-  <span class="input-highlight"></span>
-</div>
-                        
-<button type="submit" id="setlocbtn" name="settimebtn">
-  <div class="svg-wrapper-1">
-    <div class="svg-wrapper">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-        <path fill="none" d="M0 0h24v24H0z"></path>
-        <path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm-1-10.414V7a1 1 0 0 1 2 0v5.293l2.293 2.293a1 1 0 1 1-1.414 1.414l-3-3a1 1 0 0 1-.293-.707z"></path>
-      </svg>
-    </div>
-  </div>
-  <span>Set Time</span>
-</button>
+                        <div class="input-container">
+                            <input placeholder="Enter Pooja Starting Time..." class="input-field" type="text" onfocus="(this.type='time')">
+                            <label for="input-field" class="input-label">Enter Pooja Starting Time...</label>
+                            <span class="input-highlight"></span>
+                        </div>
+
+                        <button type="submit" id="setlocbtn" name="settimebtn">
+                            <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="none" d="M0 0h24v24H0z"></path>
+                                        <path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 18c-4.418 0-8-3.582-8-8s3.582-8 8-8 8 3.582 8 8-3.582 8-8 8zm-1-10.414V7a1 1 0 0 1 2 0v5.293l2.293 2.293a1 1 0 1 1-1.414 1.414l-3-3a1 1 0 0 1-.293-.707z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span>Set Time</span>
+                        </button>
 
                         <!------Select Optionss with popup----------->
-                   
-                       
+
+
                         <select id="mySelect">
                             <option value="option0" selected>Set Location</option>
                             <option value="option1">Location 1</option>
@@ -303,53 +372,53 @@ include 'adminheadersidebar.php'; ?>
                             <h5>Enter Manually:</h5>
 
                             <div class="input-container">
-  <input placeholder="Enter Location..." class="input-field" type="text" id="location">
-  <label for="input-field" class="input-label">Enter Location</label>
-  <span class="input-highlight"></span>
-</div>
+                                <input placeholder="Enter Location..." class="input-field" type="text" id="location">
+                                <label for="input-field" class="input-label">Enter Location</label>
+                                <span class="input-highlight"></span>
+                            </div>
                             <br>
 
                             <div class="input-container">
-  <input placeholder="Enter Rent..." class="input-field" type="text" id="rent">
-  <label for="input-field" class="input-label">Enter Rent</label>
-  <span class="input-highlight"></span>
-</div>
+                                <input placeholder="Enter Rent..." class="input-field" type="text" id="rent">
+                                <label for="input-field" class="input-label">Enter Rent</label>
+                                <span class="input-highlight"></span>
+                            </div>
                             <br>
                             <button onclick="saveChoice()" id="popupbtn">Save</button>
-                        
+
                         </div>
-                        
+
                         <button type="submit" id="setlocbtn" name="setlocbtn">
-  <div class="svg-wrapper-1">
-    <div class="svg-wrapper">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-        <path fill="none" d="M0 0h24v24H0z"></path>
-        <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
-      </svg>
-    </div>
-  </div>
-  <span>Set Location</span>
-</button>
+                            <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="none" d="M0 0h24v24H0z"></path>
+                                        <path fill="currentColor" d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span>Set Location</span>
+                        </button>
 
                         <!---Location rent --->
                         <div class="input-container">
-  <input placeholder="Extra Rent..." class="input-field" type="text">
-  <label for="input-field" class="input-label">Extra Rent</label>
-  <span class="input-highlight"></span>
-</div>
+                            <input placeholder="Extra Rent..." class="input-field" type="text">
+                            <label for="input-field" class="input-label">Extra Rent</label>
+                            <span class="input-highlight"></span>
+                        </div>
 
-<button type="submit" id="setlocbtn" name="setrentbtn">
-<div class="svg-wrapper-1">
-    <div class="svg-wrapper">
-      <!-- Dollar Icon SVG -->
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
-        <path fill="none" d="M0 0h24v24H0z"></path>
-        <path fill="currentColor" d="M10.5 2H9v2h1.3l-.76 8H7v2h1.53l-.76 8H5v2h5.03l.76-8H12v-2H9.03l.76-8zM13 6v2h1.5l.76 8H17v2h-4.53l-.76-8H11V6h2z"></path>
-      </svg>
-    </div>
-  </div>
-  <span>Sent Rent</span>
-</button>
+                        <button type="submit" id="setlocbtn" name="setrentbtn">
+                            <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                    <!-- Dollar Icon SVG -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+                                        <path fill="none" d="M0 0h24v24H0z"></path>
+                                        <path fill="currentColor" d="M10.5 2H9v2h1.3l-.76 8H7v2h1.53l-.76 8H5v2h5.03l.76-8H12v-2H9.03l.76-8zM13 6v2h1.5l.76 8H17v2h-4.53l-.76-8H11V6h2z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                            <span>Sent Rent</span>
+                        </button>
                     </form>
 
 
@@ -363,10 +432,9 @@ include 'adminheadersidebar.php'; ?>
                         <tr>
                             <a href="">
                                 <th>Current Bata</th>
-                                <th>Bata 1</th>
+                                <th>Bata<?php echo $schedule_bata; ?></th>
                             </a>
                         </tr>
-
                         <tr>
                             <th>Location</th>
                             <th>Ernakulam</th>
@@ -374,9 +442,11 @@ include 'adminheadersidebar.php'; ?>
 
                     </table>
                 </div>
-                <input type="button" id="bata1" name="bata1" value="Bata 1" class="bata-btn">
-                <input type="button" id="bata2" name="bata2" value="Bata 2" class="bata-btn">
-                <input type="button" id="bata3" name="bata3" value="Bata 3" class="bata-btn">
+                <form action="" method="post">
+                    <input type="submit" id="bata1" name="bata1" value="Bata 1" class="bata-btn" disabled>
+                    <input type="submit" id="bata2" name="bata2" value="Bata 2" class="bata-btn" <?php if($schedule_bata==2){echo "disabled";} ?>>
+                    <input type="submit" id="bata3" name="bata3" value="Bata 3" class="bata-btn"<?php if($schedule_bata==3){echo "disabled";} ?> >
+                </form>
 
             </div>
         </div>
@@ -512,7 +582,7 @@ include 'adminheadersidebar.php'; ?>
                 <a href="Requests.php" style="color: #E2B842;">View more</a>
             </div>
         </div>
-<br>
+        <br>
         <!--- Misc Section Box--->
         <div id="middle-container" class="bottom-section">
             <div class="detailed-box" id="request-table">
@@ -579,34 +649,40 @@ include 'adminheadersidebar.php'; ?>
         </div>
 
         <!------Packup Button----------->
-        
-            
-        
-            <button name="Packup" class="packupbtn" id="packupBtn">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none" class="svg-icon"><g stroke-width="2" stroke-linecap="round" stroke="#fff">
-    <rect y="5" x="4" width="16" rx="2" height="16"></rect><path d="m8 3v4"></path><path d="m16 3v4"></path><path d="m4 11h16"></path></g></svg>
-  <span class="lable">Packup</span>
-</button>
-       
-<div id="pkp-overlay" class="pkp-overlay"></div>
-    <div id="pkp-custom-confirm" class="pkp-model" style="display:none">
-        <div class="pkp-model-content">
-            <div class="pkp-confirmationtext">
-            <p>Do you really want to end today's schedule?</p>
-            </div>
-			<form method="post" action="index.php">
-            <div class="pkp-buttoncontainer">
 
 
-                <button  type="submit" id="pkp-yes-button" name="packup">Packup</button>
-                <button id="pkp-no-button">Cancel</button>
+
+        <button name="Packup" class="packupbtn" id="packupBtn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" viewBox="0 0 24 24" height="24" fill="none" class="svg-icon">
+                <g stroke-width="2" stroke-linecap="round" stroke="#fff">
+                    <rect y="5" x="4" width="16" rx="2" height="16"></rect>
+                    <path d="m8 3v4"></path>
+                    <path d="m16 3v4"></path>
+                    <path d="m4 11h16"></path>
+                </g>
+            </svg>
+            <span class="lable">Packup</span>
+        </button>
+
+        <div id="pkp-overlay" class="pkp-overlay"></div>
+        <div id="pkp-custom-confirm" class="pkp-model" style="display:none">
+            <div class="pkp-model-content">
+                <div class="pkp-confirmationtext">
+                    <p>Do you really want to end today's schedule?</p>
+                </div>
+                <form method="post" action="index.php">
+                    <div class="pkp-buttoncontainer">
+
+
+                        <button type="submit" id="pkp-yes-button" name="packup">Packup</button>
+                        <button id="pkp-no-button">Cancel</button>
+                    </div>
             </div>
         </div>
-    </div>      
-</form>	
+        </form>
 
 
-<!------Packup Button Ends----------->
+        <!------Packup Button Ends----------->
         <!------main-content-end----------->
 
 
@@ -697,23 +773,22 @@ include 'adminheadersidebar.php'; ?>
 
         ");
         ?>
-
-        </script>
-
+    </script>
 
 
 
-            <script >
-            // Function to show the popup when "Others" option is selected
-            document.getElementById("mySelect").addEventListener("change", function() {
-                var popup = document.getElementById("popup");
-                var select = document.getElementById("mySelect");
-                if (select.value === "others") {
-                    popup.style.display = "block";
-                } else {
-                    popup.style.display = "none";
-                }
-            });
+
+    <script>
+        // Function to show the popup when "Others" option is selected
+        document.getElementById("mySelect").addEventListener("change", function() {
+            var popup = document.getElementById("popup");
+            var select = document.getElementById("mySelect");
+            if (select.value === "others") {
+                popup.style.display = "block";
+            } else {
+                popup.style.display = "none";
+            }
+        });
 
         // Function to save the choice and hide the popup
         function saveChoice() {
@@ -747,32 +822,29 @@ include 'adminheadersidebar.php'; ?>
             $(this).fadeOut(300);
         });
     </script>
-  <script>
-	//for logout popup
-const pkpBtn = document.getElementById("packupBtn");
-const pkp_overlay = document.getElementById('pkp-overlay');
-const pkp_customConfirm = document.getElementById('pkp-custom-confirm');
-const pkp_yesButton = document.getElementById('pkp-yes-button');
-const pkp_noButton = document.getElementById('pkp-no-button');
+    <script>
+        //for logout popup
+        const pkpBtn = document.getElementById("packupBtn");
+        const pkp_overlay = document.getElementById('pkp-overlay');
+        const pkp_customConfirm = document.getElementById('pkp-custom-confirm');
+        const pkp_yesButton = document.getElementById('pkp-yes-button');
+        const pkp_noButton = document.getElementById('pkp-no-button');
 
-pkpBtn.addEventListener("click", () => {
-    pkp_overlay.style.display = 'block';
-    pkp_customConfirm.style.display = 'block';
-});
+        pkpBtn.addEventListener("click", () => {
+            pkp_overlay.style.display = 'block';
+            pkp_customConfirm.style.display = 'block';
+        });
 
-pkp_yesButton.addEventListener('click', function()
-	 {
-        // Perform logout action here
-		window.location.href = "";
-    });
+        pkp_yesButton.addEventListener('click', function() {
+            // Perform logout action here
+            window.location.href = "";
+        });
 
-    pkp_noButton.addEventListener('click', function() 
-	{
-		pkp_overlay.style.display = 'none';
-        pkp_customConfirm.style.display = 'none';
-    });
-
-  </script>
+        pkp_noButton.addEventListener('click', function() {
+            pkp_overlay.style.display = 'none';
+            pkp_customConfirm.style.display = 'none';
+        });
+    </script>
 
 </body>
 
