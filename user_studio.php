@@ -20,6 +20,7 @@ include 'studio_header.php';?>
         </div>
         <div class="profile-box">
             <h3>Timing</h3>
+            <form action="">
             <table>
                 <tr>
                     <td><label for="date">Date:</label></td>
@@ -34,12 +35,13 @@ include 'studio_header.php';?>
                     <td><input type="text" id="fine" placeholder="Enter Fine"></td>
                 </tr>
                 <tr>
-                    <td colspan="2" class="buttons">
-                        <a href ='user_studioafter.php'><button id="submitBtn">Submit</button>
-                        <button id="cancelBtn">Cancel</button>
+                    <td style="text-align:center" colspan="2" class="buttons">
+                        <a href="user_studioafter.php"><input type="submit" value="Submit" class="studiosubmitbtn"></a>
+                        <button class="studiosubmitbtn">cancel</button>
                     </td>
                 </tr>
             </table>
+            </form>
         </div>
     </div>
     <div class="top-section">
@@ -61,8 +63,9 @@ include 'studio_header.php';?>
                     <td>125</td>
                 </tr>
             </table>
-            <a href="user_studiohistory.php">View More</a>
+            <a href="user_studiohistory.php" style="color:#E2B842;">View More</a>
         </div>
     </div>
 </div>
 <?php include 'studio_footer.php';?>?>
+
