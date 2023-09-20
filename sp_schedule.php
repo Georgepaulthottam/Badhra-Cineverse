@@ -30,12 +30,12 @@ include 'sp_header.php';
 		 /* Styling for the box container */
      .expensebox {
       
-      height:430px;
+      height:405px;
     width: 530px;
-    background: #ffff;
+    background: #f8f8ff;
     color: #0000;
     padding: 1px;
-    border-radius: 8px;
+    border-radius: 11px;
     border-color:  #0000;
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
     text-align: center;
@@ -61,7 +61,7 @@ include 'sp_header.php';
     /* Style for the label element */
     label {
       display: inline-block;
-      color:#000;
+      color:#536878;
       font-size: 23px;
       margin-left: 10px;
       
@@ -120,7 +120,7 @@ include 'sp_header.php';
 }
 th {
   border-bottom: 1px solid #364043;
-  color: #da9100;
+  color:#152935;
   font-size: 0.85em;
   font-weight: 600;
   padding: 0.5em 1em;
@@ -212,7 +212,7 @@ tbody tr {
         }
 
         .save-button {
-            margin-left:170px;
+            margin-left:240px;
             background: linear-gradient(to bottom, #666, #444);
             color: #fff;
             width: 90px;
@@ -308,6 +308,77 @@ tbody tr {
             color: #333; /* Change the color to your preference */
         }
 
+
+    .select-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  select {
+    appearance: none;
+    background-color:#fffff ;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #scheduleSelect{
+    margin-left:70px;
+    margin-top:-50px;
+    position:absolute;
+  }
+  select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+
+  select::after {
+    content: '\25BC';
+    margin-left: 5px;
+  }
+
+  .info-container {
+    height: 100px;
+   
+    text-align: center;
+    margin-left:49px;
+    margin-top:10px;
+    width:1080px;
+    background-color: #f8f8ff;
+    padding: 5px;
+    margin-bottom:40px;
+    margin-right: 20px;
+    box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+    border-radius: 10px;
+    border: 1px solid grey;
+  }
+
+  .schedule-select {
+    margin-right:160px;
+    margin-top: 15px;
+  }
+
+  .scedule {
+    margin-top:30px;
+    font-size: larger;
+    margin-right:160px;
+  }
+
+  .schedule-btn {
+    
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+  }
+
+  
+
       
     
 </style>
@@ -361,7 +432,7 @@ tbody tr {
             <table class="profile-box">
                 <thead>
                 <tr>
-                    <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>TITLE: &emsp; &emsp;</b>Geetha Govindam</th>
+                    <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>TITLE: &emsp; &emsp;</b>Geetha Govindam   &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;</th>
                     <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>DATE: &emsp; &emsp;</b> 13-09-2023</th>
                 </tr>
                 </thead>
@@ -416,6 +487,66 @@ tbody tr {
             </td>
         </tr>
     </table>
+
+
+     <div class="info-container" id="infoContainer">
+    
+    <p class="scedule"><b>Schedule:</b></p>
+    <div class="schedule-select">
+      <select id="scheduleSelect">
+        <option value="default" disabled selected>Select a month</option>
+        <option value="January">January</option>
+        <option value="February">February</option>
+        <option value="March">March</option>
+        <option value="April">April</option>
+        <option value="May">May</option>
+        <option value="June">June</option>
+        <option value="July">July</option>
+        <option value="Auguest">Auguest</option>
+        <option value="September">September</option>
+        <option value="October">October</option>
+        <option value="November">November</option>
+        <option value="December">December</option>
+       
+      </select>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-------------end of main------------------->
         </div>
     </div>
     <footer class="footer">
