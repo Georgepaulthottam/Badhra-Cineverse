@@ -4,6 +4,7 @@ session_start();
 if (!isset($_SESSION['user']) or $_SESSION['user'] !== "studio") {
     header('Location: login.php');
 }
+$activePage = 'home';
 include 'studio_header.php';?>
 <div id="main-container">
     <div class="top-section">

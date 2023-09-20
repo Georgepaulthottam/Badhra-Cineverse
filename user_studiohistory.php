@@ -5,6 +5,7 @@ $activePage = 'home';
 if (!isset($_SESSION['user']) or $_SESSION['user'] !== "studio") {
     header('Location: login.php');
 }
+$activePage = 'history';
 include 'studio_header.php';?>
     <div id="middle-container" class="bottom-section">
         <div class="profile-box" id="request-table" style="overflow-x:auto;">
