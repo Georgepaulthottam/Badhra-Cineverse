@@ -378,7 +378,7 @@ tbody tr {
     background-color:#262F35;
     height:350px;
     padding-top:15px;
-    border-radius:20px;
+    border-radius:7px;
   }
 
   table {
