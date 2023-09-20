@@ -49,12 +49,12 @@ include 'hr_cateringheader.php'; ?>
                     <h4>Details</h4>
                     <table class="table table-striped table-hover">
                         <tr>
-                            <td>Date</td>
-                            <td>19/05/2023</td>
+                            <th>Date</th>
+                            <th>19/05/2023</th>
                         </tr>
                         <tr>
-                            <td>Title</td>
-                            <td>Geetha Govindham</td>
+                            <th>Title</th>
+                            <th>Geetha Govindham</th>
                         </tr>
                     </table>
                 </div>
@@ -62,16 +62,16 @@ include 'hr_cateringheader.php'; ?>
         <h4>Status</h4>
         <table class="table table-striped table-hover" id="HideTable">
             <tr>
-                <td>Time</td>
-                <td><input type="time" class="form-control" placeholder="Enter the time" id="timeInput" required></td>
+                <th>Time</th>
+                <th><input type="time" class="form-control" placeholder="Enter the time" id="timeInput" required></th>
             </tr>
             <tr>
-                <td>Quantity</td>
-                <td><input type="number" class="form-control" placeholder="Enter the quantity" id="quantityInput" required></td>
+                <th>Quantity</th>
+                <th><input type="number" class="form-control" placeholder="Enter the quantity" id="quantityInput" required></th>
             </tr>
             <tr>
-                <td>Amount</td>
-                <td><input type="number" class="form-control" placeholder="Enter the amount" id="amountInput" required></td>
+                <th>Amount</th>
+                <th><input type="number" class="form-control" placeholder="Enter the amount" id="amountInput" required></th>
             </tr>
         </table>
 

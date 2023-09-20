@@ -35,11 +35,7 @@
     
   
   }
-  #request_box table th,#schedule_box table th,#makerequest table th{
-    color:#555e58;  
-    font-weight:500;
-    cursor:pointer;
-  }
+ 
   
   .detailed-box {
     text-align: center;
@@ -183,12 +179,15 @@
     font-weight: bolder;
     color: #fff;
   }
-  
+  .profile-box table tbody th{
+    color:black;
+  }
   
   table {
     width: 100%;
     border-collapse: collapse;
     text-align: center;
+    color:#000;
   }
   
   td {
@@ -198,9 +197,10 @@
     align-items: center;
     justify-content: center;
   }
-  .profile-box table tr:nth-child(even){
+  .profile-box table tr:nth-child(odd){
     
-    background-color: rgb(35, 10, 10);
+    background-color: #ebebf2;
+    
     
   }
   th {

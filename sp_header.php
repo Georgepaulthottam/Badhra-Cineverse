@@ -114,7 +114,7 @@ $image = $row['image'];
 				</li>
 				<li class="<?php echo ($activePage === 'Payments') ? 'active' : ''; ?>">
 					<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">stacked_line_chart</i>Payments
+						<i class="material-icons">pending_actions</i>Payments
 					</a>
 					<ul class="collapse list-unstyled menu" id="homeSubmenu2">
 						<li><a href="sp_pending_payments.php">Pending payments</a></li>
