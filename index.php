@@ -366,7 +366,6 @@ include 'adminheadersidebar.php'; ?>
                                 <th>Bata 1</th>
                             </a>
                         </tr>
-
                         <tr>
                             <th>Location</th>
                             <th>Ernakulam</th>
