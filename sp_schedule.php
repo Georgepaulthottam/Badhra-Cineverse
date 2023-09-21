@@ -8,14 +8,13 @@ if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
   header('Location: login.php');
 }
 include 'sp_header.php';
+//start schedule
 
  if (isset($_POST['save'])) {
-                                          // Get the schedule name from the for
+                                       
   $scheduleName = $_POST['schedule-name'];
   $sql=("insert into schedule(schedule_name,status) values('$scheduleName','live')"); 
-  $res=mysqli_query($conn,$sql);          // TODO: Update the database with the schedule name. You will need to use MySQL or another database query here.
-
-                                          // For demonstration purposes, you can store it in a session variable
+  $res=mysqli_query($conn,$sql);         
   $_SESSION['scheduleName'] = $scheduleName;
   header('Location: sp_schedule.php'); 
     }
