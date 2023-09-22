@@ -319,7 +319,7 @@ z-index:1000;
 /* Styles for Pie Chart */
 .pie-chart-container {
   position: relative;
-  margin-left: 8%;
+  margin-left: 4%;
   height:30vh;
 }
 
@@ -623,8 +623,10 @@ transform:translateY(0px);
     width: 95%;
     border-radius: 10px;
   }
+  .btn-outline-primary{
+    margin-top:20px;
+  }
 
- 
   
    /*responsive wellcome popup*/
 
