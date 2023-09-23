@@ -67,6 +67,10 @@ $result=mysqli_query($conn,$query);
     letter-spacing: 1px;
     cursor: pointer;
 		}
+		footer
+		{
+			margin-top:12.6vh;
+		}
 	</style>
 </head>
 

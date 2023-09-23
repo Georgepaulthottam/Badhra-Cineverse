@@ -981,7 +981,11 @@ footer {
         position: absolute;
         margin-bottom: -40px;
     }
-
+    .delete{
+        margin-left: -2px;
+        
+        margin-top: 10px;
+      }
     footer {
         top: 40px;
     }

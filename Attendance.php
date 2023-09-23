@@ -124,6 +124,9 @@ include 'adminheadersidebar.php'; ?>
 			letter-spacing: 1px;
 			cursor: pointer;
 		}
+		footer{
+			margin-top:12.6vh;
+		}
 	</style>
 </head>
 
