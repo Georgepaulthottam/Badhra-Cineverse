@@ -125,7 +125,7 @@ include 'adminheadersidebar.php';
             '    </tr>\n' +
             '    <tr>\n' +
             '        <td>TA :</td>\n' +
-            '        <td><input type="text"></td>\n' +
+            '        <td><input type="text" class="edit-ta-input"></td>\n' +
             '    </tr>\n' +
             '        <tr>\n' +
             '            <td style="text-align:center;"><button>Save</button></td>\n' +

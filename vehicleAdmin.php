@@ -206,7 +206,12 @@ text-align:center;
   width:38.3vw;
   margin-right:20px;
 }
+#vehiclesubmit{
 
+ width:30vw;
+ 
+
+}
 }
      </style>
   </head>
