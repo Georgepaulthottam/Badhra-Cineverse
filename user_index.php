@@ -259,42 +259,6 @@ include 'user_header.php'; ?>
             <a href="user_view_request.php" style="color:#E2B842;">View more</a>
         </div>
     </div>
-    <!------bottom-container contains accomodation and notification----------->
-    <div id="bottom-container" class="top-section">
-        <div class="profile-box">
-            <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">
-                Notifications</h3>
-            <div class="recieve">
-                <table>
-                    <tr>
-                        <td>
-                            <i class="material-icons">sms</i>
-                            <h6>SuperAdmin</h6>
-                        </td>
-                        <td>
-                            <p>Hello. How are you today?</p>
-                            <span class="time-right">11:00</span>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <div class="recieve">
-                <table>
-                    <tr>
-                        <td>
-                            <i class="material-icons">sms</i>
-                            <h6>SuperAdmin</h6>
-                        </td>
-                        <td>
-                            <p>Hello. How are you today?</p>
-                            <span class="time-right">11:00</span>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-            <a href="user_notification.php" style="color:#E2B842;">View more</a>
-        </div>
-    </div>
 </div>
 
 <!------main-content-end----------->

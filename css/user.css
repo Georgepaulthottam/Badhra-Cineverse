@@ -758,7 +758,6 @@ transform:translateY(0px);
     bottom: 63px;
     right: 20px;
     width: 280px;
-    z-index:2000;
   }
   .notification-popup
   {
