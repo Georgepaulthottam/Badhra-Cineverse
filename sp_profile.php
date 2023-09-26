@@ -52,7 +52,7 @@ include 'sp_header.php';
 
 
     <!------main-content-start----------->
-    <div class="main-content">
+<div class="main-content">
 <?php echo('
 <div class="main-body">
 
