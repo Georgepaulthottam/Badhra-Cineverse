@@ -489,10 +489,9 @@ Kozikode, Kerala, India
 			      <p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
 			   </div>
 			</div>
-		 </footer>
- 
-		 
+		 </footer>	 
 	  </div>
+	  
 				   <!----edit-modal start--------->
 				   <div class="modal fade" tabindex="-1" id="editPasswordModal" role="dialog">
 					<div class="modal-dialog" role="document">
@@ -618,8 +617,7 @@ Kozikode, Kerala, India
 					  </div>
 					</div>
 				  </div>
-				  
-										 <!----edit-modal end--------->
+	 <!----edit-modal end--------->
 
 </div>
 
