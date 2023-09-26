@@ -48,11 +48,11 @@ include 'sp_header.php';
 </head>
 
 <body>
-    <!------top-navbar-end----------->
+  
 
-
-    <!------main-content-start----------->
-<div class="main-content">
+ <!------main-content-start-----------> 
+		     
+ <div class="main-content">
 <?php echo('
 <div class="main-body">
 
@@ -139,28 +139,26 @@ Kozikode, Kerala, India
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-	
+       $(document).ready(function(){
+	      $(".xp-menubar").on('click',function(){
+		    $("#sidebar").toggleClass('active');
+			$("#content").toggleClass('active');
+		  });
+		  
+		  $('.xp-menubar,.body-overlay').on('click',function(){
+		     $("#sidebar,.body-overlay").toggleClass('show-nav');
+		  });
+		  
+	   });	
 </script>
 
 </div>
 
-        <!------main-content-end----------->
-
-
-
-        <!----footer-design------------->
-
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="footer-in">
-                    <p class="mb-0">&copy 2023 Team Helios. All Rights Reserved.</p>
-                </div>
-            </div>
-        </footer>
-
-
-				   <!----edit-modal start--------->
-				   <div class="modal fade" tabindex="-1" id="editPasswordModal" role="dialog">
+  
+	<!------main-content-end-----------> 
+		  
+ <!----edit-modal start--------->
+ <div class="modal fade" tabindex="-1" id="editPasswordModal" role="dialog">
 					<div class="modal-dialog" role="document">
 					  <div class="modal-content">
 						<div class="modal-header">
@@ -282,34 +280,21 @@ Kozikode, Kerala, India
 				  </div>
 	 <!----edit-modal end--------->
 
+ <!----footer-design------------->
+
+		 
+ <footer class="footer">
+		    <div class="container-fluid">
+			   <div class="footer-in">
+			      <p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
+			   </div>
+			</div>
+		 </footer>
+ 
+
+<!-------complete html----------->
 
 
-    <!-------complete html----------->
-
-
-     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-   <script src="js/jquery-3.3.1.slim.min.js"></script>
-   <script src="js/popper.min.js"></script>
-   <script src="js/bootstrap.min.js"></script>
-   <script src="js/jquery-3.3.1.min.js"></script>
-  
-  
-  <script type="text/javascript">
-       $(document).ready(function(){
-	      $(".xp-menubar").on('click',function(){
-		    $("#sidebar").toggleClass('active');
-			$("#content").toggleClass('active');
-		  });
-		  
-		  $('.xp-menubar,.body-overlay').on('click',function(){
-		     $("#sidebar,.body-overlay").toggleClass('show-nav');
-		  });
-		  
-	   });
-  </script>
-    
-
-</body>
+  </body>
 
 </html>
