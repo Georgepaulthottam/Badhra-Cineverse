@@ -87,9 +87,7 @@ ob_end_flush();
                      <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
-					<th><span class="custom-checkbox">
-									<input type="checkbox" onchange="selects()" id="selectAll">
-									<label for="selectAll"></label></th>
+					
 						<th>Name</th>
 						<th>Department</th>
 						<th>Description</th>
@@ -98,7 +96,7 @@ ob_end_flush();
 						<th>Bill No</th>
 						<th>Date</th>
 						<th>Payment-status</th>
-                        <th>Action</th>
+                        
 
 					</tr>
 				</thead>');
@@ -114,10 +112,9 @@ ob_end_flush();
                         echo ('
 
                                         <tr>
-																			 <th><span class="custom-checkbox">
+																		
 									 <form action="" method="post">
-											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
-											<label for="checkbox1"></label></th>
+										
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['details'] . '</th>
@@ -134,16 +131,6 @@ ob_end_flush();
                             echo ('<th style="color:red">Not Paid</th>');
                         }
                         echo ('
-                        									  <th>
-									
-									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
-										<input type="submit" name="pay_request" value="Pay" class="edit" >
-											
-										
-										
-
-										
-										</th>
                                     </tr>');
                     }
                     echo ('</tbody>
@@ -169,9 +156,7 @@ ob_end_flush();
                     echo (' <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
-					<th><span class="custom-checkbox">
-								<input type="checkbox" onchange="selects()" id="selectAll">
-								<label for="selectAll"></label></th>
+					
 						<th>Username</th>
 						<th>Department</th>
 						<th>Salary</th>
@@ -180,7 +165,7 @@ ob_end_flush();
 						<th>TA</th>
 						<th>Date</th>
 						<th>Payment-status</th>
-						<th>Action</th>
+						
 					</tr>
 				</thead>');
 
@@ -199,10 +184,9 @@ ob_end_flush();
                         echo ('
 							 
                                 <tr>
-								<th><span class="custom-checkbox">
+								
                                  <form action="" method="post">
-											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
-											<label for="checkbox1"></label></th>
+											
                                         <th>' . $row['username'] . '</th>
                                         <th>' . $row['dept'] . '</th>
                                         <th>' . $row['assigned_salary'] . '</th>
@@ -219,17 +203,6 @@ ob_end_flush();
                             echo ('<th style="color:red">Not Paid</th>');
                         }
                         echo ('
-                        									  <th>
-									
-									    <input type="text" name="id" value="' . $row['id'] .
-                            '" hidden>
-										<input type="submit" name="pay_salary" value="Pay" class="edit" >
-											
-										
-										
-
-										
-										</th>
                                     </tr>');
                     }
                     echo ('</tbody>
@@ -258,9 +231,7 @@ ob_end_flush();
                     echo (' <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
-                    <th><span class="custom-checkbox">
-								<input type="checkbox" onchange="selects()" id="selectAll">
-								<label for="selectAll"></label></th>
+                    
                     
 						<th>Name</th>
 						<th>Purpose</th>
@@ -269,7 +240,7 @@ ob_end_flush();
                         <th>Date</th>
                         <th>Time</th>
 						<th>Payment-Status</th>
-						<th>Action</th>
+						
 						
 					</tr>
 				</thead>');
@@ -291,8 +262,7 @@ ob_end_flush();
                                         <tr>
                                         <th><span class="custom-checkbox">
                                  <form action="" method="post">
-											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
-											<label for="checkbox1"></label></th>
+											
 										
                                         <th>' . $row['name'] . '</th>
                                         <th>' . $row['purpose'] . '</th>
@@ -307,17 +277,7 @@ ob_end_flush();
                         } else {
                             echo ('<th style="color:red">Not Paid</th>');
                         }
-                        echo ('  <th>
-									<form action="" method="post">
-									    <input type="text" name="id" value="' . $row['id'] .
-                            '" hidden>
-										<input type="submit" name="pay_misc" value="Pay" class="edit" >
-											
-										
-										
-
-										
-										</th>
+                        echo ('  
 
 
 								</tr>');
@@ -341,9 +301,7 @@ ob_end_flush();
                     echo (' <table class="table user_req table-striped table-hover">
 				<thead>
 					<tr>
-					<th><span class="custom-checkbox">
-								<input type="checkbox" onchange="selects()" id="selectAll">
-								<label for="selectAll"></label></th>
+					
 						<th>Name</th>
 						<th>Department</th>
 						<th>Description</th>
