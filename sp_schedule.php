@@ -153,7 +153,8 @@ tbody tr {
   }
   .profile-box{
     width: 1160px;
-    height: 50px
+    height: 60px;
+    padding-bottom:10px;
   }
   @media only screen and (max-width: 767px){
 
@@ -335,7 +336,7 @@ tbody tr {
     height: 100px;
    
     text-align: center;
-    margin-left:50px;
+    margin-left:40px;
     margin-top:10px;
     width:1080px;
     background-color: #f8f8ff;
@@ -372,9 +373,10 @@ tbody tr {
 
   .tables-container {
     display: none;
-    margin-top: 20px;
+    margin-top: 4px;
     width: 1100px;
-    margin-left:50px;
+    margin-left:40px;
+    margin-bottom:20px;
     background-color:#262F35;
     height:350px;
     padding-top:15px;
@@ -389,6 +391,56 @@ tbody tr {
   width:1020px;
   margin-left:37px;
 }
+.cardscontainer{
+  display: flex;
+   justify-content: space-between;
+   margin-top:30px;
+}
+
+
+  
+ .popup-message {
+  display: none;
+  position: fixed;
+  margin-left:600px;
+ margin-top:35px;
+  transform: translate(-50%, -50%);
+  background-color: limegreen;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 9999;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+  border: 2px solid #d3d3d3;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards; 
+
+  
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.popup-message:hover {
+  background-color: #2ecc71; /* Change color on hover */
+  transform: translate(-50%, -50%) scale(1.05); /* Zoom in on hover */
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+}
+
+
+
+
 
 
   
@@ -422,7 +474,7 @@ tbody tr {
         } else {
             scheduleInput.style.display = "none";
             scheduleDisplay.style.display = "block";
-            scheduleDisplay.innerHTML = "Schedule Name: \"" + enteredValue + "\"";
+            scheduleDisplay.innerHTML = " Schedule Name: \"" + enteredValue + "\"";
             endScheduleButton.style.display = "block";
         }
     }
@@ -444,6 +496,14 @@ tbody tr {
             toggleInputField(); // Hide the input field, display the "Start Schedule" button
         }
     }
+
+    function displayPopupMessage() {
+    var popupMessage = document.getElementById("popup-message");
+    popupMessage.style.display = "block";
+    setTimeout(function () {
+      popupMessage.style.display = "none";
+    }, 2000); // Hide the message after 2 seconds
+  }
     </script>
 </head>
 
@@ -455,18 +515,15 @@ tbody tr {
     <div class="main-container">
     <div class="main-content">
         <div class="attendence" style="overflow-x:auto;">
-            <table class="profile-box">
-                <thead>
-                <tr>
-                    <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>TITLE: &emsp; &emsp;</b>Geetha Govindam   &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;</th>
+            <div class="profile-box">
+               
+                
+                    <th>&emsp; &emsp;<b>TITLE: &emsp; &emsp;</b>Geetha Govindam   &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;</th>
                     <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>DATE: &emsp; &emsp;</b> 13-09-2023</th>
-                </tr>
-                </thead>
-            </table>
-            <table class="transparent">
-                <tr>
-                    <td>
-                        <div class="expensebox">
+                
+            </div>
+           <div class="cardscontainer">
+                        <div class="expensebox"  style="margin-bottom: 20px; margin-left:40px;" >
                             <div class="expensefield">
                             <b>
                             <p class="card-heading">SCHEDULE</p> 
@@ -476,7 +533,10 @@ tbody tr {
                                <label for="schedule-name">Schedule Name: &emsp; </label>
                                   <input type="text" id="schedule-name">
                                      <div class="action-buttons">
-                                         <button class="action-button save-button" onclick="toggleInputField()">Save</button>
+                                     <button class="action-button save-button" onclick="toggleInputField(); displayPopupMessage();">Save</button>
+                                     
+
+
                                           <button class="action-button cancel-button" onclick="cancelSchedule()">Cancel</button>
 
                                      </div>
@@ -496,9 +556,10 @@ tbody tr {
                         </b>
                     </div>
                 </div>
-            </td>
-            <td>
-                <div class="expensebox">
+                <div id="popup-message" class="popup-message">Schedule started successfully</div>
+
+           
+                <div class="expensebox"  style="margin-bottom: 10px; margin-right:80px;">
                     <div class="expensefield">
                         <b>
                             <p class="card-heading">DETAILS</p> <br>
@@ -510,9 +571,8 @@ tbody tr {
                         </b>
                     </div>
                 </div>
-            </td>
-        </tr>
-    </table>
+  </div>
+            
 
 
     <div class="info-container" id="infoContainer">
