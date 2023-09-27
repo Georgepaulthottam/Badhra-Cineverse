@@ -13,7 +13,7 @@ else if($activePage == 'misc'){
 	$PageTitle="Miscellaneous";
 }
 else if($activePage == 'profile'){
-	$PageTitle="Profile ";
+	$PageTitle="Profile";
 }
 else if($activePage == 'request'){
 	$PageTitle="Request Panel ";
@@ -112,6 +112,7 @@ $image = $row['image'];
 				<li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
 					<a href="sp_index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 				</li>
+
 				<li class="<?php echo ($activePage === 'Payments') ? 'active' : ''; ?>">
 					<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 						<i class="material-icons">pending_actions</i>Payments
@@ -124,15 +125,12 @@ $image = $row['image'];
 				</li>
 
 
-				<li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
-					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">account_circle</i>Profile
-					</a>
-					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
-						<li><a href="sp_profile.php">Profile</a></li>
-
-					</ul>
+				
+			
+						<li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
+					<a href="sp_profile.php" class=""><i class="material-icons">account_circle</i>Profile</a>
 				</li>
+
 
 
 				<li class="<?php echo ($activePage === 'attendance') ? 'active' : ''; ?>">
