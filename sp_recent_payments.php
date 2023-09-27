@@ -1,286 +1,464 @@
 <?php
-$activePage = 'salary';
+ob_start();
+session_start();
+include 'connection.php';
+$activePage = 'Payments';
 include 'sp_header.php';
+
+if (isset($_POST['pay_request'])) {
+    $id = $_POST['id'];
+    $query2 = ("update cart set payment_status='paid' where id='$id'");
+    $quer = mysqli_query($conn, $query2);
+    header("Location: sp_pending_payments.php");
+}
+if (isset($_POST['pay_salary'])) {
+    $id = $_POST['id'];
+    $query2 = ("update salary_report set status='paid' where id='$id'");
+    $quer = mysqli_query($conn, $query2);
+    header("Location: sp_pending_payments.php");
+}
+if (isset($_POST['pay_misc'])) {
+    $id = $_POST['id'];
+    $query2 = ("update miscellaneous set payment_status='paid' where id='$id'");
+    header("Location: sp_pending_payments.php");
+}
+if (isset($_POST['pay_req1'])) {
+    $id = $_POST['checkbox'];
+    if (!empty($id)) {
+        foreach ($id as $tempid) {
+            $query2 = ("update cart set payment_status='paid' where id='$tempid'");
+            $quer = mysqli_query($conn, $query2);
+            header("Location: sp_pending_payments.php");
+        }
+    }
+}
+if (isset($_POST['pay_sal1'])) {
+    $id = $_POST['checkbox'];
+    if (!empty($id)) {
+        foreach ($id as $tempid) {
+            $query2 = ("update salary_report set status='paid' where id='$tempid'");
+            $quer = mysqli_query($conn, $query2);
+            header("Location: sp_pending_payments.php");
+        }
+    }
+}
+if (isset($_POST['pay_misc1'])) {
+    $id = $_POST['checkbox'];
+    if (!empty($id)) {
+        foreach ($id as $tempid) {
+            $query2 = ("update miscellaneous  set payment_status='paid' where id='$tempid'");
+            $quer = mysqli_query($conn, $query2);
+            header("Location: sp_pending_payments.php");
+        }
+    }
+}
+ob_end_flush();
 ?>
 
-<div class="middle-section" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
-    <div id="salary-status" class="salary-status">
-        <div class="salary-status-child">
-            <h4 style="border-bottom:1px solid white;">SALARY STATUS</h4>
-            <table style="width:100%">
-                <tr>
-                    <td>
-                        <h5>Schedule : July</h5>
-                    </td>
-                    <td>
-                        <h5>Date : 30/05/2023</h5>
-                    </td>
-                    <td>
-                        <h5>Payment : Paid</h5>
-                    </td>
-                </tr>
-            </table>
-            <div class="salary-status-part1" style="float:left; width:100%;">
-                <table class="salary-status-main-table">
-                    <tr>
-                        <td>
-                            <h5 style="margin-left:21%">Select Department:</h5>
-                        </td>
-                        <td id="departmentselect"><select name="" class="salary-status-main-select" onchange="enableUser(this.value)">
-                                <option value="0">Please Select Department</option>
-                                <option value="1">art 1</option>
-                                <option value="2">mak 2</option>
-                                <option value="3">artist 1</option>
-                                <option value="4">admin 2</option>
-                                <option value="5">camera 1</option>
-                                <option value="6">fdf 2</option>
-                            </select>
-                        </td>
-                    </tr>
-                </table>
+<div class="main-content">
+    <section id="view-request">
+        <div class="detailed-box" id="payment_table" style="overflow-x:auto;">
 
 
-                <div class="user-none" id="appear1">
-                    <table>
-                        <tr>
-                            <td>
-                                <h5 style="margin-left:21%">Select User:</h5>
-                            </td>
-                            <td>
-                                <select name="" class="salary-status-main-select">
-                                    <option value="">art 1</option>
-                                    <option value="">art 2</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="user-none" id="appear2">
-                    <table>
-                        <tr>
-                            <td>
-                                <h5 style="margin-left:21%">Select User:</h5>
-                            </td>
-                            <td><select name="" class="salary-status-main-select">
-                                    <option value="">mak 1</option>
-                                    <option value="">mak 2</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="user-none" id="appear3">
-                    <table>
-                        <tr>
-                            <td>
-                                <h5 style="margin-left:21%">Select User:</h5>
-                            </td>
-                            <td><select name="" class="salary-status-main-select">
-                                    <option value="">arti 1</option>
-                                    <option value="">arti 2</option>
-                                </select>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="user-none" id="appear4">
-                    <table>
-                        <!-- Content for appear4 -->
-                    </table>
-                </div>
-                <div class="user-none" id="appear5">
-                    <table>
-                        <!-- Content for appear5 -->
-                    </table>
-                </div>
-                <div class="user-none" id="appear6">
-                    <table>
-                        <!-- Content for appear6 -->
-                    </table>
-                </div>
-                <div class="user-none" id="appear7">
-                    <table>
-                        <!-- Content for appear7 -->
-                    </table>
-                </div>
 
-                <tr>
-                    <td>
-                        <h5 style="margin-left:21%">Select Status:</h5>
-                    </td>
-                    <td><select name="" class="salary-status-main-select">
-                            <option value="">Paid</option>
-                            <option value="">Unpaid</option>
-                        </select>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align:center;"><input type="submit" value="Ok" class="okbutton"></td>
-                </tr>
+            <body>
+                <form action="" method="post">
+                    <button class="custom-button accepted" onclick="selectButton(this)" type="submit" name="Requests" value="">Requests</button>
+                    <button class="custom-button rejected" onclick="selectButton(this)" type="submit" name="Salaries" value="">Salaries</button>
+                    <button class="custom-button pending" onclick="selectButton(this)" type="submit" name="Miscellaneous" value="">Miscellaneous</button>
+                    <button class="custom-button all" onclick="selectButton(this)" type="submit" name="vehicle" value="">Vehicle</button>
+                </form>
+                <br>
+            </body>
 
-            </div>
+
+
+            <tbody>
+                <?php
+
+                if (isset($_POST['Requests'])) {
+                    $query = ("SELECT * FROM cart WHERE status='" . mysqli_real_escape_string($conn, "approved") . "' AND payment_status='" . mysqli_real_escape_string($conn, "paid") . "'");
+                    $result = mysqli_query($conn, $query);
+                ?>
+                    <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Requests
+                    </h3>
+                    <?php
+                    echo ('
+                     <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+					<th><span class="custom-checkbox">
+									<input type="checkbox" onchange="selects()" id="selectAll">
+									<label for="selectAll"></label></th>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Remark</th>
+						<th>Bill No</th>
+						<th>Date</th>
+						<th>Payment-status</th>
+                        <th>Action</th>
+
+					</tr>
+				</thead>');
+
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+
+                        $time = new DateTime($row['date']);
+                        $date = $time->format('j-n-Y');
+                        $time = $time->format('H:i');
+
+                        echo ('
+
+                                        <tr>
+																			 <th><span class="custom-checkbox">
+									 <form action="" method="post">
+											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
+											<label for="checkbox1"></label></th>
+                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['dept'] . '</th>
+                                        <th>' . $row['details'] . '</th>
+                                        <th>' . $row['price'] . '</th>
+                                        <th>' . $row['remark'] . '</th>
+                                        <th>' . $row['billno'] . '</th
+                                        <th></th>
+                                        <th>' . $date . '</th>
+
+										');
+                        if ($row['payment_status'] == "paid") {
+                            echo ('<th style="color:green">Paid</th>');
+                        } else {
+                            echo ('<th style="color:red">Not Paid</th>');
+                        }
+                        echo ('
+                        									  <th>
+									
+									    <input type="text" name="id" value="' . $row['id'] . '" hidden>
+										<input type="submit" name="pay_request" value="Pay" class="edit" >
+											
+										
+										
+
+										
+										</th>
+                                    </tr>');
+                    }
+                    echo ('</tbody>
+
+
+				</table>
+				<div>
+					
+					<button type="submit" id="acceptAllBtn" name="pay_req1">Pay All</button>
+					
+
+					</form>
+				</div><br>
+			');
+                }
+                if (isset($_POST['Salaries'])) {
+                    $query = ("SELECT * FROM salary_report where status='" . mysqli_real_escape_string($conn, "paid") . "' ");
+                    $result = mysqli_query($conn, $query);
+                    ?>
+                    <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Salaries
+                    </h3>
+                    <?php
+                    echo (' <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+					<th><span class="custom-checkbox">
+								<input type="checkbox" onchange="selects()" id="selectAll">
+								<label for="selectAll"></label></th>
+						<th>Username</th>
+						<th>Department</th>
+						<th>Salary</th>
+						<th>Tds</th>
+						<th>TA_Status</th>
+						<th>TA</th>
+						<th>Date</th>
+						<th>Payment-status</th>
+						<th>Action</th>
+					</tr>
+				</thead>');
+
+
+
+
+
+
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+                        $time = new DateTime($row['date']);
+                        $date = $time->format('n.j.Y');
+                        $time = $time->format('H:i');
+
+                        echo ('
+							 
+                                <tr>
+								<th><span class="custom-checkbox">
+                                 <form action="" method="post">
+											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
+											<label for="checkbox1"></label></th>
+                                        <th>' . $row['username'] . '</th>
+                                        <th>' . $row['dept'] . '</th>
+                                        <th>' . $row['assigned_salary'] . '</th>
+                                        <th>' . $row['tds'] . '</th>
+                                        <th>' . $row['ta_status'] . '</th>
+                                        <th>' . $row['ta_ea'] . '</th>
+                                        
+                                        <th>' . $date . '</th>
+                                        
+								');
+                        if ($row['status'] == "paid") {
+                            echo ('<th style="color:green">Paid</th>');
+                        } else {
+                            echo ('<th style="color:red">Not Paid</th>');
+                        }
+                        echo ('
+                        									  <th>
+									
+									    <input type="text" name="id" value="' . $row['id'] .
+                            '" hidden>
+										<input type="submit" name="pay_salary" value="Pay" class="edit" >
+											
+										
+										
+
+										
+										</th>
+                                    </tr>');
+                    }
+                    echo ('</tbody>
+
+
+				</table>
+				<div>
+					
+					<button type="submit" id="acceptAllBtn" name="pay_sal1">Pay All</button>
+					
+
+					</form>
+				</div><br>
+			');
+                }
+
+
+
+                if (isset($_POST['Miscellaneous'])) {
+                    $query = ("SELECT * FROM miscellaneous WHERE payment_status='" . mysqli_real_escape_string($conn, "paid") . "'");
+                    $result = mysqli_query($conn, $query);
+                    ?>
+                    <h3 style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif">Miscellaneous
+                    </h3>
+                <?php
+                    echo (' <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+                    <th><span class="custom-checkbox">
+								<input type="checkbox" onchange="selects()" id="selectAll">
+								<label for="selectAll"></label></th>
+                    
+						<th>Name</th>
+						<th>Purpose</th>
+						<th>Remark</th>
+                    	<th>Amount</th>
+                        <th>Date</th>
+                        <th>Time</th>
+						<th>Payment-Status</th>
+						<th>Action</th>
+						
+					</tr>
+				</thead>');
+
+
+
+
+
+
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+
+                        $time = new DateTime($row['timestamp']);
+                        $date = $time->format('n.j.Y');
+                        $time = $time->format('H:i A');
+
+                        echo (' 
+                                        <tr>
+                                        <th><span class="custom-checkbox">
+                                 <form action="" method="post">
+											<input type="checkbox" onchange="checkedBox()" id="checkbox"  name="checkbox[]" value="' . $row['id'] . '">
+											<label for="checkbox1"></label></th>
+										
+                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['purpose'] . '</th>
+                                        <th>' . $row['remark'] . '</th>
+                                        <th>' . $row['amount'] . '</th>
+                                        <th>' . $date . '</th>
+                                        <th>' . $time . '</th>
+										
+                            ');
+                        if ($row['payment_status'] == "paid") {
+                            echo ('<th style="color:green">Paid</th>');
+                        } else {
+                            echo ('<th style="color:red">Not Paid</th>');
+                        }
+                        echo ('  <th>
+									<form action="" method="post">
+									    <input type="text" name="id" value="' . $row['id'] .
+                            '" hidden>
+										<input type="submit" name="pay_misc" value="Pay" class="edit" >
+											
+										
+										
+
+										
+										</th>
+
+
+								</tr>');
+                    }
+                    echo ('</tbody>
+
+
+				</table>
+				<div>
+					
+					<button type="submit" id="acceptAllBtn" name="pay_misc1">Pay All</button>
+					
+
+					</form>
+				</div><br>
+			');
+                }
+                if (isset($_POST['all'])) {
+                    $query = ("SELECT * FROM cart");
+                    $result = mysqli_query($conn, $query);
+                    echo (' <table class="table user_req table-striped table-hover">
+				<thead>
+					<tr>
+					<th><span class="custom-checkbox">
+								<input type="checkbox" onchange="selects()" id="selectAll">
+								<label for="selectAll"></label></th>
+						<th>Name</th>
+						<th>Department</th>
+						<th>Description</th>
+						<th>Amount</th>
+						<th>Remark</th>
+						<th>Bill No</th>
+						<th>Date</th>
+						<th>time</th>
+						<th>Payment-status</th>
+					</tr>
+				</thead>');
+
+
+
+
+
+
+
+                    while ($row = mysqli_fetch_assoc($result)) {
+
+
+                        $time = new DateTime($row['date']);
+                        $date = $time->format('n.j.Y');
+                        $time = $time->format('H:i');
+
+                        echo ('
+                                        <tr>
+										<th><span class="custom-checkbox">
+										<input type="checkbox" id="checkbox" name="checkbox" value="1" onchange="checkedBox()">
+										<label for="checkbox1"></label></th>
+                                        <th>' . $row['name'] . '</th>
+                                        <th>' . $row['dept'] . '</th>
+                                        <th>' . $row['details'] . '</th>
+                                        <th>' . $row['price'] . '</th>
+                                        <th>' . $row['remark'] . '</th>
+                                        <th>' . $row['billno'] . '</th
+										<th></th>
+                                        <th>' . $date . '</th>
+                                        <th>' . $time . '</th>	');
+                        if ($row['payment_status'] == "paid") {
+                            echo ('<th style="color:green">Paid</th>');
+                        } else {
+                            echo ('<th style="color:red">Not Paid</th>');
+                        }
+                        echo ('
+                                    </tr>');
+                    }
+                }
+                ?>
+
+
+
+
+
+
         </div>
-    </div>
-    <div id="select-user" class="salary-status">
-        <div class="salary-status-child" style="background-color:white;" id="dept_select">
-            <div class="dropdown">
-                <h5 style="color:black;">Select Department : </h5>
-                <select id="departmentSelect" class="dropbtn">
-                    <option value="Department 1">Department 1</option>
-                    <option value="Department 2">Department 2</option>
-                    <option value="Department 3">Department 3</option>
-                </select>
-            </div>
-            <div class="dropdown" style="left:0%">
-                <h5 style="color:black;">Select User : </h5>
-                <select id="departmentSelect" class="dropbtn">
-                    <option value="Department 1">User 1</option>
-                    <option value="Department 2">User 2</option>
-                    <option value="Department 3">User 3</option>
-                </select>
-            </div>
-        </div>
-    </div>
-    <div class="salary-status">
-        <div class="salary-status-child" id="scheduleDetails">
-            <table class="salary-status-table">
-                <tr>
-                    <th colspan="2">
-                        <h5>DETAILS PER SCHEDULE</h5>
-                    </th>
-                </tr>
-                <tr>
-                    <td>1st Bata :</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>2nd Bata :</td>
-                    <td>12</td>
-                </tr>
-                <tr>
-                    <td>Third Bata :</td>
-                    <td>12</td>
-                </tr>
-            </table>
-        </div>
-        <div class="salary-status-child" id="salaryRate">
-            <table class="salary-status-table">
-                <tr>
-                    <th colspan="2">
-                        <h5>SALARY</h5>
-                    </th>
-                </tr>
-                <tr>
-                    <td>Assigned Salary :</td>
-                    <td>1000</td>
-                </tr>
-                <tr>
-                    <td>TDS :</td>
-                    <td>2%</td>
-                </tr>
-                <tr>
-                    <td>TA :</td>
-                    <td>250</td>
-                </tr>
-                <tr>
-                    <td colspan="2" style="text-align:center;"><input type="submit" value="Edit" class="okbutton" onclick="salaryRate()"></td>
-                </tr>
-            </table>
-        </div>
-    </div>
-    <div class="salary-status">
-        <div class="salary-status-child" style="overflow-x:auto;">
-            <h4>SALARY REPORT</h4>
-            <table class="table table-striped table-hover" style="color:white;">
-                <tr>
-                    <td>Sim</td>
-                    <td>Date</td>
-                    <td>Bata</td>
-                    <td>Salary</td>
-                    <td>TDS</td>
-                    <td>TA</td>
-                    <td>Total</td>
-                    <td>Status</td>
-                </tr>
-                <tr>
-                    <td>AAA</td>
-                    <td>AAA</td>
-                    <td>AAA</td>
-                    <td>AAA</td>
-                    <td>AAA</td>
-                    <td>AAA</td>
-                    <td>AAA</td>
-                    <td>AAA</td>
-                </tr>
-            </table>
-            <a href="" style="color:#E2B842;">View more</a>
-        </div>
-    </div>
+
 </div>
-
-<script>
-    var salary = document.getElementById("salaryRate");
-
-    function salaryRate() {
-        salary.innerHTML = '<form action="">\n' +
-            '    <table id="edittable" class="salary-status-table">\n' +
-            '        <tr><th colspan="2">SALARY</th></tr>\n' +
-            '   <tr>\n' +
-            '        <td>Assigned Salary :</td>\n' +
-            '        <td><input type="text"></td>\n' +
-            '    </tr>\n' +
-            '   <tr>\n' +
-            '        <td>TDS :</td>\n' +
-            '        <td><input type="text"></td>\n' +
-            '    </tr>\n' +
-            '    <tr>\n' +
-            '        <td>TA :</td>\n' +
-            '        <td><input type="text"></td>\n' +
-            '    </tr>\n' +
-            '        <tr>\n' +
-            '            <td style="text-align:center;"><button>Save</button></td>\n' +
-            '            <td style="text-align:center;"><button onclick="cancelEdit()">Cancel</button></td>\n' +
-            '        </tr>\n' +
-            '    </table>\n' +
-            '</form>';
-    }
-
-    function cancelEdit() {
-        // Implement the behavior you want when the "Cancel" button is clicked.
-        // For now, you can simply reset the innerHTML to its original content.
-        salary.innerHTML = '<table class="salary-status-table">\n' +
-            '        <tr><th colspan="2">SALARY</th></tr>\n' +
-            '    <tr>\n' +
-            '       <td>Assigned Salary :</td>\n' +
-            '        <td>1000</td>\n' +
-            '   </tr>\n' +
-            '  <tr>\n' +
-            '        <td>TDS :</td>\n' +
-            '        <td>2%</td>\n' +
-            '    </tr>\n' +
-            '    <tr>\n' +
-            '        <td>TA :</td>\n' +
-            '        <td>250</td>\n' +
-            '    </tr>\n' +
-            '    <tr><td colspan="2" style="text-align:center;"><input type="submit" value="Edit" class="okbutton" onclick="salaryRate()"></td></tr>' +
-            '    </table>';
-    }
+<!------main-content-end----------->
 
 
-    function enableUser(selectedValue) {
-        // Check if the selected department is not 'Please Select Department'
-        if (selectedValue !== '0') {
-            // Hide all user dropdowns with class 'user-none'
-            const userDropdowns = document.querySelectorAll('.user-none');
-            userDropdowns.forEach(function(dropdown) {
-                dropdown.style.display = 'none';
-            });
 
-            // Show the selected user dropdown
-            const selectedUserDropdown = document.getElementById('appear' + selectedValue);
-            if (selectedUserDropdown) {
-                selectedUserDropdown.style.display = 'block';
+<!----footer-design------------->
+<br> <br> <br> <br><br>
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="footer-in">
+            <p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+<!-------complete html----------->
+<script type="text/javascript">
+    //select all and reject all
+
+    function selects() {
+        var ele = document.getElementsByName("checkbox[]");
+        if (document.getElementById("selectAll").checked == true) {
+            document.getElementById("acceptAllBtn").style.visibility = "visible";
+            document.getElementById("rejectAllBtn").style.visibility = "visible";
+            for (var i = 0; i < ele.length; i++) {
+                if (ele[i].type == 'checkbox')
+                    ele[i].checked = true;
             }
+        } else {
+            document.getElementById("acceptAllBtn").style.visibility = "hidden";
+            document.getElementById("rejectAllBtn").style.visibility = "hidden";
+            for (var i = 0; i < ele.length; i++) {
+                if (ele[i].type == 'checkbox')
+                    ele[i].checked = false;
+            }
+        }
+    }
+
+    function checkedBox() {
+        var ele = document.getElementsByName("checkbox[]");
+        var count = 0;
+        for (var i = 0; i < ele.length; i++) {
+            if (ele[i].checked == true) {
+                count++;
+            }
+        }
+        if (count > 0) {
+            document.getElementById("acceptAllBtn").style.visibility = "visible";
+            document.getElementById("rejectAllBtn").style.visibility = "visible";
+        } else {
+            document.getElementById("acceptAllBtn").style.visibility = "hidden";
+            document.getElementById("rejectAllBtn").style.visibility = "hidden";
         }
     }
 </script>
