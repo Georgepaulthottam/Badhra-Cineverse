@@ -362,6 +362,10 @@ transform:translateY(0px);
     margin-left:-20px;
     margin-top:-60px;
   }
+  #payment_table{
+    margin-left:-22px;
+    width:96vw;
+  }
   .popup {
     display: none;
     position: absolute;
