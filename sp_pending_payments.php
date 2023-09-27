@@ -54,6 +54,11 @@ if (isset($_POST['pay_misc1'])) {
 }
 ob_end_flush();
 ?>
+<style>
+    footer{
+        
+    }
+</style>
 <div class="main-content">
     <section id="view-request">
         <div class="detailed-box" id="payment_table" style="overflow-x:auto;">
@@ -405,7 +410,9 @@ ob_end_flush();
 
 
 
-          
+            </div>
+
+         </div> 
 <!------main-content-end----------->
 
 
@@ -423,9 +430,6 @@ ob_end_flush();
 
 
 
-</div>
-
-</div>
 
 
 
@@ -469,6 +473,3 @@ ob_end_flush();
         }
     }
 </script>
-</body>
-
-</html>
