@@ -56,7 +56,7 @@ ob_end_flush();
 ?>
 <div class="main-content">
     <section id="view-request">
-        <div class="detailed-box" id="request-table" style="overflow-x:auto;">
+        <div class="detailed-box" id="payment_table" style="overflow-x:auto;">
 
 
 
