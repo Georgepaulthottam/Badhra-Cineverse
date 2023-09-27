@@ -659,7 +659,7 @@ ob_end_flush();
 
 
 
-        @@ -690,21 +652,21 @@ function confirmEndSchedule() {
+ 
 
 
 
