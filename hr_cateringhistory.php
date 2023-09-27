@@ -45,6 +45,7 @@ include 'hr_cateringheader.php'; ?>
                             <th>Si.No</th>
                             <th>Date</th>
                             <th>Time</th>
+                            <th>Item</th>
                             <th>Quantity</th>
                             <th>Amount</th>  
                         </tr>
@@ -53,6 +54,7 @@ include 'hr_cateringheader.php'; ?>
                             <th>1</th>
                             <th>19/03/2023</th>
                             <th>12:00PM</th>
+                            <th>Nil</th>
                             <th>50</th>
                             <th>2000</th>  
                         </tr>
@@ -60,6 +62,7 @@ include 'hr_cateringheader.php'; ?>
                             <th>1</th>
                             <th>19/03/2023</th>
                             <th>12:00PM</th>
+                            <th>Nil</th>
                             <th>50</th>
                             <th>2000</th>  
                         </tr>

@@ -33,14 +33,7 @@ include 'hr_cateringheader.php'; ?>
 
 <!------main-content-start----------->
 
-<!-- Notification message popup -->
-		  
-<div class="notification-popup <?php echo ($activePage === 'home') ? 'active' : ''; ?>">
-        
-        <p>Wellcome Back ,<?php  echo $_SESSION['user']; ?></p>
-        <span class="progress"></span>
-         </div>
- <!-- Notification message popup ends-->
+
 
   <!------main-content-start----------->
   <div id="main-container" class="middle-section">
@@ -56,14 +49,18 @@ include 'hr_cateringheader.php'; ?>
                             <th>Title</th>
                             <th>Geetha Govindham</th>
                         </tr>
+                        <tr>
+                            <th>Payment Status</th>
+                            <th style="color:red">Pending</th>
+                        </tr>
                     </table>
                 </div>
                 <div class="profile-box">
         <h4>Status</h4>
         <table class="table table-striped table-hover" id="HideTable">
             <tr>
-                <th>Time</th>
-                <th><input type="time" class="form-control" placeholder="Enter the time" id="timeInput" required></th>
+                <th>Item</th>
+                <th><input type="text" class="form-control" placeholder="Enter the item" id="timeInput" required></th>
             </tr>
             <tr>
                 <th>Quantity</th>
@@ -75,8 +72,8 @@ include 'hr_cateringheader.php'; ?>
             </tr>
         </table>
 
-        <table class="table table-striped table-hover" id="displayTable" style="display: none;">
-                <th>Time</th>
+        <!-- <table class="table table-striped table-hover" id="displayTable" style="display: none;">
+                <th>Item</th>
                 <th><span id="displayTime"></span></th>
             </tr>
             <tr>
@@ -87,7 +84,7 @@ include 'hr_cateringheader.php'; ?>
                 <th>Amount</th>
                 <th><span id="displayAmount"></span></th>
             </tr>
-        </table>
+        </table> -->
         <input type="button" name="req_accept" value="Submit" class="edit" id="submitButton">
         <input type="button" value="Cancel" class="delete" id="cancelButton" data-toggle="modal">
     </div>
@@ -111,6 +108,7 @@ include 'hr_cateringheader.php'; ?>
                             <th>Si.No</th>
                             <th>Date</th>
                             <th>Time</th>
+                            <th>Item</th>
                             <th>Quantity</th>
                             <th>Amount</th>  
                         </tr>
@@ -121,6 +119,7 @@ include 'hr_cateringheader.php'; ?>
                             <th>1</th>
                             <th>19/03/2023</th>
                             <th>12:00PM</th>
+                            <th>dhdfh</th>
                             <th>50</th>
                             <th>2000</th>  
                         </tr>
@@ -169,30 +168,30 @@ include 'hr_cateringheader.php'; ?>
             document.getElementById('amountInput').value = '';
         });
 
-        // Select the Submit button
-        const submitButton = document.getElementById('submitButton');
+        // // Select the Submit button
+        // const submitButton = document.getElementById('submitButton');
 
-        // Add a click event listener to the Submit button
-        submitButton.addEventListener('click', function () {
-            // Hide the input fields
-            document.getElementById('HideTable').style.display = 'none';
+        // // Add a click event listener to the Submit button
+        // submitButton.addEventListener('click', function () {
+        //     // Hide the input fields
+        //     document.getElementById('HideTable').style.display = 'none';
 
-            // Show the display elements
-            const displayTime = document.getElementById('displayTime');
-            const displayQuantity = document.getElementById('displayQuantity');
-            const displayAmount = document.getElementById('displayAmount');
+        //     // Show the display elements
+        //     const displayTime = document.getElementById('displayTime');
+        //     const displayQuantity = document.getElementById('displayQuantity');
+        //     const displayAmount = document.getElementById('displayAmount');
 
-            displayTime.textContent = document.getElementById('timeInput').value;
-            displayQuantity.textContent = document.getElementById('quantityInput').value;
-            displayAmount.textContent = document.getElementById('amountInput').value;
+        //     displayTime.textContent = document.getElementById('timeInput').value;
+        //     displayQuantity.textContent = document.getElementById('quantityInput').value;
+        //     displayAmount.textContent = document.getElementById('amountInput').value;
 
-            // Hide the Submit and Cancel buttons
-            submitButton.style.display = 'none';
-            cancelButton.style.display = 'none';
+        //     // Hide the Submit and Cancel buttons
+        //     submitButton.style.display = 'none';
+        //     cancelButton.style.display = 'none';
             
-            // Show the display table
-            document.getElementById('displayTable').style.display = 'table';
-        });
+        //     // Show the display table
+        //     document.getElementById('displayTable').style.display = 'table';
+        // });
     </script>
 
 
