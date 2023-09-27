@@ -194,29 +194,7 @@ if (isset($_POST['delete'])) {
 
         }
     </style>
-<script>
-    function checkInput() {
-        const inputField = document.getElementById('number-input');
-        const submitButton = document.getElementById('submit-button');
-    
-        if (inputField.value.trim() !== '') {
-            submitButton.style.display = 'block';
-            inputField.style.flexGrow = 0;
-        } else {
-            submitButton.style.display = 'none';
-            inputField.style.flexGrow = 1;
-        }
-    }
-    
-    function submitNumber() {
-        const inputField = document.getElementById('number-input');
-        const inputValue = inputField.value.trim();
-        
-        // Perform your submission logic here with the inputValue
-        alert(inputValue);
-    }
-    
-</script>
+
 </head>
 
 <body>
@@ -958,6 +936,31 @@ if (isset($_POST['delete'])) {
         updateAdminPieChart(adminProgressBarPercentage);
     </script>
 
+
+<script>
+    //js for the dynamic submit in amount field
+    function checkInput() {
+        const inputField = document.getElementById('number-input');
+        const submitButton = document.getElementById('submit-button');
+    
+        if (inputField.value.trim() !== '') {
+            submitButton.style.display = 'block';
+            inputField.style.flexGrow = 0;
+        } else {
+            submitButton.style.display = 'none';
+            inputField.style.flexGrow = 1;
+        }
+    }
+    
+    function submitNumber() {
+        const inputField = document.getElementById('number-input');
+        const inputValue = inputField.value.trim();
+        
+        // Perform your submission logic here with the inputValue
+        
+    }
+    
+</script>
 </body>
 
 </html>
