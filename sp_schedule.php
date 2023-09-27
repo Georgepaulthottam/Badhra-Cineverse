@@ -437,16 +437,26 @@ tbody tr {
   transform: translate(-50%, -50%) scale(1.05); /* Zoom in on hover */
   box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
 }
+.table-heading {
+    text-align: center; /* Center the text horizontally */
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: bold; /* Make it bold if desired */
+    padding-bottom: 17px; 
+    padding-top: 17px;/* Add padding for spacing */
+}
+h4{
+  color:#ffff;
+}
+.view-button {
+    background: transparent;
+    font-style: italic;
+    color: limegreen;
+    border: none;
+    cursor: pointer;
+}
 
 
-
-
-
-
-  
-
-      
-    
+   
 </style>
 <script>
      function toggleTableVisibility() {
@@ -600,35 +610,25 @@ tbody tr {
   <div class="misctable" style="overflow-x:auto;">
   <div class="tables-container" id="tablesContainer">
     <table>
-
-
-
-  <thead>
-  <tr >
-  <td></td>
-  <td></td>
-  <td></td>
-    <td></td>
-    <td><b><h3> Schedule </h3></b></td>
-    <td><b> <h3>Report</h3> </b></td>
-    <td></td>
-  </tr>
-  </thead>
+    <thead>
+        <tr>
+            <H4 colspan="10" class="table-heading">Schedule  Report</H4>
+        </tr>
+        <tr>
+            <th>SI NO</th>
+            <th>Schedule</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Total Bata</th>
+            <th>Total Attendance</th>
+            <th>Total Request</th>
+            <th>Total Miscellanious</th>
+            <th>Total Expense</th>
+            <th>Details</th>
+        </tr>
+    </thead>
                   
-    <tr>
-      <th>SI NO</th>
-      <th>Schedule</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Total Bata</th>
-      <th>Total Attendance</th>
-      <th>Total Request</th>
-      <th>Total Miscellanious</th>
-      <th>Total Expense</th>
-      <th>Details</th>
-    </tr>
     
-  
 
     <tr>
         <td>1</td>
@@ -640,7 +640,7 @@ tbody tr {
         <td>gtgff</td>
         <td>70</td>
         <td>gtgff</td>
-        <td></button>view</button></td>
+        <td><button class="view-button">View</button></td>
     </tr>
     <tr>
         <td>1</td>
@@ -652,7 +652,7 @@ tbody tr {
         <td>gtgff</td>
         <td>70</td>
         <td>gtgff</td>
-        <td></button>view</button></td>
+        <td><button class="view-button">View</button></td>
     </tr>
     <tr>
         <td>1</td>
@@ -664,7 +664,7 @@ tbody tr {
         <td>bgvfc</td>
         <td>70</td>
         <td>gtgff</td>
-        <td></button>view</button></td>
+        <td><button class="view-button">View</button></td>
     </tr>
      
   <tbody>
