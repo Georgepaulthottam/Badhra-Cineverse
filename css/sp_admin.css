@@ -43,7 +43,7 @@ body,html{
   background-color: #f8f8ff;
   padding: 5px;
 width:100px;
-  box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.4);
+  box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.2);
   border-radius: 10px;
 }
 
@@ -353,9 +353,15 @@ transform:translateY(0px);
   .profile-box {
     flex: 0 0 100%;
     margin-bottom: 20px;
+    width: 94vw;
   }
-
-  
+  .detailed-box{
+    width:94vw;
+  }
+  #request-table{
+    margin-left:-20px;
+    margin-top:-60px;
+  }
   .popup {
     display: none;
     position: absolute;
@@ -425,10 +431,10 @@ transform:translateY(0px);
     
   }
   #card3{
-    width:89vw;
+    width:94vw;
   }
   #super_profile_box{
-width:89vw;
+width:94vw;
   }
   
 .top-section {
