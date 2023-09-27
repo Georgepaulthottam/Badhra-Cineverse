@@ -48,8 +48,8 @@ if (isset($_POST['delete'])) {
     <!--google material icon-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/sp_admin.css" />
+        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="css/sp_admin.css" />
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -114,7 +114,39 @@ if (isset($_POST['delete'])) {
             color: black;
         }
 
-
+        /*dynamic button for input amount*/
+        .input-container1 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            max-width: 14vw;
+            margin: 0 auto;
+            transition: max-width 0.3s;
+        }
+        
+        #number-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: flex-grow 0.3s;
+            border-radius:15px;
+            margin-left:20px;
+           
+        }
+        
+        #submit-button {
+            display: none;
+            margin-left: 10px;
+            padding: 10px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        
 
         @media only screen and (max-width: 767px) {
 
@@ -125,9 +157,66 @@ if (isset($_POST['delete'])) {
                 margin-right: 20px;
             }
 
+             /*dynamic button for input amount*/
+        .input-container1 {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            max-width: 2vw;
+            margin: 0 auto;
+            transition: max-width 0.3s;
+        }
+        
+        #number-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: flex-grow 0.3s;
+            border-radius:15px;
+            margin-left:-68px;
+            width:31vw;
+           
+        }
+       
+        
+        #submit-button {
+            display: none;
+            margin-left: 8px;
+            padding: 8px 8px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+
         }
     </style>
-
+<script>
+    function checkInput() {
+        const inputField = document.getElementById('number-input');
+        const submitButton = document.getElementById('submit-button');
+    
+        if (inputField.value.trim() !== '') {
+            submitButton.style.display = 'block';
+            inputField.style.flexGrow = 0;
+        } else {
+            submitButton.style.display = 'none';
+            inputField.style.flexGrow = 1;
+        }
+    }
+    
+    function submitNumber() {
+        const inputField = document.getElementById('number-input');
+        const inputValue = inputField.value.trim();
+        
+        // Perform your submission logic here with the inputValue
+        alert(inputValue);
+    }
+    
+</script>
 </head>
 
 <body>
@@ -260,7 +349,13 @@ if (isset($_POST['delete'])) {
                         <tr>
                             <th>Advance Amount</th>
                             <th>
-                                <input type="text" placeholder="Enter Amount" id="amountinput">
+                                <form action="#" method="post">
+
+                                    <div class="input-container1">
+                                        <input type="number" id="number-input" oninput="checkInput()" placeholder="Enter Amount" >
+                                        <button id="submit-button" type="submit" name="amtsubmit" onclick="submitNumber()">Submit</button>
+                                    </div>
+                                </form>
                             </th>
                         </tr>
 

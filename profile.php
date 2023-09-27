@@ -63,6 +63,12 @@ if(isset($_POST['chpass'])){
 	  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
 	  <link rel="stylesheet" href="css/style.css" />
 	  <script type="text/javascript" src="main.js"></script>
+	  <style>
+    .main-content{
+
+        min-height: 82.9vh;
+    }
+</style>
   </head>
   <body>
   
