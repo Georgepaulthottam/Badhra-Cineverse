@@ -59,8 +59,8 @@ include 'sp_header.php'; ?>
         
 
         <table class="table table-striped table-hover" id="displayTable">
-                <td>Time</td>
-                <td>9:30AM</span></td>
+                <td>Item</td>
+                <td>Nil</span></td>
             </tr>
             <tr>
                 <td>Quantity</td>
@@ -92,6 +92,7 @@ include 'sp_header.php'; ?>
                             <th>Si.No</th>
                             <th>Date</th>
                             <th>Time</th>
+                            <th>Item</th>
                             <th>Quantity</th>
                             <th>Amount</th>  
                         </tr>
@@ -102,6 +103,7 @@ include 'sp_header.php'; ?>
                             <th>1</th>
                             <th>19/03/2023</th>
                             <th>12:00PM</th>
+                            <th>Nil</th>
                             <th>50</th>
                             <th>2000</th>  
                         </tr>
@@ -109,7 +111,7 @@ include 'sp_header.php'; ?>
 
                 </table>
             </div>
-            <a href="hr_cateringhistory.php" style="color:#E2B842;">View more</a>
+            <a href="#" style="color:#E2B842;">View more</a>
         </div>
     </div>
 
