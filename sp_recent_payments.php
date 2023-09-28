@@ -54,7 +54,9 @@ if (isset($_POST['pay_misc1'])) {
 }
 ob_end_flush();
 ?>
-
+<style>
+    .main-content{min-height:62.5vh;}
+</style>
 <div class="main-content">
     <section id="view-request">
         <div class="detailed-box" id="payment_table" style="overflow-x:auto;">

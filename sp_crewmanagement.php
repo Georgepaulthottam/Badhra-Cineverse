@@ -7,40 +7,7 @@ if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
 }
 include 'sp_header.php';
 ?>
-<!doctype html>
-<html lang="en">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Super Admin Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!----css3---->
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!--google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=REM&display=swap" rel="stylesheet">
-    <!--google material icon-->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/sp_admin.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</head>
 
 <style>
   body {
@@ -252,26 +219,33 @@ thead{
     color:#000;
     font-size:17px;
   }
+  <style>
+  .main-content{
+      min-height:62.5vh;
+      }
 </style>
-
+</style>
+</head>
     <!------top-navbar-end----------->
 
 
     <!------main-content-start----------->
 
-    <body>
-    <div class="user-container">
-    <label class="select-label">Select user:</label>
-    <select id="userSelect">
-      <option value="default" disabled selected>Select a user</option>
-      <option value="user1">User 1</option>
-      <option value="user2">User 2</option>
-      <option value="user3">User 3</option>
-      <option value="user4">User 4</option>
-    </select>
-  </div>
+  
+<div class="main-content">
 
-  <div class="info-container" id="infoContainer">
+        <div class="user-container">
+          <label class="select-label">Select user:</label>
+          <select id="userSelect">
+            <option value="default" disabled selected>Select a user</option>
+            <option value="user1">User 1</option>
+            <option value="user2">User 2</option>
+            <option value="user3">User 3</option>
+            <option value="user4">User 4</option>
+          </select>
+         </div>
+        
+        <div class="info-container" id="infoContainer">
     <p class="info-title">Title: Geetha Govindam</p>
     <br>
     <p class="scedule"><b>Schedule:</b></p>
@@ -290,11 +264,11 @@ thead{
         <option value="October">October</option>
         <option value="November">November</option>
         <option value="December">December</option>
-       
+        
       </select>
     </div>
   </div>
-
+  
   <div class="cards-container" id="cardsContainer">
     <div class="card">
       <p class="card-heading">Total Attendance <i>(per day)</i><div class="count">35</div></p>
@@ -311,143 +285,144 @@ thead{
       <div class="status-label">Pending &nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp15</div>
     </div>
   </div>
-
+  
   <div class="misctable" style="overflow-x:auto;">
-  <div class="tables-container" id="tablesContainer">
+    <div class="tables-container" id="tablesContainer">
 <table>
 
-
-
+  
+  
   <thead>
-  <tr >
-  <td></td>
-  <td></td>
-  <td></td>
-    <td><b> Miscellaneous</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
+    <tr >
+      <td></td>
+      <td></td>
+      <td></td>
+      <td><b> Miscellaneous</b></td>
+      <td></td>
+      <td></td>
+      <td></td>
+    </tr>
   </thead>
-                  
+  
+  <tr>
+    <th>SI NO</th>
+    <th>Date</th>
+    <th>Name</th>
+    <th>Purpose</th>
+    <th>Time</th>
+    <th>Remark</th>
+    <th>Amount</th>
+  </tr>
+  
+  
+  
+  <tr>
+    <td>1</td>
+    <td>12/06/2023</td>
+    <td>ggggg</td>
+    <td>bgvfc</td>
+    <td>09:00</td>
+    <td>gtgff</td>
+    <td>70</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>12/06/2023</td>
+    <td>ggggg</td>
+    <td>bgvfc</td>
+    <td>09:00</td>
+    <td>gtgff</td>
+    <td>70</td>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>12/06/2023</td>
+    <td>ggggg</td>
+    <td>bgvfc</td>
+    <td>09:00</td>
+    <td>gtgff</td>
+    <td>70</td>
+  </tr>
+  
+  <tbody>
+    
+    
+
+    
+    
+    
+    </tbody>
+  </table>
+  <div class="attendence" style="overflow-x:auto;">
+		
+  <table>
+    
+    <thead>
+      <tr >
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><b> Expense Report</b></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </thead>
+    
     <tr>
-      <th>SI NO</th>
-      <th>Date</th>
+      <th>SI No.</th>
       <th>Name</th>
       <th>Purpose</th>
-      <th>Time</th>
-      <th>Remark</th>
       <th>Amount</th>
-    </tr>
-    
-  
-
-    <tr>
-        <td>1</td>
-        <td>12/06/2023</td>
-        <td>ggggg</td>
-        <td>bgvfc</td>
-        <td>09:00</td>
-        <td>gtgff</td>
-        <td>70</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>12/06/2023</td>
-        <td>ggggg</td>
-        <td>bgvfc</td>
-        <td>09:00</td>
-        <td>gtgff</td>
-        <td>70</td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>12/06/2023</td>
-        <td>ggggg</td>
-        <td>bgvfc</td>
-        <td>09:00</td>
-        <td>gtgff</td>
-        <td>70</td>
-    </tr>
-     
-  <tbody>
-
-	
-
-
-
-
-  </tbody>
-</table>
-<div class="attendence" style="overflow-x:auto;">
-		
-				<table>
- 
-                <thead>
-                <tr >
-               <td></td>
-              <td></td>
-                <td></td>
-               <td><b> Expense Report</b></td>
-               <td></td>
-               <td></td>
-                  <td></td>
-               </tr>
-              </thead>
-										
+      <th>Quantity</th>
+      <th>Mode</th>
+      
+      
+      
+      <tr>
+        <td>hsjdfs</td>
+        <td>snacjkADJN</td>
+        <td>ssnc</td>
+        <td>scn</td>
+        <td>ssnc</td>
+        <td>scn</td>
+        
+      </tr>
+      <tr>
+        <td>zcdzD</td>
+        <td>dzvd</td>
+        <td>dvdV</td>
+        <td>ddVv</td>
+        <td>ssnc</td>
+        <td>scn</td>
+        
+      </tr>
 					<tr>
-                      <th>SI No.</th>
-                      <th>Name</th>
-                      <th>Purpose</th>
-                      <th>Amount</th>
-					            <th>Quantity</th>
-                       <th>Mode</th>
-
-                  
-                
-					<tr>
-                      <td>hsjdfs</td>
-                      <td>snacjkADJN</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
+            <td>dvZDV</td>
+            <td>zvzdV</td>
+            <td>zdvzdv</td>
+            <td>zvdv</td>
+            <td>ssnc</td>
+            <td>scn</td>
 					  
-                    </tr>
-					<tr>
-                      <td>zcdzD</td>
-                      <td>dzvd</td>
-                      <td>dvdV</td>
-                      <td>ddVv</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-					 
-                    </tr>
-					<tr>
-                      <td>dvZDV</td>
-                      <td>zvzdV</td>
-                      <td>zdvzdv</td>
-                      <td>zvdv</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-					  
-                    </tr>
+          </tr>
 					
 					<tr>
-                      <td>dsd</td>
-                      <td>sdsd</td>
-                      <td>sdsd</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-					 
-                    </tr>
+            <td>dsd</td>
+            <td>sdsd</td>
+            <td>sdsd</td>
+            <td>ssnc</td>
+            <td>scn</td>
+            
+          </tr>
 					
-                     
-                </table>
-</div>
-
-
-<script>
+          
+        </table>
+      </div>
+      
+    </div>
+      
+      <script>
      const userSelect = document.getElementById("userSelect");
      const scheduleSelect = document.getElementById("scheduleSelect");
     const infoContainer = document.getElementById("infoContainer");
@@ -475,31 +450,23 @@ thead{
       }
     });
   </script>
-</body>
 
 
-        <!------main-content-end----------->
 
-       
+<!------main-content-end----------->
 
 
-        <!----footer-design------------->
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="footer-in">
-                    <p class="mb-0">&copy 2023 Team Helios. All Rights Reserved.</p>
-                </div>
-            </div>
-        </footer>
-
+<!----footer-design------------->
+<br> 
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="footer-in">
+            <p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
 
 
     <!-------complete html----------->
 
-
-   
-
-
-
-</html>
