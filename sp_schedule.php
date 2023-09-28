@@ -95,101 +95,95 @@ ob_end_flush();
     .expensevalue {
       display: inline-block;
     }
+	.bata-btn{
+		display: inline-block;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-left: 280px;
+  margin-top: 27px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+}
+.primary-button {
+  background-color:  #002147  ;
+  color: #ffffff;
+  border: 2px solid #002e63 ;
+}
 
-    .bata-btn {
+.primary-button:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+	.form-container {
+            display: flex;
+        }
+
+		.form {
+            flex: -2;
+           
+        }
+		.hidden-row {
+            display: none;
+        }
+		
+	
+th {
+  border-bottom: 1px solid #364043;
+  color:#ffbf00 ;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+
+.rowiee {
+	background-color: #436b95;
+}
+
+  .addnew {
+	display: inline-block;
+  padding: 8px 13px;
+  font-size: 12px;
+  
+  text-align: center;
+  margin-left:30px;
+  margin-top: 27px;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+	 
+    }
+	
+  .transperant{
+    background-color:#dcdcdc;
+  }
+  .profile-box{
+    width: 1160px;
+    height: 60px;
+    padding-bottom:10px;
+  }
+  @media only screen and (max-width: 767px){ 
+
+
+    /* Styling for the fields inside the box */
+    .expensefield {
       display: inline-block;
-      padding: 12px 20px;
-      font-size: 16px;
-      font-weight: bold;
-      text-align: center;
-      margin-left: 280px;
-      margin-top: 27px;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-      cursor: pointer;
+      margin-right: 20px;
     }
-
-    .primary-button {
-      background-color: #002147;
-      color: #ffffff;
-      border: 2px solid #002e63;
-    }
-
-    .primary-button:hover {
-      background-color: #0056b3;
-      border-color: #0056b3;
-    }
-
-    .form-container {
-      display: flex;
-    }
-
-    .form {
-      flex: -2;
-
-    }
-
-    .hidden-row {
-      display: none;
-    }
-
-
-    th {
-      border-bottom: 1px solid #364043;
-      color: #ffbf00;
-      font-size: 0.85em;
-      font-weight: 600;
-      padding: 0.5em 1em;
-      text-align: left;
-    }
-
-    td {
-      color: #fff;
-      font-weight: 400;
-      padding: 0.65em 1em;
-    }
-
-    tbody tr {
-      transition: background 0.25s ease;
-    }
-
-    .rowiee {
-      background-color: #436b95;
-    }
-
-    .addnew {
-      display: inline-block;
-      padding: 8px 13px;
-      font-size: 12px;
-
-      text-align: center;
-      margin-left: 30px;
-      margin-top: 27px;
-      text-decoration: none;
-      border-radius: 4px;
-      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-      cursor: pointer;
-
-    }
-
-    .transperant {
-      background-color: #dcdcdc;
-    }
-
-    .profile-box {
-      width: 1160px;
-      height: 50px
-    }
-
-    @media only screen and (max-width: 767px) {
-
-
-      /* Styling for the fields inside the box */
-      .expensefield {
-        display: inline-block;
-        margin-right: 20px;
-      }
 
     }
 

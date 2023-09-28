@@ -7,40 +7,7 @@ if (!isset($_SESSION['user']) or $_SESSION['user'] !== "super") {
 }
 include 'sp_header.php';
 ?>
-<!doctype html>
-<html lang="en">
-
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
-    <title>Super Admin Dashboard</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!----css3---->
-    <link rel="stylesheet" href="css/custom.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
-    <!--google fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Righteous&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=REM&display=swap" rel="stylesheet">
-    <!--google material icon-->
-    <link href="https://fonts.googleapis.com/css2?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/sp_admin.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-</head>
 
 <style>
   body {
@@ -213,6 +180,7 @@ thead{
 .attendence{
  
     width: 1200px;
+    margin-top:-40px;
    
 
 }
@@ -253,25 +221,27 @@ thead{
     font-size:17px;
   }
 </style>
-
+</head>
     <!------top-navbar-end----------->
 
 
     <!------main-content-start----------->
 
-    <body>
-    <div class="user-container">
-    <label class="select-label">Select user:</label>
-    <select id="userSelect">
-      <option value="default" disabled selected>Select a user</option>
-      <option value="user1">User 1</option>
-      <option value="user2">User 2</option>
-      <option value="user3">User 3</option>
-      <option value="user4">User 4</option>
-    </select>
-  </div>
+  
+<div class="main-content">
 
-  <div class="info-container" id="infoContainer">
+        <div class="user-container">
+          <label class="select-label">Select user:</label>
+          <select id="userSelect">
+            <option value="default" disabled selected>Select a user</option>
+            <option value="user1">User 1</option>
+            <option value="user2">User 2</option>
+            <option value="user3">User 3</option>
+            <option value="user4">User 4</option>
+          </select>
+         </div>
+        
+        <div class="info-container" id="infoContainer">
     <p class="info-title">Title: Geetha Govindam</p>
     <br>
     <p class="scedule"><b>Schedule:</b></p>
@@ -290,11 +260,11 @@ thead{
         <option value="October">October</option>
         <option value="November">November</option>
         <option value="December">December</option>
-       
+        
       </select>
     </div>
   </div>
-
+  
   <div class="cards-container" id="cardsContainer">
     <div class="card">
       <p class="card-heading">Total Attendance <i>(per day)</i><div class="count">35</div></p>
@@ -434,18 +404,19 @@ thead{
                     </tr>
 					
 					<tr>
-                      <td>dsd</td>
-                      <td>sdsd</td>
-                      <td>sdsd</td>
-                      <td>ssnc</td>
-                      <td>scn</td>
-					 
-                    </tr>
+            <td>dsd</td>
+            <td>sdsd</td>
+            <td>sdsd</td>
+            <td>ssnc</td>
+            <td>scn</td>
+            
+          </tr>
 					
                      
-                </table>
+                    </tbody>
+    </table>
+  </div>
 </div>
-
 
 <script>
      const userSelect = document.getElementById("userSelect");
@@ -475,31 +446,23 @@ thead{
       }
     });
   </script>
-</body>
 
 
-        <!------main-content-end----------->
 
-       
+<!------main-content-end----------->
 
 
-        <!----footer-design------------->
 
-        <footer class="footer">
-            <div class="container-fluid">
-                <div class="footer-in">
-                    <p class="mb-0">&copy 2023 Team Helios. All Rights Reserved.</p>
-                </div>
-            </div>
-        </footer>
-
+<!----footer-design------------->
+<br> 
+<footer class="footer">
+    <div class="container-fluid">
+        <div class="footer-in">
+            <p class="mb-0">&copy 2023 Team Helios . All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
 
 
     <!-------complete html----------->
 
-
-   
-
-
-
-</html>

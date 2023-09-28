@@ -22,29 +22,50 @@ include 'adminheadersidebar.php';
                 <td>Username</td>
                 <td>Dept</td>
                 <td>Payment Status</td>
+                <td>TA status</td>
                 <td>TA</td>
+                <td>Action</td>
             </tr>
             <tr>
-                <td>AAA</td>
-                <td>AAA</td>
-                <td>AAA</td>
-                <td>AAA</td>
-                <td>AAA</td>
-                <td><input type="text" placeholder="Enter TA" style="width: 50%;"></td>
+                <form action="">
+                    <td>AAA</td>
+                    <td>AAA</td>
+                    <td>AAA</td>
+                    <td>AAA</td>
+                    <td>AAA</td>
+                    <td><input  name="checkbox[]" type="checkbox" onchange="TACheckbox()"></td>
+                    <td name="taBox">--</td>
+                    <td><input type="submit" class="view-btn"></td>
+                </form>
             </tr>
             <tr>
-                <td>AAA</td>
-                <td>AAA</td>
-                <td>AAA</td>
-                <td>AAA</td>
-                <td>AAA</td>
-                <td><input type="text" placeholder="Enter TA" style="width: 50%;"></td>
+                <form action="">
+                    <td>AAA</td>
+                    <td>AAA</td>
+                    <td>AAA</td>
+                    <td>AAA</td>
+                    <td>AAA</td>
+                    <td><input name="checkbox[]" type="checkbox" onchange="TACheckbox()"></td>
+                    <td name="taBox">--</td>
+                    <td><input type="submit" class="view-btn"></td>
+                </form>
             </tr>
         </table>
-        <input type="submit" class="view-btn">
         </div>
     </div>
 </div>
 <script>
+    function TACheckbox(){
+        var ele = document.getElementsByName("checkbox[]");
+			for (var i = 0; i < ele.length; i++) {
+                var tacolumn=document.getElementsByName("taBox")[i];
+				if (ele[i].checked == true) {
+                    tacolumn.innerHTML = '<td><input type="text" placeholder="Enter TA" style="width: 50%;"></td>';
+				}
+                else{
+                    tacolumn.innerHTML = '<td>--</td>';
+                }
+			}
+    }
 </script>
    
