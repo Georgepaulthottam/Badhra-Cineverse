@@ -185,7 +185,7 @@ MFWPK2311G
 									<h6 class="mb-0">User name</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" placeholder="Enter your name">
+									<input type="text" class="form-control" value="<?php echo $_SESSION['user']?>" placeholder="Enter your name">
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -193,7 +193,7 @@ MFWPK2311G
 									<h6 class="mb-0">Email</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" placeholder="Enter your email">
+									<input type="text" class="form-control" value="<?php echo $_SESSION['email']?>" placeholder="Enter your email">
 								</div>
 							</div>
 							<div class="row mb-3">
@@ -201,7 +201,7 @@ MFWPK2311G
 									<h6 class="mb-0">Phone</h6>
 								</div>
 								<div class="col-sm-9 text-secondary">
-									<input type="text" class="form-control" placeholder="Enter your password">
+									<input type="text" class="form-control" value="<?php echo $_SESSION['phone']?>"placeholder="Enter your password">
 							</div>
 						</div>
 						<div class="row mb-3">
@@ -209,7 +209,7 @@ MFWPK2311G
 								<h6 class="mb-0">Address</h6>
 							</div>
 							<div class="col-sm-9 text-secondary">
-								<textarea class="form-control" placeholder="Enter your Address"></textarea>
+								<textarea class="form-control" value="<?php echo $_SESSION['address']?>" placeholder="Enter your Address"></textarea>
 							</div>
 						</div>
 						<div class="row">
