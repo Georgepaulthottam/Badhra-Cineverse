@@ -129,7 +129,17 @@ margin-top:15px;
 
 
 }
-
+#amountinput
+{
+  border: 1px solid #c9ccce;
+  border-radius: 25px;
+  padding: 2px;
+  background: #f2f2f2;
+  color: rgb(8, 4, 4);
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
 #mySelect {
   border: 1px solid #c9ccce;
   border-radius: 25px;

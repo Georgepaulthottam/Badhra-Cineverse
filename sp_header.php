@@ -13,11 +13,9 @@ else if($activePage == 'misc'){
 	$PageTitle="Miscellaneous";
 }
 else if($activePage == 'profile'){
-	$PageTitle="Profile ";
+	$PageTitle="Profile";
 }
-else if($activePage == 'request'){
-	$PageTitle="Request Panel ";
-}
+
 else if($activePage == 'attendance'){ 
 	$PageTitle="Attendance Panel ";
 }
@@ -112,6 +110,7 @@ $image = $row['image'];
 				<li class="<?php echo ($activePage === 'home') ? 'active' : ''; ?>">
 					<a href="sp_index.php" class="dashboard"><i class="material-icons">dashboard</i>Dashboard </a>
 				</li>
+
 				<li class="<?php echo ($activePage === 'Payments') ? 'active' : ''; ?>">
 					<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
 						<i class="material-icons">pending_actions</i>Payments
@@ -124,37 +123,18 @@ $image = $row['image'];
 				</li>
 
 
-				<li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
-					<a href="#homeSubmenu1" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">account_circle</i>Profile
-					</a>
-					<ul class="collapse list-unstyled menu" id="homeSubmenu1">
-						<li><a href="sp_profile.php">Profile</a></li>
-
-					</ul>
+				
+			
+						<li class="<?php echo ($activePage === 'profile') ? 'active' : ''; ?>">
+					<a href="sp_profile.php" class=""><i class="material-icons">account_circle</i>Profile</a>
 				</li>
+
 
 
 				<li class="<?php echo ($activePage === 'attendance') ? 'active' : ''; ?>">
-					<a href="#homeSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">stacked_line_chart</i>Attendance
-					</a>
-					<ul class="collapse list-unstyled menu" id="homeSubmenu2">
-						<li><a href="sp_attendance.php">Attendance Requests</a></li>
-						<li><a href="sp_approved_attendance.php">Approved attendance</a></li>
-
-					</ul>
+					<a href="sp_approved_attendance.php" class=""><i class="material-icons">stacked_line_chart</i>Attendance</a>
 				</li>
-
-				<li class="<?php echo ($activePage === 'request') ? 'active' : ''; ?>">
-					<a href="#homeSubmenu3" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-						<i class="material-icons">request_page</i>Request Panel
-					</a>
-					<ul class="collapse list-unstyled menu" id="homeSubmenu3">
-						<li><a href="sp_requests.php">Pending Requests</a></li>
-						<li><a href="sp_approved_requests.php">Approved requests</a></li>
-					</ul>
-				</li>
+				
 
 
 				<li class="<?php echo ($activePage === 'crew') ? 'active' : ''; ?>">
