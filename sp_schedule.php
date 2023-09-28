@@ -156,7 +156,7 @@ tbody tr {
     height: 60px;
     padding-bottom:10px;
   }
-  @media only screen and (max-width: 767px){
+  @media only screen and (max-width: 767px){ 
 
 
     /* Styling for the fields inside the box */
