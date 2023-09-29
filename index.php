@@ -10,9 +10,9 @@ $user = $_SESSION['user'];
 $datesql = "SELECT * FROM schedule_day WHERE  DATE(date)=" . mysqli_real_escape_string($conn, 'DATE(NOW())') . " "; 
 $dateres1 = mysqli_query($conn, $datesql);
 $drow=mysqli_fetch_assoc($dateres1);
-$schedule_day=$drow['day_no'];
-$schedule_loc=$drow['location'];
-$schedule_bata=$drow['bata'];
+        $schedule_day = isset($drow['day_no']) ? $drow['day_no'] :
+            $schedule_loc = isset($drow['location']) ? $drow['location'] : "";
+        $schedule_bata = isset($drow['bata']) ? $drow['bata'] : "";
 $att_query = ("SELECT * FROM users WHERE username='" . mysqli_real_escape_string($conn, $user) . "' limit 0,4");
 $att_result = mysqli_query($conn, $att_query);
 $att_row = mysqli_fetch_assoc($att_result);

@@ -9,9 +9,9 @@ if (!isset($_SESSION['user']) or $_SESSION['userdept'] !== "Artist") {
 $datesql = "SELECT * FROM schedule_day WHERE  DATE(date)=" . mysqli_real_escape_string($conn, 'DATE(NOW())') . " ";
 $dateres1 = mysqli_query($conn, $datesql);
 $drow = mysqli_fetch_assoc($dateres1);
-$schedule_day = $drow['day_no'];
-$schedule_loc = $drow['location'];
-$schedule_bata = $drow['bata'];
+$schedule_day = isset($drow['day_no']) ? $drow['day_no'] : 
+$schedule_loc =isset($drow['location']) ? $drow['location'] : "";
+$schedule_bata = isset($drow['bata']) ? $drow['bata'] : "";
 
 $user = $_SESSION['user'];
 $status = $_SESSION['status'];
@@ -178,7 +178,8 @@ include 'user_header.php'; ?>
                     </tr>
                     <tr>
                         <th>Day</th>
-                        <th><?php echo $schedule_day ?></th>
+                        <th><?php if($schedule_day!=null){echo $schedule_day;}
+                        else {echo "not set";} ?></th>
                     </tr>
                     <tr>
                         <th>Location</th>
@@ -187,6 +188,7 @@ include 'user_header.php'; ?>
                     <tr>
                         <th>Bata</th>
                         <th><?php
+                        if($schedule_bata!=null){
                         if($schedule_bata==2){
                         echo "second";
                         } 
@@ -194,6 +196,9 @@ include 'user_header.php'; ?>
                             echo "first";}
                         if($schedule_bata==3){
                             echo "third";
+                        }}
+                        else{
+                            echo "not set";
                         }
                         ?></th>
                     </tr>

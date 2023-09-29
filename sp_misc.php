@@ -47,6 +47,10 @@ ob_end_flush();
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/sp_admin.css" />
     <link href="https://fonts.googleapis.com/css2?family=Righteous&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.4/xlsx.full.min.js"></script>
+
+    <!-- For PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -418,7 +422,7 @@ ob_end_flush();
                     <button class="dropbtn">&#9660;</button>
                     <div class="dropdown-content">
                         <button id="download-excel-button">Download as Excel</button>
-                        <button id="download-pdf-button">Download as PDF</button>
+                        <button id="download-pdf-button" >Download as PDF</button>
                     </div>
                 </div>
             </div>
@@ -443,10 +447,6 @@ ob_end_flush();
 
             <!-------complete html----------->
             <!-- For Excel (XLSX) -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.4/xlsx.full.min.js"></script>
-
-            <!-- For PDF -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.0/html2pdf.bundle.min.js"></script>
 
             <script type="text/javascript">
                 //select all and reject all
@@ -471,6 +471,10 @@ ob_end_flush();
             </script>
 
             <script>
+                const {
+                    jsPDF
+                } = window.jspdf;
+
                 function downloadExcel() {
                     const table = document.querySelector("table");
                     const rows = Array.from(table.querySelectorAll("tr"));
@@ -481,9 +485,21 @@ ob_end_flush();
                     XLSX.writeFile(workbook, "table_data.xlsx");
                 }
 
+                function printdiv(elem) {
+                    var header_str = '<html><head><title>' + document.title + '</title></head><body>';
+                    var footer_str = '</body></html>';
+                    var new_str = document.getElementById(elem).innerHTML;
+                    var old_str = document.body.innerHTML;
+                    document.body.innerHTML = header_str + new_str + footer_str;
+                    window.print();
+                    document.body.innerHTML = old_str;
+                    return false;
+                }
+
                 // Function to download the table as a PDF
                 function downloadPDF() {
-                    const pdfOptions = {
+                    print()
+                    /*const pdfOptions = {
                         margin: 10,
                         filename: "table_data.pdf",
                         image: {
@@ -514,7 +530,7 @@ ob_end_flush();
                             link.href = url;
                             link.download = pdfOptions.filename;
                             link.click();
-                        });
+                        });*/
                 }
 
                 // Attach click event listeners to the download buttons
