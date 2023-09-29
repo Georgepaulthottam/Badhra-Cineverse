@@ -220,6 +220,17 @@ thead{
     color:#000;
     font-size:17px;
   }
+  .table-heading {
+    text-align: center; /* Center the text horizontally */
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: bold; /* Make it bold if desired */
+    padding-bottom: 17px; 
+    padding-top: 17px;/* Add padding for spacing */
+}
+h4{
+  color:#ffff;
+}
+</style>
 </style>
 </head>
     <!------top-navbar-end----------->
@@ -289,18 +300,11 @@ thead{
 
 
   <thead>
-  <tr >
-  <td></td>
-  <td></td>
-  <td></td>
-    <td><b> Miscellaneous</b></td>
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
-  </thead>
-                  
-    <tr>
+  <tr>
+          <th colspan="7" class="table-heading">Miscellaneous</th>
+        </tr>
+
+        <tr>
       <th>SI NO</th>
       <th>Date</th>
       <th>Name</th>
@@ -309,6 +313,9 @@ thead{
       <th>Remark</th>
       <th>Amount</th>
     </tr>
+  </thead>
+                  
+   
     
   
 
@@ -351,29 +358,23 @@ thead{
 </table>
 <div class="attendence" style="overflow-x:auto;">
 		
-				<table>
- 
-                <thead>
-                <tr >
-               <td></td>
-              <td></td>
-                <td></td>
-               <td><b> Expense Report</b></td>
-               <td></td>
-               <td></td>
-                  <td></td>
-               </tr>
-              </thead>
-										
-					<tr>
-                      <th>SI No.</th>
-                      <th>Name</th>
-                      <th>Purpose</th>
-                      <th>Amount</th>
-					            <th>Quantity</th>
-                       <th>Mode</th>
-
-                  
+	
+ <table>
+  
+      <thead>
+        <tr>
+          <th colspan="6" class="table-heading">Expense Report</th>
+        </tr>
+        <tr>
+          <th>SI No.</th>
+          <th>Name</th>
+          <th>Purpose</th>
+          <th>Amount</th>
+          <th>Quantity</th>
+          <th>Mode</th>
+        </tr>
+      </thead>
+      <tbody>      
                 
 					<tr>
                       <td>hsjdfs</td>
@@ -408,6 +409,7 @@ thead{
             <td>sdsd</td>
             <td>sdsd</td>
             <td>ssnc</td>
+            <td>scn</td>
             <td>scn</td>
             
           </tr>
@@ -465,4 +467,3 @@ thead{
 
 
     <!-------complete html----------->
-
