@@ -136,8 +136,9 @@ th {
   color:#ffbf00 ;
   font-size: 0.85em;
   font-weight: 600;
-  padding: 0.5em 1em;
+  padding-left: 5px;
   text-align: left;
+  
 }
 td {
   color: #fff;
@@ -147,6 +148,7 @@ td {
 
 tbody tr {
   transition: background 0.25s ease;
+  
 }
 
 .rowiee {
@@ -599,20 +601,32 @@ h4{
                 <div id="popup-message" class="popup-message">Schedule started successfully</div>
 
                 <div class="expensebox"  style="margin-bottom: 10px; margin-right:80px;">
-                    <div class="expensefield">
-                        <b>
-                            <p class="card-heading">DETAILS</p> <br>
+                <p class="card-heading" style="margin-top:70px; margin-bottom:-5px;">DETAILS</p> <br>
+                <div class="request-status" id="card2">
+
+                    <div class="request-status">
+                        <table class="table table-striped table-hover" style="width:465px;  ">
+                            <tr>
+                                <a href="">
+                                    <th><h5>Schedule&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h5></th>
+                                    <th><h5>May</h5></th>
+                                </a>
+                            </tr>
+
+                            <tr>
+                                <th><h5>Schedule Day&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h5></th>
+                                <th><h5>20</h5></th>
+                            </tr>
                             
-                            <label for="schedule-name">Schedule&emsp;&emsp;&emsp; &nbsp;: &emsp;&emsp; </label>
-                            <span class="expensevalue">May</span><br>
-	                          <label for="opening-balance">Schedule Day    &emsp;  &nbsp;&emsp;:    &nbsp;  &emsp;&emsp; </label>
-                              <span class="expensevalue">02</span> &nbsp; &nbsp; &nbsp;&emsp;<br>
-                        </b>
+                        </table>
                     </div>
+
+
                 </div>
   </div>
+</div>
 
-
+  
         <div class="info-container" id="infoContainer">
           <p class="scedule"><b>Schedule:</b></p>
           <div class="schedule-select">
