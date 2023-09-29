@@ -268,6 +268,12 @@ tbody tr {
     }
 
   }
+
+  .cardscontainer{
+  display: flex;
+   justify-content: space-between;
+   margin-top:30px;
+}
 		
 	</style>
 	 <script>
@@ -301,19 +307,18 @@ tbody tr {
 
 			<!------main-content-start----------->
 
-			<div class="main-content">
+      <div class="main-content">
 				<div class="attendence" style="overflow-x:auto;">
 					
-					<table class="profile-box">
-							<thead>
-					            <tr>
-								<th><b>TITLE:<b></th>
-			                    <th>DATE:</th>
-	                            </tr>
-                    </table>
-					<table class="transperant">
-						<td>
-                          <div class="expensebox">
+        <div class="profile-box">
+               
+                
+               <th>&emsp; &emsp;<b>TITLE: &emsp; &emsp;</b>Geetha Govindam   &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;</th>
+               <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>DATE: &emsp; &emsp;</b> 13-09-2023</th>
+           
+       </div>
+       <div class="cardscontainer">
+       <div class="expensebox"  style="margin-bottom: 20px; margin-left:40px;" >
                             <div class="expensefield"><b>
                               <label for="opening-balance">Opening Balance&emsp;&emsp;: &emsp;&emsp; </label>
                               <span class="expensevalue">19215</span><br>
@@ -323,17 +328,17 @@ tbody tr {
                               <span class="expensevalue">69215</span></b>
                             </div>
                           </div>
-                        </td>
-                        <td>
-				          <div class="expensebox" id="expensebox"><b>
+                        
+                          <div class="expensebox"  style="margin-bottom: 10px; margin-right:80px;"><b>
                              <div class="expensefield">
                                 <label for="opening-balance">Location: &emsp; </label>
                                 <span class="expensevalue"> Diamond Plaza Trivanathapuram</span>
-        </b>
-                             </div>
+	                          
+                             </div></b>
                           </div>
-                        </td>
-                    </table>
+        </div>
+					
+					<br>
 					
 					<br>
 					<button onclick="toggleRows()" class="addnew sec-button">ADD EXPENSE
