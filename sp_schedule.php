@@ -136,8 +136,9 @@ th {
   color:#ffbf00 ;
   font-size: 0.85em;
   font-weight: 600;
-  padding: 0.5em 1em;
+  padding-left: 5px;
   text-align: left;
+  
 }
 td {
   color: #fff;
@@ -147,6 +148,7 @@ td {
 
 tbody tr {
   transition: background 0.25s ease;
+  
 }
 
 .rowiee {
@@ -398,24 +400,90 @@ tbody tr {
     }
 
     .tables-container {
-      display: none;
-      margin-top: 20px;
-      width: 1100px;
-      margin-left: 50px;
-      background-color: #262F35;
-      height: 350px;
-      padding-top: 3px;
-      border-radius: 7px;
-    }
+    display: none;
+    margin-top: 4px;
+    width: 1100px;
+    margin-left:40px;
+    margin-bottom:20px;
+    background-color:#262F35;
+    height:350px;
+    padding-top:15px;
+    border-radius:7px;
+  }
 
-    table {
+  table {
+  
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+  width:1020px;
+  margin-left:37px;
+}
 
-      border-radius: 0.25em;
-      border-collapse: collapse;
-      margin: 1em;
-      width: 1020px;
-      margin-left: 37px;
-    }
+.popup-message {
+  display: none;
+  position: fixed;
+  margin-left:600px;
+ margin-top:35px;
+  transform: translate(-50%, -50%);
+  background-color: limegreen;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  text-align: center;
+  z-index: 9999;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+  border: 2px solid #d3d3d3;
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards; 
+
+  
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.popup-message:hover {
+  background-color: #2ecc71; /* Change color on hover */
+  transform: translate(-50%, -50%) scale(1.05); /* Zoom in on hover */
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+}
+.table-heading {
+    text-align: center; /* Center the text horizontally */
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: bold; /* Make it bold if desired */
+    padding-bottom: 17px; 
+    padding-top: 17px;/* Add padding for spacing */
+}
+h4{
+  color:#ffff;
+}
+.view-button {
+    background: transparent;
+    font-style: italic;
+    color: limegreen;
+    border: none;
+    cursor: pointer;
+}
+
+.cardscontainer{
+  display: flex;
+   justify-content: space-between;
+   margin-top:30px;
+}
+
+
+
   </style>
   <script>
     function toggleTableVisibility() {
@@ -465,6 +533,14 @@ tbody tr {
         toggleInputField(); // Hide the input field, display the "Start Schedule" button
       }
     }
+
+    function displayPopupMessage() {
+    var popupMessage = document.getElementById("popup-message");
+    popupMessage.style.display = "block";
+    setTimeout(function () {
+      popupMessage.style.display = "none";
+    }, 2000); // Hide the message after 2 seconds
+  }
   </script>
 </head>
 
@@ -475,23 +551,21 @@ tbody tr {
   <!------main-content-start----------->
   <div class="main-container">
     <div class="main-content">
-      <div class="attendence" style="overflow-x:auto;">
-        <table class="profile-box">
-          <thead>
-            <tr>
-              <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>TITLE: &emsp; &emsp;</b>Geetha Govindam &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;</th>
-              <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>DATE: &emsp; &emsp;</b> 13-09-2023</th>
-            </tr>
-          </thead>
-        </table>
-        <table class="transparent">
-          <tr>
-            <td>
-              <div class="expensebox">
-                <div class="expensefield">
-                  <b>
-                    <p class="card-heading">SCHEDULE</p>
-                    <form action="" method="POST"><br>
+        <div class="attendence" style="overflow-x:auto;">
+            <div class="profile-box">
+               
+                
+                    <th>&emsp; &emsp;<b>TITLE: &emsp; &emsp;</b>Geetha Govindam   &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;</th>
+                    <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>DATE: &emsp; &emsp;</b> 13-09-2023</th>
+                
+            </div>
+           <div class="cardscontainer">
+                        <div class="expensebox"  style="margin-bottom: 20px; margin-left:40px;" >
+                            <div class="expensefield">
+                            <b>
+                            <p class="card-heading">SCHEDULE</p> 
+
+                            <form action="" method="POST"><br>
 
                       <!-- Modify the "Start Schedule" button -->
                       <button class="start-schedule-button" id="startScheduleButton" style="<?php if (isset($_SESSION['scheduleName'])) echo 'display: none;' ?>" onclick="toggleInputField()">Start Schedule</button>
@@ -501,7 +575,7 @@ tbody tr {
                                                                 else echo 'block;'; ?>">
                         <label for="schedule-name">Schedule Name: &emsp; </label>
                         <input type="text" id="schedule-name" name="schedule-name" placeholder="Enter Schedule Name">
-                        <button class="action-button save-button" type="submit" name="save">Save</button>
+                        <button class="action-button save-button" onclick="toggleInputField(); displayPopupMessage();">Save</button>
                         <button class="action-button cancel-button" onclick="cancelSchedule()">Cancel</button>
                       </div>
 
@@ -519,30 +593,40 @@ tbody tr {
                         <div class="btn-container">
                           <button class="btn delete" type="submit" name="end" onclick="endSchedule()">End</button>
                           <button class="btn cancel" onclick="cancelEndSchedule()">Cancel</button>
-                        </div>
-                      </div>
-                  </b>
+                                                          </div>
+                             </div>
+                        </b>
+                    </div>
                 </div>
-              </div>
-            </td>
-            <td>
-              <div class="expensebox">
-                <div class="expensefield">
-                  <b>
-                    <p class="card-heading">DETAILS</p> <br>
+                <div id="popup-message" class="popup-message">Schedule started successfully</div>
 
-                    <label for="schedule-name">Schedule&emsp;&emsp;&emsp; &nbsp;: &emsp;&emsp; </label>
-                    <span class="expensevalue">May</span><br>
-                    <label for="opening-balance">Schedule Day &emsp; &nbsp;&emsp;: &nbsp; &emsp;&emsp; </label>
-                    <span class="expensevalue">02</span> &nbsp; &nbsp; &nbsp;&emsp;<br>
-                  </b>
+                <div class="expensebox"  style="margin-bottom: 10px; margin-right:80px;">
+                <p class="card-heading" style="margin-top:70px; margin-bottom:-5px;">DETAILS</p> <br>
+                <div class="request-status" id="card2">
+
+                    <div class="request-status">
+                        <table class="table table-striped table-hover" style="width:465px;  ">
+                            <tr>
+                                <a href="">
+                                    <th><h5>Schedule&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h5></th>
+                                    <th><h5>May</h5></th>
+                                </a>
+                            </tr>
+
+                            <tr>
+                                <th><h5>Schedule Day&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h5></th>
+                                <th><h5>20</h5></th>
+                            </tr>
+                            
+                        </table>
+                    </div>
+
+
                 </div>
-              </div>
-            </td>
-          </tr>
-        </table>
+  </div>
+</div>
 
-
+  
         <div class="info-container" id="infoContainer">
           <p class="scedule"><b>Schedule:</b></p>
           <div class="schedule-select">
@@ -566,90 +650,76 @@ tbody tr {
         </div>
 
         <div class="misctable" style="overflow-x:auto;">
-          <div class="tables-container" id="tablesContainer">
-            <table>
+  <div class="tables-container" id="tablesContainer">
+    <table>
+    <thead>
+        <tr>
+            <H4 colspan="10" class="table-heading">Schedule  Report</H4>
+        </tr>
+        <tr>
+            <th>SI NO</th>
+            <th>Schedule</th>
+            <th>Date</th>
+            <th>Location</th>
+            <th>Total Bata</th>
+            <th>Total Attendance</th>
+            <th>Total Request</th>
+            <th>Total Miscellanious</th>
+            <th>Total Expense</th>
+            <th>Details</th>
+        </tr>
+    </thead>
+                  
+    
 
+    <tr>
+        <td>1</td>
+        <td>12/06/2023</td>
+        <td>ggggg</td>
+        <td>bgvfc</td>
+        <td>bgvfc</td>
+        <td>09:00</td>
+        <td>gtgff</td>
+        <td>70</td>
+        <td>gtgff</td>
+        <td><button class="view-button">View</button></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>12/06/2023</td>
+        <td>ggggg</td>
+        <td>bgvfc</td>
+        <td>bgvfc</td>
+        <td>09:00</td>
+        <td>gtgff</td>
+        <td>70</td>
+        <td>gtgff</td>
+        <td><button class="view-button">View</button></td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>12/06/2023</td>
+        <td>ggggg</td>
+        <td>bgvfc</td>
+        <td>09:00</td>
+        <td>gtgff</td>
+        <td>bgvfc</td>
+        <td>70</td>
+        <td>gtgff</td>
+        <td><button class="view-button">View</button></td>
+    </tr>
+     
+  <tbody>
 
-
-              <thead>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td><b>
-                      <h3> Schedule </h3>
-                    </b></td>
-                  <td><b>
-                      <h3>Report</h3>
-                    </b></td>
-                  <td></td>
-                </tr>
-              </thead>
-
-              <tr>
-                <th>SI NO</th>
-                <th>Schedule</th>
-                <th>Date</th>
-                <th>Location</th>
-                <th>Total Bata</th>
-                <th>Total Attendance</th>
-                <th>Total Request</th>
-                <th>Total Miscellanious</th>
-                <th>Total Expense</th>
-                <th>Details</th>
-              </tr>
-
-
-
-              <tr>
-                <td>1</td>
-                <td>12/06/2023</td>
-                <td>ggggg</td>
-                <td>bgvfc</td>
-                <td>bgvfc</td>
-                <td>09:00</td>
-                <td>gtgff</td>
-                <td>70</td>
-                <td>gtgff</td>
-                <td></button>view</button></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>12/06/2023</td>
-                <td>ggggg</td>
-                <td>bgvfc</td>
-                <td>bgvfc</td>
-                <td>09:00</td>
-                <td>gtgff</td>
-                <td>70</td>
-                <td>gtgff</td>
-                <td></button>view</button></td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>12/06/2023</td>
-                <td>ggggg</td>
-                <td>bgvfc</td>
-                <td>09:00</td>
-                <td>gtgff</td>
-                <td>bgvfc</td>
-                <td>70</td>
-                <td>gtgff</td>
-                <td></button>view</button></td>
-              </tr>
-
-              <tbody>
+	
 
 
 
 
-
-
-              </tbody>
-            </table>
-          </div>
-        </div>
+  </tbody>
+  </table>
+  </div>
+</div>
 
 
 
