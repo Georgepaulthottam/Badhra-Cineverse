@@ -18,6 +18,9 @@ if (isset($_POST['save'])) {
   $_SESSION['scheduleName'] = $scheduleName;
   header('Location: sp_schedule.php');
 }
+$schsql = ("select * from schedule where status='live'");
+$schres = mysqli_query($conn, $schsql);
+$row = mysqli_fetch_assoc($schres);
 
 
 ob_end_flush();
@@ -95,97 +98,104 @@ ob_end_flush();
     .expensevalue {
       display: inline-block;
     }
-	.bata-btn{
-		display: inline-block;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  margin-left: 280px;
-  margin-top: 27px;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  cursor: pointer;
-}
-.primary-button {
-  background-color:  #002147  ;
-  color: #ffffff;
-  border: 2px solid #002e63 ;
-}
 
-.primary-button:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-	.form-container {
-            display: flex;
-        }
-
-		.form {
-            flex: -2;
-           
-        }
-		.hidden-row {
-            display: none;
-        }
-		
-	
-th {
-  border-bottom: 1px solid #364043;
-  color:#ffbf00 ;
-  font-size: 0.85em;
-  font-weight: 600;
-  padding-left: 5px;
-  text-align: left;
-  
-}
-td {
-  color: #fff;
-  font-weight: 400;
-  padding: 0.65em 1em;
-}
-
-tbody tr {
-  transition: background 0.25s ease;
-  
-}
-
-.rowiee {
-	background-color: #436b95;
-}
-
-  .addnew {
-	display: inline-block;
-  padding: 8px 13px;
-  font-size: 12px;
-  
-  text-align: center;
-  margin-left:30px;
-  margin-top: 27px;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  cursor: pointer;
-	 
-    }
-	
-  .transperant{
-    background-color:#dcdcdc;
-  }
-  .profile-box{
-    width: 1160px;
-    height: 60px;
-    padding-bottom:10px;
-  }
-  @media only screen and (max-width: 767px){ 
-
-
-    /* Styling for the fields inside the box */
-    .expensefield {
+    .bata-btn {
       display: inline-block;
-      margin-right: 20px;
+      padding: 12px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      margin-left: 280px;
+      margin-top: 27px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      cursor: pointer;
     }
+
+    .primary-button {
+      background-color: #002147;
+      color: #ffffff;
+      border: 2px solid #002e63;
+    }
+
+    .primary-button:hover {
+      background-color: #0056b3;
+      border-color: #0056b3;
+    }
+
+    .form-container {
+      display: flex;
+    }
+
+    .form {
+      flex: -2;
+
+    }
+
+    .hidden-row {
+      display: none;
+    }
+
+
+    th {
+      border-bottom: 1px solid #364043;
+      color: #ffbf00;
+      font-size: 0.85em;
+      font-weight: 600;
+      padding-left: 5px;
+      text-align: left;
+
+    }
+
+    td {
+      color: #fff;
+      font-weight: 400;
+      padding: 0.65em 1em;
+    }
+
+    tbody tr {
+      transition: background 0.25s ease;
+
+    }
+
+    .rowiee {
+      background-color: #436b95;
+    }
+
+    .addnew {
+      display: inline-block;
+      padding: 8px 13px;
+      font-size: 12px;
+
+      text-align: center;
+      margin-left: 30px;
+      margin-top: 27px;
+      text-decoration: none;
+      border-radius: 4px;
+      transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+      cursor: pointer;
+
+    }
+
+    .transperant {
+      background-color: #dcdcdc;
+    }
+
+    .profile-box {
+      width: 1160px;
+      height: 60px;
+      padding-bottom: 10px;
+    }
+
+    @media only screen and (max-width: 767px) {
+
+
+      /* Styling for the fields inside the box */
+      .expensefield {
+        display: inline-block;
+        margin-right: 20px;
+      }
 
     }
 
@@ -400,90 +410,98 @@ tbody tr {
     }
 
     .tables-container {
-    display: none;
-    margin-top: 4px;
-    width: 1100px;
-    margin-left:40px;
-    margin-bottom:20px;
-    background-color:#262F35;
-    height:350px;
-    padding-top:15px;
-    border-radius:7px;
-  }
+      display: none;
+      margin-top: 4px;
+      width: 1100px;
+      margin-left: 40px;
+      margin-bottom: 20px;
+      background-color: #262F35;
+      height: 350px;
+      padding-top: 15px;
+      border-radius: 7px;
+    }
 
-  table {
-  
-  border-radius: 0.25em;
-  border-collapse: collapse;
-  margin: 1em;
-  width:1020px;
-  margin-left:37px;
-}
+    table {
 
-.popup-message {
-  display: none;
-  position: fixed;
-  margin-left:600px;
- margin-top:35px;
-  transform: translate(-50%, -50%);
-  background-color: limegreen;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 5px;
-  text-align: center;
-  z-index: 9999;
-  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
-  border: 2px solid #d3d3d3;
-  opacity: 0;
-  animation: fadeIn 0.5s ease-out forwards; 
+      border-radius: 0.25em;
+      border-collapse: collapse;
+      margin: 1em;
+      width: 1020px;
+      margin-left: 37px;
+    }
 
-  
-  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-}
+    .popup-message {
+      display: none;
+      position: fixed;
+      margin-left: 600px;
+      margin-top: 35px;
+      transform: translate(-50%, -50%);
+      background-color: limegreen;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      text-align: center;
+      z-index: 9999;
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.4);
+      border: 2px solid #d3d3d3;
+      opacity: 0;
+      animation: fadeIn 0.5s ease-out forwards;
 
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, -50%) scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: translate(-50%, -50%) scale(1);
-  }
-}
-
-.popup-message:hover {
-  background-color: #2ecc71; /* Change color on hover */
-  transform: translate(-50%, -50%) scale(1.05); /* Zoom in on hover */
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
-}
-.table-heading {
-    text-align: center; /* Center the text horizontally */
-    font-size: 18px; /* Adjust font size as needed */
-    font-weight: bold; /* Make it bold if desired */
-    padding-bottom: 17px; 
-    padding-top: 17px;/* Add padding for spacing */
-}
-h4{
-  color:#ffff;
-}
-.view-button {
-    background: transparent;
-    font-style: italic;
-    color: limegreen;
-    border: none;
-    cursor: pointer;
-}
-
-.cardscontainer{
-  display: flex;
-   justify-content: space-between;
-   margin-top:30px;
-}
+      transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+    }
 
 
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
 
+      100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    .popup-message:hover {
+      background-color: #2ecc71;
+      /* Change color on hover */
+      transform: translate(-50%, -50%) scale(1.05);
+      /* Zoom in on hover */
+      box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4);
+      /* Add shadow on hover */
+    }
+
+    .table-heading {
+      text-align: center;
+      /* Center the text horizontally */
+      font-size: 18px;
+      /* Adjust font size as needed */
+      font-weight: bold;
+      /* Make it bold if desired */
+      padding-bottom: 17px;
+      padding-top: 17px;
+      /* Add padding for spacing */
+    }
+
+    h4 {
+      color: #ffff;
+    }
+
+    .view-button {
+      background: transparent;
+      font-style: italic;
+      color: limegreen;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cardscontainer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+    }
   </style>
   <script>
     function toggleTableVisibility() {
@@ -500,7 +518,6 @@ h4{
 
     function toggleInputField() {
       var scheduleInput = document.getElementById("schedule-input");
-      var enteredValue = document.getElementById("schedule-name").value;
       var scheduleDisplay = document.getElementById("schedule-display");
       var endScheduleButton = document.getElementById("end-schedule-button");
 
@@ -511,7 +528,7 @@ h4{
       } else {
         scheduleInput.style.display = "none";
         scheduleDisplay.style.display = "block";
-        scheduleDisplay.innerHTML = "Schedule Name: \"" + enteredValue + "\"";
+
         // endScheduleButton.style.display = "block";
       }
     }
@@ -535,12 +552,12 @@ h4{
     }
 
     function displayPopupMessage() {
-    var popupMessage = document.getElementById("popup-message");
-    popupMessage.style.display = "block";
-    setTimeout(function () {
-      popupMessage.style.display = "none";
-    }, 2000); // Hide the message after 2 seconds
-  }
+      var popupMessage = document.getElementById("popup-message");
+      popupMessage.style.display = "block";
+      setTimeout(function() {
+        popupMessage.style.display = "none";
+      }, 2000); // Hide the message after 2 seconds
+    }
   </script>
 </head>
 
@@ -551,82 +568,92 @@ h4{
   <!------main-content-start----------->
   <div class="main-container">
     <div class="main-content">
-        <div class="attendence" style="overflow-x:auto;">
-            <div class="profile-box">
-               
-                
-                    <th>&emsp; &emsp;<b>TITLE: &emsp; &emsp;</b>Geetha Govindam   &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;</th>
-                    <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>DATE: &emsp; &emsp;</b> 13-09-2023</th>
-                
+      <div class="attendence" style="overflow-x:auto;">
+        <div class="profile-box">
+
+
+          <th>&emsp; &emsp;<b>TITLE: &emsp; &emsp;</b>Geetha Govindam &emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;&emsp; &emsp;&emsp; &emsp;&emsp;</th>
+          <th>&emsp; &emsp;&emsp; &emsp;&emsp; &emsp;<b>DATE: &emsp; &emsp;</b> 13-09-2023</th>
+
+        </div>
+        <div class="cardscontainer">
+          <div class="expensebox" style="margin-bottom: 20px; margin-left:40px;">
+            <div class="expensefield">
+              <b>
+                <p class="card-heading">SCHEDULE</p>
+
+
+
+                <!-- Modify the "Start Schedule" button -->
+                <button class="start-schedule-button" id="startScheduleButton" style="<?php if (mysqli_num_rows($schres) == 1) {
+                                                                                        echo 'display: none;';
+                                                                                      } ?>" onclick="toggleInputField()">Start Schedule</button>
+                <form action="" method="POST"><br>
+                  <!-- Display the schedule name from the session or database -->
+                  <div id="schedule-input" style="display:none;">
+                    <label for="schedule-name">Schedule Name: &emsp; </label>
+                    <input type="text" id="schedule-name" name="schedule-name" placeholder="Enter Schedule Name">
+                    <button class="action-button save-button" type="submit" name="save" onclick="displayPopupMessage();">Save</button>
+                    <button class="action-button cancel-button" onclick="cancelSchedule()">Cancel</button>
+                  </div>
+
+                  <div id="schedule-display" style="display: <?php if (isset($_SESSION['scheduleName'])) echo 'block;';
+                                                              else echo 'none;'; ?>">
+                    Schedule Name: <?php if (mysqli_num_rows($schres) == 1) echo $row['schedule_name']; ?>
+                  </div>
+
+                  <button id="end-schedule-button" class="end-schedule-button" style="display:<?php if (mysqli_num_rows($schres) == 1) echo 'block;';
+                                                                                              else echo 'none;'; ?>" onclick="confirmEndSchedule()">End Schedule</button> <!-- "End Schedule" button -->
+
+
+                  <!-- Confirmation prompt for ending schedule -->
+                  <div id="delete-prompt" class="delete-prompt">
+                    <h6>Are you sure you want to end the schedule?</h6>
+                    <div class="btn-container">
+                      <button class="btn delete" type="submit" name="end" onclick="endSchedule()">End</button>
+                      <button class="btn cancel" onclick="cancelEndSchedule()">Cancel</button>
+                    </div>
+                  </div>
+              </b>
             </div>
-           <div class="cardscontainer">
-                        <div class="expensebox"  style="margin-bottom: 20px; margin-left:40px;" >
-                            <div class="expensefield">
-                            <b>
-                            <p class="card-heading">SCHEDULE</p> 
+          </div>
+          <div id="popup-message" class="popup-message">Schedule started successfully</div>
 
-                            <form action="" method="POST"><br>
+          <div class="expensebox" style="margin-bottom: 10px; margin-right:80px;">
+            <p class="card-heading" style="margin-top:70px; margin-bottom:-5px;">DETAILS</p> <br>
+            <div class="request-status" id="card2">
 
-                      <!-- Modify the "Start Schedule" button -->
-                      <button class="start-schedule-button" id="startScheduleButton" style="<?php if (isset($_SESSION['scheduleName'])) echo 'display: none;' ?>" onclick="toggleInputField()">Start Schedule</button>
+              <div class="request-status">
+                <table class="table table-striped table-hover" style="width:465px;  ">
+                  <tr>
+                    <a href="">
+                      <th>
+                        <h5>Schedule&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h5>
+                      </th>
+                      <th>
+                        <h5>May</h5>
+                      </th>
+                    </a>
+                  </tr>
 
-                      <!-- Display the schedule name from the session or database -->
-                      <div id="schedule-input" style="display: <?php if (isset($_SESSION['scheduleName'])) echo 'none;';
-                                                                else echo 'block;'; ?>">
-                        <label for="schedule-name">Schedule Name: &emsp; </label>
-                        <input type="text" id="schedule-name" name="schedule-name" placeholder="Enter Schedule Name">
-                        <button class="action-button save-button" type="submit" name="save" onclick="toggleInputField(); displayPopupMessage();">Save</button>
-                        <button class="action-button cancel-button" onclick="cancelSchedule()">Cancel</button>
-                      </div>
+                  <tr>
+                    <th>
+                      <h5>Schedule Day&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h5>
+                    </th>
+                    <th>
+                      <h5>20</h5>
+                    </th>
+                  </tr>
 
-                      <div id="schedule-display" style="display: <?php if (isset($_SESSION['scheduleName'])) echo 'block;';
-                                                                  else echo 'none;'; ?>">
-                        Schedule Name: "<?php if (isset($_SESSION['scheduleName'])) echo $_SESSION['scheduleName']; ?>"
-                      </div>
-
-                      <button id="end-schedule-button" class="end-schedule-button" style="display:<?php if (isset($_SESSION['scheduleName'])) echo 'block;'; ?>" onclick="confirmEndSchedule()">End Schedule</button> <!-- "End Schedule" button -->
-
-
-                      <!-- Confirmation prompt for ending schedule -->
-                      <div id="delete-prompt" class="delete-prompt">
-                        <h6>Are you sure you want to end the schedule?</h6>
-                        <div class="btn-container">
-                          <button class="btn delete" type="submit" name="end" onclick="endSchedule()">End</button>
-                          <button class="btn cancel" onclick="cancelEndSchedule()">Cancel</button>
-                                                          </div>
-                             </div>
-                        </b>
-                    </div>
-                </div>
-                <div id="popup-message" class="popup-message">Schedule started successfully</div>
-
-                <div class="expensebox"  style="margin-bottom: 10px; margin-right:80px;">
-                <p class="card-heading" style="margin-top:70px; margin-bottom:-5px;">DETAILS</p> <br>
-                <div class="request-status" id="card2">
-
-                    <div class="request-status">
-                        <table class="table table-striped table-hover" style="width:465px;  ">
-                            <tr>
-                                <a href="">
-                                    <th><h5>Schedule&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h5></th>
-                                    <th><h5>May</h5></th>
-                                </a>
-                            </tr>
-
-                            <tr>
-                                <th><h5>Schedule Day&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;</h5></th>
-                                <th><h5>20</h5></th>
-                            </tr>
-                            
-                        </table>
-                    </div>
+                </table>
+              </div>
 
 
-                </div>
-  </div>
-</div>
+            </div>
+          </div>
+        </div>
 
-  
+
         <div class="info-container" id="infoContainer">
           <p class="scedule"><b>Schedule:</b></p>
           <div class="schedule-select">
@@ -650,80 +677,80 @@ h4{
         </div>
 
         <div class="misctable" style="overflow-x:auto;">
-  <div class="tables-container" id="tablesContainer">
-    <table>
-    <thead>
-        <tr>
-            <H4 colspan="10" class="table-heading">Schedule  Report</H4>
-        </tr>
-        <tr>
-            <th>SI NO</th>
-            <th>Schedule</th>
-            <th>Date</th>
-            <th>Location</th>
-            <th>Total Bata</th>
-            <th>Total Attendance</th>
-            <th>Total Request</th>
-            <th>Total Miscellanious</th>
-            <th>Total Expense</th>
-            <th>Details</th>
-        </tr>
-    </thead>
-                  
-    
+          <div class="tables-container" id="tablesContainer">
+            <table>
+              <thead>
+                <tr>
+                  <H4 colspan="10" class="table-heading">Schedule Report</H4>
+                </tr>
+                <tr>
+                  <th>SI NO</th>
+                  <th>Schedule</th>
+                  <th>Date</th>
+                  <th>Location</th>
+                  <th>Total Bata</th>
+                  <th>Total Attendance</th>
+                  <th>Total Request</th>
+                  <th>Total Miscellanious</th>
+                  <th>Total Expense</th>
+                  <th>Details</th>
+                </tr>
+              </thead>
 
-    <tr>
-        <td>1</td>
-        <td>12/06/2023</td>
-        <td>ggggg</td>
-        <td>bgvfc</td>
-        <td>bgvfc</td>
-        <td>09:00</td>
-        <td>gtgff</td>
-        <td>70</td>
-        <td>gtgff</td>
-        <td><button class="view-button">View</button></td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>12/06/2023</td>
-        <td>ggggg</td>
-        <td>bgvfc</td>
-        <td>bgvfc</td>
-        <td>09:00</td>
-        <td>gtgff</td>
-        <td>70</td>
-        <td>gtgff</td>
-        <td><button class="view-button">View</button></td>
-    </tr>
-    <tr>
-        <td>1</td>
-        <td>12/06/2023</td>
-        <td>ggggg</td>
-        <td>bgvfc</td>
-        <td>09:00</td>
-        <td>gtgff</td>
-        <td>bgvfc</td>
-        <td>70</td>
-        <td>gtgff</td>
-        <td><button class="view-button">View</button></td>
-    </tr>
-     
-  <tbody>
 
-	
+
+              <tr>
+                <td>1</td>
+                <td>12/06/2023</td>
+                <td>ggggg</td>
+                <td>bgvfc</td>
+                <td>bgvfc</td>
+                <td>09:00</td>
+                <td>gtgff</td>
+                <td>70</td>
+                <td>gtgff</td>
+                <td><button class="view-button">View</button></td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>12/06/2023</td>
+                <td>ggggg</td>
+                <td>bgvfc</td>
+                <td>bgvfc</td>
+                <td>09:00</td>
+                <td>gtgff</td>
+                <td>70</td>
+                <td>gtgff</td>
+                <td><button class="view-button">View</button></td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>12/06/2023</td>
+                <td>ggggg</td>
+                <td>bgvfc</td>
+                <td>09:00</td>
+                <td>gtgff</td>
+                <td>bgvfc</td>
+                <td>70</td>
+                <td>gtgff</td>
+                <td><button class="view-button">View</button></td>
+              </tr>
+
+              <tbody>
 
 
 
 
-  </tbody>
-  </table>
-  </div>
-</div>
+
+
+              </tbody>
+            </table>
+          </div>
+        </div>
 
 
 
- 
+
 
 
 
