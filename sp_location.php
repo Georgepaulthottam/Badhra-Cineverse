@@ -61,7 +61,7 @@ body {
     table.table td:last-child {
       opacity: 0.9;
       font-size: 16px;
-      margin: 0px 5px;
+      
     }
 
     /* Style for the label element */
@@ -82,41 +82,7 @@ body {
     .expensevalue {
       display: inline-block;
     }
-	.bata-btn{
-		display: inline-block;
-  padding: 12px 20px;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-  margin-left: 280px;
-  margin-top: 27px;
-  text-decoration: none;
-  border-radius: 4px;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-  cursor: pointer;
-}
-.primary-button {
-  background-color:  #002147  ;
-  color: #ffffff;
-  border: 2px solid #002e63 ;
-}
-
-.primary-button:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
-}
-	.form-container {
-            display: flex;
-        }
-
-		.form {
-            flex: -2;
-           
-        }
-		.hidden-row {
-            display: none;
-        }
-		
+	
 	
 th {
   border-bottom: 1px solid #364043;
@@ -130,7 +96,7 @@ th {
 td {
   color: #fff;
   font-weight: 400;
-  padding: 0.65em 1em;
+  
 }
 
 tbody tr {
@@ -368,7 +334,7 @@ tbody tr {
     }
 
     .tables-container {
-    display: none;
+   
     margin-top: 4px;
     width: 1100px;
     margin-left:40px;
@@ -385,7 +351,7 @@ tbody tr {
   border-collapse: collapse;
   margin: 1em;
   width:1020px;
-  margin-left:37px;
+ 
 }
 
 .popup-message {
@@ -404,7 +370,6 @@ tbody tr {
   border: 2px solid #d3d3d3;
   opacity: 0;
   animation: fadeIn 0.5s ease-out forwards; 
-
   
   transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
 }
@@ -422,16 +387,16 @@ tbody tr {
 }
 
 .popup-message:hover {
-  background-color: #2ecc71; /* Change color on hover */
-  transform: translate(-50%, -50%) scale(1.05); /* Zoom in on hover */
-  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4); /* Add shadow on hover */
+  background-color: #2ecc71; 
+  transform: translate(-50%, -50%) scale(1.05); 
+  box-shadow: 0px 6px 18px rgba(0, 0, 0, 0.4); 
 }
 .table-heading {
-    text-align: center; /* Center the text horizontally */
-    font-size: 18px; /* Adjust font size as needed */
-    font-weight: bold; /* Make it bold if desired */
+    text-align: center; 
+    font-size: 18px; 
+    font-weight: bold; 
     padding-bottom: 17px; 
-    padding-top: 17px;/* Add padding for spacing */
+   
 }
 h4{
   color:#ffff;
@@ -449,27 +414,94 @@ h4{
    justify-content: space-between;
    margin-top:30px;
 }
+.tables-container {
+    
+    margin-top: 20px;
+    
+    background-color:fffff;
+  }
+
+  table {
+  background: #262f35;
+  border-radius: 0.25em;
+  border-collapse: collapse;
+  margin: 1em;
+  
+  margin-left: 30px;
+  width: 1050px;
+  
+}
+th {
+  border-bottom: 1px solid #364043;
+  color: #E2B842;
+  font-size: 0.85em;
+  font-weight: 600;
+  padding: 0.5em 1em;
+  text-align: left;
+}
+td {
+  color: #fff;
+  font-weight: 400;
+  padding: 0.65em 1em;
+}
+
+tbody tr {
+  transition: background 0.25s ease;
+}
+tbody tr:hover {
+  background: #014055;
+} 
+thead{
+    font-weight: 600;
+  padding: 0.5em 1em;
+   
+}
+.view-button {
+    background: transparent;
+    font-style: italic;
+    color: limegreen;
+    border: none;
+    cursor: pointer;
+}
 
 
 
     </style>
 
-    <script>
-
+   
+      
 
 
 <script>
-  function displayPopupMessage() {
-    var popupMessage = document.getElementById("popup-message");
-    popupMessage.innerHTML = "LOCATION ADDED SUCCESSFULLY";
-    popupMessage.style.display = "block";
-    setTimeout(function () {
-      popupMessage.style.display = "none";
-    }, 2000); // Hide the message after 2 seconds
-  }
+
+function saveLocation() {
+        var locationName = document.getElementById("location-name").value;
+        var rentAmount = document.getElementById("rent-amt").value;
+
+        if (locationName.trim() !== "" && rentAmount.trim() !== "") {
+           
+        // Show the pop up
+        var popupMessage = document.getElementById("popup-message");
+        popupMessage.style.display = "block";
+        setTimeout(function () {
+            popupMessage.style.display = "none";
+        }, 2000);
+    } else {
+        alert("Please fill in both Location and Rent fields.");
+    }
+}
+
+function cancelSchedule() {
+
+}
+
+
+
+
+ 
 </script>
 
-    </script>
+    
     <!------------main content-------->
 
     <div class="main-container">
@@ -478,51 +510,176 @@ h4{
         <div class="cardscontainer">
             <div class="expensebox"  style="margin-bottom: 20px; margin-left:40px;" >
                 <div class="expensefield">
-                     <b>
-                        <p class="card-heading">LOCATION</p>
-                        <label for="schedule-name">Location: &emsp; </label>
-                        <input type="text" id="location-name" name="location-name" placeholder="Enter Location Name"><br>
-                        <label for="schedule-name">Rent: &emsp; </label>&nbsp;&emsp;&emsp;&emsp;
-                        <input type="text" id="rent-amt" name="rent-amt" placeholder="Enter Rent">
-                        <button class="action-button save-button" onclick="toggleInputField(); displayPopupMessage();">Save</button>
+                <b>
+                                <p class="card-heading">LOCATION</p>
+                                <label for="location-name">Location:&emsp;</label>
+                                <input type="text" id="location-name" name="location-name" placeholder="Enter Location Name"><br>
+                                <label for="rent-amt">Rent:&emsp;&emsp;&nbsp;&emsp;</label>
+                                <input type="text" id="rent-amt" name="rent-amt" placeholder="Enter Rent">
+                                <button class="action-button save-button" onclick="saveLocation()">Save</button>
 
-                        <button class="action-button cancel-button" onclick="cancelSchedule()">Cancel</button> 
-                    </b>
+                                <button class="action-button cancel-button" onclick="cancelSchedule()">Cancel</button>
+                            </b>
                 </div>
             </div>
-            <div id="popup-message" class="popup-message"></div>
+            <div id="popup-message" class="popup-message">Location Added Successfully</div>
 
 
-            <div class="expensebox"  style="margin-bottom: 10px; margin-right:80px;">
-                <p class="card-heading" style="margin-top:70px; margin-bottom:-5px;">DETAILS</p> <br>
-                <div class="request-status" id="card2">
+            <div class="expensebox" style="margin-bottom: 10px; margin-right: 80px;">
+    <p class="card-heading" style="margin-top: 70px; margin-bottom: -5px;">DETAILS</p><br>
+    <div class="request-status" id="card2">
+        <div class="request-status" style="max-height: 220px; overflow-y: auto; overflow-x: hidden;">
+            <table class="table table-striped table-hover" id="location-table" style="width: 465px; margin-top: -10px;">
+                <thead>
+                    <tr>
+                        <th style="color: #2e324f; padding-left:30px;"><h5>LOCATION</h5></th>
+                        <th style="color: #2e324f; padding-left:80px;"><h5>RENT</h5></th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <h5 style="color: #32cd32;">Kochi</h5>
+                    </td>
+                    <td>
+                      <h5 style="color: #32cd32;">600</h5>
+                    </td>
+                    <td>
+                      <img src="https://www.gstatic.com/images/icons/material/system/2x/edit_black_24dp.png" alt="Edit Icon" style="cursor: pointer; height:25px;">
 
-                    <div class="request-status">
-                        <table class="table table-striped table-hover" style="width:465px; margin-top:-10px; ">
-                            <tr>
-                                <a href="">
-                                    <th><h5>LOCATION</h5></th>
-                                    <th><h5>RENT</h5></th>
-                                </a>
-                            </tr>
+                    </td>
+                    <td>
+                    <img src="https://www.gstatic.com/images/icons/material/system/2x/delete_forever_black_24dp.png" alt="Delete Icon" style="cursor: pointer; height:25px;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5 style="color: #32cd32;">Kumily</h5>
+                    </td>
+                    <td>
+                      <h5 style="color: #32cd32;">1000</h5>
+                    </td>
+                    <td>
+                      <img src="https://www.gstatic.com/images/icons/material/system/2x/edit_black_24dp.png" alt="Edit Icon" style="cursor: pointer; height:25px;">
 
-                            <tr>
-                                <th><h5>Calicut</h5></th>
-                                <th><h5>400</h5></th>
-                            </tr>
-                            <tr>
-                                <th><h5>Kochi</h5></th>
-                                <th><h5>200</h5></th>
-                            </tr>
-                            
-                        </table>
-                    </div>
+                    </td>
+                    <td>
+                    <img src="https://www.gstatic.com/images/icons/material/system/2x/delete_forever_black_24dp.png" alt="Delete Icon" style="cursor: pointer; height:25px;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5 style="color: #32cd32;">Kottayam</h5>
+                    </td>
+                    <td>
+                      <h5 style="color: #32cd32;">6000</h5>
+                    </td>
+                    <td>
+                      <img src="https://www.gstatic.com/images/icons/material/system/2x/edit_black_24dp.png" alt="Edit Icon" style="cursor: pointer; height:25px;">
+
+                    </td>
+                    <td>
+                    <img src="https://www.gstatic.com/images/icons/material/system/2x/delete_forever_black_24dp.png" alt="Delete Icon" style="cursor: pointer; height:25px;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5 style="color: #32cd32;">Kozhikode</h5>
+                    </td>
+                    <td>
+                      <h5 style="color: #32cd32;">5000</h5>
+                    </td>
+                    <td>
+                      <img src="https://www.gstatic.com/images/icons/material/system/2x/edit_black_24dp.png" alt="Edit Icon" style="cursor: pointer; height:25px;">
+
+                    </td>
+                    <td>
+                    <img src="https://www.gstatic.com/images/icons/material/system/2x/delete_forever_black_24dp.png" alt="Delete Icon" style="cursor: pointer; height:25px;">
+                    </td>
+                  </tr>
+
+               
 
 
-                </div>
-  </div>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
 </div>
 
+<div class="misctable" style="overflow-x:auto;">
+  <div class="tables-container" id="tablesContainer">
+<table>
+
+
+
+  <thead>
+  <tr>
+          <th colspan="7" class="table-heading">Shooting Location Details</th>
+        </tr>
+
+        <tr>
+      <th>SI NO</th>
+      <th>Date</th>
+      <th>Schedule</th>
+      <th>Day</th>
+      <th>Location</th>
+      <th>Rent</th>
+     <th></th>
+     
+    </tr>
+  </thead>
+                  
+   
+    
+  
+
+    <tr>
+        <td>1</td>
+        <td>12/06/2023</td>
+        <td>ggggg</td>
+        <td>bgvfc</td>
+        <td>09:00</td>
+        <td>gtgff</td>
+        <td><button class="view-button">View</button></td>
+        
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>12/06/2023</td>
+        <td>ggggg</td>
+        <td>bgvfc</td>
+        <td>09:00</td>
+        <td>gtgff</td>
+        <td><button class="view-button">View</button></td>
+       
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>12/06/2023</td>
+        <td>ggggg</td>
+        <td>bgvfc</td>
+        <td>09:00</td>
+        <td>gtgff</td>
+        <td><button class="view-button">View</button></td>
+        
+    </tr>
+     
+  <tbody>
+
+	
+
+
+
+
+  </tbody>
+</table>
+
+</div>
+</div>
 
 
      <!------------footer-------->
@@ -547,30 +704,7 @@ h4{
 
 
 
-	<script type="text/javascript">
-	
 
-		//select all and reject all
-		function selects() {
-			var ele = document.getElementsByName("checkbox");
-			if (document.getElementById("selectAll").checked == true) {
-				document.getElementById("acceptAllBtn").style.visibility = "visible";
-				document.getElementById("rejectAllBtn").style.visibility = "visible";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = true;
-				}
-			}
-			else{
-				document.getElementById("acceptAllBtn").style.visibility = "hidden";
-				document.getElementById("rejectAllBtn").style.visibility = "hidden";
-				for (var i = 0; i < ele.length; i++) {
-					if (ele[i].type == 'checkbox')
-						ele[i].checked = false;
-				}
-			}
-		}
-	</script>
 
 
 </body>
