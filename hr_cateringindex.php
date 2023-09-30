@@ -16,15 +16,22 @@ $query1 = "SELECT * FROM `cart` WHERE username='" . mysqli_real_escape_string($c
 $query2 = "SELECT * FROM `cart` WHERE status='approved'and username='" . mysqli_real_escape_string($conn, $user) . "'";
 $query3 = "SELECT * FROM `cart` WHERE status='rejected' and username='" . mysqli_real_escape_string($conn, $user) . "'";
 $query4 = "SELECT * FROM `cart` WHERE status='requested' and username='" . mysqli_real_escape_string($conn, $user) . "'";
-
-
-
-
 $result1 = mysqli_query($conn, $query1);
 $result2 = mysqli_query($conn, $query2);
 $result3 = mysqli_query($conn, $query3);
 $result4 = mysqli_query($conn, $query4);
 
+    $query5 = "SELECT * FROM `hr_catering`";
+    $result5 = mysqli_query($conn, $query5);
+
+if (isset($_POST['req_accept'])) {
+    $item = $_POST['timeInput'];
+    $quantity = $_POST['quantityInput'];
+    $amount = $_POST['amountInput'];
+    $querry6 = "INSERT INTO hr_catering (item, quantity, amount) VALUES ('$item','$quantity','$amount')";
+    $result6 = mysqli_query($conn, $querry6);
+    
+}
 ?>
 
 <?php $activePage = 'home';
@@ -57,36 +64,27 @@ include 'hr_cateringheader.php'; ?>
                 </div>
                 <div class="profile-box">
         <h4>Status</h4>
+        <form action="" method="post">
         <table class="table table-striped table-hover" id="HideTable">
+            
             <tr>
                 <th>Item</th>
-                <th><input type="text" class="form-control" placeholder="Enter the item" id="timeInput" required></th>
+                <th><input type="text" class="timeInput" name="timeInput" placeholder="Enter the item" id="timeInput" required></th>
             </tr>
             <tr>
                 <th>Quantity</th>
-                <th><input type="number" class="form-control" placeholder="Enter the quantity" id="quantityInput" required></th>
+                <th><input type="number" class="quantityInput"  name="quantityInput" placeholder="Enter the quantity" id="quantityInput" required></th>
             </tr>
             <tr>
                 <th>Amount</th>
-                <th><input type="number" class="form-control" placeholder="Enter the amount" id="amountInput" required></th>
+                <th><input type="number" class="amountInput" name="amountInput" placeholder="Enter the amount" id="amountInput" required></th>
             </tr>
         </table>
+        
 
-        <!-- <table class="table table-striped table-hover" id="displayTable" style="display: none;">
-                <th>Item</th>
-                <th><span id="displayTime"></span></th>
-            </tr>
-            <tr>
-                <th>Quantity</td>
-                <th><span id="displayQuantity"></span></th>
-            </tr>
-            <tr>
-                <th>Amount</th>
-                <th><span id="displayAmount"></span></th>
-            </tr>
-        </table> -->
-        <input type="button" name="req_accept" value="Submit" class="edit" id="submitButton">
+        <input type="submit" name="req_accept" value="Submit" class="edit" id="submitButton">
         <input type="button" value="Cancel" class="delete" id="cancelButton" data-toggle="modal">
+        </form>
     </div>
             
             </div>
@@ -115,14 +113,26 @@ include 'hr_cateringheader.php'; ?>
                     </thead>
 
                     <tbody>
-                        <tr>
-                            <th>1</th>
-                            <th>19/03/2023</th>
-                            <th>12:00PM</th>
-                            <th>dhdfh</th>
-                            <th>50</th>
-                            <th>2000</th>  
-                        </tr>
+                       
+                            <?php
+                            $no = 0;
+                                while ($hrrow = mysqli_fetch_array($result5)) {
+                                    $time = new DateTime($hrrow['date']);
+                                    $date = $time->format('j.n.Y');
+                                    $time = $time->format('H:i A');
+
+                                     $no = $no + 1;
+
+                                    echo ('
+                                        <tr>
+                            <td>' . $no . '</td>
+                            <td>' . $date . '</td>
+                            <td>' . $time . '</td>
+                            <td>' . $hrrow['item'] . '</td>
+                            <td>' . $hrrow['quantity'] . '</td>
+                            <td>' . $hrrow['amount'] . '</td> </tr>');
+                                }
+                        ?> 
                     </tbody>
 
                 </table>

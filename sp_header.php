@@ -43,6 +43,9 @@ else if($activePage == 'catering'){
 else if($activePage == 'accomodation'){
 	$PageTitle="Accomodation ";
 } 
+else if($activePage == 'location'){
+	$PageTitle="Location ";
+} 
 else if ($activePage == 'Payments') {
 	$PageTitle = "Payments";
 }
@@ -134,6 +137,9 @@ $image = $row['image'];
 				<li class="<?php echo ($activePage === 'attendance') ? 'active' : ''; ?>">
 					<a href="sp_approved_attendance.php" class=""><i class="material-icons">stacked_line_chart</i>Attendance</a>
 				</li>
+
+				
+				
 				
 
 
@@ -151,6 +157,9 @@ $image = $row['image'];
 
 				<li class="<?php echo ($activePage === 'misc') ? 'active' : ''; ?>">
 					<a href="sp_misc.php" class=""><i class="material-icons">miscellaneous_services</i>Miscellaneous</a>
+				</li>
+				<li class="<?php echo ($activePage === 'location') ? 'active' : ''; ?>">
+					<a href="sp_location.php" class=""><i class="material-icons">location_on</i>Location</a>
 				</li>
 
 
