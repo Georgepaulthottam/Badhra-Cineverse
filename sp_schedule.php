@@ -585,9 +585,10 @@ ob_end_flush();
 
 
                 <!-- Modify the "Start Schedule" button -->
-                <button class="start-schedule-button" id="startScheduleButton" style="<?php if (mysqli_num_rows($schres) == 1) {
-                                                                                        echo 'display: none;';
-                                                                                      } ?>" onclick="toggleInputField()">Start Schedule</button>
+                <button class="start-schedule-button" id="startScheduleButton" 
+                style="<?php if (mysqli_num_rows($schres) == 1) {
+                  echo 'display: none;';
+                 } ?>" onclick="toggleInputField()">Start Schedule</button>
                 <form action="" method="POST"><br>
                   <!-- Display the schedule name from the session or database -->
                   <div id="schedule-input" style="display:none;">
