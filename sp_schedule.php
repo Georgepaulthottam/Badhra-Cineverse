@@ -575,7 +575,7 @@ h4{
                                                                 else echo 'block;'; ?>">
                         <label for="schedule-name">Schedule Name: &emsp; </label>
                         <input type="text" id="schedule-name" name="schedule-name" placeholder="Enter Schedule Name">
-                        <button class="action-button save-button" onclick="toggleInputField(); displayPopupMessage();">Save</button>
+                        <button class="action-button save-button" type="submit" name="save" onclick="toggleInputField(); displayPopupMessage();">Save</button>
                         <button class="action-button cancel-button" onclick="cancelSchedule()">Cancel</button>
                       </div>
 
