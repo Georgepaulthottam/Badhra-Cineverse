@@ -540,25 +540,10 @@ function cancelSchedule() {
                 <tbody>
                   <tr>
                     <td>
-                      <h5 style="color: #32cd32;">Kochi</h5>
+                      <h5 style="color: #102d10;">Kochi</h5>
                     </td>
                     <td>
-                      <h5 style="color: #32cd32;">600</h5>
-                    </td>
-                    <td>
-                      <img src="https://www.gstatic.com/images/icons/material/system/2x/edit_black_24dp.png" alt="Edit Icon" style="cursor: pointer; height:25px;">
-
-                    </td>
-                    <td>
-                    <img src="https://www.gstatic.com/images/icons/material/system/2x/delete_forever_black_24dp.png" alt="Delete Icon" style="cursor: pointer; height:25px;">
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>
-                      <h5 style="color: #32cd32;">Kumily</h5>
-                    </td>
-                    <td>
-                      <h5 style="color: #32cd32;">1000</h5>
+                      <h5 style="color: #102d10;">600</h5>
                     </td>
                     <td>
                       <img src="https://www.gstatic.com/images/icons/material/system/2x/edit_black_24dp.png" alt="Edit Icon" style="cursor: pointer; height:25px;">
@@ -570,10 +555,10 @@ function cancelSchedule() {
                   </tr>
                   <tr>
                     <td>
-                      <h5 style="color: #32cd32;">Kottayam</h5>
+                      <h5 style="color: #102d10;">Kumily</h5>
                     </td>
                     <td>
-                      <h5 style="color: #32cd32;">6000</h5>
+                      <h5 style="color: #102d10;">1000</h5>
                     </td>
                     <td>
                       <img src="https://www.gstatic.com/images/icons/material/system/2x/edit_black_24dp.png" alt="Edit Icon" style="cursor: pointer; height:25px;">
@@ -585,10 +570,25 @@ function cancelSchedule() {
                   </tr>
                   <tr>
                     <td>
-                      <h5 style="color: #32cd32;">Kozhikode</h5>
+                      <h5 style="color: #102d10;">Kottayam</h5>
                     </td>
                     <td>
-                      <h5 style="color: #32cd32;">5000</h5>
+                      <h5 style="color: #102d10;">6000</h5>
+                    </td>
+                    <td>
+                      <img src="https://www.gstatic.com/images/icons/material/system/2x/edit_black_24dp.png" alt="Edit Icon" style="cursor: pointer; height:25px;">
+
+                    </td>
+                    <td>
+                    <img src="https://www.gstatic.com/images/icons/material/system/2x/delete_forever_black_24dp.png" alt="Delete Icon" style="cursor: pointer; height:25px;">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <h5 style="color: #102d10;">Kozhikode</h5>
+                    </td>
+                    <td>
+                      <h5 style="color:#102d10;">5000</h5>
                     </td>
                     <td>
                       <img src="https://www.gstatic.com/images/icons/material/system/2x/edit_black_24dp.png" alt="Edit Icon" style="cursor: pointer; height:25px;">
@@ -600,8 +600,7 @@ function cancelSchedule() {
                   </tr>
 
                
-
-
+          
                     
                 </tbody>
             </table>
@@ -614,9 +613,6 @@ function cancelSchedule() {
 <div class="misctable" style="overflow-x:auto;">
   <div class="tables-container" id="tablesContainer">
 <table>
-
-
-
   <thead>
   <tr>
           <th colspan="9" class="table-heading"> Location Details</th>
@@ -632,15 +628,11 @@ function cancelSchedule() {
       <th> REGISTERD USER</th>
       <th>UNREGISTERED USER</th>
       <th>TOTAL</th>
-     <th></th>
+     
      
     </tr>
   </thead>
-                  
-   
-    
   
-
     <tr>
         <td>1</td>
         <td>12/06/2023</td>
@@ -676,22 +668,15 @@ function cancelSchedule() {
         <td>gtgff</td>
         <td>gtgff</td>
         <td>gtgff</td>
-        <td>gtgff</td>
-       
-        
+        <td>gtgff</td>    
     </tr>
-     
-  <tbody>
+ 
 
-	
-
-
-
-
-  </tbody>
+   
 </table>
 
 </div>
+
 </div>
 
 
