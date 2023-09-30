@@ -64,7 +64,8 @@ include 'adminheadersidebar.php';
                         if ($row['ta_status'] == "no") {
                             echo ('
           <td><input name="checkbox[]" type="checkbox" onchange="TACheckbox()"></td>
-          <td name="taBox">--</td>');
+          <td name="taBox2">--</td>
+          <td name="taBox" style="display:none;"><input type="text" name="ta" placeholder="Enter TA" style="width: 100px;"></td>');
                         } else {
                             echo ('<td><input name="checkbox[]" type="checkbox" checked></td>
           <td>' . $row['ta_ea'] . '</td>
@@ -86,10 +87,13 @@ include 'adminheadersidebar.php';
         var ele = document.getElementsByName("checkbox[]");
         for (var i = 0; i < ele.length; i++) {
             var tacolumn = document.getElementsByName("taBox")[i];
+            var tacolumn2 = document.getElementsByName("taBox2")[i];
             if (ele[i].checked == true) {
-                tacolumn.innerHTML = '<td><input type="text" name="ta" placeholder="Enter TA" style="width: 50%;"></td>';
+                tacolumn.style.display = "block";
+                tacolumn2.style.display = "none";
             } else {
-                tacolumn.innerHTML = '<td>--</td>';
+                tacolumn.style.display = "none";
+                tacolumn2.style.display = "block";
             }
         }
     }
