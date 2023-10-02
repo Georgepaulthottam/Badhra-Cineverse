@@ -56,6 +56,7 @@ body {
       color: #536878;
       font-size: 23px;
       margin-left: 10px;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 
     }
 
@@ -246,6 +247,7 @@ tbody tr {
       
       margin-top:2px;  
       color: #333;
+      font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
       /* Change the color to your preference */
     }
 
