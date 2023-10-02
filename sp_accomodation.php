@@ -20,26 +20,16 @@ body {
       background-color: #dcdcdc;
     }
 
-    /* css for acceptAll and rejectAll Button*/
-    #acceptAllBtn {
-      color: rgb(229, 117, 56);
-      visibility: hidden;
-      margin-left: 0%;
-    }
-
-    #rejectAllBtn {
-      color: green;
-      visibility: hidden;
-    }
+    
 
     /* Styling for the box container */
     .expensebox {
 
       height: 370px;
-      width: 530px;
+      width: 500px;
       background: #f8f8ff;
       color: #0000;
-      padding: 1px;
+      padding: 3px;
       border-radius: 11px;
       border-color: #0000;
       box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
@@ -59,12 +49,7 @@ body {
       margin-right: 20px;
     }
 
-    table.table td:last-child {
-      opacity: 0.9;
-      font-size: 16px;
-      
-    }
-
+    
     /* Style for the label element */
     label {
       display: inline-block;
@@ -258,7 +243,8 @@ tbody tr {
       font-size: 24px;
       font-weight: bold;
       text-align: center;
-      margin: 20px 0;
+      
+      margin-top:2px;  
       color: #333;
       /* Change the color to your preference */
     }
@@ -465,6 +451,104 @@ thead{
     cursor: pointer;
 }
 
+.user-container {
+    margin-top: 30px;
+ margin-left:20px;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    background:#fff;
+     height:15vh;
+     border-radius:20px;
+     width:75vw;
+     box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.2);
+  }
+
+  .select-label {
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+  }
+
+  select {
+    appearance: none;
+    background-color:#fffff ;
+    border: 2px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  #scheduleSelect{
+    margin-left:70px;
+    margin-top:-50px;
+    position:absolute;
+  }
+  select:focus {
+    outline: none;
+    border-color: #007bff;
+  }
+
+  select::after {
+    content: '\25BC';
+    margin-left: 5px;
+  }
+
+  .info-container {
+    height: 100px;
+    display: none;
+    text-align: center;
+    margin-left:30px;
+    
+    background-color: #fdfdfd;
+    padding: 5px;
+    margin-bottom:40px;
+    margin-right: 20px;
+    box-shadow: 1px 2px 2px 2px rgba(20, 20, 20, 0.2);
+    border-radius: 10px;
+    border: 1px solid grey;
+  }
+ 
+  .info-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 30px;
+    margin-right:600px;
+  }
+  .fontcol{
+    background-color: ffff;
+  }
+
+  .schedule-select {
+    margin-left:550px;
+    margin-top: 10px;
+  }
+
+ 
+  
+
+  
+
+  
+
+  .card-heading {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .count {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+
+  .status-label {
+    font-size: 14px;
+  }
+ 
+  
 
 
     </style>
@@ -609,7 +693,25 @@ function cancelSchedule() {
 </div>
 </div>
 </div>
-
+<div class="user-container">
+    <label class="select-label">Select location:</label> 
+    <select id="userSelect">
+    <option value="default" disabled selected>Select a location</option>
+      <option value="user1">KOCHI</option>
+      <option value="user2">TVM</option>
+      <option value="user3">KUMALI</option>
+      <option value="user4">ALLAPUZHA</option>
+    </select>&nbsp;&nbsp;
+    <label class="select-label">Select Date:</label>
+    
+    
+     
+    <input type="date" style="height:49px;">
+    
+  </div>
+   
+    
+                      
 <div class="misctable" style="overflow-x:auto;">
   <div class="tables-container" id="tablesContainer">
 <table>
@@ -692,7 +794,7 @@ function cancelSchedule() {
 		</div>
 
 	</div>
-
+  
 
 
 	<!-------complete html----------->
